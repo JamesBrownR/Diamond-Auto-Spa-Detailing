@@ -73,8 +73,7 @@
         nav a:hover {
             color: var(--light-blue);
         }
-
-        /* Hero Section */
+ /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 50%, var(--diamond-dark-blue) 100%);
@@ -95,7 +94,6 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('Diamond-Auto-Spa-Detailing1.png') center/cover;
             opacity: 0.08;
             z-index: 0;
         }
@@ -104,15 +102,15 @@
             position: relative;
             z-index: 1;
             padding: 2rem;
-            max-width: 1000px;
+            width: 100%;
         }
+
 
         .hero-logo {
             max-width: 400px;
             width: 90%;
             margin-bottom: 2rem;
             filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
-            animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -674,7 +672,7 @@
                 <p>There are no cookie-cutter packages here. During our consultation, we'll discuss your vehicle's specific needs – from pet hair removal to paint correction – creating a custom plan that delivers the best results, not just the fastest turnaround.</p>
             </div>
 
-            <p>This is what 10 years of experience and 2 years of business ownership has taught us: every car tells a story and deserves individual attention. We do what we believe your vehicle truly needs, because detailing isn't about packages – it's about achieving perfection.</p>
+            <p>This is what 10 years of experience and 2 years of business ownership has taught us: every car tells a story and deserves individual attention. We do what we believe your vehicle truly needs, because detailing isn't about packages. It's about achieving results you care about.</p>
 
             <div class="experience-badges">
                 <div class="badge">
@@ -845,14 +843,298 @@
 
     <script>
         // Reviews Data
-        const reviews = [
-            { name: "Review 1", rating: 5, body: "" },
-            { name: "Review 2", rating: 5, body: "" },
-            { name: "Review 3", rating: 5, body: "" },
-            { name: "Review 4", rating: 5, body: "" },
-            { name: "Review 5", rating: 5, body: "" },
-            { name: "Review 6", rating: 5, body: "" }
-        ];
+     [
+    {
+        "name": "Johnson Pamela",
+        "rating": 5,
+        "body": "Made my CRV look like brand new. thank you so much. I recommend diamond Auto spa detailing to everyone"
+    },
+    {
+        "name": "Lacy Shaffer",
+        "rating": 5,
+        "body": "Great work. Great personality. Very professional. Highly recommend"
+    },
+    {
+        "name": "Chelsea Tomlinson",
+        "rating": 5,
+        "body": "I recently took my Ford F-150 to Diamond Auto Spa for a full detailing, and I couldn't be more impressed with the results! They meticulously cleaned every part of the interior—vacuuming the carpets and upholstery, and wiping down the dashboard and consoles with care. The customer service was top-notch, and the attention to detail was exactly what I was looking for. Andrew was punctual and friendly, I also love that he offers mobile detailing, so I didn’t have to take time out of my day to drop the truck off. I highly recommend Diamond Auto Spa for anyone with a Ford F-150 or any vehicle."
+    },
+    {
+        "name": "Chase Bean",
+        "rating": 5,
+        "body": "He made my 2020 ram 1500 limited look better then when I bought it from the dealership."
+    },
+    {
+        "name": "Krista Etter",
+        "rating": 5,
+        "body": "Andrew detailed both my Camaro and my 2500 Silverado. They look just like they did, if not better than when they came off the showroom floor. Amazing job!!! Will definitely keep using him."
+    },
+    {
+        "name": "Laura Brummett-Benbow",
+        "rating": 5,
+        "body": "Detailed my husband's 2500 Dodge Ram work truck. The truck was covered in dust, pollen and dirt. Did an amazing job! The truck smells great and looks brand new! We highly recommend!"
+    },
+    {
+        "name": "Lyndsey Tagliente",
+        "rating": 5,
+        "body": "Detailed my suv today and did a great job! Very reasonably priced too. Highly recommend"
+    },
+    {
+        "name": "Brook Mckelvy",
+        "rating": 5,
+        "body": "Amazing job! Goes above and beyond!! My jeep still looks great over a week later"
+    },
+    {
+        "name": "Nicole Griffin",
+        "rating": 5,
+        "body": "I have a busy life with 3 kids, school, full time job, homework, soccer, dinner, household duties so I have absolutely no time to clean my car but let me just say hiring Andrew to clean my car was the best choice I could have made! He did an absolute OUTSTANDING job! It looks like a brand new car & that I just pulled off the lot with! I couldn’t have had a better person come and do what I couldn’t! I would definitely use him again and a 5 star rating isn’t good enough for the amazing work he did! 10/10 !!"
+    },
+    {
+        "name": "April Thomas",
+        "rating": 5,
+        "body": "I had my car done by Andrew he was very professional and personable. My car looks better than when I bought it! Highly recommend Diamond auto spa."
+    },
+    {
+        "name": "Kenzi Attaway",
+        "rating": 5,
+        "body": "My car looks amazing! Very professional and personable and did such a thorough job. Will definitely be back!"
+    },
+    {
+        "name": "Jacque Bennett",
+        "rating": 5,
+        "body": "My car looks amazing this company did a phenomenal job. It was super convenient he came to my work to detail it, I didn’t have to travel or wait like with most retailers. 1000% will be using his services again. Got in all the crevices didn’t leave any dust behind. Thank you again"
+    },
+    {
+        "name": "Cindy Joyce",
+        "rating": 5,
+        "body": "I highly recommend Diamond Auto Spa... I just had my car detailed today and it looks amazing! It didn't even look this good the day I brought it home from the dealership! Perfection at its best!"
+    },
+    {
+        "name": "Tj Nevins",
+        "rating": 5,
+        "body": "Just got my vehicle done by diamond auto spa. Very happy with the outcome of the detail. Andrew was very professional and I highly recommend"
+    },
+    {
+        "name": "Katrena Murphy Kalmbach",
+        "rating": 5,
+        "body": "My SUV is used as a farm vehicle from hauling hay and feed to fishing and 3 kids. I have had many people tell me that they could deep clean my car and the only person to be able to fulfill that has been Andrew from Diamond Auto Spa. My car looked like it just came out of the dealership. Very reasonable price and very professional and keeps his word. I will never go anywhere else again! Thank you!"
+    },
+    {
+        "name": "Michelle Selley",
+        "rating": 5,
+        "body": "Does a great job,takes his time, very personal will treat your vehicle like it’s his own. recommend highly !!!! Five"
+    },
+    {
+        "name": "Tony Bonasota",
+        "rating": 5,
+        "body": "Definitely did a great job on my car, he’s very personable and very reasonably priced definitely give him a call."
+    },
+    {
+        "name": "Jonathan Wilson (Google)",
+        "rating": 5,
+        "body": "The professionalism and passion comes through in his work. Andrew took care of both my cars. One was pretty oxidized and when he was done the deep reds were back the trim all looked brand new, the interior looked stunning as well. My other SUV he brought the headlights back to life they’re crystal clear again. Honestly I cannot recommend him enough."
+    },
+    {
+        "name": "michael wint",
+        "rating": 5,
+        "body": "Diamond Auto Spa did an amazing job, Andrew was super nice and easy to talk to. My truck looks great, and I'm well pleased with his leaving of expertise. I highly recommend Diamond Auto spa."
+    },
+    {
+        "name": "Nicole Selley",
+        "rating": 5,
+        "body": "I’ve had my car detailed MANY times by Andrew & let me just say this, he NEVER disappoints. I have a white SUV and live in florida, so you already know how hard it is to keep a white car clean between rain, dirt, pollen, and yes, 3 kids, yet he always has my car looking like I just pulled it out of the GMC parking lot. Shiny and brand new! He pays attention to every little detail whether it’s the inside or outside, so if you’re looking to get your vehicle detailed he’s definitely the go to person for the job! Big or small. I’ll never go anywhere else to get my car detailed."
+    },
+    {
+        "name": "Brandon Sardinha",
+        "rating": 5,
+        "body": "I highly recommend this company. Andrew was very professional, he provided an outstanding service going above & beyond cleaning the interior of my work truck. The attention to detail in every aspect was simply outstanding, it is very hard to find someone who takes this much pride in their work! I have already scheduled another vehicle to be done."
+    },
+    {
+        "name": "Charles Tubbs",
+        "rating": 5,
+        "body": "Diamond auto came out to detail my Durango from 2002 with a tan interior recently. After he arrived on site and giving me a very fair deal on a detail, he gave me a better suggestion without changing the price making my vehicle look better than it would have if you had simply just done what I had asked. I appreciate and respect, his professional opinion no matter what as I can guarantee he will always give you the best bang for your buck to guarantee the best service possum. Thank you again!"
+    },
+    {
+        "name": "Roxanne Broecker",
+        "rating": 5,
+        "body": "Andrew did an amazing job!!!! He did the interior of shampooing the carpet and seats They look amazing!! Andrew was very courteous and very honest and takes pride in his work. My 2000 F250 has never looked better. Will definitely have him do my vehicles again!! ❤️"
+    },
+    {
+        "name": "Tim Groves",
+        "rating": 5,
+        "body": "Super responsive. He worked all day and didn’t take a break. Everything came out looking fabulous. I would highly recommend."
+    },
+    {
+        "name": "Kasey Harbison",
+        "rating": 5,
+        "body": "We could not be happier with our vehicles. Andrew worked from 8-5pm at our office on our company fleet cars and my personal truck. Absolutely hard work as I know nothing was in good shape and everything came out looking brand new! We will be calling him again!"
+    },
+    {
+        "name": "Miranda Davis",
+        "rating": 5,
+        "body": "Andrew did an amazing job on my car! He was quickly responsive and I really appreciate his attention to detail when it came to the stains on the seats. I got this car used and in very poor condition, but he made the seats and carpets look incredible!"
+    },
+    {
+        "name": "Kathy Thomas",
+        "rating": 5,
+        "body": "Andrew has done a fabulous job on my car many times. He spends the time to touch every detail. And very knowledgeable what needs to be done. And affordable. Each time he has done my car, it looks like a brand new car. The shine lasts for a good full month."
+    },
+    {
+        "name": "Blake Griffin",
+        "rating": 5,
+        "body": "Andrew and his company were very professional, and personable. He communicated the pricing and the extent of the work being done had consisted of. He’s the only one I trust to work on mine and my wife’s vehicles. 100% recommend, Always does an amazing job, this young man is going places!"
+    },
+    {
+        "name": "Taylor Stokes",
+        "rating": 5,
+        "body": "Highly recommend for mobile detailing needs! Super responsive, communicative and showed up on time. My car looked shiny and brand new after he was done!!"
+    },
+    {
+        "name": "Pool Gator pool service",
+        "rating": 5,
+        "body": "Andrew is the best vehicle detailer I have ever had. He has been doing our cars, boat, and Harley for at least a year now. He is very reliable and very detailed oriented. He has great communication with … More"
+    },
+    {
+        "name": "James P. Chappell, III",
+        "rating": 5,
+        "body": "I had Andrew with Diamond complete a full detail of my work truck at my house. He did an insanely thorough job and was super accommodating to my schedule. He spent a lot of time to get it perfect and even threw in some extras. His mobile … More"
+    },
+    {
+        "name": "Marisa Vicente",
+        "rating": 5,
+        "body": "Andrew was truly amazing he made my car looking like a brand new car . He took his time and make sure the job was done! Looking forward to seeing you again 😀 Thank you ! …"
+    },
+    {
+        "name": "Kipra345",
+        "rating": 5,
+        "body": "Diamond Auto Spa I highly recommend! Very efficient work, pays very close attention to every detail, and takes the time to make sure nothing was missed. Absolutely love how my car shines like a diamond"
+    },
+    {
+        "name": "ryan bozman",
+        "rating": 5,
+        "body": "Absolutely great experience. I appreciate the professionalism and attention to detail provided. I will definitely be back for additional services in the future."
+    },
+    {
+        "name": "Mark",
+        "rating": 5,
+        "body": "Andrew did an amazing job on my ford focus SVT. The paint looks immaculate and the interior is like it came off the factory floor. I would recommend Andrew for any and all of your car detailing needs."
+    },
+    {
+        "name": "Jean Flanders",
+        "rating": 5,
+        "body": "Andrew went above and beyond! Excellent customer service as well as excellent quality of work! Excellent experience for sure! Highly recommend!"
+    },
+    {
+        "name": "Kelly Carpenter",
+        "rating": 5,
+        "body": "Andrew is the best detailer I've had do my vehicle, on time and very professional highly recommend. Thank you for a great job."
+    },
+    {
+        "name": "Tabatha Wilson",
+        "rating": 5,
+        "body": "Diamond Auto Spa did a great job on your car. I only thought it was clean until he was done!! Fantastic job!!!"
+    },
+    {
+        "name": "Jasmin Rodriguez",
+        "rating": 5,
+        "body": "Very professional and easy to work with. My car looks almost new! Would definitely use him again. 😆 …"
+    },
+    {
+        "name": "Phillip Pearson",
+        "rating": 5,
+        "body": "Did an outstanding job on my wife's car definitely having him come back and do my other cars as well Made it look just like it did when it rolled off the assembly line."
+    },
+    {
+        "name": "Brenda Shonyo",
+        "rating": 5,
+        "body": "My car was a dirty mess, both inside and out…I was so pleased with how like new it looked afterwards…very professional and friendly, I highly recommend this service to everyone…Thank you"
+    },
+    {
+        "name": "Kyle Willman",
+        "rating": 5,
+        "body": "Top notch service on both my vehicles as well as my boat. His attention to detail is sublime. Highly recommend."
+    },
+    {
+        "name": "Jessica Huffman",
+        "rating": 5,
+        "body": "Andrew detailed my car again and did great work. My seats look and smell brand new!"
+    },
+    {
+        "name": "Krista Etter",
+        "rating": 5,
+        "body": "Great service. On time. Only person I trust to detail my vehicles! Highly recommend."
+    },
+    {
+        "name": "Kristina Selley",
+        "rating": 5,
+        "body": "He does an amazing job detailing cars & makes sure you're happy with it."
+    },
+    {
+        "name": "John Deschene",
+        "rating": 5,
+        "body": "Excellent Quality Service. I would recommend Andrew to detail your automobile. Fantastic detailed work."
+    },
+    {
+        "name": "Dallas Craine",
+        "rating": 5,
+        "body": "Does Great work my trucks never looked better highly recommended"
+    },
+    {
+        "name": "Kali Roberts",
+        "rating": 5,
+        "body": "Amazing detailing of our family’s van! Would highly recommend!!"
+    },
+    {
+        "name": "Felecia Humphrey",
+        "rating": 5,
+        "body": "Excellent service and job!! Will use again for sure!"
+    },
+    {
+        "name": "Richard craig",
+        "rating": 5,
+        "body": "Very detailed and Thorough with the cleaning. Very impressed about the outcome!"
+    },
+    {
+        "name": "Larry Lindsey",
+        "rating": 5,
+        "body": "Very professional approach and service. Would highly recommend."
+    },
+    {
+        "name": "Francesco Saavedra",
+        "rating": 5,
+        "body": "Amazing work with great price and precision!"
+    },
+    {
+        "name": "Mark Duncan",
+        "rating": 5,
+        "body": "Great job"
+    },
+    {
+        "name": "Lynikia Hopkins",
+        "rating": 5,
+        "body": "Great job on all my vehicles"
+    },
+    {
+        "name": "skatetheworld 1314",
+        "rating": 5,
+        "body": "Quality work and efficient"
+    },
+    {
+        "name": "Jeremy Santiago",
+        "rating": 5,
+        "body": ""
+    },
+    {
+        "name": "Mike G",
+        "rating": 4,
+        "body": "Showed up on time and did exactly what was discussed. Amazing job. Highly recommended will definitely be using for the rest of my vehicles."
+    },
+    {
+        "name": "colton craine",
+        "rating": 4,
+        "body": "Shows up on time excellent work makes cars look new again would highly recommend we will be using for years to come!!!!!"
+    }
+]
 
         // Reviews Display Logic
         let reviewsShown = 6;

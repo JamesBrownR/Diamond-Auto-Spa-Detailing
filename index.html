@@ -74,39 +74,88 @@
             color: var(--light-blue);
         }
  
-        .hero-logo {
-            max-width: 400px;
-            width: 90%;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
-        }
+      /* Hero Section - Fixed */
+.hero {
+    background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 100%);
+    color: var(--white);
+    padding: 8rem 2rem 5rem;
+    text-align: center;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px; /* Account for fixed header */
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-weight: 700;
-        }
+.hero-logo {
+    max-width: 400px;
+    width: 90%;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+    animation: float 6s ease-in-out infinite;
+}
 
-        .hero-tagline {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--light-blue);
-            font-weight: 300;
-            font-style: italic;
-        }
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            line-height: 1.8;
-        }
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: 700;
+}
+
+.hero-tagline {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-blue);
+    font-weight: 300;
+    font-style: italic;
+}
+
+.hero-tagline p {
+    margin: 0;
+    font-size: inherit;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.hero > p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    line-height: 1.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 6rem 1.5rem 4rem;
+        min-height: 80vh;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.3rem;
+    }
+
+    .hero > p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-logo {
+        max-width: 280px;
+    }
+}
 
         .cta-button {
             display: inline-block;

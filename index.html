@@ -76,20 +76,21 @@
  
       /* Hero Section - Fixed */
 .hero {
-    background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--diamond-blue) 0%, var(--diamond-dark-blue) 100%);
     padding: 8rem 2rem 5rem;
     text-align: center;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 70px; /* Account for fixed header */
+    color: var(--white);
+    margin-top: 4rem;
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-50vw + 50%); /* Center and extend to edges */
+    margin-right: calc(-50vw + 50%); /* Center and extend to edges */
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .hero-logo {
@@ -168,7 +169,6 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            text-transform: uppercase;
             /*border-radius: 50px;*/
             box-shadow: 0 8px 20px rgba(91, 163, 199, 0.3);
         }

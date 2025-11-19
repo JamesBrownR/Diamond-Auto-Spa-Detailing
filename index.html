@@ -12,13 +12,14 @@
         }
 
         :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #0f3460;
-            --accent-color: #e94560;
-            --light-bg: #f8f9fa;
+            --diamond-blue: #5BA3C7;
+            --diamond-dark-blue: #4A8BA8;
+            --steel-gray: #7B8B93;
+            --charcoal: #3A4B52;
+            --light-blue: #A8D5E8;
+            --white: #ffffff;
+            --light-bg: #f5f8fa;
             --text-dark: #2d3436;
-            --text-light: #ffffff;
-            --border-color: #dfe6e9;
         }
 
         body {
@@ -29,14 +30,14 @@
 
         /* Header */
         header {
-            background: var(--primary-color);
-            color: var(--text-light);
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 100%);
+            color: var(--white);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .header-content {
@@ -52,17 +53,17 @@
         .phone-header {
             font-size: 1.2rem;
             font-weight: bold;
-            color: var(--text-light);
+            color: var(--white);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .phone-header:hover {
-            color: var(--accent-color);
+            color: var(--light-blue);
         }
 
         nav a {
-            color: var(--text-light);
+            color: var(--white);
             text-decoration: none;
             margin-left: 2rem;
             transition: color 0.3s;
@@ -70,20 +71,21 @@
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--light-blue);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 50%, var(--diamond-dark-blue) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--text-light);
+            color: var(--white);
             position: relative;
             overflow: hidden;
+            padding: 8rem 2rem 4rem;
         }
 
         .hero::before {
@@ -94,7 +96,7 @@
             right: 0;
             bottom: 0;
             background: url('Diamond-Auto-Spa-Detailing1.png') center/cover;
-            opacity: 0.15;
+            opacity: 0.08;
             z-index: 0;
         }
 
@@ -102,33 +104,49 @@
             position: relative;
             z-index: 1;
             padding: 2rem;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         .hero-logo {
-            max-width: 300px;
-            width: 80%;
+            max-width: 400px;
+            width: 90%;
             margin-bottom: 2rem;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .hero-tagline {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--light-blue);
+            font-weight: 300;
+            font-style: italic;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--accent-color);
-            color: var(--text-light);
+            padding: 1.2rem 3.5rem;
+            background: var(--diamond-blue);
+            color: var(--white);
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: bold;
@@ -136,33 +154,15 @@
             border: none;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(91, 163, 199, 0.3);
         }
 
         .cta-button:hover {
-            background: #d63850;
+            background: var(--diamond-dark-blue);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-20px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-10px);
-            }
+            box-shadow: 0 12px 30px rgba(91, 163, 199, 0.5);
         }
 
         /* Sections */
@@ -173,12 +173,21 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             text-align: center;
-            color: var(--primary-color);
+            color: var(--charcoal);
             position: relative;
             padding-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--steel-gray);
+            margin-bottom: 3rem;
+            font-style: italic;
         }
 
         .section-title::after {
@@ -187,42 +196,163 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 120px;
             height: 4px;
-            background: var(--accent-color);
+            background: linear-gradient(90deg, var(--diamond-blue), var(--light-blue));
+            border-radius: 2px;
+        }
+
+        /* About/Philosophy Section */
+        .philosophy-section {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e8f4f8 100%);
+            padding: 5rem 2rem;
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-content p {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-highlight {
+            background: var(--white);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 6px solid var(--diamond-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .philosophy-highlight h3 {
+            color: var(--diamond-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            text-align: center;
+        }
+
+        .badge-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--diamond-blue);
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .badge-text {
+            font-size: 1.1rem;
+            color: var(--steel-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Services */
+        .services-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--steel-gray);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .service-card {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            padding: 2.5rem;
+            border-top: 5px solid var(--diamond-blue);
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-blue) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(91, 163, 199, 0.2);
+            border-top-color: var(--diamond-dark-blue);
         }
 
         .service-card h3 {
-            color: var(--primary-color);
+            color: var(--charcoal);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        .pricing-note {
+            background: var(--diamond-blue);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: 10px;
+        }
+
+        .pricing-note h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-note p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
@@ -230,7 +360,9 @@
             overflow: hidden;
             position: relative;
             padding-top: 75%;
-            background: var(--border-color);
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .gallery-item img {
@@ -240,28 +372,33 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         .show-more-btn {
             display: block;
-            margin: 2rem auto;
-            padding: 0.8rem 2rem;
-            background: var(--secondary-color);
-            color: var(--text-light);
+            margin: 3rem auto;
+            padding: 1rem 3rem;
+            background: var(--steel-gray);
+            color: var(--white);
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             transition: all 0.3s;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .show-more-btn:hover {
-            background: var(--primary-color);
+            background: var(--charcoal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         .hidden {
@@ -271,15 +408,22 @@
         /* Reviews */
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
         .review-card {
-            background: var(--light-bg);
-            padding: 1.5rem;
-            border-top: 3px solid var(--accent-color);
+            background: var(--white);
+            padding: 2rem;
+            border-top: 4px solid var(--diamond-blue);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(91, 163, 199, 0.15);
         }
 
         .review-header {
@@ -291,18 +435,18 @@
 
         .reviewer-name {
             font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
+            color: var(--charcoal);
+            font-size: 1.2rem;
         }
 
         .stars {
             color: #ffc107;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .review-body {
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         /* Contact Section */
@@ -314,8 +458,10 @@
         }
 
         .contact-form {
-            background: var(--light-bg);
-            padding: 2rem;
+            background: var(--white);
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 10px;
         }
 
         .form-group {
@@ -325,25 +471,26 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            color: var(--charcoal);
             font-weight: 600;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--border-color);
+            padding: 0.9rem;
+            border: 2px solid #dfe6e9;
             background: white;
             font-family: inherit;
             font-size: 1rem;
             transition: border-color 0.3s;
+            border-radius: 5px;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: var(--diamond-blue);
         }
 
         .form-group textarea {
@@ -352,14 +499,17 @@
         }
 
         .contact-info {
-            background: var(--primary-color);
-            color: var(--text-light);
-            padding: 2rem;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
         .contact-info h3 {
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            color: var(--light-blue);
         }
 
         .info-item {
@@ -371,17 +521,18 @@
         .info-item strong {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--accent-color);
+            color: var(--light-blue);
+            font-size: 1.1rem;
         }
 
         .info-item a {
-            color: var(--text-light);
+            color: var(--white);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .info-item a:hover {
-            color: var(--accent-color);
+            color: var(--light-blue);
         }
 
         .hours-list {
@@ -389,8 +540,8 @@
         }
 
         .hours-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
             display: flex;
             justify-content: space-between;
         }
@@ -403,35 +554,42 @@
 
         .social-links a {
             display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: var(--accent-color);
-            color: var(--text-light);
+            padding: 0.9rem 1.8rem;
+            background: var(--diamond-blue);
+            color: var(--white);
             text-decoration: none;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            border-radius: 50px;
+            font-weight: 600;
         }
 
         .social-links a:hover {
-            background: #d63850;
+            background: var(--diamond-dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(91, 163, 199, 0.3);
         }
 
         .map-container {
             margin-top: 3rem;
             width: 100%;
             height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
         .map-container iframe {
             width: 100%;
             height: 100%;
-            border: 4px solid var(--border-color);
+            border: none;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: var(--text-light);
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--steel-gray) 100%);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-top: 3rem;
         }
 
@@ -452,7 +610,11 @@
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.3rem;
             }
 
             .hero p {
@@ -464,7 +626,15 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .experience-badges {
+                gap: 2rem;
+            }
+
+            .badge-number {
+                font-size: 3rem;
             }
         }
     </style>
@@ -474,6 +644,7 @@
         <div class="header-content">
             <a href="tel:+13529314860" class="phone-header">📞 +1 352-931-4860</a>
             <nav>
+                <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#reviews">Reviews</a>
@@ -486,87 +657,115 @@
         <div class="hero-content">
             <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa Detailing Logo" class="hero-logo">
             <h1>Diamond Auto Spa Detailing</h1>
-            <p>Premium Mobile Detailing Services in Eustis, FL</p>
-            <a href="#contact" class="cta-button">Book Your Detail</a>
-        </div>
-        <div class="scroll-indicator">
-            <span style="color: white; font-size: 2rem;">↓</span>
+            <p class="hero-tagline">Where Detailing Becomes an Art Form</p>
+            <p>Every vehicle is a custom masterpiece. We don't just clean cars – we restore them to their true brilliance with 10 years of passionate expertise.</p>
+            <a href="#contact" class="cta-button">Schedule Your Detail</a>
         </div>
     </section>
 
-    <section id="about">
-        <h2 class="section-title">Welcome to Diamond Auto Spa</h2>
-        <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-            At Diamond Auto Spa Detailing, owner Andrew and his professional team bring premium mobile detailing services directly to your location in Eustis, FL. We're committed to delivering exceptional results that make your vehicle shine like a diamond. Our attention to detail and dedication to customer satisfaction sets us apart.
-        </p>
+    <section id="about" class="philosophy-section">
+        <h2 class="section-title">Our Philosophy</h2>
+        <p class="section-subtitle">This isn't just a business – it's a passion</p>
+        <div class="philosophy-content">
+            <p>At Diamond Auto Spa Detailing, owner Andrew brings a completely different approach to auto detailing. While others rush through cars to maximize profits, we treat every vehicle like hiring a painter to create a mural – with artistry, precision, and genuine care.</p>
+            
+            <div class="philosophy-highlight">
+                <h3>Your Vehicle Is Unique</h3>
+                <p>There are no cookie-cutter packages here. During our consultation, we'll discuss your vehicle's specific needs – from pet hair removal to paint correction – creating a custom plan that delivers the best results, not just the fastest turnaround.</p>
+            </div>
+
+            <p>This is what 10 years of experience and 2 years of business ownership has taught us: every car tells a story and deserves individual attention. We do what we believe your vehicle truly needs, because detailing isn't about packages – it's about achieving perfection.</p>
+
+            <div class="experience-badges">
+                <div class="badge">
+                    <div class="badge-number">10</div>
+                    <div class="badge-text">Years Experience</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-number">2</div>
+                    <div class="badge-text">Years in Business</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="services">
         <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Custom solutions for your vehicle's needs</p>
+        <div class="services-intro">
+            <p>Each service is tailored to your vehicle's condition. We'll assess what your car needs during our consultation and create a custom plan that delivers exceptional results.</p>
+        </div>
         <div class="services-grid">
             <div class="service-card">
                 <h3>Exterior Detailing</h3>
-                <p>Complete exterior wash, clay bar treatment, polish, and premium wax protection. Your vehicle will look showroom fresh.</p>
+                <p>Complete exterior transformation including wash, clay bar treatment, polish, and premium protection. We restore your vehicle's exterior to showroom condition.</p>
             </div>
             <div class="service-card">
                 <h3>Interior Detailing</h3>
-                <p>Deep cleaning of all interior surfaces, vacuum, steam cleaning, leather conditioning, and odor elimination.</p>
+                <p>Deep cleaning of every interior surface, vacuum, steam cleaning, leather conditioning, and odor elimination. Special attention to pet hair removal when needed.</p>
             </div>
             <div class="service-card">
                 <h3>Paint Correction</h3>
-                <p>Professional paint correction to remove swirl marks, scratches, and oxidation, restoring your paint's original brilliance.</p>
+                <p>Professional multi-stage paint correction to eliminate swirl marks, scratches, and oxidation. We bring back your paint's original depth and brilliance.</p>
             </div>
             <div class="service-card">
                 <h3>Ceramic Coating</h3>
-                <p>Long-lasting ceramic coating protection that provides superior shine and protection against the elements.</p>
+                <p>Long-lasting ceramic coating protection that provides superior shine and defense against environmental damage. A true investment in your vehicle.</p>
             </div>
             <div class="service-card">
                 <h3>Headlight Restoration</h3>
-                <p>Restore cloudy, yellowed headlights to crystal clear condition, improving both appearance and safety.</p>
+                <p>Transform cloudy, yellowed headlights back to crystal clear condition, improving both aesthetics and nighttime safety.</p>
             </div>
             <div class="service-card">
                 <h3>Engine Bay Detailing</h3>
-                <p>Thorough cleaning and dressing of your engine bay, making it look as good as the rest of your vehicle.</p>
+                <p>Meticulous cleaning and dressing of your engine bay. We make the heart of your vehicle look as good as the exterior.</p>
             </div>
+        </div>
+
+        <div class="pricing-note">
+            <h3>Custom Pricing for Best Results</h3>
+            <p>We don't believe in one-size-fits-all packages. Every vehicle has different needs based on condition, usage, and your goals. During our consultation call, we'll discuss your specific situation – like pets, daily driving conditions, or desired level of protection – and create a custom plan with transparent pricing designed to give you the best possible results.</p>
         </div>
     </section>
 
     <section id="gallery">
-        <h2 class="section-title">Our Work</h2>
+        <h2 class="section-title">Our Work Speaks For Itself</h2>
+        <p class="section-subtitle">Each vehicle receives our full artistic attention</p>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="Diamond-Auto-Spa-Detailing1.png" alt="Detailing Work 1">
+                <img src="Diamond-Auto-Spa-Detailing1.png" alt="Professional Detailing Work 1">
             </div>
             <div class="gallery-item">
-                <img src="Diamond-Auto-Spa-Detailing2.png" alt="Detailing Work 2">
+                <img src="Diamond-Auto-Spa-Detailing2.png" alt="Professional Detailing Work 2">
             </div>
             <div class="gallery-item">
-                <img src="Diamond-Auto-Spa-Detailing3.png" alt="Detailing Work 3">
+                <img src="Diamond-Auto-Spa-Detailing3.png" alt="Professional Detailing Work 3">
             </div>
             <div class="gallery-item">
-                <img src="Diamond-Auto-Spa-Detailing4.png" alt="Detailing Work 4">
+                <img src="Diamond-Auto-Spa-Detailing4.png" alt="Professional Detailing Work 4">
             </div>
             <div class="gallery-item">
-                <img src="Diamond-Auto-Spa-Detailing5.png" alt="Detailing Work 5">
+                <img src="Diamond-Auto-Spa-Detailing5.png" alt="Professional Detailing Work 5">
             </div>
             <div class="gallery-item">
-                <img src="Diamond-Auto-Spa-Detailing6.png" alt="Detailing Work 6">
+                <img src="Diamond-Auto-Spa-Detailing6.png" alt="Professional Detailing Work 6">
             </div>
             <div class="gallery-item hidden" data-gallery-extra>
-                <img src="Diamond-Auto-Spa-Detailing7.png" alt="Detailing Work 7">
+                <img src="Diamond-Auto-Spa-Detailing7.png" alt="Professional Detailing Work 7">
             </div>
             <div class="gallery-item hidden" data-gallery-extra>
-                <img src="Diamond-Auto-Spa-Detailing8.png" alt="Detailing Work 8">
+                <img src="Diamond-Auto-Spa-Detailing8.png" alt="Professional Detailing Work 8">
             </div>
             <div class="gallery-item hidden" data-gallery-extra>
-                <img src="Diamond-Auto-Spa-Detailing9.png" alt="Detailing Work 9">
+                <img src="Diamond-Auto-Spa-Detailing9.png" alt="Professional Detailing Work 9">
             </div>
         </div>
-        <button class="show-more-btn" id="galleryBtn">Show 3 More</button>
+        <button class="show-more-btn" id="galleryBtn">Show More Work</button>
     </section>
 
     <section id="reviews">
-        <h2 class="section-title">Customer Reviews</h2>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Results that speak louder than words</p>
         <div class="reviews-grid" id="reviewsContainer">
             <!-- Reviews will be populated by JavaScript -->
         </div>
@@ -574,10 +773,11 @@
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Contact Us</h2>
+        <h2 class="section-title">Let's Discuss Your Vehicle</h2>
+        <p class="section-subtitle">Every car is different – let's create your custom plan</p>
         <div class="contact-container">
             <div class="contact-form">
-                <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Send Us a Message</h3>
+                <h3 style="margin-bottom: 1.5rem; color: var(--charcoal);">Send Us a Message</h3>
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Name *</label>
@@ -592,10 +792,10 @@
                         <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Tell us about your vehicle *</label>
+                        <textarea id="message" name="message" required placeholder="What type of vehicle do you have? What are your main concerns? (pets, scratches, etc.)"></textarea>
                     </div>
-                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    <button type="submit" class="cta-button" style="width: 100%; border-radius: 50px;">Send Message</button>
                 </form>
             </div>
             <div class="contact-info">
@@ -610,6 +810,7 @@
                     <div>
                         <strong>Address</strong>
                         <p>Tremont Dr, Eustis, FL 32726</p>
+                        <p style="margin-top: 0.5rem; font-style: italic; opacity: 0.9;">Mobile service - we come to you!</p>
                     </div>
                 </div>
                 <div class="info-item">
@@ -638,12 +839,12 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Diamond Auto Spa Detailing. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;">Premium Mobile Detailing Services | Eustis, FL</p>
+        <p>&copy; 2023 Diamond Auto Spa Detailing. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Where Detailing Becomes an Art Form | Eustis, FL</p>
     </footer>
 
     <script>
-        // Reviews Data - Easy to add more reviews to this array
+        // Reviews Data
         const reviews = [
             { name: "Review 1", rating: 5, body: "" },
             { name: "Review 2", rating: 5, body: "" },
@@ -712,8 +913,8 @@
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
             
-            const subject = 'Contact Form Submission from ' + name;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            const subject = 'Custom Detail Consultation Request from ' + name;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0AVehicle Details & Request:%0D%0A${message}`;
             
             window.location.href = `mailto:contact@diamondautospa.com?subject=${subject}&body=${body}`;
         });
@@ -724,7 +925,14 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });

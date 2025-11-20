@@ -247,23 +247,23 @@
             padding-top: 2rem;
         }
 
-        .philosophy-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
+      .philosophy-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--card-white); /* Add white background */
+    padding: 3rem 2rem; /* Add padding inside the card */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow like other cards */
+    border-radius: 8px; /* Optional: rounded corners */
+}
 
-      .philosophy-content p {
-            font-size: 1.2rem;
-            /* Increased bottom margin for more space */
-            margin-bottom: 2.5rem; 
-            /* Added top margin for separation from subtitle */
-            margin-top: 1rem; 
-            color: #333;
-            /* Added padding for breathing room on all screen sizes */
-            padding: 0 1rem; 
-        }
-
+.philosophy-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem; 
+    margin-top: 1rem; 
+    color: #333;
+    /* Remove padding here since the parent has it now */
+}
         /* Highlight box remains white to pop against the gray */
         .philosophy-highlight {
             background: var(--card-white); 

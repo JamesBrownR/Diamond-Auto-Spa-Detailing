@@ -264,22 +264,48 @@
             padding: 0 1rem; 
         }
 
-        /* Highlight box remains white to pop against the gray */
-        .philosophy-highlight {
-            background: var(--card-white); 
-            padding: 2.5rem;
-            margin: 2rem 0;
-            border-left: 6px solid var(--diamond-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+      /* Update: Philosophy Section Styling */
+.philosophy-card {
+    background: var(--card-white); /* Use white for the card */
+    padding: 3rem 2rem; /* More padding */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Stronger, modern shadow */
+    border-top: 8px solid var(--diamond-blue); /* A prominent blue border at the top */
+    margin: 3rem auto; /* Center the card and provide vertical space */
+    max-width: 900px;
+    text-align: center;
+}
 
-        .experience-badges {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
+.philosophy-card p {
+    font-size: 1.3rem; /* Slightly larger text for emphasis */
+    line-height: 1.8;
+    margin: 1.5rem 0;
+    color: var(--text-dark);
+    font-family: 'Playfair Display', serif; /* Use the header font for a formal look */
+    font-weight: 400;
+}
 
+/* Make the highlight part stand out as a key quote */
+.philosophy-highlight {
+    background: var(--main-bg-gray); /* Change highlight to body gray for contrast */
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border-left: 6px solid var(--diamond-dark-blue); /* Darker blue line */
+    box-shadow: none; /* Remove shadow to make it feel nested/part of the card */
+}
+
+.philosophy-highlight h3 {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--charcoal);
+}
+
+/* Ensure badges look good in the new card */
+.experience-badges {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #ccc; /* Add a subtle separator */
+}
         .badge-number {
             font-size: 3.5rem;
             font-weight: 900;
@@ -621,25 +647,22 @@
         </section>
     </div>
 
-    <section id="about" class="philosophy-section">
-        <h2 class="section-title">Our Philosophy</h2>
-        <p class="section-subtitle">This isn't a "business", it's a passion.</p>
+   <section id="about" class="philosophy-section">
+    <h2 class="section-title">Our Philosophy</h2>
+    <p class="section-subtitle">This isn't a "business", it's a passion.</p>
+    
+    <div class="philosophy-card"> <p>At Diamond Auto Spa Detailing, owner Andrew brings a completely different approach to auto detailing: <br><br>
+            "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."<br> <br>
+            Here, your car will be treated like a mural: With precision, effort and genuine care.</p>
         
-        <div class="philosophy-content">
-            <p>At Diamond Auto Spa Detailing, owner Andrew brings a completely different approach to auto detailing: <br><br>
-                "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."<br> <br>
-                Here, your car will be treated like a mural: With precision, effort and genuine care.</p>
-            
-           
-
-            <div class="experience-badges">
-                <div class="badge">
-                    <div class="badge-number">10+</div>
-                    <div class="badge-text">Years Experience</div>
-                </div>
+        <div class="experience-badges">
+            <div class="badge">
+                <div class="badge-number">10+</div>
+                <div class="badge-text">Years Experience</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="services">
         <h2 class="section-title">Our Services</h2>
@@ -678,50 +701,47 @@
     </section>
 
     <section id="gallery">
-        <h2 class="section-title">Results Speak For Themselves</h2>
-        <p class="section-subtitle">Click any image to zoom in</p>
+    <h2 class="section-title">Results Speak For Themselves</h2>
+    <p class="section-subtitle">Click any image to zoom in</p>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing1.png')">
+            <img src="Diamond-Auto-Spa-Detailing1.png" alt="Detailing Work 1">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing2.png')">
+            <img src="Diamond-Auto-Spa-Detailing2.png" alt="Detailing Work 2">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing3.png')">
+            <img src="Diamond-Auto-Spa-Detailing3.png" alt="Detailing Work 3">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing4.png')">
+            <img src="Diamond-Auto-Spa-Detailing4.png" alt="Detailing Work 4">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing5.png')">
+            <img src="Diamond-Auto-Spa-Detailing5.png" alt="Detailing Work 5">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing6.png')">
+            <img src="Diamond-Auto-Spa-Detailing6.png" alt="Detailing Work 6">
+        </div>
         
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing1.png')">
-                <img src="Diamond-Auto-Spa-Detailing1.png" alt="Detailing Work 1">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing2.png')">
-                <img src="Diamond-Auto-Spa-Detailing2.png" alt="Detailing Work 2">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing3.png')">
-                <img src="Diamond-Auto-Spa-Detailing3.png" alt="Detailing Work 3">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing4.png')">
-                <img src="Diamond-Auto-Spa-Detailing4.png" alt="Detailing Work 4">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing5.png')">
-                <img src="Diamond-Auto-Spa-Detailing5.png" alt="Detailing Work 5">
-            </div>
-            <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing6.png')">
-                <img src="Diamond-Auto-Spa-Detailing6.png" alt="Detailing Work 6">
-            </div>
-            
-            <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing7.png')">
-                <img src="Diamond-Auto-Spa-Detailing7.png" alt="Detailing Work 7">
-            </div>
-            <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing8.png')">
-                <img src="Diamond-Auto-Spa-Detailing8.png" alt="Detailing Work 8">
-            </div>
+        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing7.png')">
+            <img src="Diamond-Auto-Spa-Detailing7.png" alt="Detailing Work 7">
+        </div>
+        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing8.png')">
+            <img src="Diamond-Auto-Spa-Detailing8.png" alt="Detailing Work 8">
         </div>
         <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing9.png')">
-                <img src="Diamond-Auto-Spa-Detailing9.png" alt="Detailing Work 9">
-            </div>
-
-        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing10.png')">
-                <img src="Diamond-Auto-Spa-Detailing10.png" alt="Detailing Work 10">
-            </div>
-            <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
-                <img src="Diamond-Auto-Spa-Detailing11.png" alt="Detailing Work 11">
-            </div>
+            <img src="Diamond-Auto-Spa-Detailing9.png" alt="Detailing Work 9">
         </div>
-        <button class="show-more-btn" id="galleryBtn">Show More Work</button>
-        <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
-    </section>
+        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing10.png')">
+            <img src="Diamond-Auto-Spa-Detailing10.png" alt="Detailing Work 10">
+        </div>
+        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
+            <img src="Diamond-Auto-Spa-Detailing11.png" alt="Detailing Work 11">
+        </div>
+    </div> <button class="show-more-btn" id="galleryBtn">Show More Work</button>
+    <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
+</section>
 
     <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-lightbox">&times;</span>

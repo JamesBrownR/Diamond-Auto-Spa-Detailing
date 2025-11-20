@@ -239,10 +239,15 @@
             text-align: center;
         }
 
-        .philosophy-content p {
+      .philosophy-content p {
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            /* Increased bottom margin for more space */
+            margin-bottom: 2.5rem; 
+            /* Added top margin for separation from subtitle */
+            margin-top: 1rem; 
             color: #333;
+            /* Added padding for breathing room on all screen sizes */
+            padding: 0 1rem; 
         }
 
         /* Highlight box remains white to pop against the gray */
@@ -691,7 +696,19 @@
                 <img src="Diamond-Auto-Spa-Detailing8.png" alt="Detailing Work 8">
             </div>
         </div>
+        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
+                <img src="Diamond-Auto-Spa-Detailing9.png" alt="Detailing Work 9">
+            </div>
+
+        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing10.png')">
+                <img src="Diamond-Auto-Spa-Detailing10.png" alt="Detailing Work 10">
+            </div>
+            <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
+                <img src="Diamond-Auto-Spa-Detailing11.png" alt="Detailing Work 11">
+            </div>
+        </div>
         <button class="show-more-btn" id="galleryBtn">Show More Work</button>
+        <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
     </section>
 
     <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
@@ -699,12 +716,13 @@
         <img class="lightbox-content" id="lightboxImg">
     </div>
 
-    <section id="reviews">
+  <section id="reviews">
         <h2 class="section-title">What Our Clients Say</h2>
         <p class="section-subtitle">We can tell you... or they could.</p>
         <div class="reviews-grid" id="reviewsContainer">
             </div>
         <button class="show-more-btn hidden" id="reviewsBtn">Show More</button>
+        <button class="show-more-btn hidden" id="reviewsLessBtn">Show Less</button>
     </section>
 
     <section id="contact">
@@ -739,9 +757,9 @@
             <div class="contact-info-card">
                 <h3>Get In Touch</h3>
                 
-                <div class="info-item">
-                    <strong>Phone</strong>
-                    <a href="tel:+13529314860" style="color: #555; text-decoration: none; font-size: 1.2rem;">+1 352-931-4860</a>
+               <div class="info-item">
+                    <strong style="font-size: 1.8rem;">Call Anytime. 📞</strong>
+                    <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
                 </div>
 
                 <div class="info-item" style="flex-grow: 1;">
@@ -1084,10 +1102,12 @@
     }
 ];
 
-        // --- Reviews Display ---
-        let reviewsShown = 3;
+        // --- Reviews Display Logic ---
+        const INITIAL_REVIEWS_COUNT = 3;
+        let reviewsShown = INITIAL_REVIEWS_COUNT;
         const reviewsContainer = document.getElementById('reviewsContainer');
         const reviewsBtn = document.getElementById('reviewsBtn');
+        const reviewsLessBtn = document.getElementById('reviewsLessBtn'); // New
 
         function displayReviews() {
             reviewsContainer.innerHTML = '';
@@ -1106,10 +1126,17 @@
                 reviewsContainer.appendChild(card);
             });
 
+            // Show More/Less Button Logic
             if (reviewsShown < reviews.length) {
                 reviewsBtn.classList.remove('hidden');
             } else {
                 reviewsBtn.classList.add('hidden');
+            }
+
+            if (reviewsShown > INITIAL_REVIEWS_COUNT) {
+                reviewsLessBtn.classList.remove('hidden');
+            } else {
+                reviewsLessBtn.classList.add('hidden');
             }
         }
 
@@ -1117,17 +1144,48 @@
             reviewsShown += 3;
             displayReviews();
         });
+        
+        // NEW Reviews Less Button Handler
+        reviewsLessBtn.addEventListener('click', () => {
+            reviewsShown = INITIAL_REVIEWS_COUNT;
+            displayReviews();
+            // Scroll back up to the reviews section
+            document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+        });
 
         displayReviews();
 
         // --- Gallery Logic ---
         const galleryBtn = document.getElementById('galleryBtn');
+        const galleryLessBtn = document.getElementById('galleryLessBtn'); // New
         const extraGalleryItems = document.querySelectorAll('[data-gallery-extra]');
         
+        function updateGalleryView(showAll) {
+            extraGalleryItems.forEach(item => {
+                if (showAll) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            galleryBtn.classList.toggle('hidden', showAll);
+            galleryLessBtn.classList.toggle('hidden', !showAll);
+        }
+
         galleryBtn.addEventListener('click', () => {
-            extraGalleryItems.forEach(item => item.classList.remove('hidden'));
-            galleryBtn.classList.add('hidden');
+            updateGalleryView(true);
         });
+        
+        // NEW Gallery Less Button Handler
+        galleryLessBtn.addEventListener('click', () => {
+            updateGalleryView(false);
+            // Scroll back up to the gallery section
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Initialize gallery state (hides less button on load)
+        updateGalleryView(false);
 
         // --- Contact Form Logic ---
         document.getElementById('contactForm').addEventListener('submit', (e) => {

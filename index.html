@@ -632,7 +632,16 @@
                 margin-bottom: 0.5rem; /* No huge gap, just enough */
             }
         }
-        
+         @media (min-width: 769px) {
+             .hero-logo-img {
+                 display: none;
+             }
+             
+             /* Adjust H1 margin since the logo is gone */
+             .hero-desktop h1 {
+                 margin-top: 1rem;
+             }
+        }
      
     </style>
 </head>

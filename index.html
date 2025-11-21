@@ -317,15 +317,18 @@
     padding-top: 2rem;
 }
 
+.badge {
+    text-align: center;
+}
+
 .badge-number {
-    justify-content: center;
     font-size: 3.5rem;
     font-weight: 900;
     color: var(--diamond-blue);
     line-height: 1;
     font-family: 'Playfair Display', serif;
+    /* Remove justify-content: center; as it doesn't apply to non-flex elements */
 }
-
 .badge-text {
     font-weight: bold;
     text-transform: uppercase;
@@ -630,17 +633,7 @@
             }
         }
         
-        /* New rule: Hide logo on desktop/laptop (min-width: 769px) */
-        @media (min-width: 769px) {
-             .hero-logo-img {
-                 display: none;
-             }
-             
-             /* Adjust H1 margin since the logo is gone */
-             .hero-desktop h1 {
-                 margin-top: 1rem;
-             }
-        }
+     
     </style>
 </head>
 <body>

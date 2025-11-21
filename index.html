@@ -250,6 +250,7 @@
        .philosophy-section {
     background: transparent; 
     padding-top: 2rem;
+    position: relative;
 }
 
 .philosophy-content {
@@ -259,7 +260,29 @@
     padding: 3rem 2rem;
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     border-radius: 8px;
-    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+/* Corner accents */
+.corner-accent {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--diamond-blue);
+}
+
+.corner-accent.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.corner-accent.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
 }
 
 .philosophy-content p {
@@ -287,6 +310,7 @@
     background: #f7fafc;
     border-left: 4px solid var(--diamond-blue);
     border-radius: 4px;
+    font-family: 'Playfair Display', serif;
 }
 
 .experience-badges {
@@ -308,7 +332,11 @@
 .badge-text {
     font-weight: bold;
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
+
+
+        
         /* --- Services --- */
         .services-grid {
             display: grid;
@@ -656,6 +684,9 @@
     <p class="section-subtitle">This isn't a "business", it's a passion.</p>
     
     <div class="philosophy-content">
+        <div class="corner-accent top-left"></div>
+        <div class="corner-accent bottom-right"></div>
+        
         <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
         
         <div class="philosophy-divider"></div>
@@ -677,6 +708,8 @@
         </div>
     </div>
 </section>
+
+
     
     <section id="services">
         <h2 class="section-title">Our Services</h2>

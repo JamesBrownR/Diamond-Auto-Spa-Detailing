@@ -248,67 +248,68 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .philosophy-section {
-            /* Background is now transparent to inherit the body Gray, 
-               so it flows with the rest of the site */
-            background: transparent; 
-            padding-top: 2rem;
-        }
+       .philosophy-section {
+    background: transparent; 
+    padding-top: 2rem;
+}
 
-      .philosophy-content {
+.philosophy-content {
     max-width: 600px;
     margin: 0 auto;
-    text-align: center;
-    background: var(--card-white); /* Add white background */
-    padding: 3rem 2rem; /* Add padding inside the card */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow like other cards */
-    border-radius: 8px; /* Optional: rounded corners */
+    background: var(--card-white);
+    padding: 3rem 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
 .philosophy-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem; 
-    margin-top: 1.5rem; 
-    color: #333;
-    /* Remove padding here since the parent has it now */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+    text-align: center;
 }
-        .philosophy-content I {
-    font-size: 1.2rem;
-    color: #333;
-             font-style: italic;
-             font-weight: bold;
-           
-    /* Remove padding here since the parent has it now */
+
+.philosophy-divider {
+    width: 80px;
+    height: 2px;
+    background: var(--diamond-blue);
+    margin: 2rem auto;
 }
-        /* Highlight box remains white to pop against the gray */
-        .philosophy-highlight {
-            background: var(--card-white); 
-            padding: 0.5rem;
-            margin: 2rem 0;
-            border-left: 6px solid var(--diamond-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
 
-        .experience-badges {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
+.philosophy-quote {
+    font-style: italic;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #2d3748;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: #f7fafc;
+    border-left: 4px solid var(--diamond-blue);
+    border-radius: 4px;
+}
 
-        .badge-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--diamond-blue);
-            line-height: 1;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .badge-text {
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+.experience-badges {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
 
+.badge-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--diamond-blue);
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+}
+
+.badge-text {
+    font-weight: bold;
+    text-transform: uppercase;
+}
         /* --- Services --- */
         .services-grid {
             display: grid;
@@ -652,29 +653,32 @@
     </div>
 
   <section id="about" class="philosophy-section">
-        <h2 class="section-title">Our Philosophy</h2>
-        <p class="section-subtitle">This isn't a "business", it's a passion.</p>
+    <h2 class="section-title">Our Philosophy</h2>
+    <p class="section-subtitle">This isn't a "business", it's a passion.</p>
+    
+    <div class="philosophy-content">
+        <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
         
-        <div class="philosophy-content">
-            <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p> 
-              
-                  <I> "Most detailers rush through cars to maximize profits.
-                But we see ourselves as artists, not just detailers..."</I>
-                
-            <p>Here, your car will be treated like a mural:<br>
-                With precision, effort and genuine care.</p>
-            
-           
-
-            <div class="experience-badges">
-                <div class="badge">
-                    <div class="badge-number">10+</div>
-                    <div class="badge-text">Years Experience</div>
-                </div>
+        <div class="philosophy-divider"></div>
+        
+        <div class="philosophy-quote">
+            "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."
+        </div>
+        
+        <div class="philosophy-divider"></div>
+        
+        <p>Here, your car will be treated like a mural:<br>
+            With precision, effort and genuine care.</p>
+        
+        <div class="experience-badges">
+            <div class="badge">
+                <div class="badge-number">10+</div>
+                <div class="badge-text">Years Experience</div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+    
     <section id="services">
         <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Your car deserves a quality, custom service.</p>

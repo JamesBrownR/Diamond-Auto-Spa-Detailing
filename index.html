@@ -296,11 +296,71 @@
         }
 
         /* --- Sections General --- */
-        section {
-            padding: 2rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+       section {
+    width: 100%;          /* Forces background to touch edges */
+    max-width: none;      /* Removes the 1200px limit on the background */
+    padding: 4rem 0;      /* Vertical spacing */
+    position: relative;   /* Needed for the transition effects */
+    overflow: hidden;
+}
+
+/* Use this class inside sections to center text/cards */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- 2. TORN PAPER TRANSITION (Matches your image) --- */
+/* Apply this class to a WHITE section that follows a DARK section */
+.torn-top {
+    position: relative;
+    margin-top: -50px; /* Pulls the section up to overlap */
+    padding-top: 80px; /* Adds space so content isn't cut off */
+    z-index: 10;
+    /* This polygon creates the jagged "paint/torn" look */
+    clip-path: polygon(
+        0% 50px, 2% 45px, 5% 55px, 8% 40px, 11% 55px, 
+        15% 35px, 19% 55px, 22% 45px, 25% 60px, 28% 40px, 
+        32% 55px, 35% 35px, 39% 60px, 42% 40px, 45% 55px, 
+        49% 35px, 52% 60px, 55% 40px, 58% 55px, 62% 35px, 
+        65% 60px, 68% 40px, 72% 55px, 75% 35px, 79% 60px, 
+        82% 40px, 85% 55px, 88% 35px, 92% 60px, 95% 40px, 
+        98% 55px, 100% 50px, 
+        100% 100%, 0% 100%
+    );
+    background: var(--main-bg-gray); /* Must match the section background color */
+}
+
+/* --- 3. MAP & SLIDER SPLIT LAYOUT --- */
+.split-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0; /* No gap so they touch */
+    height: 500px; /* Fixed height for the split */
+}
+
+.split-half {
+    flex: 1;
+    min-width: 400px; /* Stacks on mobile */
+    position: relative;
+    height: 100%;
+}
+
+/* Ensure the map fills its half */
+.split-half iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Specific tweak for slider in the split section to fill height */
+.split-half .img-comp-container {
+    height: 100%; 
+    border-radius: 0; /* Remove corners for seamless look */
+}
 
         .section-title {
             font-size: 3rem;
@@ -1103,75 +1163,102 @@
 </section>
 
     
-<section id="services" class="wavy-top">
-    <h2 class="section-title reveal">Our Services</h2>
-        <p class="section-subtitle reveal">Your car deserves a quality, custom service.</p>
+<section id="services" style="background: var(--charcoal); color: white;">
+    <div class="container">
+        <h2 class="section-title reveal" style="color: white;">Our Services</h2>
+        <p class="section-subtitle reveal" style="color: #ddd;">Custom plans for specific needs.</p>
         
-         <div class="highlight reveal">
-                <h3>There are no cookie-cutter packages here. During our call, we understand your vehicle's specific needs (like pet hair removal or paint correction) to create a custom plan that delivers the best results... not just the fastest turnaround.</h3>
-            </div>
-        
-        <div class="services-grid">
+        <div class="highlight reveal" style="background: rgba(255,255,255,0.1); color: white; border-left: 6px solid var(--diamond-blue);">
+            <h3>There are no cookie-cutter packages here. We customize based on your vehicle's specific needs.</h3>
+        </div>
+
+        <div class="services-grid" style="margin-bottom: 3rem;">
             <div class="service-card reveal">
                 <h3>Exterior Detailing</h3>
-                <p>Complete exterior transformation including wash, clay bar treatment, polish, and premium protection. We restore your vehicle's exterior to showroom condition.</p>
+                <p>Complete exterior transformation including wash, clay bar treatment, polish, and premium protection.</p>
             </div>
             <div class="service-card reveal">
                 <h3>Interior Detailing</h3>
-                <p>Deep cleaning of every interior surface, vacuuming, steam cleaning, upholstery/carpet shampooing, and leather conditioning. Special attention to pet hair removal.</p>
+                <p>Deep cleaning of every interior surface, steam cleaning, and leather conditioning.</p>
             </div>
             <div class="service-card reveal">
                 <h3>Paint Correction</h3>
-                <p>Professional multi-stage paint correction to eliminate swirl marks, scratches, and oxidation. We bring back your paint's original depth and brilliance.</p>
+                <p>Professional multi-stage paint correction to eliminate swirl marks and scratches.</p>
             </div>
+        </div>
+
+        <div class="reveal" style="margin: 3rem 0;">
+            <h3 style="text-align:center; margin-bottom:1rem; color:white;">The Difference is in the Details</h3>
+            <div class="img-comp-container" style="height: 350px;">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After4.png" alt="After Service">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before4.png" alt="Before Service">
+                </div>
+            </div>
+        </div>
+
+        <div class="services-grid">
             <div class="service-card reveal">
                 <h3>Ceramic Coating</h3>
-                <p>Long-lasting ceramic coating protection that provides superior shine and defense against environmental damage. A true investment in your vehicle.</p>
+                <p>Long-lasting ceramic coating protection that provides superior shine and defense.</p>
             </div>
             <div class="service-card reveal">
                 <h3>Headlight Restoration</h3>
-                <p>Transform cloudy, yellowed headlights back to crystal clear condition, improving both aesthetics and nighttime safety.</p>
+                <p>Transform cloudy, yellowed headlights back to crystal clear condition.</p>
             </div>
             <div class="service-card reveal">
                 <h3>Engine Bay Detailing</h3>
-                <p>Meticulous cleaning and dressing of your engine bay. We make the heart of your vehicle look as good as the exterior.</p>
+                <p>Meticulous cleaning and dressing of your engine bay.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="before-after">
-  <h2 class="section-title reveal">Before & After</h2>
-  <p class="section-subtitle reveal">Drag the slider to see the transformation.</p>
-  
-  <div class="before-after-grid">
-    <div class="img-comp-container reveal">
-      <div class="img-comp-img">
-        <img src="Diamond-Auto-Spa-Detailing-After1.png" alt="After Detailing">
-      </div>
-      <div class="img-comp-img img-comp-overlay">
-        <img src="Diamond-Auto-Spa-Detailing-Before1.png" alt="Before Detailing">
-      </div>
-    </div>
-    
-   <div class="img-comp-container reveal">
-      <div class="img-comp-img">
-        <img src="Diamond-Auto-Spa-Detailing-After2.png" alt="After Detailing">
-      </div>
-      <div class="img-comp-img img-comp-overlay">
-        <img src="Diamond-Auto-Spa-Detailing-Before2.png" alt="Before Detailing">
-      </div>
-    </div>
+<section id="before-after" class="torn-top">
+    <div class="container">
+        <h2 class="section-title reveal">Before & After</h2>
+        <p class="section-subtitle reveal">Drag the slider to see the transformation.</p>
 
-       <div class="img-comp-container reveal">
-      <div class="img-comp-img">
-        <img src="Diamond-Auto-Spa-Detailing-After3.png" alt="After Detailing">
-      </div>
-      <div class="img-comp-img img-comp-overlay">
-        <img src="Diamond-Auto-Spa-Detailing-Before3.png" alt="Before Detailing">
-      </div>
+        <div class="before-after-grid">
+            <div class="img-comp-container reveal">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After1.png" alt="After">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before1.png" alt="Before">
+                </div>
+            </div>
+
+            <div class="img-comp-container reveal">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After2.png" alt="After">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before2.png" alt="Before">
+                </div>
+            </div>
+
+            <div class="img-comp-container reveal">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After3.png" alt="After">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before3.png" alt="Before">
+                </div>
+            </div>
+
+            <div class="img-comp-container reveal">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After4.png" alt="After">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before4.png" alt="Before">
+                </div>
+            </div>
+        </div>
     </div>
-    
-  </div>
 </section>
     
     <section id="gallery" class="wavy-top">
@@ -1339,13 +1426,34 @@
             </div>
     </section>
 
-   <section id="map-section" class="wavy-top">
-          <h2 class="section-title reveal">See For Yourself</h2>
-        
-        <div class="map-container reveal">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56009.03057100184!2d-81.7258384489725!3d28.84501967207601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7b0e12b3e2cc3%3A0x1b181e3c55c3c66!2sEustis%2C%20FL%2032726!5e0!3m2!1sen!2sus!4v1732314141014!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section id="map-section" style="padding: 0;"> 
+    <div class="split-section reveal">
+
+
+         <div class="split-half">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55925.600462490176!2d-81.72901545136718!3d28.828437200000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x633aba09e3aa902f%3A0x2093d558f59879d7!2sDiamond%20Auto%20Spa%20Detailing%20LLC%20(Mobile%20Detailing)!5e0!3m2!1sen!2sus!4v1763854638867!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>             
+                   
+            
         </div>
-    </section>
+        
+        <div class="split-half">
+             <div class="img-comp-container">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After3.png" alt="After">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before3.png" alt="Before">
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+    
+    <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 5; background: rgba(0,0,0,0.7); padding: 1rem 2rem; border-radius: 8px;">
+        <h2 style="color: white; margin: 0; font-family: 'Playfair Display', serif;">Visit Us</h2>
+    </div>
+</section>
 
     <footer>
         <p>© 2023 Diamond Auto Spa Detailing. All rights reserved.</p>

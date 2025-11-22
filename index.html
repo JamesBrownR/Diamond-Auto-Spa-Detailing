@@ -162,42 +162,29 @@
         }
 
         /* Button Styles */
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--diamond-blue);
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-            font-family: 'Playfair Display', serif;
-        }
+        .cta-button,
+.cta-bbutton {
+    display: inline-block;
+    padding: 1rem 3rem;
+    /* FIX: Make button blue and text white */
+    background: linear-gradient(45deg, var(--diamond-dark-blue), var(--diamond-blue)); /* GRADIENT! */
+    color: #ffffff; 
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.3s; /* Added box-shadow transition */
+    font-family: 'Playfair Display', serif;
+}
 
-         .cta-bbutton {
-            display: inline-block;
-            padding: 1rem 3rem;
-            /* FIX: Make button blue and text white */
-            background: var(--diamond-blue);
-            color: #ffffff; 
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-            font-family: 'Playfair Display', serif;
-        }
-        .cta-button:hover,
-        .cta-bbutton:hover {
-            background: var(--diamond-dark-blue);
-            transform: translateY(-2px);
-        }
-
+.cta-button:hover,
+.cta-bbutton:hover {
+    background: linear-gradient(45deg, var(--diamond-blue), var(--diamond-dark-blue)); /* Reverse gradient */
+    transform: translateY(-3px); /* Make hover more pronounced */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
         .show-more-btn {
             display: block;
             margin: 3rem auto;
@@ -476,7 +463,18 @@
 
         .hidden { display: none; }
 
+/* Base state for elements to be animated */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
+/* The state after it's been "revealed" */
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
         /* --- Video Carousel --- */
         #videos {
             padding: 2rem 0;
@@ -876,8 +874,7 @@
             <div class="hero-content">
                 <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa" class="hero-logo-img">
                 <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-bbutton" style="color: #ffffff;" >Book Your Detail</a>
-            </div>
+<a href="#contact" class="cta-bbutton" style="background: #f1c40f; color: #000000;" >Book Your Detail</a>            </div>
         </section>
         <section class="hero-mobile">
             <div class="mobile-logo-section">
@@ -1464,6 +1461,29 @@
                 successMsg.textContent = '';
             }, 5000);
         });
+
+        // --- Add this at the end of your <script> tag ---
+
+function setupScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Stop observing once visible
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the item is visible
+    });
+
+    // Find all elements with the "reveal" class and observe them
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Run the function
+setupScrollAnimations();
     </script>
 </body>
 </html>

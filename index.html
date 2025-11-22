@@ -8,7 +8,79 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+    /* --- Before/After Slider --- */
+    .before-after-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
 
+    .img-comp-container {
+        position: relative;
+        height: 400px; /* Or whatever height you prefer */
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .img-comp-img {
+        position: absolute;
+        width: auto;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .img-comp-img img {
+        display: block;
+        height: 100%;
+        width: auto;
+        max-width: none; /* Important */
+    }
+
+    .img-comp-overlay {
+        width: 50%; /* Start at 50% */
+        z-index: 2;
+    }
+
+    .img-comp-slider {
+        position: absolute;
+        z-index: 3;
+        cursor: ew-resize;
+        width: 3px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        top: 0;
+        left: 50%; /* Start at 50% */
+        transform: translateX(-50%);
+    }
+
+    .img-comp-slider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--diamond-blue);
+        border: 3px solid #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    
+    .img-comp-slider::after {
+        content: '\2194'; /* Left-right arrow */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+</style>
     <style>
         * {
             margin: 0;
@@ -28,11 +100,12 @@
             --text-dark: #2d3436;
         }
 
-        body {
+      body {
             font-family: 'Lato', sans-serif; 
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--main-bg-gray); /* Changed to new gray */
+            background-color: #f8f9fa; /* Fallback */
+            background-image: linear-gradient(180deg, #ffffff 0%, #f0f2f5 100%);
         }
 
         h1, h2, h3, .section-title, .section-subtitle, nav a, footer p, .social-links {
@@ -128,6 +201,22 @@
             /* FIX: Use a simple, consistent overlay */
             background: rgba(0, 0, 0, 0.5); 
             z-index: 1;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .phone-header {
+            font-size: 1.3rem;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            /* [ADD] Font consistency fix */
+            font-family: 'Playfair Display', serif;
         }
 
         .hero-content {
@@ -336,19 +425,22 @@
             justify-content: center;
         }
 
-        /* Card Styling */
-        .service-card, .review-card, .philosophy-content, .contact-form-card, .contact-info-card {
+       .service-card, .review-card, .philosophy-content, .contact-form-card, .contact-info-card {
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(58, 75, 82, 0.1);
+            /* [CHANGE] Tweaked shadow for a more '3D' feel */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07), 0 15px 35px rgba(50, 60, 70, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: var(--card-white);
-            /* FIX: Add border for consistency */
             border-top: 5px solid var(--diamond-blue);
         }
 
         .service-card:hover, .review-card:hover, .contact-form-card:hover, .contact-info-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07), 0 20px 50px rgba(58, 75, 82, 0.15);
+            /* [CHANGE] Tweaked hover shadow to match */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 25px 50px rgba(50, 60, 70, 0.15);
+        }
+        .service-card p {
+            color: var(--text-dark);
         }
         
         /* Exception: philosophy card doesn't need blue border */
@@ -598,16 +690,33 @@
             width: 360px; /* Fixed width for each card */
             margin: 0 1rem; /* Space between cards */
             flex-shrink: 0; /* Prevent cards from shrinking */
+            /* [ADD] Set min-height and flex to standardize card size */
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
         }
 
         .review-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1rem;
+            /* [CHANGE] Removed margin-bottom */
+            margin-bottom: 0;
             font-weight: bold;
             font-family: 'Playfair Display', serif;
+            /* [ADD] Prevent header from shrinking */
+            flex-shrink: 0;
         }
         
+        /* [ADD] Styles to truncate long review text */
+        .review-card p {
+            flex-grow: 1; /* Make p tag take up available space */
+            display: -webkit-box;
+            -webkit-line-clamp: 7; /* Truncate after 7 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 1rem; /* Space from header */
+        }
         .stars { color: #f1c40f; }
 
         /* --- Contact Section --- */
@@ -748,7 +857,21 @@
             .header-content nav a { 
                 font-size: 0.9rem;
             }
+
+            .phone-header {
+                display: none;
+            }
             
+            .header-content nav {
+                /* [ADD] Ensure nav takes up space */
+                flex-grow: 1;
+                text-align: right;
+            }
+            
+            .header-content nav a { 
+                font-size: 0.9rem;
+                margin-left: 1.2rem; /* Adjust spacing */
+            }
             /* 1. Hide the Desktop Banner */
             .hero-desktop { display: none; }
 
@@ -855,6 +978,8 @@
 
     <header>
         <div class="header-content">
+            <a href="#" class="logo">Diamond Auto Spa</a>
+            
             <a href="tel:+13529314860" class="phone-header">📞 +1 352-931-4860</a>
             <nav>
                 <a href="#about">About</a>
@@ -865,185 +990,125 @@
         </div>
     </header>
 
-     <section class="hero-desktop">
-           
-            <video class="hero-video-bg" playsinline autoplay muted loop>
-                <source src="Diamond-Auto-Spa-Detailing.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-content">
-                <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa" class="hero-logo-img">
-                <h1>Make Your Car Shine Like A Diamond.</h1>
-<a href="#contact" class="cta-bbutton" style="background: #f1c40f; color: #000000;" >Book Your Detail</a>            </div>
-        </section>
-        <section class="hero-mobile">
-            <div class="mobile-logo-section">
-                <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa Logo">
-            </div>
-            <div class="mobile-cta-section">
-                <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-button" style="width: 100%;">Book Your Detail</a>
-            </div>
-        </section>
-
-        <section class="hero-mobile">
-            <div class="mobile-logo-section">
-                <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa Logo">
-            </div>
-            <div class="mobile-cta-section">
-                <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-button" style="width: 100%;">Book Your Detail</a>
-            </div>
-        </section>
-    </div>
-
-  <section id="about" class="philosophy-section">
-    <h2 class="section-title">Our Philosophy</h2>
-    <p class="section-subtitle">This isn't a "business", it's a passion.</p>
+    <section id="about" class="philosophy-section">
+    <h2 class="section-title reveal">Our Philosophy</h2>
+    <p class="section-subtitle reveal">This isn't a "business", it's a passion.</p>
     
-    <div class="philosophy-content">
+    <div class="philosophy-content reveal">
         <div class="corner-accent top-left"></div>
         <div class="corner-accent bottom-right"></div>
-        
-        <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
-        
-        <div class="philosophy-divider"></div>
-        
-        <div class="philosophy-quote">
-            "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."
         </div>
-        
-        <div class="philosophy-divider"></div>
-        
-        <p>Here, your car will be treated like a mural:<br>
-            With precision, effort and genuine care.</p>
-        
-        <div class="experience-badges">
-            <div class="badge">
-                <div class="badge-number">10+</div>
-                <div class="badge-text">Years Experience</div>
-            </div>
-        </div>
-    </div>
 </section>
-
 
     
     <section id="services">
-    <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">Your car deserves a quality, custom service.</p>
+    <h2 class="section-title reveal">Our Services</h2>
+        <p class="section-subtitle reveal">Your car deserves a quality, custom service.</p>
         
-         <div class="highlight">
+         <div class="highlight reveal">
                 <h3>There are no cookie-cutter packages here. During our call, we understand your vehicle's specific needs (like pet hair removal or paint correction) to create a custom plan that delivers the best results... not just the fastest turnaround.</h3>
             </div>
         
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Exterior Detailing</h3>
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19,8.6c0-0.83-0.67-1.5-1.5-1.5S16,7.77,16,8.6v3.28c-0.89-0.34-1.9-0.58-3-0.58s-2.11,0.24-3,0.58V2.5 C10,2.22,9.78,2,9.5,2S9,2.22,9,2.5v9.38C8.11,12.24,7.1,12.48,6,12.72V8.6c0-0.83-0.67-1.5-1.5-1.5S3,7.77,3,8.6v3.31 C2.39,12.21,2,12.59,2,13v2.88C2,17.05,2.95,18,4.12,18H8v2c0,1.1,0.9,2,2,2h4c1.1,0,2-0.9,2-2v-2h3.88c1.17,0,2.12-0.95,2.12-2.12 V13c0-0.41-0.39-0.79-1-0.69V8.6z M12,20c-0.55,0-1-0.45-1-1v-4h2v4C13,19.55,12.55,20,12,20z M20,15.88c0,0.06-0.06,0.12-0.12,0.12 H4.12C4.06,16,4,15.94,4,15.88V14h16V15.88z"></path></svg>
                 <p>Complete exterior transformation including wash, clay bar treatment, polish, and premium protection. We restore your vehicle's exterior to showroom condition.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Interior Detailing</h3>
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,2z M12,11.99h7c-0.53,4.12-3.28,7.79-7,8.94V12H5V6.3l7-3.11V11.99z"></path></svg>
                 <p>Deep cleaning of every interior surface, vacuuming, steam cleaning, upholstery/carpet shampooing, and leather conditioning. Special attention to pet hair removal.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Paint Correction</h3>
-<svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19,8.6c0-0.83-0.67-1.5-1.5-1.5S16,7.77,16,8.6v3.28c-0.89-0.34-1.9-0.58-3-0.58s-2.11,0.24-3,0.58V2.5 C10,2.22,9.78,2,9.5,2S9,2.22,9,2.5v9.38C8.11,12.24,7.1,12.48,6,12.72V8.6c0-0.83-0.67-1.5-1.5-1.5S3,7.77,3,8.6v3.31 C2.39,12.21,2,12.59,2,13v2.88C2,17.05,2.95,18,4.12,18H8v2c0,1.1,0.9,2,2,2h4c1.1,0,2-0.9,2-2v-2h3.88c1.17,0,2.12-0.95,2.12-2.12 V13c0-0.41-0.39-0.79-1-0.69V8.6z M12,20c-0.55,0-1-0.45-1-1v-4h2v4C13,19.55,12.55,20,12,20z M20,15.88c0,0.06-0.06,0.12-0.12,0.12 H4.12C4.06,16,4,15.94,4,15.88V14h16V15.88z"></path></svg>                <p>Professional multi-stage paint correction to eliminate swirl marks, scratches, and oxidation. We bring back your paint's original depth and brilliance.</p>
+                <p>Professional multi-stage paint correction to eliminate swirl marks, scratches, and oxidation. We bring back your paint's original depth and brilliance.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Ceramic Coating</h3>
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2L3,5v6c0,5.55,3.84,10.74,9,12c5.16-1.26,9-6.45,9-12V5L12,2z M12,11.99h7c-0.53,4.12-3.28,7.79-7,8.94V12H5V6.3l7-3.11V11.99z"></path></svg>
                 <p>Long-lasting ceramic coating protection that provides superior shine and defense against environmental damage. A true investment in your vehicle.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Headlight Restoration</h3>
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.8,13.1C21.5,12,22,10.6,22,9c0-4.9-3.9-8.8-8.7-9C7.8,0,3.3,3.6,3,8.1c-2.1,1-3,3.2-3,5.6C0,17.2,2.7,20,6,20h1 c0,1.7,1.3,3,3,3s3-1.3,3-3h2c0,1.7,1.3,3,3,3s3-1.3,3-3h1c2.8,0,5-2.2,5-5C22.8,14.4,22,13.6,20.8,13.1z M6,18 C4.3,18,3,16.7,3,15s1.3-3,3-3s3,1.3,3,3S7.7,18,6,18z M18,18c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S19.7,18,18,18z"></path></svg>
                 <p>Transform cloudy, yellowed headlights back to crystal clear condition, improving both aesthetics and nighttime safety.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <h3>Engine Bay Detailing</h3>
-                <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19,6h-1V4c0-1.1-0.9-2-2-2H8C6.9,2,6,2.9,6,4v2H5C3.9,6,3,6.9,3,8v12c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V8 C21,6.9,20.1,6,19,6z M8,4h8v2H8V4z M17,17H7c-0.55,0-1-0.45-1-1v-4c0-0.55,0.45-1,1-1h10c0.55,0,1,0.45,1,1v4 C18,16.55,17.55,17,17,17z M15,9H9v2h6V9z"></path></svg>
                 <p>Meticulous cleaning and dressing of your engine bay. We make the heart of your vehicle look as good as the exterior.</p>
             </div>
         </div>
     </section>
 
     <section id="before-after">
-  <h2 class="section-title">Before & After</h2>
-  <p class="section-subtitle">Drag the slider to see the transformation.</p>
+  <h2 class="section-title reveal">Before & After</h2>
+  <p class="section-subtitle reveal">Drag the slider to see the transformation.</p>
   
-  <div class="before-after-grid"> <!-- Grid for multiple sliders like your screenshot -->
-    <!-- Slider 1: Your two images -->
-    <div class="img-comp-container">
+  <div class="before-after-grid">
+    <div class="img-comp-container reveal">
       <div class="img-comp-img">
-        <img src="Diamond-Auto-Spa-Detailing-After1.png" alt="After Detailing"> <!-- Left: After (clean) image -->
+        <img src="Diamond-Auto-Spa-Detailing-After1.png" alt="After Detailing">
       </div>
       <div class="img-comp-img img-comp-overlay">
-        <img src="Diamond-Auto-Spa-Detailing-Before1.png" alt="Before Detailing"> <!-- Right: Before (dirty) image, overlaid -->
+        <img src="Diamond-Auto-Spa-Detailing-Before1.png" alt="Before Detailing">
       </div>
     </div>
     
-   <div class="img-comp-container">
+   <div class="img-comp-container reveal">
       <div class="img-comp-img">
-        <img src="Diamond-Auto-Spa-Detailing-After2.png" alt="After Detailing"> <!-- Left: After (clean) image -->
+        <img src="Diamond-Auto-Spa-Detailing-After2.png" alt="After Detailing">
       </div>
       <div class="img-comp-img img-comp-overlay">
-        <img src="Diamond-Auto-Spa-Detailing-Before2.png" alt="Before Detailing"> <!-- Right: Before (dirty) image, overlaid -->
+        <img src="Diamond-Auto-Spa-Detailing-Before2.png" alt="Before Detailing">
       </div>
     </div>
 
-       <div class="img-comp-container">
+       <div class="img-comp-container reveal">
       <div class="img-comp-img">
-        <img src="Diamond-Auto-Spa-Detailing-After3.png" alt="After Detailing"> <!-- Left: After (clean) image -->
+        <img src="Diamond-Auto-Spa-Detailing-After3.png" alt="After Detailing">
       </div>
       <div class="img-comp-img img-comp-overlay">
-        <img src="Diamond-Auto-Spa-Detailing-Before3.png" alt="Before Detailing"> <!-- Right: Before (dirty) image, overlaid -->
+        <img src="Diamond-Auto-Spa-Detailing-Before3.png" alt="Before Detailing">
       </div>
     </div>
     
-    <!-- Add more as needed -->
   </div>
 </section>
     
     <section id="gallery">
-    <h2 class="section-title">Results Speak For Themselves</h2>
-    <p class="section-subtitle">Click any image to zoom in</p>
+    <h2 class="section-title reveal">Results Speak For Themselves</h2>
+    <p class="section-subtitle reveal">Click any image to zoom in</p>
     
     <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing1.png')">
+        <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing1.png')">
             <img src="Diamond-Auto-Spa-Detailing1.png" alt="Detailing Work 1">
         </div>
-        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing2.png')">
+        <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing2.png')">
             <img src="Diamond-Auto-Spa-Detailing2.png" alt="Detailing Work 2">
         </div>
-        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing3.png')">
+        <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing3.png')">
             <img src="Diamond-Auto-Spa-Detailing3.png" alt="Detailing Work 3">
         </div>
-        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing4.png')">
+        <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing4.png')">
             <img src="Diamond-Auto-Spa-Detailing4.png" alt="Detailing Work 4">
         </div>
-        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing5.png')">
+        <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing5.png')">
             <img src="Diamond-Auto-Spa-Detailing5.png" alt="Detailing Work 5">
         </div>
-        <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing6.png')">
+        <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing6.png')">
             <img src="Diamond-Auto-Spa-Detailing6.png" alt="Detailing Work 6">
         </div>
         
-        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing7.png')">
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing7.png')">
             <img src="Diamond-Auto-Spa-Detailing7.png" alt="Detailing Work 7">
         </div>
-        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing8.png')">
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing8.png')">
             <img src="Diamond-Auto-Spa-Detailing8.png" alt="Detailing Work 8">
         </div>
-        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing9.png')">
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing9.png')">
             <img src="Diamond-Auto-Spa-Detailing9.png" alt="Detailing Work 9">
         </div>
-        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing10.png')">
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing10.png')">
             <img src="Diamond-Auto-Spa-Detailing10.png" alt="Detailing Work 10">
         </div>
-        <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
             <img src="Diamond-Auto-Spa-Detailing11.png" alt="Detailing Work 11">
         </div>
     </div> 
@@ -1051,48 +1116,43 @@
     <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
 </section>
 
-    <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-lightbox">×</span>
-        <img class="lightbox-content" id="lightboxImg">
-    </div>
-
-<section id="videos">
-    <h2 class="section-title">See The Transformation</h2>
-    <p class="section-subtitle">Real results, real shine.</p>
+    <section id="videos">
+    <h2 class="section-title reveal">See The Transformation</h2>
+    <p class="section-subtitle reveal">Real results, real shine.</p>
 
     <div class="video-carousel-container">
         <div class="video-track">
-            <div class="video-card">
+            <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="video-card">
+            <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="video-card">
+            <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="video-card">
+            <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="video-card">
+            <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-             <div class="video-card">
+             <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing6.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -1104,83 +1164,35 @@
 
 
   <section id="reviews">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">We can tell you... or they could.</p>
+        <h2 class="section-title reveal">What Our Clients Say</h2>
+        <p class="section-subtitle reveal">We can tell you... or they could.</p>
         
         <div class="reviews-controls">
-            <button id="prevReview" class="review-arrow" aria-label="Previous reviews">‹</button>
-            <button id="nextReview" class="review-arrow" aria-label="Next reviews">›</button>
-        </div>
+            </div>
         
         <div class="reviews-slider-container">
-            <div class="reviews-track" id="reviewsTrack">
-                </div>
-        </div>
+            </div>
     </section>
 
     <section id="contact">
-    <h2 class="section-title">Your Vehicle</h2>
-        <p class="section-subtitle">Every car has different needs. Let's find yours.</p>
+    <h2 class="section-title reveal">Your Vehicle</h2>
+        <p class="section-subtitle reveal">Every car has different needs. Let's find yours.</p>
         
         <div class="contact-container">
             
-            <div class="contact-form-card">
+            <div class="contact-form-card reveal">
                 <h3>Send Us a Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Tell us about your vehicle *</label>
-                        <textarea id="message" name="message" required placeholder="What type of vehicle do you have? Any specific concerns?"></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">Send Message</button>
-                    </form>
-            </div>
-
-            <div class="contact-info-card">
-            
-    <h3>Get In Touch</h3>
-    
-    <div class="info-item info-highlight">
-        <strong style="font-size: 1.2rem;">Call Us:</strong>
-        <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
-    </div>
-
-    <div class="info-item" style="flex-grow: 1;">
-                    <strong>Hours</strong>
-                    <ul class="hours-list">
-                       <li><span>Monday</span><span>7 AM – 8 PM</span></li>
-                        <li><span>Tuesday</span><span>7 AM – 8 PM</span></li>
-                        <li><span>Wednesday</span><span>7 AM – 8 PM</span></li>
-                        <li><span>Thursday</span><span>7 AM – 8 PM</span></li>
-                        <li><span>Friday</span><span>7 AM – 8 PM</span></li>
-                        <li><span>Saturday</span><span>7 AM – 8 PM</span></li>
-                        <li><span>Sunday</span><span>7 AM – 8 PM</span></li>
-                    </ul>
-                    <p style="margin-top: 1rem; color: #666;">Serving Eustis, FL & Surrounding Areas</p>
                 </div>
-                
-                <div class="social-links">
-                    <a href="https://www.facebook.com/DiamondAutoSpaFL/" target="_blank">Facebook</a>
-                    <a href="https://www.google.com/search?q=Diamond+Auto+Spa+Detailing+Eustis+FL+reviews" target="_blank">Google Reviews</a>
+
+            <div class="contact-info-card reveal">
+                <h3>Get In Touch</h3>
                 </div>
-            </div>
     </section>
 
     <section>
-          <h2 class="section-title">See For Yourself</h2>
+          <h2 class="section-title reveal">See For Yourself</h2>
         
-        <div class="map-container">
+        <div class="map-container reveal">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56009.03057100184!2d-81.7258384489725!3d28.84501967207601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7b0e12b3e2cc3%3A0x1b181e3c55c3c66!2sEustis%2C%20FL%2032726!5e0!3m2!1sen!2sus!4v1732314141014!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>

@@ -34,6 +34,9 @@
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--main-bg-gray); /* Changed from white to Gray */
+
+            background-image: url('Diamond-Auto-Spa-Detailing-Tile.png');
+    background-repeat: repeat;
         }
 
         /* Apply "Medio" style font to headers and subtitles */
@@ -90,22 +93,27 @@
         }
 
         /* Desktop View */
+       /* Desktop View */
         .hero-desktop {
             display: flex; 
             min-height: 95vh;
-            /* Fix: Banner extends fully horizontally by removing min-width: 100vh;
-               and ensuring width: 100% on container and section. */
-           min-width: 100vw;
-            background-image: url('Diamond-Auto-Spa-Detailing0.png'); 
+            min-width: 100vw;
+            
+            /* wowzawowza */
+          /* background-image: url('Diamond-Auto-Spa-Detailing0.png'); */
+            
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-           align-items: flex-end;
-padding-bottom: 12vh;
+            align-items: flex-end;
+            padding-bottom: 12vh;
             justify-content: center;
             text-align: center;
             color: #fff;
             position: relative;
+            
+            /* no video spills out */
+            overflow: hidden; 
         }
         
         /* Overlay to make text readable on the banner image */
@@ -182,6 +190,16 @@ text-shadow: 2px 2px 8px rgba(0,0,0,0.7);        }
             background: var(--diamond-dark-blue);
             transform: translateY(-2px);
         }
+        /* --- NEW HERO VIDEO STYLES --- */
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is key: scales video to fill, cropping as needed */
+    z-index: 0;      /* Sits at the very bottom of the section */
+}
 
         /* Secondary buttons are now BLACK */
         .show-more-btn {

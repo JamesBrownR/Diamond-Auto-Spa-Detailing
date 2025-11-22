@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamond Auto Spa Detailing | Premium Mobile Detailing in Eustis, FL</title>
-   
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         :root {
             --diamond-blue: #5BA3C7;
             --diamond-dark-blue: #4A8BA8;
-
-            --main-bg-gray: #e6e6e6;
+            /* FIX: Use a cooler gray bg to make white cards pop */
+            --main-bg-gray: #f0f2f5; 
             --card-white: #ffffff;
-           
+            
             --charcoal: #3A4B52;
             --black: #000000;
             --text-dark: #2d3436;
         }
+
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Lato', sans-serif; 
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--main-bg-gray);
-            background-repeat: repeat;
+            background-color: var(--main-bg-gray); /* Changed to new gray */
         }
+
         h1, h2, h3, .section-title, .section-subtitle, nav a, footer p, .social-links {
             font-family: 'Playfair Display', serif;
         }
+
         /* Header */
         header {
-            background: linear-gradient(to right, var(--diamond-green), var(--diamond-dark-green));
+            background: var(--black);
             color: #ffffff;
             padding: 1rem 0;
             position: fixed;
@@ -46,6 +50,7 @@
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -55,12 +60,14 @@
             align-items: center;
             flex-wrap: wrap;
         }
+
         .phone-header {
             font-size: 1.3rem;
             color: #ffffff;
             text-decoration: none;
             transition: color 0.3s;
         }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
@@ -69,128 +76,118 @@
             font-weight: 500;
             font-size: 1.1rem;
         }
+
         nav a:hover {
-            color: var(--diamond-accent-gold);
+            color: var(--diamond-blue);
         }
-        /* Hero Section - Make it pop with 3D effects and vibrancy */
+
+       /* --- HERO SECTION (Reworked) --- */
         .hero-container {
-            margin-top: 60px;
+            margin-top: 60px; /* offset for fixed header */
             width: 100%;
         }
+
+        /* Desktop View */
         .hero-desktop {
-            display: flex;
+            display: flex; 
             min-height: 95vh;
             min-width: 100vw;
+            background-image: url('Diamond-Auto-Spa-Detailing0.png'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            align-items: center; /* Center vertically */
+            /* FIX: Center content instead of pushing it to the bottom */
+            align-items: center;
+            /* padding-bottom: 12vh; */ /* Removed */
             justify-content: center;
             text-align: center;
             color: #fff;
             position: relative;
-            overflow: hidden;
-            perspective: 1000px; /* For 3D effect */
         }
+        
+        /* Overlay to make text readable */
         .hero-desktop::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(76,175,80,0.3), rgba(0,0,0,0.6)); /* Green tint overlay */
+            /* FIX: Use a simple, consistent overlay */
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 1;
         }
-        .hero-video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            filter: brightness(1.1) contrast(1.2); /* Make video more vibrant */
-        }
+
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 900px;
             padding: 2rem;
-            transform-style: preserve-3d;
-            animation: popIn 1.5s ease-out;
         }
-        @keyframes popIn {
-            0% { transform: scale(0.8) rotateX(20deg); opacity: 0; }
-            100% { transform: scale(1) rotateX(0); opacity: 1; }
-        }
+
         .hero-logo-img {
-            max-width: 60%;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); /* 3D shadow */
-            animation: float 3s ease-in-out infinite;
+            min-width: 100vw;
+            margin-bottom: 1rem;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotateY(0deg); }
-            50% { transform: translateY(-10px) rotateY(5deg); }
-        }
+
         .hero-desktop h1 {
-            font-size: 3rem;
-            color: var(--diamond-accent-gold);
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 0 0 20px var(--diamond-light-green);
-        }
-        .hero-desktop p {
-            font-size: 1.8rem;
+            font-size: 2.4rem;
             color: #fff;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero-desktop p {
+            font-size: 1.5rem;
+            color: #ddd;
+            margin-bottom: 2rem;
             font-style: italic;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
+
+        /* Mobile View (Initially Hidden) */
         .hero-mobile {
-            display: none;
+            display: none; 
         }
+
+        /* Button Styles */
         .cta-button {
             display: inline-block;
-            padding: 1.2rem 3.5rem;
-            background: linear-gradient(to right, var(--diamond-green), var(--diamond-dark-green));
+            padding: 1rem 3rem;
+            background: var(--diamond-blue);
             color: #ffffff;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 2px 5px rgba(255,255,255,0.3); /* 3D button effect */
-            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
             font-family: 'Playfair Display', serif;
-            border-radius: 50px; /* Rounded for pop */
         }
-        .cta-button:hover {
-            background: linear-gradient(to right, var(--diamond-dark-green), var(--diamond-green));
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
-        .cta-bbutton {
+
+         .cta-bbutton {
             display: inline-block;
-            padding: 1.2rem 3.5rem;
-            background: linear-gradient(to right, var(--diamond-accent-blue), var(--diamond-green));
-            color: #ffffff;
+            padding: 1rem 3rem;
+            /* FIX: Make button blue and text white */
+            background: var(--diamond-blue);
+            color: #ffffff; 
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
             font-family: 'Playfair Display', serif;
-            border-radius: 50px;
         }
+        .cta-button:hover,
         .cta-bbutton:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            background: var(--diamond-dark-blue);
+            transform: translateY(-2px);
         }
+
         .show-more-btn {
             display: block;
             margin: 3rem auto;
             padding: 1rem 3rem;
-            background: var(--diamond-green);
+            background: var(--black); 
             color: white;
             border: none;
             cursor: pointer;
@@ -199,581 +196,637 @@
             transition: all 0.3s;
             text-transform: uppercase;
             font-family: 'Playfair Display', serif;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border-radius: 30px;
         }
+
         .show-more-btn:hover {
-            background: var(--diamond-dark-green);
-            transform: translateY(-2px) scale(1.02);
+            opacity: 0.8;
+            transform: translateY(-2px);
         }
+
+        /* --- Sections General --- */
         section {
-            padding: 4rem 2rem; /* More padding for depth */
+            padding: 2rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .section-title {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
             text-align: center;
-            color: var(--diamond-green);
+            color: var(--charcoal);
             position: relative;
-            padding-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            padding-bottom: 1rem;
         }
+
         .section-subtitle {
             text-align: center;
-            font-size: 1.6rem;
-            color: #444;
-            margin-bottom: 4rem;
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 3rem;
             font-style: italic;
         }
+
         .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(to right, var(--diamond-light-green), var(--diamond-green));
-            border-radius: 2px;
+            width: 100px;
+            height: 3px;
+            background: var(--diamond-blue);
         }
+
+     
         .highlight {
-            background: linear-gradient(to bottom, #ffffff, var(--diamond-light-green));
-            padding: 3rem;
-            margin: 2.5rem 0;
-            border-left: 8px solid var(--diamond-green);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1), inset 0 4px 10px rgba(255,255,255,0.5);
-            border-radius: 15px;
-            transform: perspective(1000px) rotateX(2deg);
+            background: var(--card-white); 
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-left: 6px solid var(--diamond-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 12px;
         }
-        .philosophy-section {
-            background: transparent;
-            padding-top: 3rem;
+
+       .philosophy-section {
+            background: transparent; 
+            padding-top: 2rem;
             position: relative;
         }
+
         .philosophy-content {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
             background: var(--card-white);
-            padding: 4rem 3rem;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            padding: 3rem 2rem;
             position: relative;
-            transform-style: preserve-3d;
         }
+
         .corner-accent {
             position: absolute;
-            width: 80px;
-            height: 80px;
-            border: 3px solid var(--diamond-green);
-            transition: all 0.3s;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--diamond-blue);
         }
+
         .corner-accent.top-left {
-            top: -10px;
-            left: -10px;
+            top: 20px;
+            left: 20px;
             border-right: none;
             border-bottom: none;
         }
+
         .corner-accent.bottom-right {
-            bottom: -10px;
-            right: -10px;
+            bottom: 20px;
+            right: 20px;
             border-left: none;
             border-top: none;
         }
-        .philosophy-content:hover .corner-accent {
-            transform: scale(1.1);
-        }
+
         .philosophy-content p {
-            font-size: 1.1rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.8;
             color: #4a5568;
             text-align: center;
         }
+
         .philosophy-divider {
-            width: 100px;
-            height: 3px;
-            background: var(--diamond-accent-gold);
-            margin: 1.5rem auto;
+            width: 80px;
+            height: 2px;
+            background: var(--diamond-blue);
+            margin: 1rem auto;
         }
+
         .philosophy-quote {
             font-style: italic;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             text-align: center;
-            color: var(--diamond-dark-green);
-            padding: 2.5rem;
-            background: var(--diamond-light-green);
-            border-radius: 8px;
+            color: #2d3748;
+            padding: 2rem;
+            background: #f7fafc;
+            border-radius: 4px;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
         }
+
         .experience-badges {
             display: flex;
             justify-content: center;
-            gap: 4rem;
-            padding-top: 3rem;
+            gap: 3rem;
+            padding-top: 2rem;
         }
+
         .badge {
             text-align: center;
-            transition: transform 0.3s;
         }
-        .badge:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
+
         .badge-number {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            color: var(--diamond-green);
+            color: var(--diamond-blue);
             line-height: 1;
             font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         .badge-text {
             font-weight: bold;
             text-transform: uppercase;
             font-family: 'Playfair Display', serif;
-            color: var(--charcoal);
+            justify-content: center;
         }
+
+        /* Card Styling */
         .service-card, .review-card, .philosophy-content, .contact-form-card, .contact-info-card {
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 20px 50px rgba(76,175,80,0.15); /* Green-tinted shadow */
-            transition: all 0.4s ease;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(58, 75, 82, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--card-white);
+            /* FIX: Add border for consistency */
+            border-top: 5px solid var(--diamond-blue);
         }
-        .service-card:hover, .review-card:hover {
-            transform: translateY(-15px) scale(1.03) rotateY(5deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 30px 60px rgba(76,175,80,0.2);
+
+        .service-card:hover, .review-card:hover, .contact-form-card:hover, .contact-info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07), 0 20px 50px rgba(58, 75, 82, 0.15);
         }
+        
+        /* Exception: philosophy card doesn't need blue border */
+        .philosophy-content {
+            border-top: none;
+        }
+        
         .service-icon {
-            color: var(--diamond-green);
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+            color: var(--diamond-blue);
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
         }
+        
+        /* --- Services --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
+
         .service-card {
-            background: linear-gradient(to bottom, #fff, var(--diamond-light-green));
-            padding: 2.5rem;
-            border-top: 6px solid var(--diamond-green);
+            padding: 2rem;
+            /* border-top: 5px solid var(--diamond-blue); (Now global) */
         }
+
         .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1.2rem;
-            color: var(--diamond-dark-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
         }
+
+        /* --- Gallery & Lightbox --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 280px;
-            gap: 1.5rem;
+            grid-auto-rows: 250px;
+            gap: 1rem;
         }
+
         .gallery-item {
             position: relative;
             overflow: hidden;
+            height: 100%;
+            width: 100%;
             cursor: pointer;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.4s;
+            border-radius: 12px;
         }
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(76,175,80,0.3);
-        }
+        
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+        .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 2; }
+        .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(8) { grid-column: span 2; }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s, filter 0.3s;
+            transition: transform 0.4s;
         }
+
         .gallery-item:hover img {
-            transform: scale(1.15);
-            filter: brightness(1.1);
+            transform: scale(1.1);
         }
-        /* Keep existing spans for dynamic layout */
+
+        /* Lightbox Modal */
         .lightbox {
             display: none;
             position: fixed;
             z-index: 2000;
+            padding-top: 50px;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.95);
-            animation: fadeIn 0.3s;
+            background-color: rgba(0,0,0,0.9);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        
         .lightbox-content {
             margin: auto;
             display: block;
-            width: 85%;
-            max-width: 1200px;
-            max-height: 85vh;
+            width: 80%;
+            max-width: 1000px;
+            max-height: 80vh;
             object-fit: contain;
-            border: 5px solid var(--diamond-green);
-            border-radius: 10px;
-            box-shadow: 0 0 30px var(--diamond-light-green);
         }
+
         .close-lightbox {
             position: absolute;
-            top: 20px;
-            right: 40px;
-            color: #fff;
-            font-size: 50px;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
             cursor: pointer;
         }
-        .close-lightbox:hover {
-            color: var(--diamond-accent-gold);
-        }
+
+        .hidden { display: none; }
+
+
+        /* --- Video Carousel --- */
         #videos {
-            padding: 4rem 0;
-            background: linear-gradient(to bottom, var(--main-bg-gray), #e8f5e9); /* Light green tint */
+            padding: 2rem 0;
         }
+
         .video-carousel-container {
             overflow-x: auto;
             white-space: nowrap;
-            padding: 1.5rem 2.5rem;
+            padding: 1rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            
             scrollbar-width: thin;
-            scrollbar-color: var(--diamond-green) var(--diamond-light-green);
+            scrollbar-color: var(--diamond-blue) var(--main-bg-gray);
         }
-        .video-carousel-container::-webkit-scrollbar {
-            height: 10px;
-        }
-        .video-carousel-container::-webkit-scrollbar-track {
-            background: var(--diamond-light-green);
-            border-radius: 5px;
-        }
-        .video-carousel-container::-webkit-scrollbar-thumb {
-            background-color: var(--diamond-green);
-            border-radius: 5px;
-        }
+
+        .video-carousel-container::-webkit-scrollbar { height: 8px; }
+        .video-carousel-container::-webkit-scrollbar-track { background: #eee; border-radius: 4px; }
+        .video-carousel-container::-webkit-scrollbar-thumb { background-color: var(--diamond-blue); border-radius: 4px; }
+
+
         .video-track {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
+
         .video-card {
             flex-shrink: 0;
-            width: 320px;
-            border-radius: 15px;
+            width: 300px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 20px 50px rgba(76,175,80,0.15);
-            transition: all 0.4s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(58, 75, 82, 0.1);
         }
-        .video-card:hover {
-            transform: translateY(-10px) scale(1.03);
-        }
+
         .video-card video {
             width: 100%;
             height: 100%;
             display: block;
         }
-      
 
-#reviews {
-    /* Remove old auto-scroll animation properties */
-    max-width: none;
-    width: 100%;
-    padding: 4rem 0;
-    background: #f4f7f6;
-    position: relative;
-    overflow: hidden; /* We hide overflow here */
-}
 
-/* This is the new main wrapper */
-.reviews-slider-wrapper {
-    position: relative;
-    max-width: 392px; /* 360px card + 2rem (32px) margin */
-    margin: 0 auto;
-}
+        /* --- REVIEWS (Reworked) --- */
+        #reviews {
+            max-width: none;
+            width: 100%;
+            padding: 4rem 0;
+            background: #f4f7f6;
+            position: relative;
+            overflow: hidden; /* Hide track overflow */
+        }
 
-/* This container clips the content */
-.reviews-slider-container {
-    width: 100%;
-    overflow: hidden; /* This hides the other slides */
-    padding: 2rem 0;
-    .review-card {
-    background: var(--card-white);
-    padding: 2rem;
-    width: 360px;   /* Fixed width for each card */
-    margin: 0 1rem; /* Space between cards */
-    flex-shrink: 0; /* Prevent cards from shrinking */
-}
+        #reviews .section-title,
+        #reviews .section-subtitle {
+            color: var(--charcoal);
+            position: relative; 
+            z-index: 2;
+        }
+        #reviews .section-title::after {
+            background: var(--diamond-blue);
+        }
+        
+        /* FIX: New Arrow Controls */
+        .reviews-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
 
-/* NEW: Arrow Button Styles */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    font-size: 1.5rem;
-    color: var(--charcoal);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .review-arrow {
+            background: var(--diamond-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2.5rem;
+            line-height: 48px; /* Vertically center arrow */
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            padding: 0; 
+            user-select: none; /* Prevent text selection */
+        }
 
-.slider-arrow:hover {
-    background-color: white;
-    color: var(--diamond-blue);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+        .review-arrow:hover {
+            background: var(--diamond-dark-blue);
+        }
 
-.slider-arrow:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
+        .review-arrow:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        /* Review Carousel Container */
+        .reviews-slider-container {
+            width: 100%;
+            overflow: hidden; /* This hides the parts of the track that are off-screen */
+            padding: 2rem 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
 
-#prevSlide {
-    left: -22px; /* Position half-way off the slider */
-}
-
-#nextSlide {
-    right: -22px; /* Position half-way off the slider */
-}
-
-/* NEW: Dot Navigation Styles */
-.slider-dots-container {
-    text-align: center;
-    padding-top: 1rem;
-}
-
-.slider-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.slider-dot.active {
-    background-color: var(--diamond-blue);
-}
-}
+        /* Review Track that moves */
         .reviews-track {
             display: flex;
             width: fit-content;
-            animation: scrollReviews 40s linear infinite;
+            /* FIX: Remove CSS animation, will be controlled by JS */
+            /* animation: scrollReviews 40s linear infinite; */
+            transition: transform 0.5s ease-in-out;
         }
-        @keyframes scrollReviews {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+
+        /* Removed @keyframes scrollReviews */
+
+        /* Style for individual review cards in the slider */
         .review-card {
-            background: linear-gradient(to bottom, #fff, #f9fff9);
-            padding: 2.5rem;
-            width: 380px;
-            margin: 0 1.5rem;
-            flex-shrink: 0;
-            border-left: 5px solid var(--diamond-green);
+            background: var(--card-white);
+            padding: 2rem;
+            width: 360px; /* Fixed width for each card */
+            margin: 0 1rem; /* Space between cards */
+            flex-shrink: 0; /* Prevent cards from shrinking */
         }
+
         .review-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             font-weight: bold;
             font-family: 'Playfair Display', serif;
         }
-        .stars { color: var(--diamond-accent-gold); font-size: 1.2rem; }
+        
+        .stars { color: #f1c40f; }
+
+        /* --- Contact Section --- */
         .contact-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: stretch;
         }
+
         .contact-form-card, .contact-info-card {
-            background: linear-gradient(to bottom, #fff, var(--diamond-light-green));
-            padding: 3rem;
+            background: var(--card-white);
+            padding: 2.5rem;
             flex: 1;
-            min-width: 320px;
+            min-width: 300px;
             display: flex;
             flex-direction: column;
+            /* border-top: 5px solid var(--diamond-blue); (Now global) */
         }
+
         .contact-form-card h3, .contact-info-card h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.8rem;
-            color: var(--diamond-dark-green);
-        }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--charcoal);
         }
+
+        .form-group { margin-bottom: 1.2rem; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 1.2rem;
-            border: 1px solid var(--diamond-light-green);
-            background: #f9fff9;
-            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            border-radius: 4px;
             font-family: inherit;
-            transition: border 0.3s;
         }
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--diamond-green);
-            box-shadow: 0 0 10px rgba(76,175,80,0.2);
+        
+        .form-group textarea { 
+            height: 150px; 
         }
-        .form-group textarea {
-            height: 180px;
-        }
+
         #contactForm button {
-            margin-top: auto;
+            margin-top: auto; 
             width: 100%;
         }
+
         .info-highlight {
-            padding: 0.5rem 0;
-            margin: 0.5rem 0;
-            border-top: 1px solid var(--diamond-light-green);
-            border-bottom: 1px solid var(--diamond-light-green);
-            background: rgba(200,230,201,0.3); /* Light green background */
+            padding: 0.3rem 0;
+            margin: 0.3rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
+
         .info-item {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
+        
+        /* FIX: Style for the newly clickable phone link */
+        .phone-link-bg {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--diamond-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .phone-link-bg:hover {
+            color: var(--diamond-dark-blue);
+        }
+
         .info-item strong {
             display: block;
-            font-size: 1.3rem;
-            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
             font-family: 'Playfair Display', serif;
-            color: var(--diamond-green);
         }
+
         .hours-list {
             list-style: none;
             width: 100%;
         }
+        
         .hours-list li {
             display: flex;
             justify-content: space-between;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--diamond-light-green);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
         }
+
         .social-links {
             margin-top: auto;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
+
         .social-links a {
             display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: linear-gradient(to right, var(--diamond-green), var(--diamond-dark-green));
+            padding: 1rem 2rem;
+            background: var(--diamond-blue);
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            border-radius: 30px;
+            transition: transform 0.2s;
         }
-        .social-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
+        
         .map-container {
-            margin-top: 2.5rem;
-            height: 450px;
+            margin-top: 2rem;
+            height: 400px;
             width: 100%;
-            border-radius: 15px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- Footer --- */
         footer {
-            background: linear-gradient(to right, var(--diamond-dark-green), var(--diamond-green));
-            color: #fff;
+            background: var(--black);
+            color: #888;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
         }
-        footer p {
-            margin-bottom: 0.6rem;
-            font-size: 1.1rem;
-        }
+        
+        footer p { margin-bottom: 0.5rem; }
+
+     /* --- MEDIA QUERIES (Mobile Specifics) --- */
         @media (max-width: 768px) {
-            .header-content nav a {
-                font-size: 0.95rem;
+            .header-content nav a { 
+                font-size: 0.9rem;
             }
+            
+            /* 1. Hide the Desktop Banner */
             .hero-desktop { display: none; }
+
+            /* 2. Show the Mobile Layout */
             .hero-mobile { display: block; }
+
             .mobile-logo-section {
                 background-color: white;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+            
             .mobile-logo-section img {
-                min-width: 100vw;
+               min-width: 100vw;
                 height: auto;
             }
+
+            /* FIX: Reworked mobile CTA to match desktop feel */
             .mobile-cta-section {
-                padding: 2.5rem 2rem;
+                padding: 2rem 1.5rem;
                 text-align: center;
-                border-bottom: 1px solid #ddd;
-                background: var(--diamond-light-green);
+                border-bottom: 1px solid #ccc;
+                /* New styles */
+                background-image: url('Diamond-Auto-Spa-Detailing0.png');
+                background-size: cover;
+                background-position: center;
+                position: relative;
             }
+            
+            .mobile-cta-section::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0, 0, 0, 0.6); /* Darker overlay for mobile */
+                z-index: 1;
+            }
+            
+            /* Make all content appear above the overlay */
+            .mobile-cta-section h1,
+            .mobile-cta-section p,
+            .mobile-cta-section .cta-button {
+                position: relative;
+                z-index: 2;
+            }
+            
+            /* Update text colors for readability */
             .mobile-cta-section h1 {
-                color: var(--diamond-dark-green);
-                font-size: 2.2rem;
-                margin-bottom: 1.8rem;
+                color: #ffffff; 
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
             }
+            
             .mobile-cta-section p {
-                font-size: 1.3rem;
-                margin-bottom: 2.5rem;
-                color: #555;
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                color: #ddd;
                 font-style: italic;
             }
-            .section-title { font-size: 2.5rem; }
+            /* End mobile CTA fix */
+            
+            .section-title { font-size: 2.2rem; }
+            
             .social-links a {
                 width: 100%;
-                margin-bottom: 0.6rem;
+                text-align: center;
+                margin-bottom: 0.5rem;
             }
+            
+            /* --- Responsive Gallery Grid --- */
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 220px;
+                grid-auto-rows: 200px;
             }
             .gallery-item:nth-child(n) {
                 grid-column: auto;
                 grid-row: auto;
             }
-            .gallery-item:nth-child(3), .gallery-item:nth-child(5) {
-                grid-column: span 2;
-            }
+            .gallery-item:nth-child(3) { grid-column: span 2; }
+            .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 1; }
+            
             .video-card {
-                width: 280px;
+                width: 250px;
+            }
+            
+            /* FIX: Make review cards smaller on mobile */
+            .review-card {
+                width: 300px;
             }
         }
-        @media (min-width: 769px) {
-            .hero-logo-img {
-                display: block; /* Keep logo visible */
-            }
+         @media (min-width: 769px) {
+             .hero-logo-img {
+                 display: none;
+             }
+             
+             .hero-desktop h1 {
+                 margin-top: 1rem;
+             }
         }
+     
     </style>
 </head>
 <body>
+
     <header>
         <div class="header-content">
             <a href="tel:+13529314860" class="phone-header">📞 +1 352-931-4860</a>
@@ -785,19 +838,16 @@
             </nav>
         </div>
     </header>
+
     <div class="hero-container">
-     <section class="hero-desktop">
-           
-            <video class="hero-video-bg" playsinline autoplay muted loop>
-                <source src="Diamond-Auto-Spa-Detailing.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <section class="hero-desktop">
             <div class="hero-content">
                 <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa" class="hero-logo-img">
                 <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-bbutton" style="color: #ffffff;" >Book Your Detail</a>
+                <a href="#contact" class="cta-bbutton">Book Your Detail</a>
             </div>
         </section>
+
         <section class="hero-mobile">
             <div class="mobile-logo-section">
                 <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa Logo">
@@ -808,27 +858,28 @@
             </div>
         </section>
     </div>
+
   <section id="about" class="philosophy-section">
     <h2 class="section-title">Our Philosophy</h2>
     <p class="section-subtitle">This isn't a "business", it's a passion.</p>
-   
+    
     <div class="philosophy-content">
         <div class="corner-accent top-left"></div>
         <div class="corner-accent bottom-right"></div>
-       
+        
         <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
-       
+        
         <div class="philosophy-divider"></div>
-       
+        
         <div class="philosophy-quote">
             "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."
         </div>
-       
+        
         <div class="philosophy-divider"></div>
-       
+        
         <p>Here, your car will be treated like a mural:<br>
             With precision, effort and genuine care.</p>
-       
+        
         <div class="experience-badges">
             <div class="badge">
                 <div class="badge-number">10+</div>
@@ -837,15 +888,17 @@
         </div>
     </div>
 </section>
-   
+
+
+    
     <section id="services">
     <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Your car deserves a quality, custom service.</p>
-       
+        
          <div class="highlight">
                 <h3>There are no cookie-cutter packages here. During our call, we understand your vehicle's specific needs (like pet hair removal or paint correction) to create a custom plan that delivers the best results... not just the fastest turnaround.</h3>
             </div>
-       
+        
         <div class="services-grid">
             <div class="service-card">
                 <h3>Exterior Detailing</h3>
@@ -859,7 +912,7 @@
             </div>
             <div class="service-card">
                 <h3>Paint Correction</h3>
-<svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19,8.6c0-0.83-0.67-1.5-1.5-1.5S16,7.77,16,8.6v3.28c-0.89-0.34-1.9-0.58-3-0.58s-2.11,0.24-3,0.58V2.5 C10,2.22,9.78,2,9.5,2S9,2.22,9,2.5v9.38C8.11,12.24,7.1,12.48,6,12.72V8.6c0-0.83-0.67-1.5-1.5-1.5S3,7.77,3,8.6v3.31 C2.39,12.21,2,12.59,2,13v2.88C2,17.05,2.95,18,4.12,18H8v2c0,1.1,0.9,2,2,2h4c1.1,0,2-0.9,2-2v-2h3.88c1.17,0,2.12-0.95,2.12-2.12 V13c0-0.41-0.39-0.79-1-0.69V8.6z M12,20c-0.55,0-1-0.45-1-1v-4h2v4C13,19.55,12.55,20,12,20z M20,15.88c0,0.06-0.06,0.12-0.12,0.12 H4.12C4.06,16,4,15.94,4,15.88V14h16V15.88z"></path></svg> <p>Professional multi-stage paint correction to eliminate swirl marks, scratches, and oxidation. We bring back your paint's original depth and brilliance.</p>
+<svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19,8.6c0-0.83-0.67-1.5-1.5-1.5S16,7.77,16,8.6v3.28c-0.89-0.34-1.9-0.58-3-0.58s-2.11,0.24-3,0.58V2.5 C10,2.22,9.78,2,9.5,2S9,2.22,9,2.5v9.38C8.11,12.24,7.1,12.48,6,12.72V8.6c0-0.83-0.67-1.5-1.5-1.5S3,7.77,3,8.6v3.31 C2.39,12.21,2,12.59,2,13v2.88C2,17.05,2.95,18,4.12,18H8v2c0,1.1,0.9,2,2,2h4c1.1,0,2-0.9,2-2v-2h3.88c1.17,0,2.12-0.95,2.12-2.12 V13c0-0.41-0.39-0.79-1-0.69V8.6z M12,20c-0.55,0-1-0.45-1-1v-4h2v4C13,19.55,12.55,20,12,20z M20,15.88c0,0.06-0.06,0.12-0.12,0.12 H4.12C4.06,16,4,15.94,4,15.88V14h16V15.88z"></path></svg>                <p>Professional multi-stage paint correction to eliminate swirl marks, scratches, and oxidation. We bring back your paint's original depth and brilliance.</p>
             </div>
             <div class="service-card">
                 <h3>Ceramic Coating</h3>
@@ -878,10 +931,11 @@
             </div>
         </div>
     </section>
+
     <section id="gallery">
     <h2 class="section-title">Results Speak For Themselves</h2>
     <p class="section-subtitle">Click any image to zoom in</p>
-   
+    
     <div class="gallery-grid">
         <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing1.png')">
             <img src="Diamond-Auto-Spa-Detailing1.png" alt="Detailing Work 1">
@@ -901,7 +955,7 @@
         <div class="gallery-item" onclick="openLightbox('Diamond-Auto-Spa-Detailing6.png')">
             <img src="Diamond-Auto-Spa-Detailing6.png" alt="Detailing Work 6">
         </div>
-       
+        
         <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing7.png')">
             <img src="Diamond-Auto-Spa-Detailing7.png" alt="Detailing Work 7">
         </div>
@@ -917,77 +971,78 @@
         <div class="gallery-item hidden" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing11.png')">
             <img src="Diamond-Auto-Spa-Detailing11.png" alt="Detailing Work 11">
         </div>
-    </div>
+    </div> 
     <button class="show-more-btn" id="galleryBtn">Show More Work</button>
     <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
 </section>
+
     <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-lightbox">×</span>
         <img class="lightbox-content" id="lightboxImg">
     </div>
+
 <section id="videos">
     <h2 class="section-title">See The Transformation</h2>
     <p class="section-subtitle">Real results, real shine.</p>
+
     <div class="video-carousel-container">
         <div class="video-track">
             <div class="video-card">
                 <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
+                    <source src="path/to/your-video1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="video-card">
                 <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
+                    <source src="path/to/your-video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="video-card">
                 <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
+                    <source src="path/to/your-video3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="video-card">
                 <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
+                    <source src="path/to/your-video4.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="video-card">
                 <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
+                    <source src="path/to/your-video5.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
             </div>
     </div>
 </section>
- <section id="reviews">
-    <h2 class="section-title">What Our Clients Say</h2>
-    <p class="section-subtitle">We can tell you... or they could.</p>
 
-    <div class="reviews-slider-wrapper">
 
+  <section id="reviews">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">We can tell you... or they could.</p>
+        
+        <div class="reviews-controls">
+            <button id="prevReview" class="review-arrow" aria-label="Previous reviews">‹</button>
+            <button id="nextReview" class="review-arrow" aria-label="Next reviews">›</button>
+        </div>
+        
         <div class="reviews-slider-container">
             <div class="reviews-track" id="reviewsTrack">
                 </div>
         </div>
+    </section>
 
-        <button class="slider-arrow" id="prevSlide" aria-label="Previous Review">❮</button>
-        <button class="slider-arrow" id="nextSlide" aria-label="Next Review">❯</button>
-
-        <div class="slider-dots-container" id="sliderDots">
-            </div>
-
-    </div>
-</section>
     <section id="contact">
     <h2 class="section-title">Your Vehicle</h2>
         <p class="section-subtitle">Every car has different needs. Let's find yours.</p>
-       
+        
         <div class="contact-container">
-           
+            
             <div class="contact-form-card">
                 <h3>Send Us a Message</h3>
                 <form id="contactForm">
@@ -1008,16 +1063,18 @@
                         <textarea id="message" name="message" required placeholder="What type of vehicle do you have? Any specific concerns?"></textarea>
                     </div>
                     <button type="submit" class="cta-button">Send Message</button>
-                </form>
+                    </form>
             </div>
+
             <div class="contact-info-card">
-           
+            
     <h3>Get In Touch</h3>
-   
+    
     <div class="info-item info-highlight">
         <strong style="font-size: 1.2rem;">Call Us:</strong>
-        <a class="phone-link-bg">+1 352-931-4860</a>
+        <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
     </div>
+
     <div class="info-item" style="flex-grow: 1;">
                     <strong>Hours</strong>
                     <ul class="hours-list">
@@ -1031,24 +1088,27 @@
                     </ul>
                     <p style="margin-top: 1rem; color: #666;">Serving Eustis, FL & Surrounding Areas</p>
                 </div>
-               
+                
                 <div class="social-links">
                     <a href="https://www.facebook.com/DiamondAutoSpaFL/" target="_blank">Facebook</a>
-                    <a href="https://www.google.com/maps/place/Diamond+Auto+Spa+Detailing+LLC+(Mobile+Detailing)/@28.8284556,-81.6630975,15z/data=!4m16!1m9!3m8!1s0x633aba09e3aa902f:0x2093d558f59879d7!2sDiamond+Auto+Spa+Detailing+LLC+(Mobile+Detailing)!8m2!3d28.8284372!4d-81.6527978!9m1!1b1!16s%2Fg%2F11lzkzbff_!3m5!1s0x633aba09e3aa902f:0x2093d558f59879d7!8m2!3d28.8284372!4d-81.6527978!16s%2Fg%2F11lzkzbff_?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">Google Reviews</a>
+                    <a href="https://www.google.com/search?q=Diamond+Auto+Spa+Detailing+Eustis+FL+reviews" target="_blank">Google Reviews</a>
                 </div>
-           
-        </div>
-</section>
+            </div>
+    </section>
+
     <section>
           <h2 class="section-title">See For Yourself</h2>
-       
+        
         <div class="map-container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3495.3498740349246!2d-81.65766335247216!3d28.82844181234607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x633aba09e3aa902f%3A0x2093d558f59879d7!2sDiamond%20Auto%20Spa%20Detailing%20LLC%20(Mobile%20Detailing)!5e0!3m2!1sen!2sus!4v1763603969324!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56009.03057100184!2d-81.7258384489725!3d28.84501967207601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7b0e12b3e2cc3%3A0x1b181e3c55c3c66!2sEustis%2C%20FL%2032726!5e0!3m2!1sen!2sus!4v1732314141014!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </section>
+
     <footer>
         <p>© 2023 Diamond Auto Spa Detailing. All rights reserved.</p>
         <p>Where Detailing Becomes an Art Form | Eustis, FL</p>
     </footer>
+
     <script>
         // --- Lightbox Logic ---
         function openLightbox(imgSrc) {
@@ -1057,304 +1117,91 @@
             modal.style.display = "flex";
             modalImg.src = imgSrc;
         }
+
         function closeLightbox() {
             document.getElementById("myLightbox").style.display = "none";
         }
+
         // --- Reviews Data ---
         const reviews = [
-    {
-        "name": "Johnson Pamela",
-        "rating": 5,
-        "body": "Made my CRV look like brand new. thank you so much. I recommend diamond Auto spa detailing to everyone"
-    },
-    {
-        "name": "Lacy Shaffer",
-        "rating": 5,
-        "body": "Great work. Great personality. Very professional. Highly recommend"
-    },
- 
-    {
-        "name": "Chase Bean",
-        "rating": 5,
-        "body": "He made my 2020 ram 1500 limited look better then when I bought it from the dealership."
-    },
-    {
-        "name": "Krista Etter",
-        "rating": 5,
-        "body": "Andrew detailed both my Camaro and my 2500 Silverado. They look just like they did, if not better than when they came off the showroom floor. Amazing job!!! Will definitely keep using him."
-    },
-    {
-        "name": "Laura Brummett-Benbow",
-        "rating": 5,
-        "body": "Detailed my husband's 2500 Dodge Ram work truck. The truck was covered in dust, pollen and dirt. Did an amazing job! The truck smells great and looks brand new! We highly recommend!"
-    },
-    {
-        "name": "Lyndsey Tagliente",
-        "rating": 5,
-        "body": "Detailed my suv today and did a great job! Very reasonably priced too. Highly recommend"
-    },
-    {
-        "name": "Brook Mckelvy",
-        "rating": 5,
-        "body": "Amazing job! Goes above and beyond!! My jeep still looks great over a week later"
-    },
-    {
-        "name": "Nicole Griffin",
-        "rating": 5,
-        "body": "I have a busy life with 3 kids, school, full time job, homework, soccer, dinner, household duties so I have absolutely no time to clean my car but let me just say hiring Andrew to clean my car was the best choice I could have made! He did an absolute OUTSTANDING job! It looks like a brand new car & that I just pulled off the lot with! I couldn’t have had a better person come and do what I couldn’t! I would definitely use him again and a 5 star rating isn’t good enough for the amazing work he did! 10/10 !!"
-    },
-    {
-        "name": "April Thomas",
-        "rating": 5,
-        "body": "I had my car done by Andrew he was very professional and personable. My car looks better than when I bought it! Highly recommend Diamond auto spa."
-    },
-    {
-        "name": "Kenzi Attaway",
-        "rating": 5,
-        "body": "My car looks amazing! Very professional and personable and did such a thorough job. Will definitely be back!"
-    },
-              {
-        "name": "Chelsea Tomlinson",
-        "rating": 5,
-        "body": "I recently took my Ford F-150 to Diamond Auto Spa for a full detailing, and I couldn't be more impressed with the results! They meticulously cleaned every part of the interior—vacuuming the carpets and upholstery, and wiping down the dashboard and consoles with care. The customer service was top-notch, and the attention to detail was exactly what I was looking for. Andrew was punctual and friendly, I also love that he offers mobile detailing, so I didn’t have to take time out of my day to drop the truck off. I highly recommend Diamond Auto Spa for anyone with a Ford F-150 or any vehicle."
-    },
-    {
-        "name": "Jacque Bennett",
-        "rating": 5,
-        "body": "My car looks amazing this company did a phenomenal job. It was super convenient he came to my work to detail it, I didn’t have to travel or wait like with most retailers. 1000% will be using his services again. Got in all the crevices didn’t leave any dust behind. Thank you again"
-    },
-    {
-        "name": "Cindy Joyce",
-        "rating": 5,
-        "body": "I highly recommend Diamond Auto Spa... I just had my car detailed today and it looks amazing! It didn't even look this good the day I brought it home from the dealership! Perfection at its best!"
-    },
-    {
-        "name": "Tj Nevins",
-        "rating": 5,
-        "body": "Just got my vehicle done by diamond auto spa. Very happy with the outcome of the detail. Andrew was very professional and I highly recommend"
-    },
-    {
-        "name": "Katrena Murphy Kalmbach",
-        "rating": 5,
-        "body": "My SUV is used as a farm vehicle from hauling hay and feed to fishing and 3 kids. I have had many people tell me that they could deep clean my car and the only person to be able to fulfill that has been Andrew from Diamond Auto Spa. My car looked like it just came out of the dealership. Very reasonable price and very professional and keeps his word. I will never go anywhere else again! Thank you!"
-    },
-    {
-        "name": "Michelle Selley",
-        "rating": 5,
-        "body": "Does a great job,takes his time, very personal will treat your vehicle like it’s his own. recommend highly !!!! Five"
-    },
-    {
-        "name": "Tony Bonasota",
-        "rating": 5,
-        "body": "Definitely did a great job on my car, he’s very personable and very reasonably priced definitely give him a call."
-    },
-    {
-        "name": "Jonathan Wilson (Google)",
-        "rating": 5,
-        "body": "The professionalism and passion comes through in his work. Andrew took care of both my cars. One was pretty oxidized and when he was done the deep reds were back the trim all looked brand new, the interior looked stunning as well. My other SUV he brought the headlights back to life they’re crystal clear again. Honestly I cannot recommend him enough."
-    },
-    {
-        "name": "michael wint",
-        "rating": 5,
-        "body": "Diamond Auto Spa did an amazing job, Andrew was super nice and easy to talk to. My truck looks great, and I'm well pleased with his leaving of expertise. I highly recommend Diamond Auto spa."
-    },
-    {
-        "name": "Nicole Selley",
-        "rating": 5,
-        "body": "I’ve had my car detailed MANY times by Andrew & let me just say this, he NEVER disappoints. I have a white SUV and live in florida, so you already know how hard it is to keep a white car clean between rain, dirt, pollen, and yes, 3 kids, yet he always has my car looking like I just pulled it out of the GMC parking lot. Shiny and brand new! He pays attention to every little detail whether it’s the inside or outside, so if you’re looking to get your vehicle detailed he’s definitely the go to person for the job! Big or small. I’ll never go anywhere else to get my car detailed."
-    },
-    {
-        "name": "Brandon Sardinha",
-        "rating": 5,
-        "body": "I highly recommend this company. Andrew was very professional, he provided an outstanding service going above & beyond cleaning the interior of my work truck. The attention to detail in every aspect was simply outstanding, it is very hard to find someone who takes this much pride in their work! I have already scheduled another vehicle to be done."
-    },
-    {
-        "name": "Charles Tubbs",
-        "rating": 5,
-        "body": "Diamond auto came out to detail my Durango from 2002 with a tan interior recently. After he arrived on site and giving me a very fair deal on a detail, he gave me a better suggestion without changing the price making my vehicle look better than it would have if you had simply just done what I had asked. I appreciate and respect, his professional opinion no matter what as I can guarantee he will always give you the best bang for your buck to guarantee the best service possum. Thank you again!"
-    },
-    {
-        "name": "Roxanne Broecker",
-        "rating": 5,
-        "body": "Andrew did an amazing job!!!! He did the interior of shampooing the carpet and seats They look amazing!! Andrew was very courteous and very honest and takes pride in his work. My 2000 F250 has never looked better. Will definitely have him do my vehicles again!! ❤️"
-    },
-    {
-        "name": "Tim Groves",
-        "rating": 5,
-        "body": "Super responsive. He worked all day and didn’t take a break. Everything came out looking fabulous. I would highly recommend."
-    },
-    {
-        "name": "Kasey Harbison",
-        "rating": 5,
-        "body": "We could not be happier with our vehicles. Andrew worked from 8-5pm at our office on our company fleet cars and my personal truck. Absolutely hard work as I know nothing was in good shape and everything came out looking brand new! We will be calling him again!"
-    },
-    {
-        "name": "Miranda Davis",
-        "rating": 5,
-        "body": "Andrew did an amazing job on my car! He was quickly responsive and I really appreciate his attention to detail when it came to the stains on the seats. I got this car used and in very poor condition, but he made the seats and carpets look incredible!"
-    },
-    {
-        "name": "Kathy Thomas",
-        "rating": 5,
-        "body": "Andrew has done a fabulous job on my car many times. He spends the time to touch every detail. And very knowledgeable what needs to be done. And affordable. Each time he has done my car, it looks like a brand new car. The shine lasts for a good full month."
-    },
-    {
-        "name": "Blake Griffin",
-        "rating": 5,
-        "body": "Andrew and his company were very professional, and personable. He communicated the pricing and the extent of the work being done had consisted of. He’s the only one I trust to work on mine and my wife’s vehicles. 100% recommend, Always does an amazing job, this young man is going places!"
-    },
-    {
-        "name": "Taylor Stokes",
-        "rating": 5,
-        "body": "Highly recommend for mobile detailing needs! Super responsive, communicative and showed up on time. My car looked shiny and brand new after he was done!!"
-    },
-    {
-        "name": "Pool Gator pool service",
-        "rating": 5,
-        "body": "Andrew is the best vehicle detailer I have ever had. He has been doing our cars, boat, and Harley for at least a year now. He is very reliable and very detailed oriented. He has great communication with … More"
-    },
-    {
-        "name": "James P. Chappell, III",
-        "rating": 5,
-        "body": "I had Andrew with Diamond complete a full detail of my work truck at my house. He did an insanely thorough job and was super accommodating to my schedule. He spent a lot of time to get it perfect and even threw in some extras. His mobile … More"
-    },
-    {
-        "name": "Marisa Vicente",
-        "rating": 5,
-        "body": "Andrew was truly amazing he made my car looking like a brand new car . He took his time and make sure the job was done! Looking forward to seeing you again 😀 Thank you ! …"
-    },
-    {
-        "name":"Kipra345",
-        "rating": 5,
-        "body": "Diamond Auto Spa I highly recommend! Very efficient work, pays very close attention to every detail, and takes the time to make sure nothing was missed. Absolutely love how my car shines like a diamond"
-    },
-    {
-        "name": "ryan bozman",
-        "rating": 5,
-        "body": "Absolutely great experience. I appreciate the professionalism and attention to detail provided. I will definitely be back for additional services in the future."
-    },
-    {
-        "name": "Mark",
-        "rating": 5,
-        "body": "Andrew did an amazing job on my ford focus SVT. The paint looks immaculate and the interior is like it came off the factory floor. I would recommend Andrew for any and all of your car detailing needs."
-    },
-    {
-        "name": "Jean Flanders",
-        "rating": 5,
-        "body": "Andrew went above and beyond! Excellent customer service as well as excellent quality of work! Excellent experience for sure! Highly recommend!"
-    },
-    {
-        "name": "Kelly Carpenter",
-        "rating": 5,
-        "body": "Andrew is the best detailer I've had do my vehicle, on time and very professional highly recommend. Thank you for a great job."
-    },
-    {
-        "name": "Tabatha Wilson",
-        "rating": 5,
-        "body": "Diamond Auto Spa did a great job on your car. I only thought it was clean until he was done!! Fantastic job!!!"
-    },
-    {
-        "name": "Jasmin Rodriguez",
-        "rating": 5,
-        "body": "Very professional and easy to work with. My car looks almost new! Would definitely use him again. 😆 …"
-    },
-    {
-        "name": "Phillip Pearson",
-        "rating": 5,
-        "body": "Did an outstanding job on my wife's car definitely having him come back and do my other cars as well Made it look just like it did when it rolled off the assembly line."
-    },
-    {
-        "name": "Brenda Shonyo",
-        "rating": 5,
-        "body": "My car was a dirty mess, both inside and out…I was so pleased with how like new it looked afterwards…very professional and friendly, I highly recommend this service to everyone…Thank you"
-    },
-    {
-        "name": "Kyle Willman",
-        "rating": 5,
-        "body": "Top notch service on both my vehicles as well as my boat. His attention to detail is sublime. Highly recommend."
-    },
-    {
-        "name": "Jessica Huffman",
-        "rating": 5,
-        "body": "Andrew detailed my car again and did great work. My seats look and smell brand new!"
-    },
-    {
-        "name": "Krista Etter",
-        "rating": 5,
-        "body": "Great service. On time. Only person I trust to detail my vehicles! Highly recommend."
-    },
-    {
-        "name": "Kristina Selley",
-        "rating": 5,
-        "body": "He does an amazing job detailing cars & makes sure you're happy with it."
-    },
-    {
-        "name": "John Deschene",
-        "rating": 5,
-        "body": "Excellent Quality Service. I would recommend Andrew to detail your automobile. Fantastic detailed work."
-    },
-    {
-        "name": "Dallas Craine",
-        "rating": 5,
-        "body": "Does Great work my trucks never looked better highly recommended"
-    },
-    {
-        "name": "Kali Roberts",
-        "rating": 5,
-        "body": "Amazing detailing of our family’s van! Would highly recommend!!"
-    },
-    {
-        "name":"Felecia Humphrey",
-        "rating": 5,
-        "body": "Excellent service and job!! Will use again for sure!"
-    },
-    {
-        "name": "Richard craig",
-        "rating": 5,
-        "body": "Very detailed and Thorough with the cleaning. Very impressed about the outcome!"
-    },
-    {
-        "name": "Larry Lindsey",
-        "rating": 5,
-        "body": "Very professional approach and service. Would highly recommend."
-    },
-    {
-        "name": "Francesco Saavedra",
-        "rating": 5,
-        "body": "Amazing work with great price and precision!"
-    },
-    {
-        "name": "Mark Duncan",
-        "rating": 5,
-        "body": "Great job"
-    },
-    {
-        "name": "Lynikia Hopkins",
-        "rating": 5,
-        "body": "Great job on all my vehicles"
-    },
-    {
-        "name": "skatetheworld 1314",
-        "rating": 5,
-        "body": "Quality work and efficient"
-    },
-    {
-        "name": "Jeremy Santiago",
-        "rating": 5,
-        "body": ""
-    },
-    {
-        "name": "Mike G",
-        "rating": 4,
-        "body": "Showed up on time and did exactly what was discussed. Amazing job. Highly recommended will definitely be using for the rest of my vehicles."
-    },
-    {
-        "name": "colton craine",
-        "rating": 4,
-        "body": "Shows up on time excellent work makes cars look new again would highly recommend we will be using for years to come!!!!!"
-    }
-];
+            { "name": "Johnson Pamela", "rating": 5, "body": "Made my CRV look like brand new. thank you so much. I recommend diamond Auto spa detailing to everyone" },
+            { "name": "Lacy Shaffer", "rating": 5, "body": "Great work. Great personality. Very professional. Highly recommend" },
+            { "name": "Chase Bean", "rating": 5, "body": "He made my 2020 ram 1500 limited look better then when I bought it from the dealership." },
+            { "name": "Krista Etter", "rating": 5, "body": "Andrew detailed both my Camaro and my 2500 Silverado. They look just like they did, if not better than when they came off the showroom floor. Amazing job!!! Will definitely keep using him." },
+            { "name": "Laura Brummett-Benbow", "rating": 5, "body": "Detailed my husband's 2500 Dodge Ram work truck. The truck was covered in dust, pollen and dirt. Did an amazing job! The truck smells great and looks brand new! We highly recommend!" },
+            { "name": "Lyndsey Tagliente", "rating": 5, "body": "Detailed my suv today and did a great job! Very reasonably priced too. Highly recommend" },
+            { "name": "Brook Mckelvy", "rating": 5, "body": "Amazing job! Goes above and beyond!! My jeep still looks great over a week later" },
+            { "name": "Nicole Griffin", "rating": 5, "body": "I have a busy life with 3 kids, school, full time job, homework, soccer, dinner, household duties so I have absolutely no time to clean my car but let me just say hiring Andrew to clean my car was the best choice I could have made! He did an absolute OUTSTANDING job! It looks like a brand new car & that I just pulled off the lot with! I couldn’t have had a better person come and do what I couldn’t! I would definitely use him again and a 5 star rating isn’t good enough for the amazing work he did! 10/10 !!" },
+            { "name": "April Thomas", "rating": 5, "body": "I had my car done by Andrew he was very professional and personable. My car looks better than when I bought it! Highly recommend Diamond auto spa." },
+            { "name": "Kenzi Attaway", "rating": 5, "body": "My car looks amazing! Very professional and personable and did such a thorough job. Will definitely be back!" },
+            { "name": "Chelsea Tomlinson", "rating": 5, "body": "I recently took my Ford F-150 to Diamond Auto Spa for a full detailing, and I couldn't be more impressed with the results! They meticulously cleaned every part of the interior—vacuuming the carpets and upholstery, and wiping down the dashboard and consoles with care. The customer service was top-notch, and the attention to detail was exactly what I was looking for. Andrew was punctual and friendly, I also love that he offers mobile detailing, so I didn’t have to take time out of my day to drop the truck off. I highly recommend Diamond Auto Spa for anyone with a Ford F-150 or any vehicle." },
+            { "name": "Jacque Bennett", "rating": 5, "body": "My car looks amazing this company did a phenomenal job. It was super convenient he came to my work to detail it, I didn’t have to travel or wait like with most retailers. 1000% will be using his services again. Got in all the crevices didn’t leave any dust behind. Thank you again" },
+            { "name": "Cindy Joyce", "rating": 5, "body": "I highly recommend Diamond Auto Spa... I just had my car detailed today and it looks amazing! It didn't even look this good the day I brought it home from the dealership! Perfection at its best!" },
+            { "name": "Tj Nevins", "rating": 5, "body": "Just got my vehicle done by diamond auto spa. Very happy with the outcome of the detail. Andrew was very professional and I highly recommend" },
+            { "name": "Katrena Murphy Kalmbach", "rating": 5, "body": "My SUV is used as a farm vehicle from hauling hay and feed to fishing and 3 kids. I have had many people tell me that they could deep clean my car and the only person to be able to fulfill that has been Andrew from Diamond Auto Spa. My car looked like it just came out of the dealership. Very reasonable price and very professional and keeps his word. I will never go anywhere else again! Thank you!" },
+            { "name": "Michelle Selley", "rating": 5, "body": "Does a great job,takes his time, very personal will treat your vehicle like it’s his own. recommend highly !!!! Five" },
+            { "name": "Tony Bonasota", "rating": 5, "body": "Definitely did a great job on my car, he’s very personable and very reasonably priced definitely give him a call." },
+            { "name": "Jonathan Wilson (Google)", "rating": 5, "body": "The professionalism and passion comes through in his work. Andrew took care of both my cars. One was pretty oxidized and when he was done the deep reds were back the trim all looked brand new, the interior looked stunning as well. My other SUV he brought the headlights back to life they’re crystal clear again. Honestly I cannot recommend him enough." },
+            { "name": "michael wint", "rating": 5, "body": "Diamond Auto Spa did an amazing job, Andrew was super nice and easy to talk to. My truck looks great, and I'm well pleased with his leaving of expertise. I highly recommend Diamond Auto spa." },
+            { "name": "Nicole Selley", "rating": 5, "body": "I’ve had my car detailed MANY times by Andrew & let me just say this, he NEVER disappoints. I have a white SUV and live in florida, so you already know how hard it is to keep a white car clean between rain, dirt, pollen, and yes, 3 kids, yet he always has my car looking like I just pulled it out of the GMC parking lot. Shiny and brand new! He pays attention to every little detail whether it’s the inside or outside, so if you’re looking to get your vehicle detailed he’s definitely the go to person for the job! Big or small. I’ll never go anywhere else to get my car detailed." },
+            { "name": "Brandon Sardinha", "rating": 5, "body": "I highly recommend this company. Andrew was very professional, he provided an outstanding service going above & beyond cleaning the interior of my work truck. The attention to detail in every aspect was simply outstanding, it is very hard to find someone who takes this much pride in their work! I have already scheduled another vehicle to be done." },
+            { "name": "Charles Tubbs", "rating": 5, "body": "Diamond auto came out to detail my Durango from 2002 with a tan interior recently. After he arrived on site and giving me a very fair deal on a detail, he gave me a better suggestion without changing the price making my vehicle look better than it would have if you had simply just done what I had asked. I appreciate and respect, his professional opinion no matter what as I can guarantee he will always give you the best bang for your buck to guarantee the best service possum. Thank you again!" },
+            { "name": "Roxanne Broecker", "rating": 5, "body": "Andrew did an amazing job!!!! He did the interior of shampooing the carpet and seats They look amazing!! Andrew was very courteous and very honest and takes pride in his work. My 2000 F250 has never looked better. Will definitely have him do my vehicles again!! ❤️" },
+            { "name": "Tim Groves", "rating": 5, "body": "Super responsive. He worked all day and didn’t take a break. Everything came out looking fabulous. I would highly recommend." },
+            { "name": "Kasey Harbison", "rating": 5, "body": "We could not be happier with our vehicles. Andrew worked from 8-5pm at our office on our company fleet cars and my personal truck. Absolutely hard work as I know nothing was in good shape and everything came out looking brand new! We will be calling him again!" },
+            { "name": "Miranda Davis", "rating": 5, "body": "Andrew did an amazing job on my car! He was quickly responsive and I really appreciate his attention to detail when it came to the stains on the seats. I got this car used and in very poor condition, but he made the seats and carpets look incredible!" },
+            { "name": "Kathy Thomas", "rating": 5, "body": "Andrew has done a fabulous job on my car many times. He spends the time to touch every detail. And very knowledgeable what needs to be done. And affordable. Each time he has done my car, it looks like a brand new car. The shine lasts for a good full month." },
+            { "name": "Blake Griffin", "rating": 5, "body": "Andrew and his company were very professional, and personable. He communicated the pricing and the extent of the work being done had consisted of. He’s the only one I trust to work on mine and my wife’s vehicles. 100% recommend, Always does an amazing job, this young man is going places!" },
+            { "name": "Taylor Stokes", "rating": 5, "body": "Highly recommend for mobile detailing needs! Super responsive, communicative and showed up on time. My car looked shiny and brand new after he was done!!" },
+            { "name": "Pool Gator pool service", "rating": 5, "body": "Andrew is the best vehicle detailer I have ever had. He has been doing our cars, boat, and Harley for at least a year now. He is very reliable and very detailed oriented. He has great communication with … More" },
+            { "name": "James P. Chappell, III", "rating": 5, "body": "I had Andrew with Diamond complete a full detail of my work truck at my house. He did an insanely thorough job and was super accommodating to my schedule. He spent a lot of time to get it perfect and even threw in some extras. His mobile … More" },
+            { "name": "Marisa Vicente", "rating": 5, "body": "Andrew was truly amazing he made my car looking like a brand new car . He took his time and make sure the job was done! Looking forward to seeing you again 😀 Thank you ! …" },
+            { "name":"Kipra345", "rating": 5, "body": "Diamond Auto Spa I highly recommend! Very efficient work, pays very close attention to every detail, and takes the time to make sure nothing was missed. Absolutely love how my car shines like a diamond" },
+            { "name": "ryan bozman", "rating": 5, "body": "Absolutely great experience. I appreciate the professionalism and attention to detail provided. I will definitely be back for additional services in the future." },
+            { "name": "Mark", "rating": 5, "body": "Andrew did an amazing job on my ford focus SVT. The paint looks immaculate and the interior is like it came off the factory floor. I would recommend Andrew for any and all of your car detailing needs." },
+            { "name": "Jean Flanders", "rating": 5, "body": "Andrew went above and beyond! Excellent customer service as well as excellent quality of work! Excellent experience for sure! Highly recommend!" },
+            { "name": "Kelly Carpenter", "rating": 5, "body": "Andrew is the best detailer I've had do my vehicle, on time and very professional highly recommend. Thank you for a great job." },
+            { "name": "Tabatha Wilson", "rating": 5, "body": "Diamond Auto Spa did a great job on your car. I only thought it was clean until he was done!! Fantastic job!!!" },
+            { "name": "Jasmin Rodriguez", "rating": 5, "body": "Very professional and easy to work with. My car looks almost new! Would definitely use him again. 😆 …" },
+            { "name": "Phillip Pearson", "rating": 5, "body": "Did an outstanding job on my wife's car definitely having him come back and do my other cars as well Made it look just like it did when it rolled off the assembly line." },
+            { "name": "Brenda Shonyo", "rating": 5, "body": "My car was a dirty mess, both inside and out…I was so pleased with how like new it looked afterwards…very professional and friendly, I highly recommend this service to everyone…Thank you" },
+            { "name": "Kyle Willman", "rating": 5, "body": "Top notch service on both my vehicles as well as my boat. His attention to detail is sublime. Highly recommend." },
+            { "name": "Jessica Huffman", "rating": 5, "body": "Andrew detailed my car again and did great work. My seats look and smell brand new!" },
+            { "name": "Krista Etter", "rating": 5, "body": "Great service. On time. Only person I trust to detail my vehicles! Highly recommend." },
+            { "name": "Kristina Selley", "rating": 5, "body": "He does an amazing job detailing cars & makes sure you're happy with it." },
+            { "name": "John Deschene", "rating": 5, "body": "Excellent Quality Service. I would recommend Andrew to detail your automobile. Fantastic detailed work." },
+            { "name": "Dallas Craine", "rating": 5, "body": "Does Great work my trucks never looked better highly recommended" },
+            { "name": "Kali Roberts", "rating": 5, "body": "Amazing detailing of our family’s van! Would highly recommend!!" },
+            { "name":"Felecia Humphrey", "rating": 5, "body": "Excellent service and job!! Will use again for sure!" },
+            { "name": "Richard craig", "rating": 5, "body": "Very detailed and Thorough with the cleaning. Very impressed about the outcome!" },
+            { "name": "Larry Lindsey", "rating": 5, "body": "Very professional approach and service. Would highly recommend." },
+            { "name": "Francesco Saavedra", "rating": 5, "body": "Amazing work with great price and precision!" },
+            { "name": "Mark Duncan", "rating": 5, "body": "Great job" },
+            { "name": "Lynikia Hopkins", "rating": 5, "body": "Great job on all my vehicles" },
+            { "name": "skatetheworld 1314", "rating": 5, "body": "Quality work and efficient" },
+            { "name": "Jeremy Santiago", "rating": 5, "body": "" },
+            { "name": "Mike G", "rating": 4, "body": "Showed up on time and did exactly what was discussed. Amazing job. Highly recommended will definitely be using for the rest of my vehicles." },
+            { "name": "colton craine", "rating": 4, "body": "Shows up on time excellent work makes cars look new again would highly recommend we will be using for years to come!!!!!" }
+        ];
+
+        /*
+        ==================================================================
+            NEW REVIEWS CAROUSEL SCRIPT (JS-DRIVEN)
+            - Replaces the old CSS animation
+            - Adds arrow controls
+            - Adds slow (5s) autoplay
+            - Pauses autoplay on hover
+        ==================================================================
+        */
         const reviewsTrack = document.getElementById('reviewsTrack');
+        const nextBtn = document.getElementById('nextReview');
+        const prevBtn = document.getElementById('prevReview');
+        let allReviewCards = [];
+        let currentReviewPage = 0;
+        let reviewsPerPage = 3;
+        let totalPages = 1;
+        let autoplayInterval;
+
         function createReviewCard(review) {
             const card = document.createElement('div');
             card.className = 'review-card';
@@ -1367,18 +1214,113 @@
             `;
             return card;
         }
-        function buildCarousel() {
-            reviews.forEach(review => {
-                reviewsTrack.appendChild(createReviewCard(review));
-            });
-            reviews.forEach(review => {
-                reviewsTrack.appendChild(createReviewCard(review));
-            });
+        
+        // Get the number of cards that fit on screen
+        function updateSliderConfig() {
+            try {
+                const containerWidth = reviewsTrack.parentElement.clientWidth;
+                // Get styles from the first card
+                const cardStyle = window.getComputedStyle(allReviewCards[0]);
+                const cardWidth = allReviewCards[0].offsetWidth;
+                const cardMargin = parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
+                const cardSpace = cardWidth + cardMargin;
+                
+                reviewsPerPage = Math.max(1, Math.floor(containerWidth / cardSpace));
+                totalPages = Math.ceil(allReviewCards.length / reviewsPerPage);
+            } catch (e) {
+                // Failsafe in case there are no cards
+                reviewsPerPage = 1;
+                totalPages = 1;
+            }
         }
+
+        function slideReviews(pageIndex) {
+            currentReviewPage = pageIndex;
+
+            // Looping logic
+            if (currentReviewPage < 0) {
+                currentReviewPage = totalPages - 1; // Loop to end
+            }
+            if (currentReviewPage >= totalPages) {
+                currentReviewPage = 0; // Loop to start
+            }
+            
+            // Calculate movement
+            const cardStyle = window.getComputedStyle(allReviewCards[0]);
+            const cardWidth = allReviewCards[0].offsetWidth;
+            const cardMargin = parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
+            const cardSpace = cardWidth + cardMargin;
+            
+            let moveAmount = cardSpace * (currentReviewPage * reviewsPerPage);
+            
+            // On the last page, don't overslide if it's not a full page
+            const maxMove = (allReviewCards.length - reviewsPerPage) * cardSpace;
+            
+            reviewsTrack.style.transform = `translateX(-${Math.min(moveAmount, maxMove)}px)`;
+        }
+
+        function startAutoplay() {
+            stopAutoplay(); // Clear existing
+            autoplayInterval = setInterval(() => {
+                slideReviews(currentReviewPage + 1); // Go to next page
+            }, 5000); // 5-second slow slide
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        function buildCarousel() {
+            // Build cards ONCE (no duplication needed)
+            reviews.forEach(review => {
+                const card = createReviewCard(review);
+                reviewsTrack.appendChild(card);
+                allReviewCards.push(card); // Store reference
+            });
+            
+            if (allReviewCards.length === 0) {
+                // No reviews, hide controls
+                nextBtn.style.display = 'none';
+                prevBtn.style.display = 'none';
+                return;
+            }
+            
+            updateSliderConfig();
+            slideReviews(0); // Set initial position
+            
+            // Add event listeners
+            nextBtn.addEventListener('click', () => {
+                slideReviews(currentReviewPage + 1);
+                stopAutoplay(); // Stop on manual interaction
+            });
+            prevBtn.addEventListener('click', () => {
+                slideReviews(currentReviewPage - 1);
+                stopAutoplay(); // Stop on manual interaction
+            });
+            
+            // Recalculate on resize
+            window.addEventListener('resize', () => {
+                updateSliderConfig();
+                slideReviews(0); // Reset position on resize
+            });
+            
+            startAutoplay();
+            
+            // Pause on hover
+            const sliderContainer = reviewsTrack.parentElement;
+            sliderContainer.addEventListener('mouseenter', stopAutoplay);
+            sliderContainer.addEventListener('mouseleave', startAutoplay);
+        }
+
         buildCarousel();
+        // --- END REWORKED SCRIPT ---
+
+
+        // --- Gallery Logic (Unchanged) ---
         const galleryBtn = document.getElementById('galleryBtn');
         const galleryLessBtn = document.getElementById('galleryLessBtn');
         const extraGalleryItems = document.querySelectorAll('[data-gallery-extra]');
+        
         function updateGalleryView(showAll) {
             extraGalleryItems.forEach(item => {
                 if (showAll) {
@@ -1387,26 +1329,56 @@
                     item.classList.add('hidden');
                 }
             });
+            
             galleryBtn.classList.toggle('hidden', showAll);
             galleryLessBtn.classList.toggle('hidden', !showAll);
         }
+
         galleryBtn.addEventListener('click', () => {
             updateGalleryView(true);
         });
+        
         galleryLessBtn.addEventListener('click', () => {
             updateGalleryView(false);
             document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
         });
+
         updateGalleryView(false);
+
+        // --- Contact Form Logic (Updated) ---
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
+            
             const subject = 'Consultation Request: ' + name;
             const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0ADetails:%0D%0A${message}`;
-            window.location.href = `mailto:contact@diamondautospa.com?subject=${subject}&body=${body}`;
+            
+            const mailtoLink = `mailto:contact@diamondautospa.com?subject=${subject}&body=${body}`;
+            
+            // Open in new tab/client
+            window.open(mailtoLink, '_blank');
+            
+            // Add a success message
+            const form = document.getElementById('contactForm');
+            let successMsg = form.querySelector('.form-success');
+            if (!successMsg) {
+                successMsg = document.createElement('p');
+                successMsg.className = 'form-success';
+                successMsg.style.color = 'green';
+                successMsg.style.marginTop = '1rem';
+                successMsg.style.fontWeight = 'bold';
+                form.appendChild(successMsg);
+            }
+            successMsg.textContent = 'Your message is ready to send in your email app!';
+            
+            // Reset form after a short delay
+            setTimeout(() => {
+                form.reset();
+                successMsg.textContent = '';
+            }, 5000);
         });
     </script>
 </body>

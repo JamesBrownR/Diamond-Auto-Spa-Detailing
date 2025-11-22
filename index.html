@@ -109,13 +109,14 @@ padding-bottom: 12vh;
         }
         
         /* Overlay to make text readable on the banner image */
-        .hero-desktop::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0); 
-            z-index: 1;
-        }
+      .hero-desktop::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* THIS IS THE FIX: */
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2)); 
+    z-index: 1;
+}
 
         .hero-content {
             position: relative;
@@ -133,8 +134,7 @@ padding-bottom: 12vh;
             font-size: 2.4rem;
             color: #fff;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
+text-shadow: 2px 2px 8px rgba(0,0,0,0.7);        }
 
         .hero-desktop p {
             font-size: 1.5rem;
@@ -337,7 +337,17 @@ padding-bottom: 12vh;
     justify-content: center;
 }
 
+/* This adds a subtle, wider shadow AND a stronger hover effect */
+.service-card, .review-card, .philosophy-content, .contact-form-card, .contact-info-card {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 10px 30px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.service-card:hover {
+    /* Make the hover effect more pronounced */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 15px 40px rgba(0,0,0,0.1);
+}
         
         /* --- Services --- */
         .services-grid {
@@ -426,6 +436,44 @@ padding-bottom: 12vh;
         .hidden { display: none; }
 
         /* --- Reviews --- */
+        /* Make the reviews section a full-width banner */
+#reviews {
+    max-width: none; /* Remove the 1200px constraint */
+    width: 100%;
+    padding: 4rem 0; /* Add vertical padding */
+
+    /* THE VISUALS */
+    background-image: url('Diamond-Auto-Spa-Detailing5.png'); /* Use a dark, cool gallery image */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* This is the parallax effect! */
+    position: relative;
+}
+
+/* Add an overlay so the white review cards pop */
+#reviews::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(45, 52, 54, 0.85); /* Dark overlay */
+}
+
+/* Make the title white and readable on the new bg */
+#reviews .section-title,
+#reviews .section-subtitle {
+    color: #ffffff;
+    position: relative; /* Bring them above the overlay */
+    z-index: 2;
+}
+
+/* Center the review grid */
+.reviews-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; /* Add side padding back */
+    position: relative; /* Bring cards above the overlay */
+    z-index: 2;
+}
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

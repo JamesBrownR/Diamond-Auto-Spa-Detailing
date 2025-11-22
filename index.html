@@ -1475,7 +1475,68 @@
         });
 
         // --- Add this at the end of your <script> tag ---
+function initCompareImages(container) {
+            let clicked = 0;
+            const slider = document.createElement("DIV");
+            const img = container.querySelector(".img-comp-img img");
+            const overlay = container.querySelector(".img-comp-overlay");
 
+            slider.setAttribute("class", "img-comp-slider");
+            container.appendChild(slider);
+            
+            let imgWidth = img.offsetWidth;
+            slider.style.left = (overlay.offsetWidth) - (slider.offsetWidth / 2) + "px";
+
+            function slideReady(e) {
+                e.preventDefault();
+                clicked = 1;
+                window.addEventListener("mousemove", slideMove);
+                window.addEventListener("touchmove", slideMove);
+            }
+            
+            function slideFinish() {
+                clicked = 0;
+                window.removeEventListener("mousemove", slideMove);
+                window.removeEventListener("touchmove", slideMove);
+            }
+            
+            function slideMove(e) {
+                if (!clicked) return false;
+                
+                let pos;
+                const rect = container.getBoundingClientRect();
+                imgWidth = img.offsetWidth; // Recalculate in case of resize
+
+                e = (e.changedTouches) ? e.changedTouches[0] : e;
+                pos = e.pageX - rect.left - window.pageXOffset;
+
+                if (pos < 0) pos = 0;
+                if (pos > imgWidth) pos = imgWidth;
+                
+                slide(pos);
+            }
+            
+            function slide(x) {
+                overlay.style.width = x + "px";
+                slider.style.left = x - (slider.offsetWidth / 2) + "px";
+            }
+            
+            slider.addEventListener("mousedown", slideReady);
+            window.addEventListener("mouseup", slideFinish);
+            slider.addEventListener("touchstart", slideReady);
+            window.addEventListener("touchend", slideFinish);
+            
+            // Re-init on resize to get correct image widths
+            window.addEventListener('resize', () => {
+                imgWidth = img.offsetWidth;
+                let currentWidth = parseFloat(overlay.style.width) || imgWidth / 2;
+                slide(currentWidth);
+            });
+        }
+
+        // --- Run the slider function for each container ---
+        document.querySelectorAll('.img-comp-container').forEach(initCompareImages);
+        
 function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1497,5 +1558,6 @@ function setupScrollAnimations() {
 // Run the function
 setupScrollAnimations();
     </script>
+    
 </body>
 </html>

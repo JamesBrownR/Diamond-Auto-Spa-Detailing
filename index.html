@@ -479,20 +479,95 @@
             height: 100%;
             display: block;
         }
-        #reviews {
-            width: 100%;
-            padding: 5rem 0;
-            background: linear-gradient(to bottom, #f4f7f6, var(--diamond-light-green));
-            position: relative;
-            overflow: hidden;
-        }
-        .reviews-slider-container {
-            width: 100%;
-            overflow: hidden;
-            padding: 2.5rem 0;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-        }
+      
+
+#reviews {
+    /* Remove old auto-scroll animation properties */
+    max-width: none;
+    width: 100%;
+    padding: 4rem 0;
+    background: #f4f7f6;
+    position: relative;
+    overflow: hidden; /* We hide overflow here */
+}
+
+/* This is the new main wrapper */
+.reviews-slider-wrapper {
+    position: relative;
+    max-width: 392px; /* 360px card + 2rem (32px) margin */
+    margin: 0 auto;
+}
+
+/* This container clips the content */
+.reviews-slider-container {
+    width: 100%;
+    overflow: hidden; /* This hides the other slides */
+    padding: 2rem 0;
+    .review-card {
+    background: var(--card-white);
+    padding: 2rem;
+    width: 360px;   /* Fixed width for each card */
+    margin: 0 1rem; /* Space between cards */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+/* NEW: Arrow Button Styles */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: white;
+    color: var(--diamond-blue);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slider-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#prevSlide {
+    left: -22px; /* Position half-way off the slider */
+}
+
+#nextSlide {
+    right: -22px; /* Position half-way off the slider */
+}
+
+/* NEW: Dot Navigation Styles */
+.slider-dots-container {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.slider-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-dot.active {
+    background-color: var(--diamond-blue);
+}
+}
         .reviews-track {
             display: flex;
             width: fit-content;
@@ -888,15 +963,25 @@
             </div>
     </div>
 </section>
-  <section id="reviews">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">We can tell you... or they could.</p>
-       
+ <section id="reviews">
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">We can tell you... or they could.</p>
+
+    <div class="reviews-slider-wrapper">
+
         <div class="reviews-slider-container">
             <div class="reviews-track" id="reviewsTrack">
                 </div>
         </div>
-        </section>
+
+        <button class="slider-arrow" id="prevSlide" aria-label="Previous Review">❮</button>
+        <button class="slider-arrow" id="nextSlide" aria-label="Next Review">❯</button>
+
+        <div class="slider-dots-container" id="sliderDots">
+            </div>
+
+    </div>
+</section>
     <section id="contact">
     <h2 class="section-title">Your Vehicle</h2>
         <p class="section-subtitle">Every car has different needs. Let's find yours.</p>

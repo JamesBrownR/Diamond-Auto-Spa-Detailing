@@ -88,22 +88,37 @@
         }
 
         /* Desktop View */
-        .hero-desktop {
-            display: flex; 
-            min-height: 95vh;
-            min-width: 100vw;
-            background-image: url('Diamond-Auto-Spa-Detailing0.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* FIX: Center content instead of pushing it to the bottom */
-            align-items: center;
-            /* padding-bottom: 12vh; */ /* Removed */
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
+     /* 1. MODIFY this existing class */
+.hero-desktop {
+    display: flex;
+    min-height: 95vh;
+    min-width: 100vw;
+    /* background-image: url('Diamond-Auto-Spa-Detailing0.png');  <-- REMOVE THIS LINE */
+    background-color: var(--black); /* Add this as a fallback */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden; /* Add this to contain the video */
+}
+
+/* 2. ADD this new class */
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* Sits behind the overlay (1) and content (2) */
+    /* You might want to darken the video slightly if it's too bright */
+    /* filter: brightness(70%); */ 
+}
         
         /* Overlay to make text readable */
         .hero-desktop::before {
@@ -362,6 +377,19 @@
         }
         
         /* --- Services --- */
+        #services {
+    /* Set the background to your charcoal color */
+    background: var(--charcoal);
+    
+    /* Make sure the main text in the section is light */
+    color: #f0f2f5; 
+}
+
+/* Update the section titles to be light */
+#services .section-title,
+#services .section-subtitle {
+    color: #ffffff;
+}
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

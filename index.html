@@ -990,14 +990,34 @@
         </div>
     </header>
 
-    <section id="about" class="philosophy-section">
-    <h2 class="section-title reveal">Our Philosophy</h2>
-    <p class="section-subtitle reveal">This isn't a "business", it's a passion.</p>
+   <section id="about" class="philosophy-section">
+    <h2 class="section-title">Our Philosophy</h2>
+    <p class="section-subtitle">This isn't a "business", it's a passion.</p>
     
-    <div class="philosophy-content reveal">
+    <div class="philosophy-content">
         <div class="corner-accent top-left"></div>
         <div class="corner-accent bottom-right"></div>
+        
+        <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
+        
+        <div class="philosophy-divider"></div>
+        
+        <div class="philosophy-quote">
+            "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."
         </div>
+        
+        <div class="philosophy-divider"></div>
+        
+        <p>Here, your car will be treated like a mural:<br>
+            With precision, effort and genuine care.</p>
+        
+        <div class="experience-badges">
+            <div class="badge">
+                <div class="badge-number">10+</div>
+                <div class="badge-text">Years Experience</div>
+            </div>
+        </div>
+    </div>
 </section>
 
     
@@ -1164,29 +1184,77 @@
 
 
   <section id="reviews">
-        <h2 class="section-title reveal">What Our Clients Say</h2>
-        <p class="section-subtitle reveal">We can tell you... or they could.</p>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">We can tell you... or they could.</p>
         
         <div class="reviews-controls">
-            </div>
+            <button id="prevReview" class="review-arrow" aria-label="Previous reviews">‹</button>
+            <button id="nextReview" class="review-arrow" aria-label="Next reviews">›</button>
+        </div>
         
         <div class="reviews-slider-container">
-            </div>
+            <div class="reviews-track" id="reviewsTrack">
+                </div>
+        </div>
     </section>
 
     <section id="contact">
-    <h2 class="section-title reveal">Your Vehicle</h2>
-        <p class="section-subtitle reveal">Every car has different needs. Let's find yours.</p>
+    <h2 class="section-title">Your Vehicle</h2>
+        <p class="section-subtitle">Every car has different needs. Let's find yours.</p>
         
         <div class="contact-container">
             
-            <div class="contact-form-card reveal">
+            <div class="contact-form-card">
                 <h3>Send Us a Message</h3>
-                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your vehicle *</label>
+                        <textarea id="message" name="message" required placeholder="What type of vehicle do you have? Any specific concerns?"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+            </div>
 
-            <div class="contact-info-card reveal">
-                <h3>Get In Touch</h3>
+            <div class="contact-info-card">
+            
+    <h3>Get In Touch</h3>
+    
+    <div class="info-item info-highlight">
+        <strong style="font-size: 1.2rem;">Call Us:</strong>
+        <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
+    </div>
+
+    <div class="info-item" style="flex-grow: 1;">
+                    <strong>Hours</strong>
+                    <ul class="hours-list">
+                       <li><span>Monday</span><span>7 AM – 8 PM</span></li>
+                        <li><span>Tuesday</span><span>7 AM – 8 PM</span></li>
+                        <li><span>Wednesday</span><span>7 AM – 8 PM</span></li>
+                        <li><span>Thursday</span><span>7 AM – 8 PM</span></li>
+                        <li><span>Friday</span><span>7 AM – 8 PM</span></li>
+                        <li><span>Saturday</span><span>7 AM – 8 PM</span></li>
+                        <li><span>Sunday</span><span>7 AM – 8 PM</span></li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #666;">Serving Eustis, FL & Surrounding Areas</p>
                 </div>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/DiamondAutoSpaFL/" target="_blank">Facebook</a>
+                    <a href="https://www.google.com/search?q=Diamond+Auto+Spa+Detailing+Eustis+FL+reviews" target="_blank">Google Reviews</a>
+                </div>
+            </div>
     </section>
 
     <section>

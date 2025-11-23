@@ -32,12 +32,12 @@
     }
 
     .img-comp-img img {
-        display: block;
-        width: 100%;   /* CHANGED */
-        height: 100%;  /* CHANGED */
-        object-fit: cover; /* ADDED */
-        max-width: none; /* Important */
-    }
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    max-width: none; /* Crucial: allows image to be wider than its parent div */
+    /* Width will be handled by JS to match container exactly */
+}
 
     .img-comp-overlay {
         width: 50%; /* Start at 50% */
@@ -165,7 +165,7 @@
      /* 1. MODIFY this existing class */
 .hero-desktop {
     display: flex;
-    min-height: 95vh;
+    min-height: 100vh;
     min-width: 100vw;
     /* background-image: url('Diamond-Auto-Spa-Detailing0.png');  <-- REMOVE THIS LINE */
     background-color: var(--black); /* Add this as a fallback */
@@ -626,17 +626,18 @@
 
         .hidden { display: none; }
 
-/* Base state for elements to be animated */
+
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(50px); /* Start lower */
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1); /* Smooth easing */
+    filter: blur(10px); /* Start blurry */
 }
 
-/* The state after it's been "revealed" */
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
 }
         /* --- NEW: Wavy Section Dividers --- */
         .wavy-top {
@@ -763,37 +764,35 @@
         }
         
         /* Review Carousel Container */
-        .reviews-slider-container {
-            width: 100%;
-            overflow: hidden; /* This hides the parts of the track that are off-screen */
-            padding: 2rem 0;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-        }
+     .reviews-slider-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 2rem;
+    width: 100%;
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--diamond-blue) #eee;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
 
-        /* Review Track that moves */
-        .reviews-track {
-            display: flex;
-            width: fit-content;
-            /* FIX: Remove CSS animation, will be controlled by JS */
-            /* animation: scrollReviews 40s linear infinite; */
-            transition: transform 0.5s ease-in-out;
-        }
+.reviews-track {
+    display: inline-flex; /* Changed from flex to inline-flex for scrolling */
+    gap: 1.5rem;
+    /* Remove transforms and transitions, let the browser handle scrolling */
+    transform: none !important; 
+}
 
-        /* Removed @keyframes scrollReviews */
-
-        /* Style for individual review cards in the slider */
-        .review-card {
-            background: var(--card-white);
-            padding: 2rem;
-            width: 360px; /* Fixed width for each card */
-            margin: 0 1rem; /* Space between cards */
-            flex-shrink: 0; /* Prevent cards from shrinking */
-            /* [ADD] Set min-height and flex to standardize card size */
-            min-height: 320px;
-            display: flex;
-            flex-direction: column;
-        }
+.review-card {
+    /* Keep existing styles but ensure they don't shrink */
+    flex: 0 0 auto; 
+    width: 350px;
+    white-space: normal; /* Text inside wraps normally */
+    background: var(--card-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 
         .review-header {
             display: flex;
@@ -1105,11 +1104,11 @@
                 <source src="Diamond-Auto-Spa-Detailing.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="hero-content">
-                <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa" class="hero-logo-img">
-                <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-bbutton" style="color: #ffffff;" >Book Your Detail</a>
-            </div>
+            <div class="hero-content reveal">
+    <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">Diamond Auto Spa</h2>
+    <h1 style="margin-top: 0;">Make Your Car Shine Like A Diamond.</h1>
+    <a href="#contact" class="cta-bbutton" style="color: #ffffff;">Book Your Detail</a>
+</div>
         </section>
         <section class="hero-mobile">
             <div class="mobile-logo-section">
@@ -1136,7 +1135,7 @@
     <h2 class="section-title">Our Philosophy</h2>
     <p class="section-subtitle">This isn't a "business", it's a passion.</p>
     
-    <div class="philosophy-content">
+  <div class="philosophy-content reveal">
         <div class="corner-accent top-left"></div>
         <div class="corner-accent bottom-right"></div>
         
@@ -1153,8 +1152,7 @@
         <p>Here, your car will be treated like a mural:<br>
             With precision, effort and genuine care.</p>
         
-        <div class="experience-badges">
-            <div class="badge">
+<div class="experience-badges reveal">            <div class="badge">
                 <div class="badge-number">10+</div>
                 <div class="badge-text">Years Experience</div>
             </div>
@@ -1187,17 +1185,31 @@
             </div>
         </div>
 
-        <div class="reveal" style="margin: 3rem 0;">
-            <h3 style="text-align:center; margin-bottom:1rem; color:white;">The Difference is in the Details</h3>
-            <div class="img-comp-container" style="height: 350px;">
-                <div class="img-comp-img">
-                    <img src="Diamond-Auto-Spa-Detailing-After4.png" alt="After Service">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="Diamond-Auto-Spa-Detailing-Before4.png" alt="Before Service">
-                </div>
+       <div class="reveal" style="margin: 3rem 0;">
+    <h3 style="text-align:center; margin-bottom:2rem; color:white;">The Difference is in the Details</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+        
+        <div class="img-comp-container" style="height: 350px;">
+            <div class="img-comp-img">
+                <img src="Diamond-Auto-Spa-Detailing-After4.png" alt="After Service">
+            </div>
+            <div class="img-comp-img img-comp-overlay">
+                <img src="Diamond-Auto-Spa-Detailing-Before4.png" alt="Before Service">
             </div>
         </div>
+
+        <div class="img-comp-container" style="height: 350px;">
+            <div class="img-comp-img">
+                <img src="Diamond-Auto-Spa-Detailing-After2.png" alt="After Service">
+            </div>
+            <div class="img-comp-img img-comp-overlay">
+                <img src="Diamond-Auto-Spa-Detailing-Before2.png" alt="Before Service">
+            </div>
+        </div>
+
+    </div>
+</div>
 
         <div class="services-grid">
             <div class="service-card reveal">
@@ -1356,25 +1368,26 @@
         <h2 class="section-title">What Our Clients Say</h2>
         <p class="section-subtitle">We can tell you... or they could.</p>
         
-        <div class="reviews-controls">
-            <button id="prevReview" class="review-arrow" aria-label="Previous reviews">‹</button>
+<div class="reviews-controls reveal">
+    <button id="prevReview" class="review-arrow" aria-label="Previous reviews">‹</button>
             <button id="nextReview" class="review-arrow" aria-label="Next reviews">›</button>
         </div>
         
-        <div class="reviews-slider-container">
-            <div class="reviews-track" id="reviewsTrack">
+<div class="reviews-slider-container reveal">
+    <div class="reviews-track" id="reviewsTrack">
                 </div>
         </div>
     </section>
 
     <section id="contact">
+        <div class="container">
     <h2 class="section-title">Your Vehicle</h2>
         <p class="section-subtitle">Every car has different needs. Let's find yours.</p>
         
         <div class="contact-container">
             
-            <div class="contact-form-card">
-                <h3>Send Us a Message</h3>
+<div class="contact-form-card reveal">     
+    <h3>Send Us a Message</h3>
                 <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Name *</label>
@@ -1396,8 +1409,7 @@
                     </form>
             </div>
 
-            <div class="contact-info-card">
-            
+<div class="contact-info-card reveal">            
     <h3>Get In Touch</h3>
     
     <div class="info-item info-highlight">
@@ -1424,6 +1436,9 @@
                     <a href="https://www.google.com/search?q=Diamond+Auto+Spa+Detailing+Eustis+FL+reviews" target="_blank">Google Reviews</a>
                 </div>
             </div>
+           
+             
+    </div>
     </section>
 
   <section id="map-section" style="padding: 0;"> 
@@ -1622,48 +1637,21 @@
         }
 
         function buildCarousel() {
-            // Build cards ONCE (no duplication needed)
-            reviews.forEach(review => {
-                const card = createReviewCard(review);
-                reviewsTrack.appendChild(card);
-                allReviewCards.push(card); // Store reference
-            });
-            
-            if (allReviewCards.length === 0) {
-                // No reviews, hide controls
-                nextBtn.style.display = 'none';
-                prevBtn.style.display = 'none';
-                return;
-            }
-            
-            updateSliderConfig();
-            slideReviews(0); // Set initial position
-            
-            // Add event listeners
-            nextBtn.addEventListener('click', () => {
-                slideReviews(currentReviewPage + 1);
-                stopAutoplay(); // Stop on manual interaction
-            });
-            prevBtn.addEventListener('click', () => {
-                slideReviews(currentReviewPage - 1);
-                stopAutoplay(); // Stop on manual interaction
-            });
-            
-            // Recalculate on resize
-            window.addEventListener('resize', () => {
-                updateSliderConfig();
-                slideReviews(0); // Reset position on resize
-            });
-            
-            startAutoplay();
-            
-            // Pause on hover
-            const sliderContainer = reviewsTrack.parentElement;
-            sliderContainer.addEventListener('mouseenter', stopAutoplay);
-            sliderContainer.addEventListener('mouseleave', startAutoplay);
-        }
-
-        buildCarousel();
+    const track = document.getElementById('reviewsTrack');
+    reviews.forEach(review => {
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        card.innerHTML = `
+            <div class="review-header">
+                <span class="reviewer-name">${review.name}</span>
+                <span class="stars">${'★'.repeat(review.rating)}</span>
+            </div>
+            <p>${review.body}</p>
+        `;
+        track.appendChild(card);
+    });
+}
+buildCarousel();
         // --- END REWORKED SCRIPT ---
 
 
@@ -1732,52 +1720,75 @@
             }, 5000);
         });
 
-        // --- Add this at the end of your <script> tag ---
+      
 function initCompareImages(container) {
-            let clicked = 0;
-            const slider = document.createElement("DIV");
-            const img = container.querySelector(".img-comp-img img");
-            const overlay = container.querySelector(".img-comp-overlay");
+    let clicked = 0;
+    const slider = document.createElement("DIV");
+    const img = container.querySelector(".img-comp-img img"); // The background image
+    const overlay = container.querySelector(".img-comp-overlay");
+    const overlayImg = overlay.querySelector("img"); // The foreground image
 
-            slider.setAttribute("class", "img-comp-slider");
-            container.appendChild(slider);
-            
-            let imgWidth = img.offsetWidth;
-            slider.style.left = (overlay.offsetWidth) - (slider.offsetWidth / 2) + "px";
+    slider.setAttribute("class", "img-comp-slider");
+    container.appendChild(slider);
 
-            function slideReady(e) {
-                e.preventDefault();
-                clicked = 1;
-                window.addEventListener("mousemove", slideMove);
-                window.addEventListener("touchmove", slideMove);
-            }
-            
-            function slideFinish() {
-                clicked = 0;
-                window.removeEventListener("mousemove", slideMove);
-                window.removeEventListener("touchmove", slideMove);
-            }
-            
-            function slideMove(e) {
-                if (!clicked) return false;
-                
-                let pos;
-                const rect = container.getBoundingClientRect();
-                imgWidth = img.offsetWidth; // Recalculate in case of resize
+    function updateSizes() {
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+        
+        // FORCE the overlay image to be the width of the container
+        // This prevents the "squishing" effect
+        overlayImg.style.width = w + "px"; 
+        overlayImg.style.height = h + "px";
+        
+        // Set initial slider position (50%)
+        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+        overlay.style.width = (w / 2) + "px";
+    }
 
-                e = (e.changedTouches) ? e.changedTouches[0] : e;
-                pos = e.pageX - rect.left - window.pageXOffset;
+    // Run once on load
+    updateSizes();
 
-                if (pos < 0) pos = 0;
-                if (pos > imgWidth) pos = imgWidth;
-                
-                slide(pos);
-            }
-            
-            function slide(x) {
-                overlay.style.width = x + "px";
-                slider.style.left = x - (slider.offsetWidth / 2) + "px";
-            }
+    function slideReady(e) {
+        e.preventDefault();
+        clicked = 1;
+        window.addEventListener("mousemove", slideMove);
+        window.addEventListener("touchmove", slideMove);
+    }
+
+    function slideFinish() {
+        clicked = 0;
+        window.removeEventListener("mousemove", slideMove);
+        window.removeEventListener("touchmove", slideMove);
+    }
+
+    function slideMove(e) {
+        if (!clicked) return false;
+        let pos;
+        const rect = container.getBoundingClientRect();
+        let w = container.offsetWidth;
+
+        e = (e.changedTouches) ? e.changedTouches[0] : e;
+        pos = e.pageX - rect.left - window.pageXOffset;
+
+        if (pos < 0) pos = 0;
+        if (pos > w) pos = w;
+
+        slide(pos);
+    }
+
+    function slide(x) {
+        overlay.style.width = x + "px";
+        slider.style.left = x - (slider.offsetWidth / 2) + "px";
+    }
+
+    slider.addEventListener("mousedown", slideReady);
+    window.addEventListener("mouseup", slideFinish);
+    slider.addEventListener("touchstart", slideReady);
+    window.addEventListener("touchend", slideFinish);
+
+    // Update image width if window is resized
+    window.addEventListener('resize', updateSizes);
+}
             
             slider.addEventListener("mousedown", slideReady);
             window.addEventListener("mouseup", slideFinish);

@@ -31,12 +31,13 @@
         overflow: hidden;
     }
 
-    .img-comp-img img {
+   .img-comp-img img {
     display: block;
     height: 100%;
     object-fit: cover;
-    max-width: none; /* Crucial: allows image to be wider than its parent div */
-    /* Width will be handled by JS to match container exactly */
+    /* This ensures the image stays full size even when the slider moves */
+    width: auto; 
+    max-width: none; 
 }
 
     .img-comp-overlay {
@@ -1266,6 +1267,7 @@
 </section>
     
     <section id="gallery" class="wavy-top">
+        <div class="container">
     <h2 class="section-title reveal">Results Speak For Themselves</h2>
     <p class="section-subtitle reveal">Click any image to zoom in</p>
     
@@ -1307,6 +1309,7 @@
     </div> 
     <button class="show-more-btn" id="galleryBtn">Show More Work</button>
     <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
+            </div>
 </section>
 
     <section id="videos">
@@ -1407,6 +1410,11 @@
     <div class="info-item info-highlight">
         <strong style="font-size: 1.2rem;">Call Us:</strong>
         <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
+    </div>
+
+    <div class="info-item info-highlight">
+        <strong style="font-size: 1.2rem;">Email Us:</strong>
+        <a href="tel:+13529314860" class="email-link-bg">diamondautospa.fl23@gmail.com</a>
     </div>
 
     <div class="info-item" style="flex-grow: 1;">
@@ -1731,29 +1739,34 @@ window.addEventListener('resize', () => {
       
 function initCompareImages(container) {
     let clicked = 0;
+    let w, h;
+    
+    // Create slider
     const slider = document.createElement("DIV");
-    const img = container.querySelector(".img-comp-img img"); // The background image
-    const overlay = container.querySelector(".img-comp-overlay");
-    const overlayImg = overlay.querySelector("img"); // The foreground image
-
     slider.setAttribute("class", "img-comp-slider");
     container.appendChild(slider);
+    
+    // Get images
+    const img = container.querySelector(".img-comp-img img"); 
+    const overlay = container.querySelector(".img-comp-overlay");
+    const overlayImg = overlay.querySelector("img"); 
 
     function updateSizes() {
-        const w = container.offsetWidth;
-        const h = container.offsetHeight;
+        w = container.offsetWidth;
+        h = container.offsetHeight;
         
-        // FORCE the overlay image to be the width of the container
-        // This prevents the "squishing" effect
+        // FORCE both images to be the full width of the container
+        img.style.width = w + "px";
+        img.style.height = h + "px";
         overlayImg.style.width = w + "px"; 
         overlayImg.style.height = h + "px";
         
-        // Set initial slider position (50%)
+        // Set initial slider position
         slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
         overlay.style.width = (w / 2) + "px";
     }
 
-    // Run once on load
+    // Run immediately
     updateSizes();
 
     function slideReady(e) {
@@ -1773,8 +1786,7 @@ function initCompareImages(container) {
         if (!clicked) return false;
         let pos;
         const rect = container.getBoundingClientRect();
-        let w = container.offsetWidth;
-
+        
         e = (e.changedTouches) ? e.changedTouches[0] : e;
         pos = e.pageX - rect.left - window.pageXOffset;
 
@@ -1789,12 +1801,13 @@ function initCompareImages(container) {
         slider.style.left = x - (slider.offsetWidth / 2) + "px";
     }
 
+    // Add events
     slider.addEventListener("mousedown", slideReady);
     window.addEventListener("mouseup", slideFinish);
     slider.addEventListener("touchstart", slideReady);
     window.addEventListener("touchend", slideFinish);
 
-    // Update image width if window is resized
+    // Update on resize
     window.addEventListener('resize', updateSizes);
 }
            

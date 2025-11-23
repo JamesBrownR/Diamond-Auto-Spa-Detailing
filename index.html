@@ -1110,15 +1110,7 @@
     <a href="#contact" class="cta-bbutton" style="color: #ffffff;">Book Your Detail</a>
 </div>
         </section>
-        <section class="hero-mobile">
-            <div class="mobile-logo-section">
-                <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa Logo">
-            </div>
-            <div class="mobile-cta-section">
-                <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-button" style="width: 100%;">Book Your Detail</a>
-            </div>
-        </section>
+       
 
         <section class="hero-mobile">
             <div class="mobile-logo-section">
@@ -1636,22 +1628,38 @@
             clearInterval(autoplayInterval);
         }
 
-        function buildCarousel() {
-    const track = document.getElementById('reviewsTrack');
-    reviews.forEach(review => {
-        const card = document.createElement('div');
-        card.className = 'review-card';
-        card.innerHTML = `
-            <div class="review-header">
-                <span class="reviewer-name">${review.name}</span>
-                <span class="stars">${'★'.repeat(review.rating)}</span>
-            </div>
-            <p>${review.body}</p>
-        `;
-        track.appendChild(card);
-    });
-}
-buildCarousel();
+      // Build review cards
+reviews.forEach(review => {
+    const card = createReviewCard(review);
+    reviewsTrack.appendChild(card);
+    allReviewCards.push(card);
+});
+
+// Initialize the carousel
+updateSliderConfig();
+slideReviews(0);
+startAutoplay();
+
+// Add event listeners
+nextBtn.addEventListener('click', () => {
+    stopAutoplay();
+    slideReviews(currentReviewPage + 1);
+    startAutoplay();
+});
+
+prevBtn.addEventListener('click', () => {
+    stopAutoplay();
+    slideReviews(currentReviewPage - 1);
+    startAutoplay();
+});
+
+reviewsTrack.parentElement.addEventListener('mouseenter', stopAutoplay);
+reviewsTrack.parentElement.addEventListener('mouseleave', startAutoplay);
+
+window.addEventListener('resize', () => {
+    updateSliderConfig();
+    slideReviews(currentReviewPage);
+});
         // --- END REWORKED SCRIPT ---
 
 
@@ -1827,6 +1835,9 @@ function setupScrollAnimations() {
 // Run the function
 setupScrollAnimations();
     </script>
-    
+    <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+</div>
 </body>
 </html>

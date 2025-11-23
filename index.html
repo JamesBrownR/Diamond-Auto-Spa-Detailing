@@ -1797,19 +1797,7 @@ function initCompareImages(container) {
     // Update image width if window is resized
     window.addEventListener('resize', updateSizes);
 }
-            
-            slider.addEventListener("mousedown", slideReady);
-            window.addEventListener("mouseup", slideFinish);
-            slider.addEventListener("touchstart", slideReady);
-            window.addEventListener("touchend", slideFinish);
-            
-            // Re-init on resize to get correct image widths
-            window.addEventListener('resize', () => {
-                imgWidth = img.offsetWidth;
-                let currentWidth = parseFloat(overlay.style.width) || imgWidth / 2;
-                slide(currentWidth);
-            });
-        }
+           
 
         // --- Run the slider function for each container ---
         document.querySelectorAll('.img-comp-container').forEach(initCompareImages);

@@ -220,6 +220,20 @@
             /* [ADD] Font consistency fix */
             font-family: 'Playfair Display', serif;
         }
+        /* --- New Hero CTA Button Style --- */
+.hero-content .cta-bbutton {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 0.8rem 2.8rem; /* Slightly adjust padding */
+}
+
+.hero-content .cta-bbutton:hover {
+    background: #ffffff;
+    color: var(--charcoal); /* Text turns dark */
+    transform: translateY(0); /* Remove the lift, just bg change */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
 
         .hero-content {
             position: relative;
@@ -718,114 +732,116 @@
         }
 
 
-        /* --- REVIEWS (Reworked) --- */
-        #reviews {
-            max-width: none;
-            width: 100%;
-            padding: 4rem 0;
-            background: #f4f7f6;
-            position: relative;
-            overflow: hidden; /* Hide track overflow */
-        }
-
-        #reviews .section-title,
-        #reviews .section-subtitle {
-            color: var(--charcoal);
-            position: relative; 
-            z-index: 2;
-        }
-        #reviews .section-title::after {
-            background: var(--diamond-blue);
-        }
-        
-        /* FIX: New Arrow Controls */
-        .reviews-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .review-arrow {
-            background: var(--diamond-blue);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 2.5rem;
-            line-height: 48px; /* Vertically center arrow */
-            text-align: center;
-            cursor: pointer;
-            transition: background 0.3s;
-            padding: 0; 
-            user-select: none; /* Prevent text selection */
-        }
-
-        .review-arrow:hover {
-            background: var(--diamond-dark-blue);
-        }
-
-        .review-arrow:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        
-        /* Review Carousel Container */
-     .reviews-slider-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 2rem;
+       /* --- Review Section Background --- */
+#reviews {
+    max-width: none;
     width: 100%;
-    /* Custom scrollbar styling */
-    scrollbar-width: thin;
-    scrollbar-color: var(--diamond-blue) #eee;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    padding: 4rem 0;
+    background: #f4f7f6;
+    position: relative;
+    overflow-x: hidden; /* Hide scrollbars */
 }
 
-.reviews-track {
-    display: inline-flex; /* Changed from flex to inline-flex for scrolling */
-    gap: 1.5rem;
-    /* Remove transforms and transitions, let the browser handle scrolling */
-    transform: none !important; 
-}
-
+/* --- New Review Card Style (Dark Mode) --- */
 .review-card {
-    /* Keep existing styles but ensure they don't shrink */
-    flex: 0 0 auto; 
-    width: 350px;
-    white-space: normal; /* Text inside wraps normally */
-    background: var(--card-white);
-    padding: 2rem;
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 380px; /* A bit wider */
+    padding: 1.5rem;
+    background: #202124; /* Google's dark gray */
+    color: #e8eaed; /* Google's light text */
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #3c4043; /* Subtle border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    white-space: normal; /* Allow text to wrap */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            /* [CHANGE] Removed margin-bottom */
-            margin-bottom: 0;
-            font-weight: bold;
-            font-family: 'Playfair Display', serif;
-            /* [ADD] Prevent header from shrinking */
-            flex-shrink: 0;
-        }
-        
-        /* [ADD] Styles to truncate long review text */
-        .review-card p {
-            flex-grow: 1; /* Make p tag take up available space */
-            display: -webkit-box;
-            -webkit-line-clamp: 7; /* Truncate after 7 lines */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 1rem; /* Space from header */
-        }
-        .stars { color: #f1c40f; }
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Placeholder for a profile picture */
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--diamond-blue); /* Placeholder color */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    flex-shrink: 0;
+}
+
+.review-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+}
+
+.stars {
+    color: #f1c40f;
+    font-size: 0.9rem;
+}
+
+.review-card p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    /* Truncate long reviews */
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* Max 7 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Auto-Scrolling Marquee --- */
+@keyframes scrollLeft {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes scrollRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0%); }
+}
+
+.reviews-marquee-container {
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    margin: 1.5rem 0;
+}
+
+.reviews-marquee {
+    display: flex;
+    gap: 1.5rem; /* Space between cards */
+    padding: 0 0.75rem;
+    animation: scrollLeft 60s linear infinite; /* Adjust 60s to change speed */
+}
+
+/* Second (reverse) row */
+.reviews-marquee-container.reverse .reviews-marquee {
+    animation: scrollRight 60s linear infinite;
+}
+
+/* Pause on hover */
+.reviews-marquee-container:hover .reviews-marquee {
+    animation-play-state: paused;
+}
 
         /* --- Contact Section --- */
         .contact-container {
@@ -1379,16 +1395,23 @@
 
 
   <section id="reviews">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">We can tell you... or they could.</p>
-        
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">We can tell you... or they could.</p>
 
-        
-<div class="reviews-slider-container reveal">
-    <div class="reviews-track" id="reviewsTrack">
-                </div>
-        </div>
-    </section>
+    <div class="reviews-marquee-container">
+        <div class="reviews-marquee" id="reviewsTrack1">
+            </div>
+        <div class="reviews-marquee" id="reviewsTrack1-clone">
+            </div>
+    </div>
+
+    <div class="reviews-marquee-container reverse">
+        <div class="reviews-marquee" id="reviewsTrack2">
+            </div>
+        <div class="reviews-marquee" id="reviewsTrack2-clone">
+            </div>
+    </div>
+</section>
 
     <section id="contact">
         <div class="container">
@@ -1569,108 +1592,49 @@
         /*
         ==================================================================
             NEW REVIEWS CAROUSEL SCRIPT (JS-DRIVEN)
-            - Replaces the old CSS animation
-            - Adds arrow controls
-            - Adds slow (5s) autoplay
-            - Pauses autoplay on hover
-        ==================================================================
-        */
-        const reviewsTrack = document.getElementById('reviewsTrack');
-      
-        let allReviewCards = [];
-        let currentReviewPage = 0;
-        let reviewsPerPage = 3;
-        let totalPages = 1;
-        let autoplayInterval;
-
-        function createReviewCard(review) {
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div class="review-header">
-                    <span class="reviewer-name">${review.name}</span>
-                    <span class="stars">${'★'.repeat(review.rating)}</span>
-                </div>
-                ${review.body ? `<p>${review.body}</p>` : ''}
-            `;
-            return card;
-        }
+    ==============================================================
+            */
         
-        // Get the number of cards that fit on screen
-        function updateSliderConfig() {
-            try {
-                const containerWidth = reviewsTrack.parentElement.clientWidth;
-                // Get styles from the first card
-                const cardStyle = window.getComputedStyle(allReviewCards[0]);
-                const cardWidth = allReviewCards[0].offsetWidth;
-                const cardMargin = parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
-                const cardSpace = cardWidth + cardMargin;
-                
-                reviewsPerPage = Math.max(1, Math.floor(containerWidth / cardSpace));
-                totalPages = Math.ceil(allReviewCards.length / reviewsPerPage);
-            } catch (e) {
-                // Failsafe in case there are no cards
-                reviewsPerPage = 1;
-                totalPages = 1;
-            }
-        }
+        const track1 = document.getElementById('reviewsTrack1');
+const track2 = document.getElementById('reviewsTrack2');
+const clone1 = document.getElementById('reviewsTrack1-clone');
+const clone2 = document.getElementById('reviewsTrack2-clone');
 
-        function slideReviews(pageIndex) {
-            currentReviewPage = pageIndex;
+// Split the reviews into two arrays
+const halfIndex = Math.ceil(reviews.length / 2);
+const reviews1 = reviews.slice(0, halfIndex);
+const reviews2 = reviews.slice(halfIndex);
 
-            // Looping logic
-            if (currentReviewPage < 0) {
-                currentReviewPage = totalPages - 1; // Loop to end
-            }
-            if (currentReviewPage >= totalPages) {
-                currentReviewPage = 0; // Loop to start
-            }
-            
-            // Calculate movement
-            const cardStyle = window.getComputedStyle(allReviewCards[0]);
-            const cardWidth = allReviewCards[0].offsetWidth;
-            const cardMargin = parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
-            const cardSpace = cardWidth + cardMargin;
-            
-            let moveAmount = cardSpace * (currentReviewPage * reviewsPerPage);
-            
-            // On the last page, don't overslide if it's not a full page
-            const maxMove = (allReviewCards.length - reviewsPerPage) * cardSpace;
-            
-            reviewsTrack.style.transform = `translateX(-${Math.min(moveAmount, maxMove)}px)`;
-        }
+function createReviewCard(review) {
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    
+    // Get first letter for avatar
+    const initial = review.name ? review.name.charAt(0).toUpperCase() : '?';
 
-        function startAutoplay() {
-            stopAutoplay(); // Clear existing
-            autoplayInterval = setInterval(() => {
-                slideReviews(currentReviewPage + 1); // Go to next page
-            }, 5000); // 5-second slow slide
-        }
+    card.innerHTML = `
+        <div class="review-header">
+            <div class="review-avatar">${initial}</div>
+            <div class="review-info">
+                <span class="reviewer-name">${review.name}</span>
+                <span class="stars">${'★'.repeat(review.rating)}</span>
+            </div>
+        </div>
+        ${review.body ? `<p>"${review.body}"</p>` : ''}
+    `;
+    return card;
+}
 
-        function stopAutoplay() {
-            clearInterval(autoplayInterval);
-        }
-
-      // Build review cards
-reviews.forEach(review => {
-    const card = createReviewCard(review);
-    reviewsTrack.appendChild(card);
-    allReviewCards.push(card);
+// Populate Track 1 and its clone
+reviews1.forEach(review => {
+    track1.appendChild(createReviewCard(review));
+    clone1.appendChild(createReviewCard(review));
 });
 
-// Initialize the carousel
-updateSliderConfig();
-slideReviews(0);
-startAutoplay();
-
-
-
-reviewsTrack.parentElement.addEventListener('mouseenter', stopAutoplay);
-reviewsTrack.parentElement.addEventListener('mouseleave', startAutoplay);
-
-window.addEventListener('resize', () => {
-    updateSliderConfig();
-    slideReviews(currentReviewPage);
+// Populate Track 2 and its clone (in reverse for visual variety)
+reviews2.reverse().forEach(review => {
+    track2.appendChild(createReviewCard(review));
+    clone2.appendChild(createReviewCard(review));
 });
         // --- END REWORKED SCRIPT ---
 

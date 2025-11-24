@@ -768,14 +768,7 @@ overflow: hidden;
     cursor: grab; 
     -webkit-overflow-scrolling: touch; 
 }
-      /* Hides the scrollbar for a cleaner drag-to-scroll feel */
-.video-marquee-container::-webkit-scrollbar {
-    display: none;
-}
-.video-marquee-container {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
+     
 
         .video-card {
             flex-shrink: 0;
@@ -1906,7 +1899,7 @@ function animateCounter(el) {
     if (el.dataset.isCounting) return; // Prevent re-running
     el.dataset.isCounting = true;
 
-    const duration = 1500; // 1.5 seconds
+    const duration = 2500; // 1.5 seconds
     const stepTime = 20; // update every 20ms
     const steps = duration / stepTime;
     const increment = target / steps;

@@ -118,22 +118,21 @@
             --text-dark: #000000;
         }
 
-        html, body {
+     html, body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
-            margin: 0;
+    margin: 0;
     padding: 0;
+    height: 100%; /* Add this */
 }
-      body {
+
+body {
     font-family: 'Lato', sans-serif; 
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: #f8f9fa;
-    background-image: linear-gradient(180deg, #ffffff 0%, #f0f2f5 100%);
-    margin: 0; /* Make sure this is here */
-    padding: 0; /* Make sure this is here */
-    min-height: 100vh; /* Add this */
+    background-color: #000000; /* CHANGE to match footer */
+    background-image: none; /* REMOVE the gradient */
 }
 
         h1, h2, h3, .section-title, .section-subtitle, nav a, footer p, .social-links {

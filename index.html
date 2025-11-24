@@ -1622,6 +1622,44 @@ footer p:last-child {
         text-align: center;
     }
 }
+
+        @media (max-width: 768px) {
+    .hero-desktop {
+        display: flex !important;
+        min-height: 100vh;
+        clip-path: none; /* Cleaner on mobile */
+        overflow: hidden;
+    }
+}
+
+        @media (max-width: 768px) {
+    .hero-video-bg {
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: auto;
+        height: 180%;
+    }
+}
+@media (max-width: 768px) {
+
+    .hero-content {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .cta-bbutton {
+        width: auto !important;
+        padding: 1rem 3rem !important;
+        border: 2px solid #fff;
+        color: #fff !important;
+    }
+}
+@media (max-width: 768px) {
+    .hero-desktop::before {
+        background-image: none !important;
+        background-color: rgba(0,0,0,0.4) !important;
+    }
+}
+
 /* Add this to your existing @media (max-width: 768px) section */
 @media (max-width: 768px) {
     .email-link-bg {
@@ -1684,15 +1722,7 @@ footer p:last-child {
         </section>
        
 
-        <section class="hero-mobile">
-            <div class="mobile-logo-section">
-                <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa Logo">
-            </div>
-            <div class="mobile-cta-section">
-                <h1>Make Your Car Shine Like A Diamond.</h1>
-                <a href="#contact" class="cta-button" style="width: 100%;">Book Your Detail</a>
-            </div>
-        </section>
+      
     </div>
 
    <section id="about" class="philosophy-section">

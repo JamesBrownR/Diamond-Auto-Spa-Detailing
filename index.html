@@ -146,6 +146,23 @@
             color: var(--diamond-blue);
               text-decoration: underline;
         }
+        .phone-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--diamond-blue);
+    bottom: -5px; /* Adjust as needed for spacing */
+    left: 0;
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
+
+/* Add this new block to animate the line on hover */
+.phone-header:hover::after {
+    transform: scaleX(1); /* Animate to full width */
+}
 
         nav a {
             color: #ffffff;
@@ -158,8 +175,25 @@
 
         nav a:hover {
             color: var(--diamond-blue);
-            text-decoration: underline;
         }
+
+        nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--diamond-blue);
+    bottom: -5px; /* Adjust as needed for spacing */
+    left: 0;
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
+
+/* Add this new block to animate the line on hover */
+nav a:hover::after {
+    transform: scaleX(1); /* Animate to full width */
+}
 
        /* --- HERO SECTION (Reworked) --- */
         .hero-container {
@@ -184,7 +218,7 @@
     position: relative;
     overflow: hidden; /* Add this to contain the video */
     /* slant from high-left to low-right */
-clip-path: polygon(0 0, 100% 0, 100% 120vh, 0 105vh);   
+clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);   
 }
 
 .hero-video-bg {
@@ -200,14 +234,18 @@ clip-path: polygon(0 0, 100% 0, 100% 120vh, 0 105vh);
 }
         
         /* Overlay to make text readable */
-        .hero-desktop::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            /* FIX: Use a simple, consistent overlay */
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: 1;
-        }
+       .hero-desktop::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+
+    /* [FIXED] Split into multiple properties to add dots */
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 1px);
+    background-size: 4px 4px;
+
+    z-index: 1;
+}
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
@@ -1083,18 +1121,17 @@ overflow: hidden;
                 position: relative;
             }
             
-            .mobile-cta-section::before {
-                content: '';
-                position: absolute;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0, 0, 0, 0.6); /* Darker overlay for mobile */
+           .mobile-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
 
-                background-color: rgba(0, 0, 0, 0.5); /* The dark overlay */
+    background-color: rgba(0, 0, 0, 0.6); /* [FIXED] Use 0.6 */
     background-image: radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 1px); /* The dots */
     background-size: 4px 4px; /* Spacing of the dots */
-    
-                z-index: 1;
-            }
+
+    z-index: 1;
+}
             
             /* Make all content appear above the overlay */
             .mobile-cta-section h1,
@@ -1226,8 +1263,8 @@ overflow: hidden;
             With precision, effort and genuine care.</p>
         
 <div class="experience-badges reveal">            <div class="badge">
-                <div class="badge-number">10+</div>
-                <div class="badge-text">Years Experience</div>
+<div class="badge-number" data-target="10">0+</div>
+    <div class="badge-text">Years Experience</div>
             </div>
         </div>
     </div>
@@ -1847,12 +1884,42 @@ function initCompareImages(container) {
 
         // --- Run the slider function for each container ---
         document.querySelectorAll('.img-comp-container').forEach(initCompareImages);
+
+        // [NEW] Function to animate the counter
+function animateCounter(el) {
+    const target = +el.dataset.target; // Get target number (10)
+    if (el.dataset.isCounting) return; // Prevent re-running
+    el.dataset.isCounting = true;
+
+    const duration = 1500; // 1.5 seconds
+    const stepTime = 20; // update every 20ms
+    const steps = duration / stepTime;
+    const increment = target / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            clearInterval(timer);
+            el.textContent = target + '+'; // Set final text
+        } else {
+            el.textContent = Math.floor(current) + '+';
+        }
+    }, stepTime);
+}
         
 function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
+
+                // [NEW] Check for and start the counter
+            const counter = entry.target.querySelector('[data-target]');
+            if (counter) {
+                animateCounter(counter);
+            }
+                
                 observer.unobserve(entry.target); // Stop observing once visible
             }
         });

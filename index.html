@@ -22,7 +22,6 @@
         overflow: hidden;
         border-radius: 12px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
     .img-comp-container:hover {
@@ -30,22 +29,9 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
     
-    /* Animate the slider handle on hover */
-    .img-comp-container:hover .img-comp-slider::before {
-        width: 50px;
-        height: 50px;
-        background-color: rgba(91, 163, 199, 0.9);
-    }
+   
     
-    /* Add a subtle pulse animation to draw attention */
-    @keyframes sliderPulse {
-        0%, 100% { transform: translate(-50%, -50%) scale(1); }
-        50% { transform: translate(-50%, -50%) scale(1.1); }
-    }
-    
-    .img-comp-slider::before {
-        animation: sliderPulse 2s ease-in-out infinite;
-    }
+ 
     
     .img-comp-container:hover .img-comp-slider::before {
         animation: none; /* Stop pulse on hover */
@@ -289,20 +275,22 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             color: #ffffff; /* This is the base (white) color */
         }
 
-        /* This is the new "wipe" element */
+       /* This is the new "wipe" element */
         .logo span::before {
             content: 'Diamond Auto Spa'; /* MUST exactly match the text in your HTML */
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 0; /* Starts hidden */
             overflow: hidden;
             color: var(--diamond-blue); /* This is the hover (blue) color */
             transition: width 0.4s ease-out; /* This is the animation */
             z-index: 2; /* Sits on top of the white text */
             white-space: nowrap; /* Prevents text from wrapping */
+            pointer-events: none; /* Ensures clicks pass through */
         }
-
         /* This triggers the animation on hover */
         .logo:hover span::before {
             width: 100%; /* Reveals the blue text */

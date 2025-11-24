@@ -163,7 +163,6 @@
         }
 
         /* Desktop View */
-     /* 1. MODIFY this existing class */
 .hero-desktop {
     display: flex;
     min-height: 100vh;
@@ -179,19 +178,20 @@
     color: #fff;
     position: relative;
     overflow: hidden; /* Add this to contain the video */
+    
+    /* slant from high-left to low-right */
+    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 92vh); 
 }
 
-/* 2. ADD this new class */
 .hero-video-bg {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
+    width: 105%;  /* CHANGED */
+    height: 105%; /* CHANGED */
     object-fit: cover;
     transform: translate(-50%, -50%);
-    z-index: 0; /* Sits behind the overlay (1) and content (2) */
-    /* You might want to darken the video slightly if it's too bright */
+    z-index: 0; 
     /* filter: brightness(70%); */ 
 }
         
@@ -692,29 +692,32 @@
             z-index: 2;
         }
         /* --- Video Carousel --- */
+      /* [NEW] Angled section style */
         #videos {
-            padding: 2rem 0;
+            padding: 4rem 0; /* More padding */
+            transform: rotate(-2deg) scale(1.05); /* Angle and scale */
+            overflow: hidden; /* Hide container edges */
+            margin: 3rem 0; /* Add margin to compensate for rotation */
         }
-
-        .video-carousel-container {
-            overflow-x: auto;
+        
+        /* [NEW] Marquee container style */
+        .video-marquee-container {
+            width: 100%;
+            display: flex;
             white-space: nowrap;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            
-            scrollbar-width: thin;
-            scrollbar-color: var(--diamond-blue) var(--main-bg-gray);
         }
 
-        .video-carousel-container::-webkit-scrollbar { height: 8px; }
-        .video-carousel-container::-webkit-scrollbar-track { background: #eee; border-radius: 4px; }
-        .video-carousel-container::-webkit-scrollbar-thumb { background-color: var(--diamond-blue); border-radius: 4px; }
-
-
-        .video-track {
+        /* [NEW] Marquee track style */
+        .video-marquee {
             display: flex;
             gap: 1.5rem;
+            padding: 0 0.75rem;
+            animation: scrollLeft 40s linear infinite; /* Faster scroll */
+        }
+
+        /* [NEW] Pause on hover */
+        .video-marquee-container:hover .video-marquee {
+            animation-play-state: paused;
         }
 
         .video-card {
@@ -747,8 +750,8 @@
     flex: 0 0 auto; /* Prevent shrinking */
     width: 380px; /* A bit wider */
     padding: 1.5rem;
-    background: #202124; /* Google's dark gray */
-    color: #e8eaed; /* Google's light text */
+    background: #000000; /* Google's dark gray */
+    color: #ffffff; /* Google's light text */
     border-radius: 12px;
     border: 1px solid #3c4043; /* Subtle border */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -918,11 +921,15 @@
             color: var(--diamond-dark-blue);
         }
 
-        .info-item strong {
-            display: block;
+      .info-item strong {
+            /* display: block;  <-- REforcing "Call Us" onto its own line)MOVED */
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             font-family: 'Playfair Display', serif;
+        }
+
+        .info-item .info-title-block {
+            display: block;
         }
 
         .hours-list {
@@ -937,33 +944,56 @@
             border-bottom: 1px solid #eee;
         }
 
-        .social-links {
-            display: inline-block;
-    padding: 1rem 3rem;
-    /* FIX: Make button blue and text white */
-    background: linear-gradient(45deg, var(--diamond-dark-blue), var(--diamond-blue)); /* GRADIENT! */
-    color: #ffffff; 
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s, box-shadow 0.3s; /* Added box-shadow transition */
-    font-family: 'Playfair Display', serif;
+       .social-links {
+            text-align: center; /* [CHANGED] Center the links */
+            margin-top: 1rem; /* [ADD] Add some space */
         }
        
 
-        .social-links a {
+       .social-links a {
             display: inline-block;
             padding: 1rem 2rem;
-            background: var(--diamond-blue);
-            color: white;
+            background: linear-gradient(45deg, var(--diamond-dark-blue), var(--diamond-blue));
+            color: #ffffff;
             text-decoration: none;
-            font-weight: bold;
             font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.3s;
+            font-family: 'Playfair Display', serif;
+            margin: 0.5rem; /* [ADD] Space between buttons */
+        }
+        /* [ADD] Hover animation for social buttons */
+        .social-links a:hover {
+            background: linear-gradient(45deg, var(--diamond-blue), var(--diamond-dark-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        /* [ADD] Styles for the new contact layout */
+        .contact-line strong {
+            margin-right: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* [ADD] Puts Playfair font on the phone number */
+        .phone-link-bg {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* [ADD] Styles for the email link */
+        .email-link-bg {
+            font-size: 1.3rem; /* Match phone link */
+            font-weight: bold;
+            color: var(--text-dark); /* Not blue */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .email-link-bg:hover {
+            color: var(--diamond-blue);
         }
         
         .map-container {
@@ -1347,12 +1377,12 @@
             </div>
 </section>
 
-    <section id="videos">
+   <section id="videos">
     <h2 class="section-title reveal">See The Transformation</h2>
     <p class="section-subtitle reveal">Real results, real shine.</p>
 
-    <div class="video-carousel-container">
-        <div class="video-track">
+    <div class="video-marquee-container"> 
+        <div class="video-marquee" id="videoTrack1"> 
             <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
@@ -1389,7 +1419,8 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-            </div>
+        </div>
+        <div class="video-marquee" id="videoTrack1-clone" aria-hidden="true"></div>
     </div>
 </section>
 
@@ -1446,19 +1477,20 @@
 <div class="contact-info-card reveal">            
     <h3>Get In Touch</h3>
     
-    <div class="info-item info-highlight">
-        <strong style="font-size: 1.2rem;">Call Us:</strong>
-        <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
-    </div>
-
-    <div class="info-item info-highlight">
-        <strong style="font-size: 1.2rem;">Email Us:</strong>
-        <a href="tel:+13529314860" class="email-link-bg">diamondautospa.fl23@gmail.com</a>
+   <div class="info-item info-highlight">
+        <div class="contact-line">
+            <strong style="font-size: 1.2rem;">Call Us:</strong>
+            <a href="tel:+13529314860" class="phone-link-bg">+1 352-931-4860</a>
+        </div>
+        <div class="contact-line" style="margin-top: 1rem;">
+            <strong style="font-size: 1.2rem;">Email Us:</strong>
+            <a href="mailto:diamondautospa.fl23@gmail.com" class="email-link-bg">diamondautospa.fl23@gmail.com</a>
+        </div>
     </div>
 
     <div class="info-item" style="flex-grow: 1;">
-                    <strong>Hours</strong>
-                    <ul class="hours-list">
+<strong class="info-title-block">Hours</strong>
+        <ul class="hours-list">
                        <li><span>Monday</span><span>7 AM – 8 PM</span></li>
                         <li><span>Tuesday</span><span>7 AM – 8 PM</span></li>
                         <li><span>Wednesday</span><span>7 AM – 8 PM</span></li>
@@ -1637,7 +1669,21 @@ reviews2.reverse().forEach(review => {
     clone2.appendChild(createReviewCard(review));
 });
         // --- END REWORKED SCRIPT ---
-
+/* ==================================================================
+            NEW VIDEO ?! SCRIPT
+        ==============================================================
+        */
+        const videoTrack1 = document.getElementById('videoTrack1');
+        const videoTrack1Clone = document.getElementById('videoTrack1-clone');
+        
+        // Populate the clone track
+        if (videoTrack1 && videoTrack1Clone) {
+            const originalVideos = videoTrack1.querySelectorAll('.video-card');
+            originalVideos.forEach(video => {
+                videoTrack1Clone.appendChild(video.cloneNode(true));
+            });
+        }
+        // --- END NEW VIDEO SCRIPT ---
 
         // --- Gallery Logic (Unchanged) ---
         const galleryBtn = document.getElementById('galleryBtn');

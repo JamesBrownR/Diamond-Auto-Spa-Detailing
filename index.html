@@ -254,7 +254,6 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     text-decoration: none;
     font-weight: 700;
     position: relative; /* Needed for the diamond */
-    padding-left: 2.2rem; /* Make space for the diamond */
     transition: color 0.3s ease; /* Add transition for the text */
 }
 
@@ -264,54 +263,19 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     z-index: 1;         /* Add (behind diamond) */
     color: #ffffff;     /* Add (set base color) */
 }
-        /* This creates the blue text wipe animation */
-.logo span::after {
-    content: 'Diamond Auto Spa'; /* Must match the text in your <span> */
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--diamond-blue);
-    width: 0;
-    overflow: hidden;
-    transition: width 0.4s ease-out;
-    z-index: 2; /* Sits on top of the white text */
-}
 
-.logo:hover span::after {
-    width: 100%; /* Wipes across on hover */
-}
 
-/* This creates the diamond */
-.logo::before {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #ffffff;
-    left: 2.2rem; /* <--  (to overlap text) */
-    top: 50%;
-    z-index: 10; /* (to go on top) */
 
-    /* Start hidden and small */
-    opacity: 0;
-    transform: translateY(-50%) rotate(45deg) scale(0.5);
-    transition: all 0.3s ease-out;
-}
+
+
 
 /* On hover, show the diamond and change text color */
 .logo:hover {
     color: var(--diamond-blue); /* This will change the text color */
 }
 
-.logo:hover::before {
-    opacity: 1;
-    transform: translateY(-50%) rotate(45deg) scale(1); /* Grow to full size */
-}
 
-/* This handles the span color, but hovering the .logo is more robust */
-.logo:hover span {
-color: #ffffff; 
-}
+
         
 
         .phone-header {

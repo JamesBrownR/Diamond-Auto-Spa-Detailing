@@ -843,12 +843,13 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             z-index: 2;
         }
         /* --- Video Carousel --- */
-      /* [NEW] Angled section style */
+      /* angled section style */
         #videos {
             padding: 4rem 0; /* More padding */
             transform: rotate(-2deg) scale(1.05); /* Angle and scale */
             overflow: hidden; /* Hide container edges */
             margin: 3rem 0; /* Add margin to compensate for rotation */
+            max-width: 100vw; /* Prevent overflow beyond viewport */
         }
         
       .video-marquee {

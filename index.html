@@ -268,50 +268,45 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
     z-index: 1;
 }
-        .logo {
+        /* --- UPDATED HEADER CSS --- */
+.logo {
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
-    color: #ffffff;
-    text-decoration: none;
     font-weight: 700;
-    position: relative; /* Needed for the diamond */
+    text-decoration: none;
+    /* Gradient Text Fill Effect */
+    background: linear-gradient(to right, #ffffff 50%, var(--diamond-blue) 50%);
+    background-size: 200% 100%;
+    background-position: 0 0; /* Start at white */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.5s ease-out;
+    display: inline-block;
 }
 
-.logo span {
-            position: relative;
-            z-index: 1;
-            color: #ffffff; /* This is the base (white) color */
-        }
+.logo:hover {
+    background-position: -100% 0; /* Slide to Blue */
+}
 
-       /* This is the new "wipe" element */
-        .logo span::before {
-            content: 'Diamond Auto Spa'; /* MUST exactly match the text in your HTML */
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 0; /* Starts hidden */
-            overflow: hidden;
-            color: var(--diamond-blue); /* This is the hover (blue) color */
-            transition: width 0.4s ease-out; /* This is the animation */
-            z-index: 2; /* Sits on top of the white text */
-            white-space: nowrap; /* Prevents text from wrapping */
-            pointer-events: none; /* Ensures clicks pass through */
-        }
-        /* This triggers the animation on hover */
-        .logo:hover span::before {
-            width: 100%; /* Reveals the blue text */
-        }
+/* Remove the old span::before logic, we don't need it anymore */
+.logo span { color: inherit; } 
 
-        .phone-header {
-            font-size: 1.3rem;
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-            /* [ADD] Font consistency fix */
-            font-family: 'Playfair Display', serif;
-        }
+.phone-header {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: 'Playfair Display', serif;
+    display: flex; /* Align SVG and text */
+    align-items: center;
+    gap: 8px;
+}
+
+.phone-icon-svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor; /* Inherits text color */
+}
         /* --- New Hero CTA Button Style --- */
 .hero-content .cta-bbutton {
     background: transparent;
@@ -418,6 +413,21 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     padding: 0 2rem;
     position: relative;
     z-index: 2;
+}
+
+        /* --- WIDER GALLERY CSS --- */
+.container-fluid-gallery {
+    width: 95%; /* Takes up most of the screen */
+    max-width: 1800px; /* Cap it on super-wide monitors */
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Adjust grid for wider layout */
+.gallery-grid {
+    gap: 0.5rem; /* Tighter gap looks better on wide screens */
 }
 
 /* --- 2. TORN PAPER TRANSITION (Matches your image) --- */
@@ -921,47 +931,65 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         }
         /* --- Video Carousel --- */
       /* angled section style */
-        #videos {
-            padding: 4rem 0; /* More padding */
-            transform: rotate(-2deg) scale(1.05); /* Angle and scale */
-            overflow: hidden; /* Hide container edges */
-            margin: 3rem 0; /* Add margin to compensate for rotation */
-            max-width: 100vw; /* Prevent overflow beyond viewport */
-        }
-        
-      .video-marquee {
-    display: flex;
-    gap: 1.5rem;
-    padding: 0 0.75rem;
+       /* --- UPDATED VIDEO SECTION CSS --- */
+#videos {
+    padding: 4rem 0;
+    margin: 3rem 0;
+    /* Inverted Colors */
+    background: var(--black); 
+    color: #ffffff;
+    
+    /* Keep the angle if you like it, or remove transform to make it straight */
+    transform: rotate(-2deg) scale(1.02); 
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
-/* FIX: Forces the two video tracks to sit side-by-side */
-.video-marquee-wrapper {
-    display: flex;
-    width: fit-content;
+#videos .section-title {
+    color: #ffffff; /* White text for title */
 }
 
-    .video-marquee-container {
-    width: 100%;
+/* Scroll Container */
+.video-scroll-container {
+    display: flex;
+    overflow-x: auto; /* Enables manual scrolling */
+    gap: 2rem;
+    padding: 2rem 5%; /* Padding so first card isn't flush against edge */
+    scroll-behavior: smooth;
+    
+    /* Hide scrollbar for cleaner look (works in Chrome/Safari) */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.video-scroll-container::-webkit-scrollbar { 
+    display: none; 
+}
+
+.video-card {
+    flex: 0 0 320px; /* Fixed width per card */
+    background: #1a1a1a; /* Dark Card Background */
+    border: 1px solid #333;
+    border-radius: 12px;
     overflow: hidden;
-    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Stronger shadow for dark mode */
+    transition: transform 0.3s ease;
 }
 
+.video-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--diamond-blue);
+}
 
-     
-
-        .video-card {
-            flex-shrink: 0;
-            width: 300px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(58, 75, 82, 0.1);
-        }
-
-        .video-card video {
-            width: 100%;
-            height: 100%;
-        }
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 
        /* --- Review Section Background --- */
@@ -1051,7 +1079,71 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     from { transform: translateX(-100%); }
     to { transform: translateX(0%); }
 }
+.reviews-header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
+.reviews-text-side {
+    text-align: left; /* Align text left */
+}
+
+/* Override the default center alignment for this specific section */
+.reviews-text-side .section-title {
+    text-align: left; 
+}
+.reviews-text-side .section-title::after {
+    left: 0;
+    transform: none; /* Move underline to left */
+}
+.reviews-text-side .section-subtitle {
+    text-align: left;
+}
+
+.reviews-badges-side {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.badge-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-logos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.badge-logo-img {
+    height: 24px;
+    width: auto;
+}
+
+.badge-rating-text {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+}
+
+.badge-subtext {
+    font-size: 0.8rem;
+    color: #666;
+}
 .reviews-marquee-container {
     width: 100%;
     display: flex;
@@ -1391,18 +1483,25 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 <body>
 
     <header>
-        <div class="header-content">
-<a href="#" class="logo"><span>Diamond Auto Spa</span></a>
-            
-            <a href="tel:+13529314860" class="phone-header">📞 +1 352-931-4860</a>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#videos">Videos</a> <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <div class="header-content">
+        <a href="#" class="logo">Diamond Auto Spa</a>
+        
+        <a href="tel:+13529314860" class="phone-header">
+            <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>
+            </svg>
+            +1 352-931-4860
+        </a>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#videos">Videos</a> 
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
 
       <section class="hero-desktop">
            
@@ -1589,7 +1688,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 </section>
     
     <section id="gallery" class="wavy-top">
-        <div class="container">
+<div class="container-fluid-gallery">
     <h2 class="section-title reveal">Results Speak For Themselves</h2>
     <p class="section-subtitle reveal">Click any image to zoom in</p>
     
@@ -1636,9 +1735,25 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
     
   <section id="reviews">
+      <div class="reviews-header-wrapper">
+        <div class="reviews-text-side">
     <h2 class="section-title">What Our Clients Say</h2>
     <p class="section-subtitle">We can tell you... or they could.</p>
-
+</div>
+            
+            <div class="reviews-badges-side reveal">
+            <div class="badge-group">
+                <div class="badge-logos">
+                    <img src="Diamond-Auto-Spa-Detailing-GoogleLogo.png" alt="Google" class="badge-logo-img">
+                    <img src="Diamond-Auto-Spa-Detailing-FacebookLogo.png" alt="Facebook" class="badge-logo-img">
+                </div>
+                <div>
+                    <span class="badge-rating-text">PERFECT 5.0</span>
+                    <div class="badge-subtext">Based on 59+ Reviews</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="reviews-marquee-container">
         <div class="reviews-marquee" id="reviewsTrack1">
             </div>
@@ -1652,55 +1767,75 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         <div class="reviews-marquee" id="reviewsTrack2-clone">
             </div>
     </div>
-</section>
-
-   <section id="videos">
-    <h2 class="section-title reveal">See Our Process</h2>
-    <p class="section-subtitle reveal">We like to show, not tell.</p>
-
- <div class="video-marquee-container">
-    <div class="video-marquee-wrapper">
-        <div class="video-marquee" id="videoTrack1">
-            <div class="video-card reveal">
-                <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-card reveal">
-                <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-card reveal">
-                <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-card reveal">
-                <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="video-card reveal">
-                <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-             <div class="video-card reveal">
-                <video controls muted loop playsinline>
-                    <source src="Diamond-Auto-Spa-Detailing6.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-        <div class="video-marquee" id="videoTrack1-clone" aria-hidden="true"></div>
+<section id="videos">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 class="section-title reveal">See Our Process</h2>
+        <p class="section-subtitle reveal">Swipe to watch us work.</p>
     </div>
-     </div>
+
+    <div class="video-scroll-container">
+        
+        <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none" poster="Diamond-Auto-Spa-Detailing-Poster1.png">
+                <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing6.mp4" type="video/mp4">
+            </video>
+        </div>
+
+         <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing7.mp4" type="video/mp4">
+            </video>
+        </div>
+
+         <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing8.mp4" type="video/mp4">
+            </video>
+        </div>
+
+         <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing9.mp4" type="video/mp4">
+            </video>
+        </div>
+
+         <div class="video-card reveal">
+            <video controls muted loop playsinline preload="none">
+                <source src="Diamond-Auto-Spa-Detailing10.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        </div>
 </section>
 
 

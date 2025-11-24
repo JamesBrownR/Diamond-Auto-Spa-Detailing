@@ -126,12 +126,15 @@
     padding: 0;
 }
       body {
-            font-family: 'Lato', sans-serif; 
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: #f8f9fa; /* Fallback */
-            background-image: linear-gradient(180deg, #ffffff 0%, #f0f2f5 100%);
-        }
+    font-family: 'Lato', sans-serif; 
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f8f9fa;
+    background-image: linear-gradient(180deg, #ffffff 0%, #f0f2f5 100%);
+    margin: 0; /* Make sure this is here */
+    padding: 0; /* Make sure this is here */
+    min-height: 100vh; /* Add this */
+}
 
         h1, h2, h3, .section-title, .section-subtitle, nav a, footer p, .social-links {
             font-family: 'Playfair Display', serif;
@@ -1465,12 +1468,21 @@ justify-content: flex-start; /* Align items to left */
         color: #ffffff;
     }
         /* --- Footer --- */
-        footer {
-            background: var(--black);
-            color: #888;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
+      footer {
+    background: var(--black);
+    color: #888;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 0; /* Add this */
+}
+
+footer p {
+    margin: 0.5rem 0; /* Control paragraph spacing */
+}
+
+footer p:last-child {
+    margin-bottom: 0; /* Remove bottom margin from last paragraph */
+}
         
        
 

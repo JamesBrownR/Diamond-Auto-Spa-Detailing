@@ -490,28 +490,35 @@
             justify-content: center;
         }
 
-       .service-card, .review-card, .philosophy-content, .contact-form-card, .contact-info-card {
-            border-radius: 12px;
-            /* [CHANGE] Tweaked shadow for a more '3D' feel */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07), 0 15px 35px rgba(50, 60, 70, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: var(--card-white);
-            border-top: 5px solid var(--diamond-blue);
-        }
+     /* --- Base Card Style (Neumorphism) --- */
+.service-card, .philosophy-content, .contact-form-card, .contact-info-card {
+    border-radius: 15px; /* Softer radius */
+    background: var(--main-bg-gray); /* MUST match the page background */
+    
+    /* The neumorphic shadow */
+    box-shadow: 10px 10px 20px #c7c9cc, 
+                -10px -10px 20px #ffffff;
+    
+    transition: all 0.3s ease; /* Smooth transition */
+    
+    /* REMOVE the old border-top */
+    border-top: none; 
+}
 
-        .service-card:hover, .review-card:hover, .contact-form-card:hover, .contact-info-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            /* [CHANGE] Tweaked hover shadow to match */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 25px 50px rgba(50, 60, 70, 0.15);
-        }
-        .service-card p {
-            color: var(--text-dark);
-        }
-        
-        /* Exception: philosophy card doesn't need blue border */
-        .philosophy-content {
-            border-top: none;
-        }
+/* --- Card Hover State (Pressed) --- */
+.service-card:hover, .philosophy-content:hover, .contact-form-card:hover, .contact-info-card:hover {
+    /* Inset shadows make it look "pressed" */
+    box-shadow: inset 7px 7px 15px #c7c9cc, 
+                inset -7px -7px 15px #ffffff;
+    
+    /* Remove the old "lift" effect */
+    transform: none; 
+}
+
+/* Remove the border from the philosophy card (it was an exception) */
+.philosophy-content {
+    border-top: none;
+}
         
         .service-icon {
             color: var(--diamond-blue);

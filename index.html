@@ -22,7 +22,12 @@
         overflow: hidden;
         border-radius: 12px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+        transition: all 0.3s ease; /* <--- ADD THIS LINE */
     }
+    .img-comp-container:hover {
+    transform: translateY(-8px); /* Adds the "physical" lift */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* Makes the shadow stronger */
+}
 
   .img-comp-img {
         position: absolute;
@@ -254,29 +259,32 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     text-decoration: none;
     font-weight: 700;
     position: relative; /* Needed for the diamond */
-    transition: color 0.3s ease; /* Add transition for the text */
 }
 
 .logo span {
-    transition: color 0.3s ease;
-    position: relative; /* Add for z-index */
-    z-index: 1;         /* Add (behind diamond) */
-    color: #ffffff;     /* Add (set base color) */
-}
+            position: relative;
+            z-index: 1;
+            color: #ffffff; /* This is the base (white) color */
+        }
 
+        /* This is the new "wipe" element */
+        .logo span::before {
+            content: 'Diamond Auto Spa'; /* MUST exactly match the text in your HTML */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0; /* Starts hidden */
+            overflow: hidden;
+            color: var(--diamond-blue); /* This is the hover (blue) color */
+            transition: width 0.4s ease-out; /* This is the animation */
+            z-index: 2; /* Sits on top of the white text */
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
 
-
-
-
-
-/* On hover, show the diamond and change text color */
-.logo:hover {
-    color: var(--diamond-blue); /* This will change the text color */
-}
-
-
-
-        
+        /* This triggers the animation on hover */
+        .logo:hover span::before {
+            width: 100%; /* Reveals the blue text */
+        }
 
         .phone-header {
             font-size: 1.3rem;
@@ -668,7 +676,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     box-shadow: inset 7px 7px 15px #c7c9cc, 
                 inset -7px -7px 15px #ffffff;
     
-   transform: translateY(-5px);
+   transform: translateY(-15px);
 }
 
 /* Remove the border from the philosophy card (it was an exception) */
@@ -851,13 +859,22 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
 
 
-       .video-marquee-container {
+      .video-marquee-container {
     width: 100%;
     display: flex;
     white-space: nowrap;  
-    overflow: hidden; /* <-- CHANGED FROM 'auto' */
+    overflow-x: auto; /* <--- DOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM SCROLLING */
     cursor: grab; 
     -webkit-overflow-scrolling: touch; 
+    
+    /* These lines hide the scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* This line hides the scrollbar in Chrome/Safari */
+.video-marquee-container::-webkit-scrollbar {
+    display: none;
 }
      
 

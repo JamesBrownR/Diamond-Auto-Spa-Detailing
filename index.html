@@ -181,7 +181,8 @@
     color: #fff;
     position: relative;
     overflow: hidden; /* Add this to contain the video */
-    
+    /* slant from high-left to low-right */
+    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 92vh);
    
 }
 
@@ -418,12 +419,9 @@
             color: var(--text-dark);
         }
 .philosophy-section {
-     background: var(--main-bg-gray); /* CHANGED */
-     padding-top: calc(2rem + 8vh); /* CHANGED */
+     background: transparent; 
+     padding-top: 2rem;
      position: relative;
-     margin-top: -4vh; /* ADDED */
-     clip-path: polygon(0 16vh, 100% 0, 100% 100%, 0 100%); /* ADDED */
-     z-index: 5; /* ADDED */
  }
 
         .philosophy-content {

@@ -179,8 +179,7 @@
     position: relative;
     overflow: hidden; /* Add this to contain the video */
     
-    /* slant from high-left to low-right */
-    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 92vh); 
+   
 }
 
 .hero-video-bg {
@@ -415,12 +414,14 @@
             border-radius: 12px;
             color: var(--text-dark);
         }
-
-       .philosophy-section {
-            background: transparent; 
-            padding-top: 2rem;
-            position: relative;
-        }
+.philosophy-section {
+     background: var(--main-bg-gray); /* CHANGED */
+     padding-top: calc(2rem + 8vh); /* CHANGED */
+     position: relative;
+     margin-top: -8vh; /* ADDED */
+     clip-path: polygon(0 8vh, 100% 0, 100% 100%, 0 100%); /* ADDED */
+     z-index: 5; /* ADDED */
+ }
 
         .philosophy-content {
             max-width: 600px;
@@ -700,12 +701,14 @@
             margin: 3rem 0; /* Add margin to compensate for rotation */
         }
         
-        /* [NEW] Marquee container style */
-        .video-marquee-container {
-            width: 100%;
-            display: flex;
-            white-space: nowrap;
-        }
+       .video-marquee-container {
+    width: 100%;
+    display: flex;
+    /* white-space: nowrap; */ /* REMOVED */
+    overflow-x: auto; /* ADDED */
+    cursor: grab; /* ADDED */
+    -webkit-overflow-scrolling: touch; /* ADDED for smooth mobile scroll */
+}
 
         /* [NEW] Marquee track style */
         .video-marquee {
@@ -1170,9 +1173,9 @@
                 <source src="Diamond-Auto-Spa-Detailing.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="hero-content reveal">
-    <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">Diamond Auto Spa</h2>
-    <h1 style="margin-top: 0;">Make Your Car Shine Like A Diamond.</h1>
+      <div class="hero-content reveal">
+    <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px;">Diamond Auto Spa</h2>
+    <h1 style="margin-top: 0; margin-bottom: 2.5rem;">Make Your Car Shine Like A Diamond.</h1>
     <a href="#contact" class="cta-bbutton" style="color: #ffffff;">Book Your Detail</a>
 </div>
         </section>

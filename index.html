@@ -1135,9 +1135,19 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Aligns vertical centers */
+    align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 4rem; /* Increased from 2rem */
+}
+
+.reviews-text-side {
+    text-align: left;
+    margin-bottom: 1rem;
+    flex: 0 0 55%; /* Add this - takes up 55% of width */
+}
+
+.reviews-badges-side {
+    flex: 0 0 40%; /* Add this - takes up 40% of width */
 }
         .review-source-icon {
     width: 28px;
@@ -1149,10 +1159,6 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 }
 
 
-.reviews-text-side {
-    text-align: left;
-    margin-bottom: 1rem; /* Push text up slightly relative to badge */
-}
 
 /* --- NEW WIDE BADGE STYLE --- */
 .reviews-badges-side {
@@ -1450,6 +1456,8 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 #map-section {
         background: var(--charcoal);
         color: #f0f2f5;
+        margin-bottom: 0; /* Add this line */
+
     }
     #map-section .section-title,
     #map-section .section-subtitle {
@@ -1646,8 +1654,9 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
     <header>
     <div class="header-content">
-        <a href="#" class="logo">Diamond Auto Spa</a>
-        
+<a href="#" class="logo">
+    <img src="Diamond-Auto-Spa-Detailing.png" alt="Diamond Auto Spa" style="height: 50px; width: auto;">
+</a>        
         <a href="tel:+13529314860" class="phone-header">
             <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>

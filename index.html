@@ -1567,8 +1567,7 @@
         ==================================================================
         */
         const reviewsTrack = document.getElementById('reviewsTrack');
-        const nextBtn = document.getElementById('nextReview');
-        const prevBtn = document.getElementById('prevReview');
+      
         let allReviewCards = [];
         let currentReviewPage = 0;
         let reviewsPerPage = 3;
@@ -1655,18 +1654,7 @@ updateSliderConfig();
 slideReviews(0);
 startAutoplay();
 
-// Add event listeners
-nextBtn.addEventListener('click', () => {
-    stopAutoplay();
-    slideReviews(currentReviewPage + 1);
-    startAutoplay();
-});
 
-prevBtn.addEventListener('click', () => {
-    stopAutoplay();
-    slideReviews(currentReviewPage - 1);
-    startAutoplay();
-});
 
 reviewsTrack.parentElement.addEventListener('mouseenter', stopAutoplay);
 reviewsTrack.parentElement.addEventListener('mouseleave', startAutoplay);

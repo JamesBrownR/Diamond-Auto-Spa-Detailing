@@ -975,14 +975,15 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     background: var(--black); 
     color: #ffffff;
     
-    /* Keep the angle if you like it, or remove transform to make it straight */
-    transform: rotate(-2deg) scale(1.02); 
+    /* Keep the angle - scale up more to fill gaps */
+    transform: rotate(-2deg) scale(1.15); 
     width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    overflow: hidden; /* Clip any overflow */
 }
 
 
@@ -1197,8 +1198,11 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 }
 
 .badge-logo-img {
-    height: 65px;  /* <-- BUMP SIZE UP */
+    height: 65px;
+    max-height: 65px;  /* Prevents growing larger */
     width: auto;
+    max-width: 120px;  /* Caps the width too */
+    object-fit: contain;  /* Maintains aspect ratio */
 }
 
 

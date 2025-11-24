@@ -751,16 +751,31 @@ overflow: hidden;
     -webkit-overflow-scrolling: touch; /* ADDED for smooth mobile scroll */
 }
 
-        /* [NEW] Marquee track style */
-        .video-marquee {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 0.75rem;
-            animation: scrollLeft 40s linear infinite; /* Faster scroll */
-            flex-shrink: 0;
-        }
+      .video-marquee-container {
+    width: 100%;
+    display: flex;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    cursor: grab; 
+    -webkit-overflow-scrolling: touch; /*  for smooth mobile scroll */
+}
 
-      
+        .video-marquee-container {
+    width: 100%;
+    display: flex;
+    white-space: nowrap;  
+    overflow-x: auto;   
+    cursor: grab; 
+    -webkit-overflow-scrolling: touch; 
+}
+      /* Hides the scrollbar for a cleaner drag-to-scroll feel */
+.video-marquee-container::-webkit-scrollbar {
+    display: none;
+}
+.video-marquee-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
 
         .video-card {
             flex-shrink: 0;

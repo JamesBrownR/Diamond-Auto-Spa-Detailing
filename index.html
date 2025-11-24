@@ -720,27 +720,27 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
      /* --- Base Card Style (Neumorphism) --- */
 .service-card, .philosophy-content, .contact-form-card, .contact-info-card {
-    border-radius: 15px; /* Softer radius */
-    background: var(--main-bg-gray); /* MUST match the page background */
-    
-    /* The neumorphic shadow */
-    box-shadow: 10px 10px 20px #c7c9cc, 
-                -10px -10px 20px #ffffff;
-    
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition with easing */
-    
-    /* REMOVE the old border-top */
-    border-top: none; 
+    box-shadow:
+        10px 10px 20px #c7c9cc,
+       -10px -10px 20px #ffffff,
+        inset 0px 0px 0px transparent,
+        inset 0px 0px 0px transparent;
+
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
-/* --- Card Hover State (Pressed) --- */
+
 .service-card:hover, .philosophy-content:hover, .contact-form-card:hover, .contact-info-card:hover {
-    /* Inset shadows make it look "pressed" */
-    box-shadow: inset 7px 7px 15px #c7c9cc, 
-                inset -7px -7px 15px #ffffff;
-    
-   transform: translateY(-15px);
+
+    box-shadow: 
+        4px 4px 10px #c7c9cc, 
+       -4px -4px 10px #ffffff,
+       inset 2px 2px 5px #c7c9cc,
+       inset -2px -2px 5px #ffffff;
+
+    transform: translateY(-10px);
 }
+
 
 /* Remove the border from the philosophy card (it was an exception) */
 .philosophy-content {
@@ -1126,6 +1126,15 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     flex-wrap: wrap;
     gap: 2rem;
 }
+        .review-source-icon {
+    width: 28px;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0.9;
+}
+
 
 .reviews-text-side {
     text-align: left;
@@ -1174,18 +1183,20 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     font-weight: 600;
 }
 
-/* Right side of card */
 .badge-logos-right {
     display: flex;
-    gap: 15px;
+    flex-direction: column;   /* <-- STACK VERTICALLY */
+    align-items: center;
+    gap: 10px;
     padding-left: 2rem;
-    border-left: 1px solid #eee; /* Optional divider line */
+    border-left: 1px solid #eee;
 }
 
 .badge-logo-img {
-    height: 45px; /* Bigger logos */
+    height: 65px;  /* <-- BUMP SIZE UP */
     width: auto;
 }
+
 
 /* Mobile fix for the new wide badge */
 @media (max-width: 768px) {
@@ -1226,6 +1237,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     padding: 0 0.75rem;
     animation: scrollLeft 60s linear infinite; /* Adjust 60s to change speed */
 }
+        
 
 /* Second (reverse) row */
 .reviews-marquee-container.reverse .reviews-marquee {
@@ -1341,27 +1353,27 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         }
        
 
-       .social-links a {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, var(--diamond-dark-blue), var(--diamond-blue));
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s, box-shadow 0.3s;
-            font-family: 'Playfair Display', serif;
-            margin: 0.5rem; /* [ADD] Space between buttons */
-        }
-        /* [ADD] Hover animation for social buttons */
-        .social-links a:hover {
-            background: linear-gradient(45deg, var(--diamond-blue), var(--diamond-dark-blue));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
+     .social-links a {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #ffffff;
+    color: #000 !important;
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+}
+
 
         /* [ADD] Styles for the new contact layout */
         .contact-line strong {
@@ -1901,7 +1913,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
                         <label for="message">Tell us about your vehicle *</label>
                         <textarea id="message" name="message" required placeholder="What type of vehicle do you have? Any specific concerns?"></textarea>
                     </div>
-                    <button type="submit" class="cta-button">Send Message</button>
+                    <button type="submit" class="cta-bbutton">Send Message</button>
                     </form>
             </div>
 

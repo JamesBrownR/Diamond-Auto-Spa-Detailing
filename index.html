@@ -248,12 +248,50 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     z-index: 1;
 }
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-        }
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    position: relative; /* Needed for the diamond */
+    padding-left: 2.2rem; /* Make space for the diamond */
+    transition: color 0.3s ease; /* Add transition for the text */
+}
+
+.logo span {
+    transition: color 0.3s ease;
+}
+
+/* This creates the diamond */
+.logo::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    left: 0.5rem;
+    top: 50%;
+    
+    /* Start hidden and small */
+    opacity: 0;
+    transform: translateY(-50%) rotate(45deg) scale(0.5);
+    transition: all 0.3s ease-out;
+}
+
+/* On hover, show the diamond and change text color */
+.logo:hover {
+    color: var(--diamond-blue); /* This will change the text color */
+}
+
+.logo:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) rotate(45deg) scale(1); /* Grow to full size */
+}
+
+/* This handles the span color, but hovering the .logo is more robust */
+.logo:hover span {
+    color: var(--diamond-blue);
+}
 
         .phone-header {
             font-size: 1.3rem;
@@ -466,7 +504,6 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
         .philosophy-content {
             max-width: 600px;
-            margin: 0 auto;
             background: var(--card-white);
             padding: 3rem 2rem;
             position: relative;
@@ -545,6 +582,85 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             font-family: 'Playfair Display', serif;
             justify-content: center;
         }
+        /* ADD ALL THESE NEW RULES for the philosophy section */
+.philosophy-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.philosophy-image-stack {
+    position: relative;
+    min-height: 450px;
+    width: 100%;
+}
+
+.stack-img {
+    position: absolute;
+    width: 75%; /* Make them overlap */
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: #fff; /* Add bg for loading */
+}
+
+/* Style for the normal image tag */
+.stack-img.img-1 {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: rotate(-8deg);
+    height: auto;
+    object-fit: cover;
+}
+
+/* Style for the B/A container */
+.stack-img.img-2 {
+    bottom: 0;
+    right: 0;
+    z-index: 2; /* Start on top */
+    transform: rotate(5deg);
+    height: 400px; /* Give the B/A a fixed height */
+}
+
+/* --- Hover Effects --- */
+
+/* When hovering img-1, bring it to front */
+.philosophy-image-stack .stack-img.img-1:hover {
+    z-index: 3;
+    transform: rotate(-3deg) scale(1.05);
+}
+/* ...and push img-2 back */
+.philosophy-image-stack .stack-img.img-1:hover + .stack-img.img-2 {
+    z-index: 2;
+    transform: rotate(2deg) scale(0.95);
+}
+
+/* When hovering img-2, bring it to front */
+.philosophy-image-stack .stack-img.img-2:hover {
+    z-index: 3;
+    transform: rotate(2deg) scale(1.05);
+}
+/* ...and push img-1 back */
+.philosophy-image-stack .stack-img.img-2:hover ~ .stack-img.img-1 {
+    z-index: 2;
+    transform: rotate(-5deg) scale(0.95);
+}
+
+/* Responsive stacking for mobile */
+@media (max-width: 900px) {
+    .philosophy-grid-container {
+        grid-template-columns: 1fr; /* Stack them */
+    }
+    .philosophy-image-stack {
+        margin-top: 2rem;
+        min-height: 400px; 
+    }
+    .stack-img.img-2 {
+        height: 350px; 
+    }
+}
 
      /* --- Base Card Style (Neumorphism) --- */
 .service-card, .philosophy-content, .contact-form-card, .contact-info-card {
@@ -743,29 +859,13 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             margin: 3rem 0; /* Add margin to compensate for rotation */
         }
         
+      
+
        .video-marquee-container {
     width: 100%;
     display: flex;
-    /* white-space: nowrap; */ /* REMOVED */
-overflow: hidden;
-           cursor: grab; /* ADDED */
-    -webkit-overflow-scrolling: touch; /* ADDED for smooth mobile scroll */
-}
-
-      .video-marquee-container {
-    width: 100%;
-    display: flex;
-    /* white-space: nowrap; */
-    overflow: hidden;
-    cursor: grab; 
-    -webkit-overflow-scrolling: touch; /*  for smooth mobile scroll */
-}
-
-        .video-marquee-container {
-    width: 100%;
-    display: flex;
     white-space: nowrap;  
-    overflow-x: auto;   
+    overflow: hidden; /* <-- CHANGED FROM 'auto' */
     cursor: grab; 
     -webkit-overflow-scrolling: touch; 
 }
@@ -1213,7 +1313,7 @@ overflow: hidden;
 
     <header>
         <div class="header-content">
-            <a href="#" class="logo">Diamond Auto Spa</a>
+<a href="#" class="logo"><span>Diamond Auto Spa</span></a>
             
             <a href="tel:+13529314860" class="phone-header">📞 +1 352-931-4860</a>
             <nav>
@@ -1254,30 +1354,49 @@ overflow: hidden;
     <h2 class="section-title">Our Philosophy</h2>
     <p class="section-subtitle">This isn't a "business", it's a passion.</p>
     
-  <div class="philosophy-content reveal">
-        <div class="corner-accent top-left"></div>
-        <div class="corner-accent bottom-right"></div>
-        
-        <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
-        
-        <div class="philosophy-divider"></div>
-        
-        <div class="philosophy-quote">
-            "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."
-        </div>
-        
-        <div class="philosophy-divider"></div>
-        
-        <p>Here, your car will be treated like a mural:<br>
-            With precision, effort and genuine care.</p>
-        
-<div class="experience-badges reveal">            <div class="badge">
-<div class="badge-number" data-target="10">0+</div>
-    <div class="badge-text">Years Experience</div>
+    <div class="philosophy-grid-container container">
+
+        <div class="philosophy-content reveal">
+            <div class="corner-accent top-left"></div>
+            <div class="corner-accent bottom-right"></div>
+            
+            <p>At Diamond Auto Spa Detailing, owner Andrew brings a rare yet needed approach to auto detailing:</p>
+            
+            <div class="philosophy-divider"></div>
+            
+            <div class="philosophy-quote">
+                "Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers..."
+            </div>
+            
+            <div class="philosophy-divider"></div>
+            
+            <p>Here, your car will be treated like a mural:<br>
+                With precision, effort and genuine care.</p>
+            
+            <div class="experience-badges reveal">            
+                <div class="badge">
+                    <div class="badge-number" data-target="10">0+</div>
+                    <div class="badge-text">Years Experience</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+
+        <div class="philosophy-image-stack reveal">
+            
+            <img src="Diamond-Auto-Spa-Detailing-Philosophy1.png" alt="Detailed orange sports car" class="stack-img img-1">
+            
+            <div class="img-comp-container stack-img img-2">
+                <div class="img-comp-img">
+                    <img src="Diamond-Auto-Spa-Detailing-After6.png" alt="After">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="Diamond-Auto-Spa-Detailing-Before6.png" alt="Before">
+                </div>
+            </div>
+
+        </div>
+
+    </div> </section>
 
     
 <section id="services" style="background: var(--charcoal); color: white;">

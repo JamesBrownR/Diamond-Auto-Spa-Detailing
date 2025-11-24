@@ -388,7 +388,6 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     font-weight: 600;
     border: none;
     cursor: pointer;
-    border-radius: 50px; /* Modern Pill Shape */
     box-shadow: 0 10px 20px rgba(91, 163, 199, 0.3); /* Colored shadow */
     transition: all 0.3s ease;
     font-family: 'Lato', sans-serif; /* Clean font for action buttons */
@@ -402,14 +401,15 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     box-shadow: 0 15px 30px rgba(91, 163, 199, 0.5);
 }
 
-/* --- SHOW MORE BUTTON (Clean Black) --- */
+
+ /* --- SHOW MORE BUTTON (Matches Hero Style) --- */
 .show-more-btn {
     display: block;
     margin: 3rem auto;
     padding: 1rem 3.5rem;
-    background: var(--black); 
-    color: white;
-    border: 1px solid transparent;
+    background: transparent; /* Transparent background */
+    color: #ffffff; /* White text */
+    border: 2px solid #ffffff; /* White border */
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -421,9 +421,11 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 }
 
 .show-more-btn:hover {
-    background: transparent;
-    color: var(--black);
-    border: 1px solid var(--black);
+    background: #ffffff; /* White background on hover */
+    color: var(--charcoal); /* Dark text on hover */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Glow effect */
+    transform: translateY(-2px);
+    border: 2px solid #ffffff;
 }
 
         /* --- Sections General --- */
@@ -1108,55 +1110,88 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     from { transform: translateX(-100%); }
     to { transform: translateX(0%); }
 }
+/* --- REVIEWS HEADER UPDATES --- */
 .reviews-header-wrapper {
     max-width: 1200px;
     margin: 0 auto 3rem auto;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Aligns vertical centers */
     flex-wrap: wrap;
     gap: 2rem;
 }
 
 .reviews-text-side {
-    text-align: left; /* Align text left */
-}
-
-/* Override the default center alignment for this specific section */
-.reviews-text-side .section-title {
-    text-align: left; 
-}
-.reviews-text-side .section-title::after {
-    left: 0;
-    transform: none; /* Move underline to left */
-}
-.reviews-text-side .section-subtitle {
     text-align: left;
+    margin-bottom: 1rem; /* Push text up slightly relative to badge */
 }
 
-/* --- BIGGER REVIEW BADGE --- */
+/* --- NEW WIDE BADGE STYLE --- */
 .reviews-badges-side {
     display: flex;
+    justify-content: space-between; /* Pushes content to edges */
     align-items: center;
-    gap: 2rem; /* More space between items */
     background: #ffffff;
-    padding: 2rem 3rem; /* Much larger padding */
-    border-radius: 60px; /* Rounder pill shape */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* Deeper shadow for pop */
-    /* Ensure it doesn't shrink */
+    padding: 1.5rem 2.5rem;
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    min-width: 450px; /* Make it wider */
     flex-shrink: 0;
 }
 
-.badge-logos {
+/* Left side of card */
+.badge-content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.badge-rating-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.badge-stars {
+    color: #f1c40f; /* Yellow/Gold */
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.badge-subtext {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* Right side of card */
+.badge-logos-right {
     display: flex;
     gap: 15px;
-    margin-bottom: 10px;
+    padding-left: 2rem;
+    border-left: 1px solid #eee; /* Optional divider line */
 }
 
 .badge-logo-img {
-    height: 35px; /* Increased from 24px */
+    height: 45px; /* Bigger logos */
     width: auto;
+}
+
+/* Mobile fix for the new wide badge */
+@media (max-width: 768px) {
+    .reviews-badges-side {
+        min-width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    .badge-content-left { align-items: center; }
+    .badge-logos-right { border-left: none; padding-left: 0; }
 }
 
 .badge-rating-text {
@@ -1671,52 +1706,9 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     </div>
 </section>
 
-<section id="before-after" class="torn-top">
-    <div class="container">
-        <h2 class="section-title reveal">Before & After</h2>
-        <p class="section-subtitle reveal">Drag the slider to see the transformation.</p>
 
-        <div class="before-after-grid">
-            <div class="img-comp-container reveal">
-                <div class="img-comp-img">
-                    <img src="Diamond-Auto-Spa-Detailing-After3.png" alt="After">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="Diamond-Auto-Spa-Detailing-Before3.png" alt="Before">
-                </div>
-            </div>
-
-            <div class="img-comp-container reveal">
-                <div class="img-comp-img">
-                    <img src="Diamond-Auto-Spa-Detailing-After4.png" alt="After">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="Diamond-Auto-Spa-Detailing-Before4.png" alt="Before">
-                </div>
-            </div>
-
-            <div class="img-comp-container reveal">
-                <div class="img-comp-img">
-                    <img src="Diamond-Auto-Spa-Detailing-After5.png" alt="After">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="Diamond-Auto-Spa-Detailing-Before5.png" alt="Before">
-                </div>
-            </div>
-
-            <div class="img-comp-container reveal">
-                <div class="img-comp-img">
-                    <img src="Diamond-Auto-Spa-Detailing-After6.png" alt="After">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="Diamond-Auto-Spa-Detailing-Before6.png" alt="Before">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
     
-    <section id="gallery" class="wavy-top">
+    <section id="gallery" class="torn-top" style="background: var(--charcoal);">
 <div class="container-fluid-gallery">
     <h2 class="section-title reveal">Results Speak For Themselves</h2>
     <p class="section-subtitle reveal">Click any image to zoom in</p>
@@ -1740,10 +1732,17 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing6.png')">
             <img src="Diamond-Auto-Spa-Detailing6.png" alt="Detailing Work 6">
         </div>
-        
         <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing7.png')">
             <img src="Diamond-Auto-Spa-Detailing7.png" alt="Detailing Work 7">
         </div>
+        
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-After4.png')">
+            <img src="Diamond-Auto-Spa-Detailing-After4.png" alt="Saved B&A Work 1">
+        </div>
+        <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-After5.png')">
+            <img src="Diamond-Auto-Spa-Detailing-After5.png" alt="Saved B&A Work 2">
+        </div>
+
         <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing8.png')">
             <img src="Diamond-Auto-Spa-Detailing8.png" alt="Detailing Work 8">
         </div>
@@ -1757,9 +1756,10 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             <img src="Diamond-Auto-Spa-Detailing11.png" alt="Detailing Work 11">
         </div>
     </div> 
+    
     <button class="show-more-btn" id="galleryBtn">Show More Work</button>
     <button class="show-more-btn hidden" id="galleryLessBtn">Show Less Work</button>
-            </div>
+</div>
 </section>
 
     
@@ -1770,19 +1770,20 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     <p class="section-subtitle">We can tell you... or they could.</p>
 </div>
             
-            <div class="reviews-badges-side reveal">
-            <div class="badge-group">
-                <div class="badge-logos">
-                    <img src="Diamond-Auto-Spa-Detailing-GoogleLogo.png" alt="Google" class="badge-logo-img">
-                    <img src="Diamond-Auto-Spa-Detailing-FacebookLogo.png" alt="Facebook" class="badge-logo-img">
-                </div>
-                <div>
-                    <span class="badge-rating-text">PERFECT 5.0</span>
-                    <div class="badge-subtext">Based on 59+ Reviews</div>
-                </div>
-            </div>
+        <div class="reviews-badges-side reveal">
+        <div class="badge-content-left">
+            <span class="badge-rating-title">PERFECT</span>
+            <div class="badge-stars">★★★★★</div>
+            <div class="badge-subtext">Based on 58+ Google & Facebook Reviews</div>
+        </div>
+        
+        <div class="badge-logos-right">
+            <img src="Diamond-Auto-Spa-Detailing-GoogleLogo.png" alt="Google" class="badge-logo-img">
+            <img src="Diamond-Auto-Spa-Detailing-FacebookLogo.png" alt="Facebook" class="badge-logo-img">
         </div>
     </div>
+</div>
+      
     <div class="reviews-marquee-container">
         <div class="reviews-marquee" id="reviewsTrack1">
             </div>

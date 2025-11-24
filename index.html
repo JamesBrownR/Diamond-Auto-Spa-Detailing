@@ -182,7 +182,7 @@
     position: relative;
     overflow: hidden; /* Add this to contain the video */
     /* slant from high-left to low-right */
-    clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 111vh);
+    clip-path: polygon(0 0, 100% 0, 100% 111vh, 0 111vh);
    
 }
 
@@ -706,8 +706,8 @@
     width: 100%;
     display: flex;
     /* white-space: nowrap; */ /* REMOVED */
-    overflow-x: auto; /* ADDED */
-    cursor: grab; /* ADDED */
+overflow: hidden;
+           cursor: grab; /* ADDED */
     -webkit-overflow-scrolling: touch; /* ADDED for smooth mobile scroll */
 }
 
@@ -717,6 +717,7 @@
             gap: 1.5rem;
             padding: 0 0.75rem;
             animation: scrollLeft 40s linear infinite; /* Faster scroll */
+            flex-shrink: 0;
         }
 
         /* [NEW] Pause on hover */
@@ -1684,15 +1685,23 @@ reviews2.reverse().forEach(review => {
         ==============================================================
         */
         const videoTrack1 = document.getElementById('videoTrack1');
-        const videoTrack1Clone = document.getElementById('videoTrack1-clone');
-        
-        // Populate the clone track
-        if (videoTrack1 && videoTrack1Clone) {
-            const originalVideos = videoTrack1.querySelectorAll('.video-card');
-            originalVideos.forEach(video => {
-                videoTrack1Clone.appendChild(video.cloneNode(true));
-            });
-        }
+const videoTrack1Clone = document.getElementById('videoTrack1-clone');
+
+// Populate the clone track for seamless loop
+if (videoTrack1 && videoTrack1Clone) {
+    const originalVideos = videoTrack1.querySelectorAll('.video-card');
+    originalVideos.forEach(video => {
+        const clone = video.cloneNode(true);
+        videoTrack1Clone.appendChild(clone);
+    });
+    
+    // Calculate the width of one track to set animation duration dynamically
+    const trackWidth = videoTrack1.scrollWidth;
+    const animationDuration = trackWidth / 30; // Adjust 30 to change speed (lower = faster)
+    
+    videoTrack1.style.animationDuration = animationDuration + 's';
+    videoTrack1Clone.style.animationDuration = animationDuration + 's';
+}
         // --- END NEW VIDEO SCRIPT ---
 
         // --- Gallery Logic (Unchanged) ---

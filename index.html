@@ -1804,65 +1804,65 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
     <div class="video-scroll-container">
         
-        <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none" poster="Diamond-Auto-Spa-Detailing-Poster1.png">
-                <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
-            </video>
-        </div>
+      <div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
+    </video>
+</div>
 
-        <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing6.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
+    </video>
+</div>
 
-         <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing7.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing6.mp4" type="video/mp4">
+    </video>
+</div>
 
-         <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing8.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing7.mp4" type="video/mp4">
+    </video>
+</div>
 
-         <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing9.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing8.mp4" type="video/mp4">
+    </video>
+</div>
 
-         <div class="video-card reveal">
-            <video controls muted loop playsinline preload="none">
-                <source src="Diamond-Auto-Spa-Detailing10.mp4" type="video/mp4">
-            </video>
-        </div>
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing9.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="video-card reveal">
+    <video controls muted loop playsinline preload="metadata">
+        <source src="Diamond-Auto-Spa-Detailing10.mp4" type="video/mp4">
+    </video>
+</div>
         
         </div>
 </section>
@@ -2095,22 +2095,42 @@ reviews2.reverse().forEach(review => {
 });
         // --- END REWORKED SCRIPT ---
 /* ==================================================================
-            NEW VIDEO ?! SCRIPT
+            NEW VIDEO AUTOPLAY SCRIPT (Plays when visible)
         ==============================================================
         */
-        const videoTrack1 = document.getElementById('videoTrack1');
-const videoTrack1Clone = document.getElementById('videoTrack1-clone');
-
-if (videoTrack1 && videoTrack1Clone) {
-    const originalVideos = videoTrack1.querySelectorAll('.video-card');
-    originalVideos.forEach(video => {
-        const clone = video.cloneNode(true);
-        videoTrack1Clone.appendChild(clone);
-    });
-    
-    // NOTE: Removed dynamic duration calculation.
-    // The slider will now use the "40s" duration from the .video-marquee CSS rule.
-}
+        
+        // Smart Video Autoplay: Only plays videos when they're visible
+        function setupVideoAutoplay() {
+            const videoCards = document.querySelectorAll('.video-card video');
+            
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    
+                    if (entry.isIntersecting) {
+                        // Video is visible - play it
+                        video.play().catch(err => {
+                            // Autoplay was prevented (usually needs user interaction first)
+                            console.log('Autoplay prevented:', err);
+                        });
+                    } else {
+                        // Video scrolled out of view - pause it
+                        video.pause();
+                    }
+                });
+            }, {
+                threshold: 0.5 // Play when 50% of video is visible
+            });
+            
+            // Observe all videos
+            videoCards.forEach(video => {
+                videoObserver.observe(video);
+            });
+        }
+        
+        // Run the video autoplay setup
+        setupVideoAutoplay();
+        
         // --- END NEW VIDEO SCRIPT ---
 
         // --- Gallery Logic (Unchanged) ---

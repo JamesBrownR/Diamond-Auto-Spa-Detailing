@@ -1158,8 +1158,10 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 .badge-content-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;   /* center vertically */
+    height: 100%;              /* match card height */
 }
+
 
 .badge-rating-title {
     font-family: 'Playfair Display', serif;
@@ -1188,7 +1190,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     flex-direction: column;   /* <-- STACK VERTICALLY */
     align-items: center;
     gap: 10px;
-    padding-left: 2rem;
+    padding-left: 3rem;
     border-left: 1px solid #eee;
 }
 
@@ -1404,6 +1406,19 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         .email-link-bg:hover {
             color: var(--diamond-blue);
         }
+
+        #contact .cta-bbutton,
+#contact .social-links a {
+    border: 2px solid #000 !important;
+    color: #000 !important;
+}
+
+#contact .cta-bbutton:hover,
+#contact .social-links a:hover {
+    background: #000 !important;
+    color: #fff !important;
+}
+
         
         .map-container {
             margin-top: 2rem;
@@ -2086,9 +2101,15 @@ function createReviewCard(review) {
     
     // Get first letter for avatar
     const initial = review.name ? review.name.charAt(0).toUpperCase() : '?';
-
+    
+    // Determine which icon to use based on source
+    const logoSrc = review.source === "facebook" 
+        ? "Diamond-Auto-Spa-Detailing-FacebookIcon.png" 
+        : "Diamond-Auto-Spa-Detailing-GoogleIcon.png";
+    const logoAlt = review.source === "facebook" ? "Facebook" : "Google";
+    
     card.innerHTML = `
-<img src="Diamond-Auto-Spa-Detailing-GoogleIcon.png" alt="Google" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 24px; height: 24px;">        <div class="review-header">
+<img src="${logoSrc}" alt="${logoAlt}" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 24px; height: 24px;">        <div class="review-header">
             <div class="review-avatar">${initial}</div>
             <div class="review-info">
                 <span class="reviewer-name">${review.name}</span>
@@ -2102,12 +2123,13 @@ function createReviewCard(review) {
 
 // Populate Track 1 and its clone
 reviews1.forEach(review => {
-    track1.appendChild(createReviewCard(review));
+       track1.appendChild(createReviewCard(review));
     clone1.appendChild(createReviewCard(review));
 });
 
 // Populate Track 2 and its clone (in reverse for visual variety)
 reviews2.reverse().forEach(review => {
+    
     track2.appendChild(createReviewCard(review));
     clone2.appendChild(createReviewCard(review));
 });

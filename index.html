@@ -664,7 +664,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     box-shadow: 10px 10px 20px #c7c9cc, 
                 -10px -10px 20px #ffffff;
     
-    transition: all 0.3s ease; /* Smooth transition */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition with easing */
     
     /* REMOVE the old border-top */
     border-top: none; 
@@ -866,20 +866,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     white-space: nowrap;
 }
 
-/* Add animation for infinite scroll */
-@keyframes videoScrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
 
-.video-marquee-wrapper {
-    display: flex;
-    animation: videoScrollLeft 40s linear infinite;
-}
-
-.video-marquee-wrapper:hover {
-    animation-play-state: paused;
-}
      
 
         .video-card {

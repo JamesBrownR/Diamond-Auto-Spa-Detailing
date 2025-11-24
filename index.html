@@ -307,6 +307,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     height: 18px;
     fill: currentColor; /* Inherits text color */
 }
+        
         /* --- New Hero CTA Button Style --- */
 .hero-content .cta-bbutton {
     background: transparent;
@@ -353,49 +354,77 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             display: none; 
         }
 
-        /* Button Styles */
-        .cta-button,
+  /* --- HERO BUTTON FIX (Transparent to White) --- */
 .cta-bbutton {
     display: inline-block;
     padding: 1rem 3rem;
-    /* FIX: Make button blue and text white */
-    background: linear-gradient(45deg, var(--diamond-dark-blue), var(--diamond-blue)); /* GRADIENT! */
-    color: #ffffff; 
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff !important; /* Force white text initially */
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 4px; /* Slight rounded corner looks more premium */
+}
+
+.cta-bbutton:hover {
+    background: #ffffff;
+    color: #000000 !important; /* Force black text on hover */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Glow effect */
+    transform: translateY(-2px);
+}
+
+/* --- GENERAL BUTTONS MODERNIZATION (Solid Blue) --- */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--diamond-blue); /* Solid color, no cheap gradient */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s, box-shadow 0.3s; /* Added box-shadow transition */
-    font-family: 'Playfair Display', serif;
+    border-radius: 50px; /* Modern Pill Shape */
+    box-shadow: 0 10px 20px rgba(91, 163, 199, 0.3); /* Colored shadow */
+    transition: all 0.3s ease;
+    font-family: 'Lato', sans-serif; /* Clean font for action buttons */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.cta-button:hover,
-.cta-bbutton:hover {
-    background: linear-gradient(45deg, var(--diamond-blue), var(--diamond-dark-blue)); /* Reverse gradient */
-    transform: translateY(-3px); /* Make hover more pronounced */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+.cta-button:hover {
+    background: var(--diamond-dark-blue); /* Darker blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(91, 163, 199, 0.5);
 }
-        .show-more-btn {
-            display: block;
-            margin: 3rem auto;
-            padding: 1rem 3rem;
-            background: var(--black); 
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            font-family: 'Playfair Display', serif;
-        }
 
-        .show-more-btn:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-        }
+/* --- SHOW MORE BUTTON (Clean Black) --- */
+.show-more-btn {
+    display: block;
+    margin: 3rem auto;
+    padding: 1rem 3.5rem;
+    background: var(--black); 
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Lato', sans-serif;
+    border-radius: 4px;
+}
+
+.show-more-btn:hover {
+    background: transparent;
+    color: var(--black);
+    border: 1px solid var(--black);
+}
 
         /* --- Sections General --- */
        section {
@@ -1106,43 +1135,43 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     text-align: left;
 }
 
+/* --- BIGGER REVIEW BADGE --- */
 .reviews-badges-side {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem; /* More space between items */
     background: #ffffff;
-    padding: 1rem 1.5rem;
-    border-radius: 50px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.badge-group {
-    display: flex;
-    flex-direction: column;
+    padding: 2rem 3rem; /* Much larger padding */
+    border-radius: 60px; /* Rounder pill shape */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* Deeper shadow for pop */
+    /* Ensure it doesn't shrink */
+    flex-shrink: 0;
 }
 
 .badge-logos {
     display: flex;
-    gap: 10px;
-    margin-bottom: 5px;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 
 .badge-logo-img {
-    height: 24px;
+    height: 35px; /* Increased from 24px */
     width: auto;
 }
 
 .badge-rating-text {
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 2.2rem; /* Almost double the size */
     color: var(--charcoal);
     line-height: 1;
     font-family: 'Playfair Display', serif;
+    letter-spacing: -1px;
 }
 
 .badge-subtext {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 1.1rem; /* Larger readable text */
+    color: #555;
+    font-weight: 500;
 }
 .reviews-marquee-container {
     width: 100%;

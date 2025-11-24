@@ -260,6 +260,25 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
 .logo span {
     transition: color 0.3s ease;
+    position: relative; /* Add for z-index */
+    z-index: 1;         /* Add (behind diamond) */
+    color: #ffffff;     /* Add (set base color) */
+}
+        /* This creates the blue text wipe animation */
+.logo span::after {
+    content: 'Diamond Auto Spa'; /* Must match the text in your <span> */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--diamond-blue);
+    width: 0;
+    overflow: hidden;
+    transition: width 0.4s ease-out;
+    z-index: 2; /* Sits on top of the white text */
+}
+
+.logo:hover span::after {
+    width: 100%; /* Wipes across on hover */
 }
 
 /* This creates the diamond */
@@ -269,9 +288,10 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     width: 12px;
     height: 12px;
     background-color: #ffffff;
-    left: 0.5rem;
+    left: 2.2rem; /* <--  (to overlap text) */
     top: 50%;
-    
+    z-index: 10; /* (to go on top) */
+
     /* Start hidden and small */
     opacity: 0;
     transform: translateY(-50%) rotate(45deg) scale(0.5);
@@ -290,8 +310,9 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
 /* This handles the span color, but hovering the .logo is more robust */
 .logo:hover span {
-    color: var(--diamond-blue);
+color: #ffffff; 
 }
+        
 
         .phone-header {
             font-size: 1.3rem;
@@ -683,8 +704,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     box-shadow: inset 7px 7px 15px #c7c9cc, 
                 inset -7px -7px 15px #ffffff;
     
-    /* Remove the old "lift" effect */
-    transform: none; 
+   transform: translateY(-5px);
 }
 
 /* Remove the border from the philosophy card (it was an exception) */
@@ -859,7 +879,13 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             margin: 3rem 0; /* Add margin to compensate for rotation */
         }
         
-      
+      .video-marquee {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 0.75rem;
+}
+
+
 
        .video-marquee-container {
     width: 100%;
@@ -909,6 +935,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative; /* <-- ADD THIS LINE */
 }
 
 .review-header {
@@ -1824,8 +1851,7 @@ function createReviewCard(review) {
     const initial = review.name ? review.name.charAt(0).toUpperCase() : '?';
 
     card.innerHTML = `
-        <img src="Diamond-Auto-Spa-Detailing-GoogleIcon.png" alt="Google" style="position: absolute; top: 1rem; right: 1rem; width: 24px; height: 24px;">
-        <div class="review-header">
+<img src="Diamond-Auto-Spa-Detailing-GoogleIcon.png" alt="Google" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 24px; height: 24px;">        <div class="review-header">
             <div class="review-avatar">${initial}</div>
             <div class="review-info">
                 <span class="reviewer-name">${review.name}</span>

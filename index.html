@@ -970,14 +970,19 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
        /* --- UPDATED VIDEO SECTION CSS --- */
 #videos {
     padding: 4rem 0;
-    margin: 0;
-    background: var(--black);
+    margin: 3rem 0;
+    /* Inverted Colors */
+    background: var(--black); 
     color: #ffffff;
-
-    /* Remove the mobile overflow issue */
-    transform: none;
-    width: 100%;
+    
+    /* Keep the angle if you like it, or remove transform to make it straight */
+    transform: rotate(-2deg) scale(1.02); 
+    width: 100vw;
     position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 

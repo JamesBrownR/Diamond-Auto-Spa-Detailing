@@ -860,22 +860,25 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
 
 
-      .video-marquee-container {
+    .video-marquee-container {
     width: 100%;
-    display: flex;
-    white-space: nowrap;  
-    overflow-x: auto; /* <--- DOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM SCROLLING */
-    cursor: grab; 
-    -webkit-overflow-scrolling: touch; 
-    
-    /* These lines hide the scrollbar */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-/* This line hides the scrollbar in Chrome/Safari */
-.video-marquee-container::-webkit-scrollbar {
-    display: none;
+/* Add animation for infinite scroll */
+@keyframes videoScrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.video-marquee-wrapper {
+    display: flex;
+    animation: videoScrollLeft 40s linear infinite;
+}
+
+.video-marquee-wrapper:hover {
+    animation-play-state: paused;
 }
      
 
@@ -1569,8 +1572,9 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     <h2 class="section-title reveal">See Our Process</h2>
     <p class="section-subtitle reveal">We like to show, not tell.</p>
 
-    <div class="video-marquee-container"> 
-        <div class="video-marquee" id="videoTrack1"> 
+ <div class="video-marquee-container">
+    <div class="video-marquee-wrapper">
+        <div class="video-marquee" id="videoTrack1">
             <div class="video-card reveal">
                 <video controls muted loop playsinline>
                     <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
@@ -1610,6 +1614,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         </div>
         <div class="video-marquee" id="videoTrack1-clone" aria-hidden="true"></div>
     </div>
+     </div>
 </section>
 
 

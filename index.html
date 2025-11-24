@@ -970,20 +970,16 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
        /* --- UPDATED VIDEO SECTION CSS --- */
 #videos {
     padding: 4rem 0;
-    margin: 3rem 0;
-    /* Inverted Colors */
-    background: var(--black); 
+    margin: 0;
+    background: var(--black);
     color: #ffffff;
-    
-    /* Keep the angle if you like it, or remove transform to make it straight */
-    transform: rotate(-2deg) scale(1.02); 
-    width: 100vw;
+
+    /* Remove the mobile overflow issue */
+    transform: none;
+    width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
+
 
 #videos .section-title {
     color: #ffffff; /* White text for title */
@@ -1555,6 +1551,13 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             .video-card {
                 width: 250px;
             }
+            @media (max-width: 768px) {
+    .gallery-grid .gallery-item {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+}
+
             
             /* FIX: Make review cards smaller on mobile */
             .review-card {
@@ -1573,6 +1576,33 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
                  margin-top: 1rem;
              }
         }
+        @media (max-width: 768px) {
+    .header-content {
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .header-content nav {
+        flex-grow: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    .header-content nav a {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .logo {
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+}
+
      
     </style>
 </head>

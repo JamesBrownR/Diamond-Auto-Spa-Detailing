@@ -567,7 +567,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
             color: var(--text-dark);
         }
 .philosophy-section {
-background: #fffffff;
+background: #0000000;
     padding-top: 2rem;
      position: relative;
  }
@@ -1019,11 +1019,13 @@ background: #fffffff;
 
 @media (max-width: 768px) {
     .hero-video-bg {
-        width: 140% !important;
-        height: auto !important;
-        transform: translate(-50%, -50%) scale(1);
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: cover !important;
+        transform: translate(-50%, -50%) !important; 
     }
 }
+
        /* --- Review Section Background --- */
 #reviews {
     max-width: none;
@@ -1213,16 +1215,17 @@ flex: 1 1 45%;
 @media (max-width: 768px) {
 
     /* Force full stacking */
-    .reviews-badges-side {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        width: 100% !important;
-        gap: 1rem !important;
-        padding: 1.5rem 1rem !important;
-    }
+  .reviews-badges-side {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
 
     .badge-content-left {
         align-items: center !important;
@@ -1231,17 +1234,18 @@ flex: 1 1 45%;
     }
 
     /* This is the actual broken part — logos are drifting because the padding forces them left */
-    .badge-logos-right {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 20px !important;
-        border-left: none !important;
-        padding-left: 0 !important;
-        width: 100% !important;
-        margin-top: 0.5rem !important;
-    }
+   .badge-logos-right {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+}
+
 
     .badge-logo-img {
         height: 45px !important;
@@ -1459,7 +1463,14 @@ animation: scrollLeft 120s linear infinite;
     color: #fff !important;
 }
 
-        
+        @media (max-width: 768px) {
+    #contactForm button {
+        display: block;
+        margin: 0 auto !important;
+        width: fit-content !important;
+    }
+}
+
         .map-container {
             margin-top: 2rem;
             height: 400px;

@@ -1047,7 +1047,8 @@ background: #fffffff;
 
 /* --- Reviews Header Wrapper --- */
 .reviews-header-wrapper {
-    max-width: 1700px;
+    max-width: 1500px;
+    max-height: 300px;
     margin: 0 auto 3rem auto;
     padding: 0 2rem;
     display: flex;
@@ -1101,7 +1102,7 @@ background: #fffffff;
 }
 
 .badge-subtext {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #555;
     font-weight: 700;
     text-transform: uppercase;
@@ -1120,6 +1121,7 @@ background: #fffffff;
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-direction: column;
 }
 
 .badge-logo-img {
@@ -1216,7 +1218,7 @@ background: #fffffff;
 @media (max-width: 768px) {
     .reviews-badges-side {
         flex-direction: column;
-        border-radius: 20px; /* Less round on mobile to fit content */
+        border-radius: 12px; /* Less round on mobile to fit content */
         padding: 1.5rem;
         gap: 1rem;
         width: 100%;

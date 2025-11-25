@@ -963,14 +963,14 @@ background: #fffffff;
     color: #ffffff;
      margin-top: 6rem;
     /* Keep the angle - scale up more to fill gaps */
-   /* transform: rotate(-2deg) scale(1.15); */
+   transform: rotate(-2deg) scale(1.15); 
     width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    transform: none;
+   
     overflow: hidden; /* Clip any overflow */
 }
 
@@ -1033,6 +1033,7 @@ background: #fffffff;
     position: relative;
     overflow-x: hidden; /* Hide scrollbars */
     overflow-y: hidden;
+    overflow: hidden;
      max-height: 3280px;
 }
 
@@ -1231,7 +1232,7 @@ padding: 0;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-      margin-left: -45px;
+      margin-left: -50px;
 }
 
 
@@ -1290,6 +1291,7 @@ padding: 0;
     gap: 1.5rem; /* Space between cards */
     padding: 0 0.75rem;
 animation: scrollLeft 120s linear infinite;
+     width: max-content;
 }
         
 

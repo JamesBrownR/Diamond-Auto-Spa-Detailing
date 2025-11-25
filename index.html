@@ -2168,17 +2168,16 @@ function createReviewCard(review) {
     const card = document.createElement('div');
     card.className = 'review-card';
     
-    // Get first letter for avatar
     const initial = review.name ? review.name.charAt(0).toUpperCase() : '?';
     
-    // Determine which icon to use based on source
     const logoSrc = review.source === "facebook" 
         ? "Diamond-Auto-Spa-Detailing-FacebookIcon.png" 
         : "Diamond-Auto-Spa-Detailing-GoogleIcon.png";
-    const logoAlt = review.source === "facebook" ? "Facebook" : "Google";
     
+    // FIX: Added object-fit: contain to this style string
     card.innerHTML = `
-<img src="${logoSrc}" alt="${logoAlt}" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 24px; height: 24px;">        <div class="review-header">
+        <img src="${logoSrc}" alt="${review.source}" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 20px; height: 20px; object-fit: contain;">
+        <div class="review-header">
             <div class="review-avatar">${initial}</div>
             <div class="review-info">
                 <span class="reviewer-name">${review.name}</span>

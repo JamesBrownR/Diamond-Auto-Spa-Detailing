@@ -1052,14 +1052,14 @@ background: #fffffff;
     margin: 0 auto 3rem auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-between;
+justify-content: center; /* <-- CHANGED from space-between */
     align-items: center;
     flex-wrap: wrap; 
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .reviews-text-side {
-    max-width: 1000px;
+   /* max-width: 1000px; */
 }
 
 /* --- RESTORED BADGE DESIGN --- */
@@ -1125,8 +1125,8 @@ background: #fffffff;
 }
 
 .badge-logo-img {
-    height: 50px; /* Fixed height for logos */
-    width: auto;
+   height: auto; /* <-- CHANGED from 50px */
+    width: 130px;  /* <-- ADDED to set fixed width */
     object-fit: contain;
 }
 
@@ -1160,7 +1160,16 @@ background: #fffffff;
 .reviews-marquee-container:hover .reviews-marquee {
     animation-play-state: paused;
 }
+/* --- ADDED KEYFRAMES --- */
+@keyframes scrollLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
 
+@keyframes scrollRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
 /* --- Review Card Updates --- */
 .review-card {
     flex: 0 0 auto;
@@ -1196,7 +1205,12 @@ background: #fffffff;
     color: #fff;
     flex-shrink: 0;
 }
-
+.review-card .stars {
+    color: #f1c40f; /* Yellow */
+    font-size: 1rem; /* Adjust size as needed */
+    line-height: 1;
+    margin-top: 4px; /* Added spacing */
+}
 .reviewer-name {
     font-weight: bold;
     color: #fff;
@@ -2177,7 +2191,7 @@ function createReviewCard(review) {
     
     // FIX: Added object-fit: contain to this style string
     card.innerHTML = `
-        <img src="${logoSrc}" alt="${review.source}" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 20px; height: 20px; object-fit: contain;">
+        <img src="${logoSrc}" alt="${review.source}" style="position: absolute; top: 1.5rem; right: 1.5rem; width: 40px; height: 40px; object-fit: contain;">
         <div class="review-header">
             <div class="review-avatar">${initial}</div>
             <div class="review-info">

@@ -1034,12 +1034,15 @@ background: #fffffff;
 }
 
      /* --- Review Section Background --- */
+/* --- Review Section Fixed --- */
 #reviews {
     width: 100%;
-    background: #ffffff; /* Clean white background */
+    background: #ffffff;
     position: relative;
-    padding: 4rem 0;
-    overflow: hidden;
+    padding: 3rem 0 1rem 0; /* Reduced bottom padding to fix white space */
+    overflow: hidden; /* Critical for hiding scrollbars */
+    height: auto;
+    min-height: auto;
 }
 
 /* --- Reviews Header Wrapper --- */
@@ -1050,67 +1053,82 @@ background: #fffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows stacking on mobile */
+    flex-wrap: wrap; 
     gap: 2rem;
 }
 
 .reviews-text-side {
-    max-width: 600px;
+    max-width: 500px;
 }
 
-/* --- Badge Section (The "Perfect 5 Stars" Box) --- */
+/* --- RESTORED BADGE DESIGN (Pill Shape) --- */
 .reviews-badges-side {
     background: #fff;
     border: 1px solid #e0e0e0;
-    padding: 1rem 2rem;
-    border-radius: 50px; /* Pill shape looks more modern */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 0.8rem 2.5rem; /* Wider padding for pill look */
+    border-radius: 100px; /* Full pill shape */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     display: flex;
     align-items: center;
     gap: 2rem;
+    height: auto;
+    min-width: fit-content;
 }
 
+/* Left side of badge */
 .badge-content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 .badge-rating-title {
     font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 1.6rem;
     color: #000;
     line-height: 1;
-    display: block;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
 }
 
 .badge-stars {
     color: #f1c40f;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    margin: 4px 0;
+    font-size: 1.1rem;
+    margin: 2px 0;
 }
 
 .badge-subtext {
-    font-size: 0.8rem;
-    color: #666;
-    font-weight: 600;
+    font-size: 0.7rem;
+    color: #555;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+/* The Vertical Divider */
+.badge-divider {
+    width: 1px;
+    height: 50px;
+    background-color: #e0e0e0;
+}
+
+/* Right side of badge (Logos) */
 .badge-logos-right {
     display: flex;
+    align-items: center;
     gap: 15px;
-    padding-left: 2rem;
-    border-left: 1px solid #eee;
 }
 
 .badge-logo-img {
-    height: 40px;
+    height: 28px; /* Fixed height for logos */
     width: auto;
-    opacity: 0.8;
+    object-fit: contain;
 }
 
-/* --- Marquee Container (The Track) --- */
+/* --- Marquee Container --- */
 .reviews-marquee-container {
     display: flex;
     overflow: hidden;
@@ -1118,59 +1136,51 @@ background: #fffffff;
     gap: 2rem;
     padding: 1rem 0;
     position: relative;
-    /* This creates the fade effect on left/right edges */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    width: 100%;
+    /* REDUCED INTENSITY: Changed from 10% to 2% to make fade subtler */
+    mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
 }
 
-/* --- The Moving Track --- */
 .reviews-marquee {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 2rem; /* Space between cards */
+    gap: 2rem;
     min-width: 100%;
-    /* The Animation */
-    animation: scrollLeft 60s linear infinite;
+    /* SLOWER SPEED: Changed to 100s */
+    animation: scrollLeft 100s linear infinite;
 }
 
-/* Reverse Animation for the second row */
 .reviews-marquee-container.reverse .reviews-marquee {
-    animation: scrollRight 60s linear infinite;
+    animation: scrollRight 100s linear infinite;
 }
 
-/* Pause on Hover */
 .reviews-marquee-container:hover .reviews-marquee {
     animation-play-state: paused;
 }
 
-/* --- Review Card Style --- */
+/* --- Review Card Updates --- */
 .review-card {
+    flex: 0 0 auto;
     width: 350px;
-    height: 220px; /* Fixed height for uniformity */
-    background: #111; /* Dark card */
+    height: 220px;
+    background: #000000; /* PURE BLACK */
     color: #fff;
     padding: 1.5rem;
-    border-radius: 16px;
-    border: 1px solid #333;
+    border-radius: 12px;
+    border: 1px solid #222; /* Very subtle border */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     position: relative;
-    transition: transform 0.3s ease;
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--diamond-blue);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .review-header {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .review-avatar {
@@ -1182,67 +1192,43 @@ background: #fffffff;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.review-info {
-    display: flex;
-    flex-direction: column;
+    color: #fff;
+    flex-shrink: 0;
 }
 
 .reviewer-name {
     font-weight: bold;
-    font-size: 1rem;
-}
-
-.stars {
-    color: #f1c40f;
-    font-size: 0.9rem;
+    color: #fff;
+    display: block;
 }
 
 .review-card p {
     font-size: 0.9rem;
     line-height: 1.5;
-    color: #ccc;
+    color: #ddd;
+    margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* Limit to 4 lines */
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* --- Animations --- */
-@keyframes scrollLeft {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-}
-
-@keyframes scrollRight {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-}
-
-/* --- Mobile Fixes --- */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .reviews-header-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
     .reviews-badges-side {
+        flex-direction: column;
+        border-radius: 20px; /* Less round on mobile to fit content */
+        padding: 1.5rem;
+        gap: 1rem;
         width: 100%;
-        justify-content: space-between;
-        padding: 1rem;
     }
     
-    .badge-logos-right {
-        padding-left: 1rem;
-        gap: 10px;
+    .badge-divider {
+        width: 100%;
+        height: 1px; /* Horizontal line on mobile */
     }
     
-    .review-card {
-        width: 280px; /* Slightly smaller cards on mobile */
-        height: 240px;
-    }
+    .badge-rating-title { font-size: 1.4rem; }
 }
         /* --- Contact Section --- */
         .contact-container {

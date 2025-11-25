@@ -1134,9 +1134,10 @@ background: #fffffff;
 flex: 1 1 45%; 
 }
 
- .review-source-icon {
+.review-source-icon {
     width: 28px;
-    height: auto;
+    height: 28px;
+    object-fit: contain; /* Prevents compression/stretching */
     position: absolute;
     top: 15px;
     right: 15px;

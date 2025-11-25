@@ -1037,7 +1037,11 @@ background: #fffffff;
 /* --- Review Section Fixed --- */
 #reviews {
     width: 100%;
-    background: #ffffff;
+    
+   background: linear-gradient(to bottom, 
+#ffffff 0%, 
+#ffffff 75%, 
+#000000 75% );
     position: relative;
     padding: 3rem 0 1rem 0; /* Reduced bottom padding to fix white space */
     overflow: hidden; /* Critical for hiding scrollbars */
@@ -1056,6 +1060,8 @@ justify-content: space-between;
     align-items: center;
     flex-wrap: wrap; 
     gap: 0rem;
+
+    
 }
 
 .reviews-text-side {
@@ -1230,6 +1236,11 @@ justify-content: space-between;
 @media (min-width: 1300px) {
         #reviews {
     max-height: 3230px;
+}
+}
+        @media (max-width: 768px) {
+        #reviews {
+    max-height: 4180px;
 }
 }
 /* Mobile Adjustments */

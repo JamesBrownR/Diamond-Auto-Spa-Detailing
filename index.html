@@ -1242,9 +1242,11 @@ justify-content: space-between;
     max-height: 4280px;
              padding-top: 2rem;
 }
-            .reviews-header-wrapper {
+         .reviews-header-wrapper {
         flex-direction: column; /* Stack vertically */
         align-items: center; /* Center everything */
+        max-height: none; /* <-- ADD THIS LINE */
+        gap: 2rem;        /* <-- ADD THIS LINE */
     }
     
     .reviews-badges-side {

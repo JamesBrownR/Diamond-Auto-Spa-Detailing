@@ -132,6 +132,7 @@ body {
     color: var(--text-dark);
     background-color: #ffffff; /* CHANGE to match footer */
     background-image: none; /* REMOVE the gradient */
+    overflow: hidden;
 }
 
         h1, h2, h3, .section-title, .section-subtitle, nav a, footer p, .social-links {
@@ -1038,10 +1039,7 @@ background: #fffffff;
 #reviews {
     width: 100%;
     
-   background: linear-gradient(to bottom, 
-#ffffff 0%, 
-#ffffff 90%, 
-#000000 90% );
+   
     position: relative;
     padding: 3rem 0 1rem 0;
     overflow: hidden; /* Critical for hiding scrollbars */
@@ -1704,7 +1702,7 @@ footer p:last-child {
 }
         html, body {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     height: 100%;
 }
 

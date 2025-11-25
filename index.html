@@ -1017,7 +1017,13 @@ background: #fffffff;
     display: block;
 }
 
-
+@media (max-width: 768px) {
+    .hero-video-bg {
+        width: 140% !important;
+        height: auto !important;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
        /* --- Review Section Background --- */
 #reviews {
     max-width: none;
@@ -1217,6 +1223,19 @@ flex: 1 1 45%;
     .badge-logos-right { border-left: none; padding-left: 0; }
 }
 
+        @media (max-width: 768px) {
+    .badge-logos-right {
+        padding-left: 0 !important;
+        border-left: none !important;
+        gap: 5px !important;
+        justify-content: center !important;
+    }
+
+    .badge-logo-img {
+        height: 50px !important; /* tighten spacing */
+    }
+}
+
 .badge-rating-text {
     font-weight: 800;
     font-size: 2.2rem; /* Almost double the size */
@@ -1242,13 +1261,13 @@ flex: 1 1 45%;
     display: flex;
     gap: 1.5rem; /* Space between cards */
     padding: 0 0.75rem;
-    animation: scrollLeft 60s linear infinite; /* Adjust 60s to change speed */
+animation: scrollLeft 120s linear infinite;
 }
         
 
 /* Second (reverse) row */
 .reviews-marquee-container.reverse .reviews-marquee {
-    animation: scrollRight 60s linear infinite;
+    animation: scrollRight 120s linear infinite;
 }
 
 /* Pause on hover */
@@ -2071,10 +2090,23 @@ footer p:last-child {
     </div>
     </section>
 
-  
+   <section id="footer">
 
+<footer>
+    <p>© 2023 Diamond Auto Spa Detailing. All rights reserved.</p>
+    <p>Where Detailing Becomes an Art Form | Eustis, FL</p>
 
+    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">
+        Diamond Auto Spa Detailing LLC — Eustis, FL<br>
+        Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com
+    </p>
 
+    <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">
+        Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a>
+    </p>
+</footer>
+   </section>
+      
     <script>
         // --- Lightbox Logic ---
         function openLightbox(imgSrc) {

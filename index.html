@@ -1225,13 +1225,14 @@ flex: 1 1 45%;
 @media (max-width: 768px) {
 
 #reviews {
-    max-width: 100vw;
+    width: 100%; /* Changed from max-width: 100vw to prevent horizontal scrollbar issues */
     background: #ffffff;
     position: relative;
-    overflow-x: hidden; /* Hide scrollbars */
-    overflow-y: hidden;
-    overflow: hidden;
-     max-height: 4380px;
+    padding-bottom: 4rem; /* Adds breathing room at the bottom */
+    height: auto; /* CRITICAL FIX: Let content define height */
+    min-height: auto; /* Reset */
+    max-height: none; /* CRITICAL FIX: Remove the 3280px limit */
+    overflow: hidden; /* Keeps the scrolling marquee from breaking page width */
 }
     .reviews-header-wrapper {
     max-width: 1500px;
@@ -1298,20 +1299,14 @@ padding: 0;
 }
 .reviews-marquee-container {
     width: 100%;
+    height: 280px; /* Slight increase to ensure shadow/hover doesn't get cut off */
+    overflow-x: hidden; /* Hide side scrolling */
+    overflow-y: visible; /* Allow vertical shadows to show */
     display: flex;
-    white-space: nowrap;
-    margin: 1.5rem 0;
-}
-
-.reviews-marquee-container {
-  width: 100%;
-  height: 240px;               /* <-- total visible height of the marquee area */
-  overflow: hidden;           /* clip the scrolling content to this frame */
-  display: flex;
-  align-items: center;        /* center the moving rows vertically in the frame */
-  position: relative;
-}
-        
+    align-items: center;
+    position: relative;
+    margin-bottom: 1rem; /* Space between the two rows */
+}   
 
 /* Second (reverse) row */
 .reviews-marquee-container.reverse .reviews-marquee {

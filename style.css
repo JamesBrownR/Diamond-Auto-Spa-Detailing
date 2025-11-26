@@ -157,6 +157,13 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 
     z-index: 1;
 }
+@media (max-width: 800px) {
+  .hero-desktop::before {
+background-color: rgba(0, 0, 0, 0);
+         background-image: none;
+
+  }
+}
         /* --- UPDATED HEADER CSS --- */
 .logo {
    margin: 0 2rem;

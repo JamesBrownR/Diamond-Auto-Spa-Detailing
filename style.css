@@ -116,7 +116,7 @@ nav a:hover::after {
     display: flex;
  min-height: 100vh;    min-width: 100vw;
     /* background-image: url('Diamond-Auto-Spa-Detailing0.png');  <-- REMOVE THIS LINE */
-    background-color: var(--black); /* Add this as a fallback */
+    background-color: var(--white); /* Add this as a fallback */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

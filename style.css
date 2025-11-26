@@ -1412,7 +1412,9 @@ element.style {
         .email-link-bg:hover {
             color: var(--diamond-blue);
         }
-
+div.container {
+    padding: 0 1rem;
+}
         /* --- [REMOVED] OBSOLETE MOBILE/DESKTOP STYLES --- */
         /* All old @media queries for the contact section, form, and buttons
            have been removed as the new flex layout is responsive by default. */

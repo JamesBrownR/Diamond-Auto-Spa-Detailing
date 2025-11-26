@@ -1306,16 +1306,18 @@ element.style {
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 1rem 0 0 1rem;
             border: 1px solid #ccc;
             background: #f9f9f9;
             border-radius: 4px;
             font-family: inherit;
         }
                 
-        .form-group textarea { 
-            height: 150px; 
-        }
+       .form-group textarea {
+    width: 95%;
+    height: 100px;
+    padding: 1rem 0 0 1rem;
+}
 
         /* [REPLACED] Cleaned up button styling */
         #contact .cta-bbutton {

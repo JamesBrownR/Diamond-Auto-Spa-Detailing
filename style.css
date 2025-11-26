@@ -57,15 +57,16 @@ body {
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+       .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
         
        
@@ -900,8 +901,8 @@ background: #fffffff;
     color: #ffffff;
      margin-top: 6rem;
     /* Keep the angle - scale up more to fill gaps */
-   transform: rotate(-2deg) scale(1.15); 
-    width: 100vw;
+   translate(-15px, -50px) rotate(-2deg) scale(1.15)
+    width: 110vw;
     position: relative;
     left: 50%;
     right: 50%;
@@ -910,10 +911,13 @@ background: #fffffff;
    
     overflow: hidden; /* Clip any overflow */
 }
-
+#videos .section-title {
+    font-size: 2rem; /* Smaller than the default 3rem */
+}
 
 #videos .section-title {
     color: #ffffff; /* White text for title */
+    font-size: 2rem; /* Smaller than the default 3rem */
 }
 
 /* Scroll Container */

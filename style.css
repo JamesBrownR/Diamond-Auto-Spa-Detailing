@@ -65,7 +65,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 5rem;
 }
 
         
@@ -73,12 +73,15 @@ body {
         nav a {
             color: #ffffff;
             text-decoration: none;
-            margin-left: 2rem;
+            margin: 0 1rem;
             transition: color 0.3s;
             font-weight: 500;
             font-size: 1.1rem;
             position: relative;
         }
+nav { 
+display: contents;
+}
 
         nav a:hover {
             color: var(--diamond-blue);
@@ -156,6 +159,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
 }
         /* --- UPDATED HEADER CSS --- */
 .logo {
+   margin: 0 2rem;
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-weight: 700;
@@ -1449,6 +1453,11 @@ div.container {
         }
 
    @media (max-width: 768px) {
+
+      .header-content {
+      
+      gap: 0.5rem;
+      }
 .section-title {
     font-size: 2.3rem; /* Change from 3rem to 2.5rem */
     margin-bottom: 0.5rem;

@@ -905,7 +905,7 @@ background: #fffffff;
     color: #ffffff;
      margin-top: 6rem;
     /* Keep the angle - scale up more to fill gaps */
-   translate(-15px, -50px) rotate(-2deg) scale(1.15);
+  transform: translate(0px, -50px) rotate(-2deg) scale(1.15);
     width: 110vw;
     position: relative;
     left: 50%;

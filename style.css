@@ -1249,6 +1249,8 @@ element.style {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
+               align-content: center;
+    justify-content: center;
             align-items: stretch; /* Ensures cards are equal height */
         }
 
@@ -1306,7 +1308,7 @@ element.style {
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 1rem 0 0 1rem;
+            padding: 1rem 0;
             border: 1px solid #ccc;
             background: #f9f9f9;
             border-radius: 4px;

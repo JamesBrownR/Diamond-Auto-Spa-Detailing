@@ -1358,7 +1358,7 @@ element.style {
         #contact .cta-bbutton {
             border: 2px solid #000 !important;
             color: #000 !important;
-            margin-top: auto;     /* Pushes button to the bottom */
+            margin: auto;     /* Pushes button to the bottom */
             align-self: center; /* Centers button horizontally */
             width: fit-content;   /* Button is only as wide as its text/padding */
             padding: 1rem 3rem; /* Re-add padding */
@@ -1383,7 +1383,6 @@ element.style {
         }
 
         .info-item {
-            margin-bottom: 1rem;
             text-align: center;
         }
 
@@ -1460,6 +1459,7 @@ element.style {
         }
                 
         .email-link-bg {
+           display: inline-flex;
             font-size: 1.3rem; 
             font-weight: bold;
             color: var(--text-dark);

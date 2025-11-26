@@ -171,34 +171,8 @@ body {
             flex-wrap: wrap;
         }
 
-        .phone-header {
-            font-size: 1.3rem;
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-            position: relative;
-        }
-          .phone-header:hover {
-            color: var(--diamond-blue);
-        }
-        .phone-header::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: var(--diamond-blue);
-    bottom: -5px; /* Adjust as needed for spacing */
-    left: 0;
-    transform: scaleX(0); /* Start hidden */
-    transform-origin: left;
-    transition: transform 0.3s ease-out;
-}
-
-/* Add this new block to animate the line on hover */
-.phone-header:hover::after {
-    transform: scaleX(1); /* Animate to full width */
-}
-
+        
+       
         nav a {
             color: #ffffff;
             text-decoration: none;
@@ -317,12 +291,37 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
     gap: 8px;
 }
 
+           .phone-header:hover {
+            color: var(--diamond-blue);
+        }
+        .phone-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--diamond-blue);
+    bottom: -5px; /* Adjust as needed for spacing */
+    left: 0;
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
+
+/* Add this new block to animate the line on hover */
+.phone-header:hover::after {
+    transform: scaleX(1); /* Animate to full width */
+}
+
 .phone-icon-svg {
     width: 18px;
     height: 18px;
     fill: currentColor; /* Inherits text color */
 }
-        
+        @media (max-width: 769px) {
+.phone-header {
+    display: none;
+}
+        }
         /* --- New Hero CTA Button Style --- */
 .hero-content .cta-bbutton {
     background: transparent;

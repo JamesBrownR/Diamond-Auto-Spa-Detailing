@@ -263,15 +263,22 @@ background-color: rgba(0, 0, 0, 0);
     height: auto;     /* ADD THIS LINE */
 }
 
-        /* SEO H1 - Hidden but accessible to search engines */
-.seo-h1 {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+       .seo-h1 {
+    position: static;
+    left: auto;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    font-size: 1rem;          /* small +  */
+    color: #ffffff;           /* white text to match your hero */
+    margin-top: -1.2rem;      /* pulls it closer to tagline */
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    font-family: 'Playfair Display', serif;
 }
+
 
 
 

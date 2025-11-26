@@ -1217,7 +1217,6 @@ justify-content: space-between;
     flex-direction: row;
 }
     .reviews-badges-side {
-        width: 90%; /* Make it fit better on mobile */
         max-width: 400px;
         height: auto;
          flex-direction: column;

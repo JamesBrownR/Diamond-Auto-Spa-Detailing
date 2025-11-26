@@ -1,7 +1,7 @@
          // script.js
         // --- Lightbox Logic s---
 
-
+document.addEventListener('DOMContentLoaded', () => {
 <script>
         // --- Lightbox Logic s---
         function openLightbox(imgSrc) {
@@ -333,3 +333,4 @@ function setupScrollAnimations() {
 // Run the function
 setupScrollAnimations();
     </script>
+});

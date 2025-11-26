@@ -1251,6 +1251,11 @@ justify-content: space-between;
 }
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+
+    
+    .hero-display-title {
+    font-size: 2rem;
+}
     .reviews-badges-side {
         flex-direction: column;
         border-radius: 12px; /* Less round on mobile to fit content */
@@ -1446,6 +1451,18 @@ justify-content: space-between;
         margin: 0 auto !important;
         width: fit-content !important;
     }
+            .contact-form-card, .contact-info-card {
+    background: var(--card-white);
+    padding: 1rem;
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 }
 
 

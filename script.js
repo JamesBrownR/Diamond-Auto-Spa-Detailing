@@ -1,5 +1,5 @@
  <script>
-        // --- Lightbox Logic ---
+        // --- Lightbox Logic s---
         function openLightbox(imgSrc) {
             const modal = document.getElementById("myLightbox");
             const modalImg = document.getElementById("lightboxImg");

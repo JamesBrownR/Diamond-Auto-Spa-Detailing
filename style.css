@@ -697,6 +697,20 @@ background: #fffffff;
     margin: 0;
     padding: 0;
 }
+.services-title-overlay {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3.5rem;
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.9);
+    z-index: 50;
+    white-space: nowrap;
+}
+.services-title-overlay::after {
+    display: none !important;
+}
 
 .service-card-large {
     position: relative;

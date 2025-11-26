@@ -1494,6 +1494,11 @@ div.container {
     position: relative;
     padding-bottom: 1rem;
 }
+
+      email-link-bg {
+            font-size: 1rem;
+         display: break;
+        }
     }
         
     </style>

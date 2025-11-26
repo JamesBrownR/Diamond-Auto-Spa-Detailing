@@ -1447,6 +1447,16 @@ div.container {
         footer p:last-child {
             margin-bottom: 0;
         }
-    
+
+   @media (max-width: 768px) {
+.section-title {
+    font-size: 2.3rem; /* Change from 3rem to 2.5rem */
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--charcoal);
+    position: relative;
+    padding-bottom: 1rem;
+}
+    }
         
     </style>

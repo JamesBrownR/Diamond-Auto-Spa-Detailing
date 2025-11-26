@@ -704,31 +704,30 @@ background: #fffffff;
 }
 .services-title-overlay {
     position: absolute;
-    top: 8%;
-    left: 50%;
+    top: 1%;
+    left: 29%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: #ffffffb5;
     font-size: 3.5rem;
-    text-shadow: 3px 3px 12px rgba(0,0,0,0.9);
+    text-shadow: 3px 3px 12px rgb(0 0 0);
     z-index: 50;
     white-space: nowrap;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 2px solid rgba(255,255,255,0.2);
-    animation: borderGlow 3s ease-in-out infinite;
+    padding: 0 1rem;
+    /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)); */
+    backdrop-filter: blur(1px);
+    border-radius: 30px;
+    /* border: 2px solid rgba(255, 255, 255, 0.2); */
+    /* animation: borderGlow 3s 
+ease-in-out infinite; */
+}
+@media (max-width: 1000px) {
+  .services-title-overlay {
+    display: none;
+  }
 }
 
-@keyframes borderGlow {
-    0%, 100% {
-        border-color: rgba(255,255,255,0.2);
-        box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
-    50% {
-        border-color: rgba(91,163,199,0.6);
-        box-shadow: 0 0 30px rgba(91,163,199,0.3);
-    }
+
+
 }
 .services-title-overlay::after {
     display: none !important;

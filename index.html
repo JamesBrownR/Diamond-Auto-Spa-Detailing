@@ -57,8 +57,11 @@
     height: 100%;
     object-fit: cover;
     /* This ensures the image stays full size even when the slider moves */
-    width: auto; 
+    width: 100%; /* CHANGE THIS from 'auto' */
     max-width: none; 
+    position: absolute; /* ADD THIS */
+    left: 0; /* ADD THIS */
+    top: 0; /* ADD THIS */
 }
 
     .img-comp-overlay {
@@ -567,7 +570,11 @@ background: #fffffff;
 
         .philosophy-content {
             max-width: 600px;
-            background: var(--card-white);
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+background-image: 
+        radial-gradient(circle at 20% 50%, rgba(91, 163, 199, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(91, 163, 199, 0.03) 0%, transparent 50%);
+
             padding: 3rem 2rem;
             position: relative;
             box-shadow:  29px 29px 58px #c7c7c7,

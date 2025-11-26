@@ -502,13 +502,7 @@ clip-path: polygon(0 0, 100% 0, 100% 110vh, 0 105vh);
         height: 122%;
         transform: translate(-59%, -50%);
     }
-    @media (max-width: 768px) {
-    .reveal {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        filter: blur(0) !important;
-    }
-}
+  
 
 }
 
@@ -947,7 +941,13 @@ background: #fffffff;
     transform: translateY(0);
     filter: blur(0);
 }
-      
+        @media (max-width: 768px) {
+    .reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        filter: blur(0) !important;
+    }
+}
         /* --- Video Carousel --- */
       /* angled section style */
        /* --- UPDATED VIDEO SECTION CSS --- */

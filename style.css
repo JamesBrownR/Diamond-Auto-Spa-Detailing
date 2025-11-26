@@ -1200,42 +1200,67 @@ element.style {
     
     .badge-rating-title { font-size: 1.4rem; }
 }
-        /* --- Contact Section --- */
+      /* --- Contact Section --- */
         #contact {
-            background: ffffff;
+            background: #ffffff; /* [FIXED] */
             position: relative;
-    z-index: 10;
-    margin-top: 0;
+            z-index: 10;
+            margin-top: 0;
+            padding-bottom: 4rem; /* [ADDED] Spacing at page bottom */
         }
         .contact-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            align-items: stretch;
+            align-items: stretch; /* Ensures cards are equal height */
         }
 
         .contact-form-card, .contact-info-card {
             background: var(--card-white);
             padding: 2.5rem;
-            flex: 1;
-            min-width: 300px;
+            flex: 1; /* Each card takes up 50% */
+            min-width: 320px; /* Cards will wrap on mobile */
             display: flex;
             flex-direction: column;
-            align-items:center;
-            /* border-top: 5px solid var(--diamond-blue); (Now global) */
+            /* [REMOVED] align-items: center; */
+            
+            /* [ADDED] Re-applied standard card shadow */
+            box-shadow:
+                10px 10px 20px #c7c9cc,
+               -10px -10px 20px #ffffff;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
         }
+
+        .contact-form-card:hover, .contact-info-card:hover {
+            box-shadow: 
+                4px 4px 10px #c7c9cc, 
+               -4px -4px 10px #ffffff,
+               inset 2px 2px 5px #c7c9cc,
+               inset -2px -2px 5px #ffffff;
+            transform: translateY(-10px);
+        }
+
 
         .contact-form-card h3, .contact-info-card h3 {
             font-size: 2rem;
-           margin-bottom: 1.5rem; 
+            margin-bottom: 1.5rem; 
             color: var(--charcoal);
             text-align: center;
         }
 
-         .form-group { 
-            margin: 0 -1.5rem;
-            margin-bottom: 1.2rem; }
-        
+        /* [ADDED] Make the form fill the card's height */
+        .contact-form-card form {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* This is key to push button to bottom */
+        }
+
+        .form-group { 
+            /* [REMOVED] margin: 0 -1.5rem; */
+            margin-bottom: 1.2rem; 
+            width: 100%; /* Ensure it fills the form */
+        }
+                
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
@@ -1250,14 +1275,30 @@ element.style {
             border-radius: 4px;
             font-family: inherit;
         }
-        
+                
         .form-group textarea { 
             height: 150px; 
         }
 
-        #contactForm button {
-            margin-top: auto; 
-            width: 100%;
+        /* [REPLACED] Cleaned up button styling */
+        #contact .cta-bbutton {
+            border: 2px solid #000 !important;
+            color: #000 !important;
+            margin-top: auto;     /* Pushes button to the bottom */
+            align-self: center; /* Centers button horizontally */
+            width: fit-content;   /* Button is only as wide as its text/padding */
+            padding: 1rem 3rem; /* Re-add padding */
+        }
+
+        #contact .cta-bbutton:hover {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* --- Info Card Tweaks --- */
+        .contact-info-card {
+            display: flex;
+            flex-direction: column;
         }
 
         .info-highlight {
@@ -1271,21 +1312,25 @@ element.style {
             margin-bottom: 1rem;
             text-align: center;
         }
-        
-        /* FIX: Style for the newly clickable phone link */
+
+        /* [ADDED] This makes the "Hours" block grow to fill space */
+        .info-item:has(.hours-list) {
+            flex-grow: 1;
+        }
+                
         .phone-link-bg {
             font-size: 1.3rem;
             font-weight: bold;
             color: var(--diamond-blue);
             text-decoration: none;
             transition: color 0.3s;
+            font-family: 'Playfair Display', serif; 
         }
         .phone-link-bg:hover {
             color: var(--diamond-dark-blue);
         }
 
-      .info-item strong {
-            /* display: block;  <-- REforcing "Call Us" onto its own line)MOVED */
+        .info-item strong {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             font-family: 'Playfair Display', serif;
@@ -1298,8 +1343,9 @@ element.style {
         .hours-list {
             list-style: none;
             width: 100%;
+            padding: 0; /* [ADDED] */
         }
-        
+                
         .hours-list li {
             display: flex;
             justify-content: space-between;
@@ -1307,301 +1353,82 @@ element.style {
             border-bottom: 1px solid #eee;
         }
 
-       .social-links {
-            text-align: center; /* [CHANGED] Center the links */
-            margin-top: 1rem; /* [ADD] Add some space */
+        .social-links {
+            text-align: center; 
+            margin-top: auto; /* [ADDED] Pushes links to the bottom */
+            padding-top: 1rem; /* [ADDED] Space above links */
         }
-       
+               
+        .social-links a {
+            display: inline-block;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid #000 !important;
+            color: #000 !important;
+            margin: 0.5rem; /* [ADDED] Spacing for mobile wrap */
+        }
 
-     .social-links a {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff !important;
-    font-size: 1.2rem;
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
+        .social-links a:hover {
+            background: #000 !important;
+            color: #fff !important;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            transform: translateY(-2px);
+        }
 
-.social-links a:hover {
-    background: #ffffff;
-    color: #000 !important;
-    box-shadow: 0 0 20px rgba(255,255,255,0.4);
-    transform: translateY(-2px);
-}
-
-
-        /* [ADD] Styles for the new contact layout */
         .contact-line strong {
             margin-right: 0.5rem;
             font-family: 'Playfair Display', serif;
         }
-
-        /* [ADD] Puts Playfair font on the phone number */
-        .phone-link-bg {
-            font-size: 1.3rem; /* Match phone link */
-            font-weight: bold;
-            color: var(--text-dark); /* Not blue */
-            text-decoration: none;
-            transition: color 0.3s;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        /* [ADD] Styles for the email link */
+                
         .email-link-bg {
-            font-size: 1.3rem; /* Match phone link */
+            font-size: 1.3rem; 
             font-weight: bold;
-            color: var(--text-dark); /* Not blue */
+            color: var(--text-dark);
             text-decoration: none;
             transition: color 0.3s;
             font-family: 'Playfair Display', serif;
+            word-break: break-all; /* [ADDED] Fix for long email on mobile */
         }
 
         .email-link-bg:hover {
             color: var(--diamond-blue);
         }
 
-        #contact .cta-bbutton,
-#contact .social-links a {
-    border: 2px solid #000 !important;
-    color: #000 !important;
-}
-
-#contact .cta-bbutton:hover,
-#contact .social-links a:hover {
-    background: #000 !important;
-    color: #fff !important;
-}
-@media (min-width: 769px) {
-    button.cta-bbutton {
-        margin: 0 7rem;
-       
-    }
-}
-        @media (max-width: 768px) {
-    #contactForm button {
-        display: block;
-        margin: 0 auto !important;
-        width: fit-content !important;
-    }
-            .contact-form-card, .contact-info-card {
-    background: var(--card-white);
-    padding: 1rem;
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    align-content: space-around;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-}
-
+        /* --- [REMOVED] OBSOLETE MOBILE/DESKTOP STYLES --- */
+        /* All old @media queries for the contact section, form, and buttons
+           have been removed as the new flex layout is responsive by default. */
 
         /* --- Footer --- */
-     
         #footer {
- width: 100%;          /* Forces background to touch edges */
-    max-width: none;      /* Removes the 1200px limit on the background */
-    padding: 0;      /* Vertical spacing */
-    position: relative;   /* Needed for the transition effects */
-    overflow: hidden;
+            width: 100%;
+            max-width: none;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
             background: var(--black); 
         }
-          
-        
+                  
         footer {
-    background: var(--black);
-    color: #888;
-    text-align: center;
-    padding: 2rem 2rem;
-          display: block; /* Add this */
-}
-
-footer p {
-    margin: 0.5rem 0; /* Control paragraph spacing */
-}
-
-footer p:last-child {
-    margin-bottom: 0; /* Remove bottom margin from last paragraph */
-}
-        
-       
-
-     /* --- MEDIA QUERIES (Mobile Specifics) --- */
-        @media (max-width: 768px) {
-     
-            
-            .section-title { font-size: 2rem; }
-            
-            .social-links a {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 0.5rem;
-            }
-            
-            /* --- Responsive Gallery Grid --- */
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 200px;
-            }
-            .gallery-item:nth-child(n) {
-                grid-column: auto;
-                grid-row: auto;
-            }
-            .gallery-item:nth-child(3) { grid-column: span 2; }
-            .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 1; }
-            
-            .video-card {
-                width: 250px;
-            }
-            @media (max-width: 768px) {
-    .gallery-grid .gallery-item {
-        grid-column: span 1 !important;
-        grid-row: span 1 !important;
-    }
-}
-
-            
-            /* FIX: Make review cards smaller on mobile */
-            .review-card {
-                width: 300px;
-            }
+            background: var(--black);
+            color: #888;
+            text-align: center;
+            padding: 2rem 2rem;
+            display: block;
         }
-         @media (min-width: 769px) {
-            
-             .hero-desktop h1 {
-                 margin-top: 1rem;
-             }
+
+        footer p {
+            margin: 0.5rem 0;
+            word-break: break-word; /* [ADDED] Prevents overflow */
         }
-        @media (max-width: 768px) {
-    .header-content {
-        justify-content: center;
-        text-align: center;
-    }
-}
-@media (max-width: 768px) {
-    .header-content nav {
-        flex-grow: 0;
-        width: 100%;
-        text-align: center;
-        margin-top: 0.5rem;
-    }
 
-    .header-content nav a {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-}
-@media (max-width: 768px) {
-    .logo {
-        margin: 0 auto;
-        display: block;
-        text-align: center;
-    }
-}
-
-        @media (max-width: 768px) {
-    .hero-desktop {
-        display: flex !important;
-        min-height: 100vh;
-        clip-path: none; /* Cleaner on mobile */
-        overflow: hidden;
-    }
-}
-
-        @media (max-width: 768px) {
-    .hero-video-bg {
-        transform: translate(-50%, -50%) rotate(90deg);
-        width: auto;
-        height: 180%;
-    }
-}
-@media (max-width: 768px) {
-
-    .hero-content {
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-
-    .cta-bbutton {
-        width: auto !important;
-        padding: 1rem 3rem !important;
-        border: 2px solid #fff;
-        color: #fff !important;
-    }
-}
-@media (max-width: 768px) {
-    .hero-desktop::before {
-        background-image: none !important;
-        background-color: rgba(0,0,0,0.4) !important;
-    }
-}
-
-/* Add this to your existing @media (max-width: 768px) section */
-@media (max-width: 768px) {
-    .email-link-bg {
-        font-size: 1.1rem; /* Smaller on mobile */
-    }
+        footer p:last-child {
+            margin-bottom: 0;
+        }
     
-    .phone-link-bg {
-        font-size: 1.3rem; 
-    }
-    
-    .contact-line strong {
-        font-size: 1rem; /* Also reduce label size slightly */
-    }
-}
-      @media (max-width: 768px) {
-    /* Simplify the card - no flex needed */
-    .contact-form-card, .contact-info-card {
-        background: var(--card-white);
-        padding: 2rem 1rem;
-        min-width: 300px;
-        /* Remove all flex properties, just use block */
-        display: block !important;
-    }
-    
-    .contact-form-card h3 {
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Center the form with simple margins */
-    #contactForm {
-        width: calc(100% - 2rem); /* Leave 1rem padding on each side */
-        max-width: 450px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .form-group {
-        margin-bottom: 1.2rem;
-        width: 100%;
-    }
-    
-    .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-    
-    .form-group input, 
-    .form-group textarea {
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    #contactForm button {
-        display: block;
-        margin: 1rem auto 0 auto !important;
-        width: fit-content !important;
-    }
-}
-   
         
     </style>

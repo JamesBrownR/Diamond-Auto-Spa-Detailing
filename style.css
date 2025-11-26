@@ -694,6 +694,8 @@ background: #fffffff;
     /* 3 Columns taking up equal space */
     grid-template-columns: repeat(3, 1fr); 
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .service-card-large {

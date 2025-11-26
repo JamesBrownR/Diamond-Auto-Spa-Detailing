@@ -1328,6 +1328,7 @@ element.style {
             min-width: 300px;
             display: flex;
             flex-direction: column;
+            align-items:center;
             /* border-top: 5px solid var(--diamond-blue); (Now global) */
         }
 
@@ -1482,7 +1483,12 @@ element.style {
     background: #000 !important;
     color: #fff !important;
 }
-
+@media (min-width: 769px) {
+    #contactForm button {
+        margin: 0 7rem;
+       
+    }
+}
         @media (max-width: 768px) {
     #contactForm button {
         display: block;

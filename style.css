@@ -911,13 +911,11 @@ background: #fffffff;
    
     overflow: hidden; /* Clip any overflow */
 }
-#videos .section-title {
-    font-size: 2rem; /* Smaller than the default 3rem */
-}
+
 
 #videos .section-title {
     color: #ffffff; /* White text for title */
-    font-size: 2rem; /* Smaller than the default 3rem */
+    font-size: 2.3rem; /* Smaller than the default 3rem */
 }
 
 /* Scroll Container */

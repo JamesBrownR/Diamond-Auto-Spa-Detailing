@@ -1428,7 +1428,6 @@ element.style {
         .social-links {
             text-align: center; 
             margin-top: auto; /* [ADDED] Pushes links to the bottom */
-            padding-top: 1rem; /* [ADDED] Space above links */
         }
                
         .social-links a {

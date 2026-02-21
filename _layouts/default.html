@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <title>{{ page.title }}</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/JamesBrownR/Diamond-Auto-Spa-Detailing/refs/heads/main/Diamond-Auto-Spa-Detailing.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDetailing",
+      "name": "Diamond Auto Spa Detailing",
+      "image": "https://diamondautospallc.com/Pics/Diamond-Auto-Spa-Detailing.png",
+      "telephone": "+1-352-931-4860",
+      "email": "diamondautospa.fl23@gmail.com",
+      "url": "https://diamondautospallc.com/",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mobile Service",
+        "addressLocality": "Eustis",
+        "addressRegion": "FL",
+        "postalCode": "32726",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Eustis" },
+        { "@type": "City", "name": "Mount Dora" },
+        { "@type": "City", "name": "Tavares" },
+        { "@type": "City", "name": "Leesburg" },
+        { "@type": "City", "name": "Apopka" },
+        { "@type": "City", "name": "Altoona" },
+        { "@type": "City", "name": "Madeira Beach" }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "20:00"
+        }
+      ],
+      "description": "Premium mobile auto detailing serving Lake County FL. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTX9EZGPKX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LTX9EZGPKX');
+    </script>
+    <style>
+    /* Subpage-specific styles */
+    body { overflow-x: hidden; background: #ffffff; }
 
+    .subpage-hero {
+        background: #000000;
+        color: #ffffff;
+        padding: 8rem 2rem 5rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .subpage-hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: radial-gradient(rgba(91,163,199,0.15) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+    .subpage-hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+    .subpage-hero p {
+        font-size: 1.3rem;
+        color: #aaaaaa;
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        position: relative;
+        z-index: 2;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+    }
+    .subpage-hero .cta-bbutton {
+        position: relative;
+        z-index: 2;
+    }
+    .subpage-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+    }
+    .subpage-content h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: #000000;
+    }
+    .subpage-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+    .services-grid-sub {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+    .service-card-sub {
+        background: #f8f9fa;
+        border-left: 4px solid #5BA3C7;
+        padding: 2rem;
+        border-radius: 0 8px 8px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card-sub:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .service-card-sub h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: #000;
+    }
+    .service-card-sub p {
+        font-size: 1rem;
+        color: #555;
+        margin: 0;
+    }
+    .cta-section-sub {
+        background: #000000;
+        color: #ffffff;
+        padding: 4rem 2rem;
+        text-align: center;
+    }
+    .cta-section-sub h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .cta-section-sub p {
+        font-size: 1.2rem;
+        color: #aaa;
+        margin-bottom: 2rem;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+    }
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        text-align: center;
+    }
+    .why-item {
+        padding: 2rem 1rem;
+    }
+    .why-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .why-item h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .breadcrumb {
+        background: #f0f2f5;
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+        color: #666;
+    }
+    .breadcrumb a { color: #5BA3C7; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+        .subpage-hero h1 { font-size: 2rem; }
+    }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <a href="{{ site.baseurl }}/" class="logo">Diamond Auto Spa</a>
+        <a href="tel:+13529314860" class="phone-header">
+            <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>
+            </svg>
+            +1 352-931-4860
+        </a>
+        <nav>
+            <a href="{{ site.baseurl }}/#about">About</a>
+            <a href="{{ site.baseurl }}/#services">Services</a>
+            <a href="{{ site.baseurl }}/#gallery">Gallery</a>
+            <a href="{{ site.baseurl }}/#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+{{ content }}
+
+<section class="cta-section-sub">
+    <h2>Ready to Shine?</h2>
+    <p>Mobile detailing that comes to you — no drop-off required.</p>
+    <a href="tel:+13529314860" class="cta-bbutton" style="color:#fff; margin-right: 1rem;">Call Now</a>
+    <a href="{{ site.baseurl }}/#contact" class="cta-bbutton" style="color:#fff;">Get a Quote</a>
+</section>
+
+<footer style="background:#000; color:#888; text-align:center; padding:2rem;">
+    <p>© 2025 Diamond Auto Spa Detailing. All rights reserved.</p>
+    <p>Mobile detailing for Eustis, Mount Dora, Tavares, Leesburg & surrounding areas, FL</p>
+    <p style="margin-top:1rem; color:#aaa; font-size:0.9rem;">Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com</p>
+    <p style="margin-top:1rem; color:#666; font-size:0.85rem;">
+        Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a>
+    </p>
+</footer>
+
+</body>
+</html>

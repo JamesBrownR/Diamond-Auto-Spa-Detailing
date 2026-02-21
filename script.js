@@ -101,8 +101,8 @@ function createReviewCard(review) {
     const initial = review.name ? review.name.charAt(0).toUpperCase() : '?';
     
     const logoSrc = review.source === "facebook" 
-        ? "Diamond-Auto-Spa-Detailing-FacebookIcon.png" 
-        : "Diamond-Auto-Spa-Detailing-GoogleIcon.png";
+        ? "{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-FacebookIcon.png" 
+        : "{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-GoogleIcon.png";
     
     // FIX: Added object-fit: contain to this style string
     card.innerHTML = `

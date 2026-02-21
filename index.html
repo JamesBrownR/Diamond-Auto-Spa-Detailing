@@ -323,7 +323,7 @@
       {% if item.mobile_only %} hidden-desktop{% endif %}"
       onclick="openLightbox('{{ item.path }}')"
       {% if item.extra %}data-gallery-extra{% endif %}>
-      <img src="{{ site.baseurl }}{{ item.path }}" loading="lazy" alt="{{ item.alt }}">
+      <img src="{{ site.baseurl }}/{{ item.path }}" loading="lazy" alt="{{ item.alt }}">
     </div>
   {% endfor %}
 </div>

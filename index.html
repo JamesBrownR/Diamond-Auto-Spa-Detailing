@@ -317,49 +317,15 @@
     <p class="section-subtitle reveal">Click any image to zoom in</p>
     
 <div class="gallery-grid">
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing1.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing1.webp" loading="lazy" alt="Professional car detailing service on black luxury sports car with glossy ceramic coating finish at Diamond Auto Spa">
+  {% for item in site.data.gallery %}
+    <div class="gallery-item reveal
+      {% if item.extra %} hidden{% endif %}
+      {% if item.mobile_only %} hidden-desktop{% endif %}"
+      onclick="openLightbox('{{ item.path }}')"
+      {% if item.extra %}data-gallery-extra{% endif %}>
+      <img src="{{ site.baseurl }}{{ item.path }}" loading="lazy" alt="{{ item.alt }}">
     </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing2.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing2.webp" loading="lazy" alt="Jeep Grand Cherokee exterior detailing with black wheels and professional auto spa cleaning services">
-    </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing3.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing3.webp" loading="lazy" alt="Red Nissan Rogue Sport exterior detailing showcasing premium auto spa wash and wax services">
-    </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing4.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing4.webp" loading="lazy" alt="Professional automotive interior detailing showing clean black leather seats and dashboard at Diamond Auto Spa">
-    </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing5.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing5.webp" loading="lazy" alt="White BMW M4 ceramic coating and paint protection services with professional auto detailing finish">
-    </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing6.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing6.webp" loading="lazy" alt="White Jeep Compass Altitude exterior detailing with ceramic coating and black accent wheels">
-    </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing7.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing7.webp" loading="lazy" alt="Luxury truck front grille detailing and exterior wash services at professional auto spa">
-    </div>
-
-    <div class="gallery-item reveal hidden-desktop" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing-After4.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After4.webp" loading="lazy" alt="Before and after car detailing transformation showing interior carpet and upholstery deep cleaning results">
-    </div>
-    <div class="gallery-item reveal" onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing-After5.webp')">
-        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing-After5.webp" loading="lazy" alt="Before and after automotive wheel detailing showing tire shine and rim restoration services">
-    </div>
-    <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing8.webp')">
-        <img src="{{ site.baseurl }}/Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing8.webp" loading="lazy" alt="Professional truck interior detailing showing clean black leather seats and dashboard restoration">
-    </div>
-    <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing9.webp')">
-        <img src="Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing9.webp" loading="lazy" alt="Red GMC Canyon professional exterior detailing with ceramic coating and wheel cleaning services">
-    </div>
-    <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing10.webp')">
-        <img src="{{ site.baseurl }}/Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing10.webp" loading="lazy" alt="Luxury brown leather interior detailing and upholstery cleaning for Ford truck">
-    </div>
-    <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing11.webp')">
-        <img src="{{ site.baseurl }}/Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing11.webp" loading="lazy" alt="Blue Kia Stinger professional auto detailing with paint correction and ceramic coating services">
-    </div>
-    <div class="gallery-item hidden reveal" data-gallery-extra onclick="openLightbox('Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing12.webp')">
-        <img src="{{ site.baseurl }}/Diamond-Auto-Spa-Detailing-Gallery/Diamond-Auto-Spa-Detailing12.webp" loading="lazy" alt="Blue Jeep Wrangler Rubicon exterior detailing with off-road tire cleaning and paint protection">
-    </div>
+  {% endfor %}
 </div>
 
     
@@ -412,60 +378,16 @@
         <p class="section-subtitle reveal"  style="color: #ffffff;">Swipe right to see videos.</p>
     </div>
 
-    <div class="video-scroll-container">
-        
-     <div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Professional ceramic coating application on white car side mirror for paint protection">
-        <source src="Diamond-Auto-Spa-Detailing1.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Auto detailing specialist cleaning black aftermarket wheel with foam and brush">
-        <source src="Diamond-Auto-Spa-Detailing2.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Foam cannon application on vehicle wheel during professional car wash and detailing">
-        <source src="{{ site.baseurl }}/Diamond-Auto-Spa-Detailing3.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Professional car door jamb cleaning and detailing service removing dirt buildup">
-        <source src="Diamond-Auto-Spa-Detailing4.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Professional auto detailing foam wash application on luxury vehicle at Diamond Auto Spa">
-        <source src="Diamond-Auto-Spa-Detailing5.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Interior car detailing service showing clean leather seats and dashboard in SUV">
-        <source src="Diamond-Auto-Spa-Detailing6.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Deep cleaning car door jambs and interior threshold during professional detailing service">
-        <source src="Diamond-Auto-Spa-Detailing7.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Steam cleaning car interior cup holders and center console for automotive detailing">
-        <source src="Diamond-Auto-Spa-Detailing8.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Ceramic coating application showing hydrophobic water beading on vehicle wheel and tire">
-        <source src="Diamond-Auto-Spa-Detailing9.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="video-card reveal">
-    <video controls muted loop playsinline preload="metadata" title="Mobile auto detailing service cleaning car trunk jamb and weather stripping with professional products">
-        <source src="Diamond-Auto-Spa-Detailing10.mp4" type="video/mp4">
-    </video>
+   <div class="video-scroll-container">
+  {% for video in site.data.videos %}
+    <div class="video-card reveal">
+      <video controls muted loop playsinline preload="metadata" title="{{ video.title }}">
+        <source src="{{ site.baseurl }}{{ video.path }}" type="video/mp4">
+      </video>
+    </div>
+  {% endfor %}
 </div>
         
-        </div>
 </section>
 
 

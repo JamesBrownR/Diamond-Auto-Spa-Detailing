@@ -115,7 +115,6 @@ nav a:hover::after {
 .hero-desktop {
     display: flex;
  min-height: 100vh;    min-width: 100vw;
-    /* background-image: url('Diamond-Auto-Spa-Detailing0.png');  <-- REMOVE THIS LINE */
     background-color: var(--white); /* Add this as a fallback */
     background-size: cover;
     background-position: center;

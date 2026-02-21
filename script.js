@@ -1,3 +1,5 @@
+---
+---
          // script.js
         // --- Lightbox Logic s---
 

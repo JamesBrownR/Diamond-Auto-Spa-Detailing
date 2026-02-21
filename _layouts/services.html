@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <title>{{ page.title }}</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/JamesBrownR/Diamond-Auto-Spa-Detailing/refs/heads/main/Diamond-Auto-Spa-Detailing.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDetailing",
+      "name": "Diamond Auto Spa Detailing",
+      "image": "https://diamondautospallc.com/Pics/Diamond-Auto-Spa-Detailing.png",
+      "telephone": "+1-352-931-4860",
+      "email": "diamondautospa.fl23@gmail.com",
+      "url": "https://diamondautospallc.com/",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mobile Service",
+        "addressLocality": "Eustis",
+        "addressRegion": "FL",
+        "postalCode": "32726",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "20:00"
+        }
+      ],
+      "description": "Premium mobile auto detailing serving Lake County FL. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTX9EZGPKX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LTX9EZGPKX');
+    </script>
+    <style>
+        /* ===== SERVICES LAYOUT ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --diamond-blue: #5BA3C7;
+            --diamond-dark-blue: #4A8BA8;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #222;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logo {
+            margin: 0 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(to right, #ffffff 50%, var(--diamond-blue) 50%);
+            background-size: 200% 100%;
+            background-position: 0 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background-position 0.5s ease-out;
+            display: inline-block;
+        }
+
+        .logo:hover { background-position: -100% 0; }
+
+        .phone-header {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-header:hover { color: var(--diamond-blue); }
+
+        .phone-icon-svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        nav a:hover { color: var(--diamond-blue); }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--diamond-blue);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav a:hover::after { transform: scaleX(1); }
+
+        nav { display: contents; }
+
+        @media (max-width: 769px) {
+            .phone-header { display: none; }
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            margin-top: 60px;
+            background: #111111;
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+            color: #666;
+            border-bottom: 1px solid #222;
+        }
+
+        .breadcrumb a { color: var(--diamond-blue); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* ===== HERO ===== */
+        .service-hero {
+            background: #000000;
+            color: #ffffff;
+            padding: 7rem 2rem 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(91, 163, 199, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Horizontal rule accent under hero */
+        .service-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: var(--diamond-blue);
+        }
+
+        .service-hero-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--diamond-blue);
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.15;
+        }
+
+        .service-hero p {
+            font-size: 1.2rem;
+            color: #888888;
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            position: relative;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .service-hero .cta-bbutton { position: relative; z-index: 2; }
+
+        /* ===== TWO-COLUMN LAYOUT ===== */
+        .service-page-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .service-page-wrapper {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+            }
+            .service-sidebar { order: -1; }
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .service-main h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .service-main h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--diamond-blue);
+        }
+
+        .service-main p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #999999;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-section {
+            margin-bottom: 4rem;
+        }
+
+        /* ===== PROCESS STEPS ===== */
+        .process-steps {
+            margin: 2rem 0;
+            counter-reset: step-counter;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 2px solid var(--diamond-blue);
+            color: var(--diamond-blue);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            color: #777777;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* ===== WHAT'S INCLUDED LIST ===== */
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1px;
+            margin: 2rem 0;
+            border: 1px solid #1a1a1a;
+        }
+
+        .included-item {
+            background: #0a0a0a;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: background 0.3s;
+        }
+
+        .included-item:hover { background: #111111; }
+
+        .included-check {
+            color: var(--diamond-blue);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .included-item p {
+            font-size: 0.95rem;
+            color: #999999;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .included-item strong {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        /* ===== RESULTS / BEFORE-AFTER ===== */
+        .results-note {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-left: 4px solid var(--diamond-blue);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .results-note p {
+            margin: 0;
+            color: #aaaaaa;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .service-sidebar {
+            padding-left: 3rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        @media (max-width: 900px) {
+            .service-sidebar { padding-left: 0; padding-bottom: 3rem; }
+        }
+
+        .sidebar-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .sidebar-phone {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--diamond-blue);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .sidebar-phone:hover { color: #ffffff; }
+
+        .sidebar-hours p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0 0 0.3rem 0;
+        }
+
+        .sidebar-hours strong {
+            color: #aaaaaa;
+        }
+
+        .sidebar-cta {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin-top: 1.2rem;
+            cursor: pointer;
+        }
+
+        .sidebar-cta:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .related-services-list {
+            list-style: none;
+        }
+
+        .related-services-list li {
+            border-bottom: 1px solid #1a1a1a;
+            padding: 0.6rem 0;
+        }
+
+        .related-services-list li:last-child { border-bottom: none; }
+
+        .related-services-list a {
+            color: #888888;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .related-services-list a::after {
+            content: '→';
+            color: var(--diamond-blue);
+            font-size: 0.85rem;
+        }
+
+        .related-services-list a:hover { color: #ffffff; }
+
+        /* ===== BUTTONS ===== */
+        .cta-bbutton {
+            display: inline-block;
+            padding: 0.9rem 2.8rem;
+            background: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .cta-bbutton:hover {
+            background: #ffffff;
+            color: #000000 !important;
+        }
+
+        /* ===== FOOTER CTA BAND ===== */
+        .footer-cta-band {
+            background: #000000;
+            border-top: 1px solid #1a1a1a;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-cta-band h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-cta-band p {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .footer-cta-band .cta-bbutton { margin: 0.5rem; }
+
+        footer {
+            background: #000000;
+            border-top: 1px solid #111;
+            color: #444;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p { margin: 0.4rem 0; font-size: 0.9rem; }
+        footer a { color: var(--diamond-blue); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .service-hero h1 { font-size: 2.2rem; }
+            .header-content { gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <a href="{{ site.baseurl }}/" class="logo">Diamond Auto Spa</a>
+        <a href="tel:+13529314860" class="phone-header">
+            <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>
+            </svg>
+            +1 352-931-4860
+        </a>
+        <nav>
+            <a href="{{ site.baseurl }}/#about">About</a>
+            <a href="{{ site.baseurl }}/#services">Services</a>
+            <a href="{{ site.baseurl }}/#gallery">Gallery</a>
+            <a href="{{ site.baseurl }}/#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+{{ content }}
+
+<div class="footer-cta-band">
+    <h2>Ready to Shine?</h2>
+    <p>Mobile detailing — we come to you, fully equipped.</p>
+    <a href="tel:+13529314860" class="cta-bbutton">Call Now</a>
+    <a href="{{ site.baseurl }}/#contact" class="cta-bbutton">Get a Quote</a>
+</div>
+
+<footer>
+    <p>© 2025 Diamond Auto Spa Detailing. All rights reserved.</p>
+    <p>Mobile detailing for Eustis, Mount Dora, Tavares, Leesburg & surrounding areas, FL</p>
+    <p style="margin-top: 0.8rem; color: #333;">Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com</p>
+    <p style="margin-top: 0.8rem; color: #2a2a2a;">Made by <a href="https://www.meetingsurge.com" target="_blank">MeetingSurge.com</a></p>
+</footer>
+
+</body>
+</html>

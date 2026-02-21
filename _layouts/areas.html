@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <title>{{ page.title }}</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/JamesBrownR/Diamond-Auto-Spa-Detailing/refs/heads/main/Diamond-Auto-Spa-Detailing.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDetailing",
+      "name": "Diamond Auto Spa Detailing",
+      "image": "https://diamondautospallc.com/Pics/Diamond-Auto-Spa-Detailing.png",
+      "telephone": "+1-352-931-4860",
+      "email": "diamondautospa.fl23@gmail.com",
+      "url": "https://diamondautospallc.com/",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mobile Service",
+        "addressLocality": "Eustis",
+        "addressRegion": "FL",
+        "postalCode": "32726",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Eustis" },
+        { "@type": "City", "name": "Mount Dora" },
+        { "@type": "City", "name": "Tavares" },
+        { "@type": "City", "name": "Leesburg" },
+        { "@type": "City", "name": "Apopka" },
+        { "@type": "City", "name": "Altoona" },
+        { "@type": "City", "name": "Madeira Beach" }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "20:00"
+        }
+      ],
+      "description": "Premium mobile auto detailing serving Lake County FL. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTX9EZGPKX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LTX9EZGPKX');
+    </script>
+    <style>
+        /* ===== AREAS LAYOUT ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --diamond-blue: #5BA3C7;
+            --diamond-dark-blue: #4A8BA8;
+            --charcoal: #000000;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #222;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logo {
+            margin: 0 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(to right, #ffffff 50%, var(--diamond-blue) 50%);
+            background-size: 200% 100%;
+            background-position: 0 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background-position 0.5s ease-out;
+            display: inline-block;
+        }
+
+        .logo:hover { background-position: -100% 0; }
+
+        .phone-header {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phone-header:hover { color: var(--diamond-blue); }
+
+        .phone-icon-svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        nav a:hover { color: var(--diamond-blue); }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--diamond-blue);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav a:hover::after { transform: scaleX(1); }
+
+        nav { display: contents; }
+
+        @media (max-width: 769px) {
+            .phone-header { display: none; }
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            margin-top: 60px;
+            background: #111111;
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+            color: #666;
+            border-bottom: 1px solid #222;
+        }
+
+        .breadcrumb a { color: var(--diamond-blue); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* ===== HERO ===== */
+        .area-hero {
+            background: #000000;
+            color: #ffffff;
+            padding: 7rem 2rem 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .area-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(91, 163, 199, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .area-hero-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--diamond-blue);
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .area-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.15;
+        }
+
+        .area-hero p {
+            font-size: 1.2rem;
+            color: #888888;
+            max-width: 560px;
+            margin: 0 auto 2.5rem auto;
+            position: relative;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .area-hero .cta-bbutton {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .area-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .area-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .area-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--diamond-blue);
+        }
+
+        .area-content p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #999999;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== SECTION DIVIDER ===== */
+        .area-section {
+            margin: 4rem 0;
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .services-grid-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+            margin: 2.5rem 0;
+            border: 1px solid #1a1a1a;
+        }
+
+        .service-card-area {
+            background: #0a0a0a;
+            border-left: 3px solid var(--diamond-blue);
+            padding: 2rem 2rem 2rem 2.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .service-card-area:hover {
+            background: #111111;
+        }
+
+        .service-card-area h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+
+        .service-card-area p {
+            font-size: 0.95rem;
+            color: #777777;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* ===== WHY GRID ===== */
+        .why-grid-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1px;
+            margin: 2.5rem 0;
+            border: 1px solid #1a1a1a;
+        }
+
+        .why-card {
+            padding: 2.5rem 2rem;
+            background: #0a0a0a;
+            border-top: 2px solid var(--diamond-blue);
+            transition: background 0.3s ease;
+        }
+
+        .why-card:hover {
+            background: #111111;
+        }
+
+        .why-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: var(--diamond-blue);
+        }
+
+        .why-card p {
+            font-size: 0.95rem;
+            color: #777777;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-area {
+            margin: 2.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid var(--diamond-blue);
+            padding: 2rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #aaaaaa;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-card span {
+            font-weight: 700;
+            color: var(--diamond-blue);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== BOOK CTA ===== */
+        .area-book-cta {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-left: 4px solid var(--diamond-blue);
+            padding: 2.5rem;
+            margin: 3rem 0 0 0;
+        }
+
+        .area-book-cta p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .area-book-cta a.phone-cta {
+            color: var(--diamond-blue);
+            font-weight: 700;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .area-book-cta a.phone-cta:hover {
+            color: #ffffff;
+        }
+
+        /* ===== BUTTONS ===== */
+        .cta-bbutton {
+            display: inline-block;
+            padding: 0.9rem 2.8rem;
+            background: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .cta-bbutton:hover {
+            background: #ffffff;
+            color: #000000 !important;
+        }
+
+        /* ===== FOOTER CTA BAND ===== */
+        .footer-cta-band {
+            background: #000000;
+            border-top: 1px solid #1a1a1a;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-cta-band h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-cta-band p {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .footer-cta-band .cta-bbutton {
+            margin: 0.5rem;
+        }
+
+        footer {
+            background: #000000;
+            border-top: 1px solid #111;
+            color: #444;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p { margin: 0.4rem 0; font-size: 0.9rem; }
+        footer a { color: var(--diamond-blue); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .area-hero h1 { font-size: 2.2rem; }
+            .area-content { padding: 3rem 1.5rem; }
+            .header-content { gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <a href="{{ site.baseurl }}/" class="logo">Diamond Auto Spa</a>
+        <a href="tel:+13529314860" class="phone-header">
+            <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>
+            </svg>
+            +1 352-931-4860
+        </a>
+        <nav>
+            <a href="{{ site.baseurl }}/#about">About</a>
+            <a href="{{ site.baseurl }}/#services">Services</a>
+            <a href="{{ site.baseurl }}/#gallery">Gallery</a>
+            <a href="{{ site.baseurl }}/#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+{{ content }}
+
+<div class="footer-cta-band">
+    <h2>Ready to Shine?</h2>
+    <p>Mobile detailing: We come to you, fully equipped.</p>
+    <a href="tel:+13529314860" class="cta-bbutton">Call Now</a>
+    <a href="{{ site.baseurl }}/#contact" class="cta-bbutton">Get a Quote</a>
+</div>
+
+<footer>
+    <p>© 2025 Diamond Auto Spa Detailing. All rights reserved.</p>
+    <p>Mobile detailing for Eustis, Mount Dora, Tavares, Leesburg & surrounding areas, FL</p>
+    <p style="margin-top: 0.8rem; color: #333;">Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com</p>
+    <p style="margin-top: 0.8rem; color: #2a2a2a;">Made by <a href="https://www.meetingsurge.com" target="_blank">MeetingSurge.com</a></p>
+</footer>
+
+</body>
+</html>

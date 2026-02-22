@@ -1338,8 +1338,8 @@ element.style {
         }
 
         .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 1rem 0;
+            width: 97%;
+            padding: 1rem 0 1rem 0.5rem;
             border: 1px solid #ccc;
             background: #f9f9f9;
             border-radius: 4px;

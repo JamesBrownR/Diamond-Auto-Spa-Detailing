@@ -84,6 +84,34 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
     margin-bottom: 1.5rem;
   }
 
+  /* HERO WITH IMAGE BACKGROUND */
+  .area-hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 9rem 2rem 6rem;
+    overflow: hidden;
+  }
+  .area-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  .area-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.72) 60%, rgba(0,0,0,0.92) 100%);
+  }
+  .area-hero > * { position: relative; z-index: 2; }
+
   /* INTRO SPLIT — text left, image right */
   .intro-split {
     display: grid;
@@ -102,7 +130,7 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
     display: block;
     border: 1px solid #1a1a1a;
   }
-  .intro-split-img p {
+  .intro-split-img figcaption {
     font-size: 0.78rem;
     color: #444;
     text-align: center;
@@ -305,6 +333,7 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
 
 <!-- HERO -->
 <section class="area-hero">
+    <div class="area-hero-bg"></div>
     <div class="area-hero-eyebrow">Home Base · Eustis, FL · Lake County</div>
     <h1>Mobile Auto Detailing in Eustis, FL</h1>
     <p>Diamond Auto Spa is based right here in Eustis. Fastest availability, deepest local knowledge, and results that speak for themselves.</p>
@@ -321,15 +350,15 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
                 <p>Whether you are parked near Lake Eustis off Bay Street, in a residential neighborhood off Orange Avenue, or at a business along US-441, Andrew comes to you fully equipped. No hauling your car across town, no waiting rooms, no drop-off needed. Just professional results delivered wherever your vehicle sits.</p>
                 <p>Eustis vehicles take a serious beating from Central Florida's climate. Heavy UV exposure, oak and pine pollen, afternoon thunderstorms that leave water spots, and daily road grime from 441 and the surrounding county roads all add up fast. Andrew's work is built for these conditions, using products and techniques designed to hold up in the heat and humidity long term.</p>
             </div>
-            <div class="intro-split-img">
+            <figure class="intro-split-img">
                 <img
                     src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing service in Eustis FL by Diamond Auto Spa"
+                    alt="Mobile auto detailing result in Eustis FL by Diamond Auto Spa — finished car in driveway"
                     width="420" height="340"
                     loading="lazy"
                 >
-                <p>Professional mobile detailing in Eustis, FL.</p>
-            </div>
+                <figcaption>Professional mobile detailing in Eustis, FL.</figcaption>
+            </figure>
         </div>
     </div>
 </section>

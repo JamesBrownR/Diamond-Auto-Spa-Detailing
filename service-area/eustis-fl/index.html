@@ -1,7 +1,7 @@
 ---
 layout: areas
 title: Mobile Auto Detailing in Eustis, FL | Diamond Auto Spa
-description: Diamond Auto Spa is based in Eustis, FL — delivering premium mobile auto detailing, ceramic coatings, paint correction, and interior deep cleaning to your driveway. Call 352-931-4860.
+description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detailing, ceramic coatings, paint correction, and interior deep cleaning delivered to your driveway. Call 352-931-4860.
 ---
 
 <script type="application/ld+json">
@@ -57,69 +57,316 @@ description: Diamond Auto Spa is based in Eustis, FL — delivering premium mobi
 }
 </script>
 
+<style>
+  .section-dark  { background: #000000; padding: 5rem 2rem; }
+  .section-light { background: #0d0d0d; padding: 5rem 2rem; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .section-inner h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 2px;
+    background: #5BA3C7;
+  }
+  .section-inner p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #999999;
+    margin-bottom: 1.5rem;
+  }
+
+  /* HERO IMAGE */
+  .hero-area-img {
+    width: 100%;
+    max-width: 860px;
+    margin: 3rem auto 0;
+    display: block;
+  }
+  .hero-area-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #222;
+  }
+  .hero-area-img p {
+    font-size: 0.8rem;
+    color: #444;
+    text-align: center;
+    margin: 0.4rem 0 0;
+    font-style: italic;
+  }
+
+  /* SERVICES GRID — strict 3 cols */
+  .services-grid-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 860px) { .services-grid-area { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 540px) { .services-grid-area { grid-template-columns: 1fr; } }
+
+  .service-card-area {
+    background: #080808;
+    border-left: 3px solid #5BA3C7;
+    padding: 2rem 1.8rem 2rem 2.2rem;
+    transition: background 0.25s;
+  }
+  .section-light .service-card-area { background: #111; }
+  .service-card-area:hover { background: #141414; }
+  .service-card-area h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  .service-card-area p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
+
+  /* WHY GRID — strict 3 cols, 2 rows = 6 cards, no gap */
+  .why-grid-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 860px) { .why-grid-area { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 540px) { .why-grid-area { grid-template-columns: 1fr; } }
+
+  .why-card {
+    padding: 2.2rem 1.8rem;
+    background: #080808;
+    border-top: 2px solid #5BA3C7;
+    transition: background 0.25s;
+  }
+  .section-light .why-card { background: #111; }
+  .why-card:hover { background: #141414; }
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #5BA3C7;
+  }
+  .why-card p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
+
+  /* TESTIMONIALS */
+  .testimonials-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .testimonial-card {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid #5BA3C7;
+    padding: 2rem;
+  }
+  .section-light .testimonial-card { background: #111; }
+  .testimonial-card p { font-style: italic; color: #aaa; margin-bottom: 0.8rem; font-size: 0.95rem; line-height: 1.7; }
+  .testimonial-card span { font-weight: 700; color: #5BA3C7; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* FAQ ACCORDION */
+  .faq-list {
+    margin: 2rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  .faq-item {
+    border-bottom: 1px solid #1a1a1a;
+    background: #080808;
+  }
+  .section-light .faq-item { background: #111; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+  .faq-question:hover { background: #111; }
+  .faq-question span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .faq-icon {
+    color: #5BA3C7;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.3s;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    display: none;
+    padding: 0 2rem 1.5rem 2rem;
+    color: #888;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .faq-answer a { color: #5BA3C7; }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* NEARBY GRID — 3 cols */
+  .nearby-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 860px) { .nearby-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 540px) { .nearby-grid { grid-template-columns: 1fr; } }
+
+  .nearby-card {
+    background: #080808;
+    padding: 1.6rem 1.8rem;
+    border-left: 3px solid #1a1a1a;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .section-light .nearby-card { background: #111; }
+  .nearby-card:hover { background: #131313; border-left-color: #5BA3C7; }
+  .nearby-card a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.35rem;
+    transition: color 0.25s;
+  }
+  .nearby-card:hover a { color: #5BA3C7; }
+  .nearby-card p { font-size: 0.85rem; color: #555; margin: 0; line-height: 1.5; }
+
+  /* BOOK CTA */
+  .area-book-cta {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 4px solid #5BA3C7;
+    padding: 2.5rem;
+    margin: 3rem 0 0;
+  }
+  .section-light .area-book-cta { background: #111; }
+  .area-book-cta p { margin-bottom: 1rem; font-size: 1.05rem; color: #aaa; }
+  .phone-cta {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #5BA3C7;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 1.2rem;
+    transition: color 0.3s;
+  }
+  .phone-cta:hover { color: #fff; }
+  .cta-bbutton {
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+  .cta-bbutton:hover { background: #fff; color: #000; }
+</style>
+
 <div class="breadcrumb">
     <a href="/">Home</a> › <a href="/service-area/">Service Areas</a> › Eustis, FL
 </div>
 
+<!-- HERO -->
 <section class="area-hero">
     <div class="area-hero-eyebrow">Home Base · Eustis, FL · Lake County</div>
     <h1>Mobile Auto Detailing in Eustis, FL</h1>
-    <p>Diamond Auto Spa is based right here in Eustis. Fastest availability, deepest local knowledge.</p>
+    <p>Diamond Auto Spa is based right here in Eustis. Fastest availability, deepest local knowledge, and results that speak for themselves.</p>
     <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
+    <div class="hero-area-img">
+        <img
+            src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp"
+            alt="Professional mobile auto detailing in Eustis FL by Diamond Auto Spa"
+            width="860" height="300"
+            loading="eager"
+        >
+        <p>Mobile detailing in Eustis, FL — we come to you, fully equipped.</p>
+    </div>
 </section>
 
-<div class="area-content">
-
-    <!-- INTRO -->
-    <div class="area-section">
+<!-- INTRO — dark -->
+<section class="section-dark">
+    <div class="section-inner">
         <h2>Eustis's Premier Mobile Detailing Service</h2>
         <p>Diamond Auto Spa is not just a service that passes through Eustis. It is home. Andrew lives and operates out of Eustis, which means local customers get the fastest scheduling, the most flexible availability, and a detailer who genuinely knows the streets, the neighborhoods, and the people he is working for.</p>
-        <p>Whether you are parked near Lake Eustis off Bay Street, in a residential neighborhood off Orange Avenue, or at a business along US-441, Andrew comes to you fully equipped. No hauling your car across town, no waiting rooms, no drop-off. Just professional results delivered wherever your vehicle sits.</p>
-        <p>Eustis vehicles take a serious beating from Central Florida's climate. Heavy UV exposure, oak and pine pollen, afternoon thunderstorms that leave water spots, and daily road grime from 441 and the surrounding county roads all add up fast. Andrew's work is built for Florida conditions, using products and techniques designed to hold up in this heat and humidity long term.</p>
+        <p>Whether you are parked near Lake Eustis off Bay Street, in a residential neighborhood off Orange Avenue, or at a business along US-441, Andrew comes to you fully equipped. No hauling your car across town, no waiting rooms, no drop-off needed. Just professional results delivered wherever your vehicle sits.</p>
+        <p>Eustis vehicles take a serious beating from Central Florida's climate. Heavy UV exposure, oak and pine pollen, afternoon thunderstorms that leave water spots, and daily road grime from 441 and the surrounding county roads all add up fast. Andrew's work is built for these conditions, using products and techniques designed to hold up in the heat and humidity long term.</p>
     </div>
+</section>
 
-    <!-- SERVICES GRID -->
-    <div class="area-section">
+<!-- SERVICES — light -->
+<section class="section-light">
+    <div class="section-inner">
         <h2>Detailing Services Available in Eustis</h2>
         <div class="services-grid-area">
             <div class="service-card-area">
                 <h3>Full Exterior Detail</h3>
-                <p>Hand wash, iron decontamination, clay bar treatment, machine polish, and paint sealant or carnauba wax. Removes embedded contaminants that regular washing misses entirely. Your paint will have mirror-like clarity when we are done.</p>
+                <p>Hand wash, iron decontamination, clay bar treatment, machine polish, and paint sealant or carnauba wax. Removes embedded contaminants regular washing misses. Mirror-like clarity when done.</p>
             </div>
             <div class="service-card-area">
                 <h3>Interior Deep Clean</h3>
-                <p>Steam cleaning, hot water extraction, carpet and upholstery shampooing, leather conditioning, dashboard and console wipe-down, and full door jamb cleaning. Stains, pet hair, odors, and years of grime handled in a single appointment.</p>
+                <p>Steam cleaning, hot water extraction, carpet and upholstery shampooing, leather conditioning, dashboard wipe-down, and door jamb cleaning. Stains, pet hair, and odors handled in one appointment.</p>
             </div>
             <div class="service-card-area">
                 <h3>Ceramic Coating</h3>
-                <p>The highest level of paint protection available. A professionally applied ceramic coating bonds to your clear coat and delivers years of defense against UV rays, oxidation, bird droppings, tree sap, and water spots. A true game-changer for Florida vehicle owners.</p>
+                <p>Bonds to your clear coat and delivers years of defense against UV rays, oxidation, bird droppings, tree sap, and water spots. The highest level of paint protection available for Florida vehicles.</p>
             </div>
             <div class="service-card-area">
                 <h3>Paint Correction</h3>
-                <p>Multi-stage machine polishing to remove swirl marks, light scratches, water etching, and oxidation. Andrew has been known to spend 8 or more hours on a single correction job, because that is what it sometimes takes to get the paint truly right.</p>
+                <p>Multi-stage machine polishing to remove swirl marks, light scratches, water etching, and oxidation. Andrew has been known to spend 8 or more hours on a single correction job because that is what it takes to do it right.</p>
             </div>
             <div class="service-card-area">
                 <h3>Headlight Restoration</h3>
-                <p>Florida's UV destroys plastic headlight lenses faster than almost anywhere in the country. We wet-sand, compound, polish, and seal headlights back to crystal clarity at a fraction of the cost of replacement lenses.</p>
+                <p>Florida's UV destroys plastic headlight lenses faster than almost anywhere in the country. We wet-sand, compound, polish, and seal them back to crystal clarity at a fraction of the replacement cost.</p>
             </div>
             <div class="service-card-area">
                 <h3>Engine Bay Detail</h3>
-                <p>A clean engine bay makes spotting leaks easier, helps components run cooler, and looks sharp under the hood. We safely degrease, rinse, and dress all engine bay surfaces without damaging electronics or seals.</p>
+                <p>A clean engine bay makes spotting leaks easier, helps components run cooler, and looks sharp under the hood. We safely degrease, rinse, and dress all surfaces without damaging electronics or seals.</p>
             </div>
         </div>
-
-        <p style="margin-top:2rem;">All services are performed mobile. Andrew brings every tool, product, and supply needed. You do not need to do anything except let us know where to park.</p>
-
         <div class="area-book-cta">
             <p>Not sure which service your car needs? Call or text and we will walk you through it with no pressure.</p>
             <a href="tel:+13529314860" class="phone-cta">352-931-4860</a>
-            <br>
-            <a href="/#contact" class="cta-bbutton" style="margin-top:1rem; display:inline-block;">Request a Free Quote</a>
+            <a href="/#contact" class="cta-bbutton">Request a Free Quote</a>
         </div>
     </div>
+</section>
 
-    <!-- WHY CHOOSE US -->
-    <div class="area-section">
+<!-- WHY — dark -->
+<section class="section-dark">
+    <div class="section-inner">
         <h2>Why Eustis Drivers Choose Diamond Auto Spa</h2>
         <div class="why-grid-area">
             <div class="why-card">
@@ -132,7 +379,7 @@ description: Diamond Auto Spa is based in Eustis, FL — delivering premium mobi
             </div>
             <div class="why-card">
                 <h3>We Come to You</h3>
-                <p>No drop-off, no ride arrangements, no picking your car up later. We work at your home, driveway, or office lot wherever is most convenient.</p>
+                <p>No drop-off, no ride arrangements, no picking up later. We work at your home, driveway, or office lot wherever is most convenient for you.</p>
             </div>
             <div class="why-card">
                 <h3>No Shortcuts, Ever</h3>
@@ -140,17 +387,19 @@ description: Diamond Auto Spa is based in Eustis, FL — delivering premium mobi
             </div>
             <div class="why-card">
                 <h3>Transparent Pricing</h3>
-                <p>You get a clear quote before any work starts. No surprise add-ons, no upselling you into services you do not need. What we quote is what you pay.</p>
+                <p>You get a clear quote before any work starts. No surprise add-ons, no upselling into services you do not need. What we quote is what you pay.</p>
             </div>
             <div class="why-card">
-                <h3>Available 7 Days a Week</h3>
+                <h3>7 Days a Week</h3>
                 <p>Monday through Sunday, 7 AM to 8 PM. We schedule around your life, not the other way around.</p>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- REVIEWS -->
-    <div class="area-section">
+<!-- REVIEWS — light -->
+<section class="section-light">
+    <div class="section-inner">
         <h2>What Eustis Customers Are Saying</h2>
         <div class="testimonials-area">
             <div class="testimonial-card">
@@ -167,103 +416,153 @@ description: Diamond Auto Spa is based in Eustis, FL — delivering premium mobi
             </div>
         </div>
     </div>
+</section>
 
-    <!-- LOCAL SECTION -->
-    <div class="area-section">
+<!-- LOCAL — dark -->
+<section class="section-dark">
+    <div class="section-inner">
         <h2>Rooted in the Eustis Community</h2>
         <p>We know Eustis well. We know the pollen that blankets every car parked under an oak canopy in the spring. We know the water spots that appear after a quick afternoon storm rolls through. We know the UV damage that quietly destroys clear coats on vehicles sitting in uncovered driveways off Bates Avenue or near Crooked Lake.</p>
-        <p>We have detailed vehicles throughout Eustis, from the waterfront neighborhoods near Lake Eustis and Lake Harris to neighborhoods off Grove Street and businesses along Bay Street. The 32726 zip code is our most active service area and always our fastest for scheduling.</p>
-        <p>If you are in Eustis or anywhere in the immediate surrounding area and need detailing, you are getting Andrew at his most available and most efficient. Call or text to get on the schedule.</p>
+        <p>We have detailed vehicles throughout Eustis, from waterfront neighborhoods near Lake Eustis and Lake Harris to neighborhoods off Grove Street and businesses along Bay Street. The 32726 zip code is our most active service area and always our fastest for scheduling. If you are in Eustis, you are getting Andrew at his most available and most efficient.</p>
     </div>
+</section>
 
-    <!-- SERVICE LINKS (HUB TO SPOKES) -->
-    <div class="area-section">
+<!-- SERVICE LINKS — light -->
+<section class="section-light">
+    <div class="section-inner">
         <h2>Specific Services in Eustis</h2>
-        <p>Need detailed information on a specific service in Eustis? Each page below covers that service in depth, including what is included, how long it takes, and what to expect.</p>
+        <p>Each page below covers a specific service in Eustis in depth, including what is included, how long it takes, and what to expect.</p>
         <div class="services-grid-area" style="margin-top:1.5rem;">
             <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/ceramic-coating/" style="color:#ffffff; text-decoration:none;">Ceramic Coating in Eustis →</a></h3>
-                <p>Long-term paint protection for Eustis vehicles. Best defense against Florida's UV.</p>
+                <h3><a href="/service-area/eustis-fl/ceramic-coating/" style="color:#fff;text-decoration:none;">Ceramic Coating in Eustis</a></h3>
+                <p>Long-term paint protection. The strongest defense against Florida's UV and oxidation.</p>
             </div>
             <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/interior-detailing/" style="color:#ffffff; text-decoration:none;">Interior Detailing in Eustis →</a></h3>
+                <h3><a href="/service-area/eustis-fl/interior-detailing/" style="color:#fff;text-decoration:none;">Interior Detailing in Eustis</a></h3>
                 <p>Steam cleaning and deep extraction. Odors, stains, and pet hair eliminated.</p>
             </div>
             <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/paint-correction/" style="color:#ffffff; text-decoration:none;">Paint Correction in Eustis →</a></h3>
-                <p>Swirl removal, scratch reduction, and full paint restoration in Eustis.</p>
+                <h3><a href="/service-area/eustis-fl/paint-correction/" style="color:#fff;text-decoration:none;">Paint Correction in Eustis</a></h3>
+                <p>Swirl removal, scratch reduction, and full paint restoration.</p>
             </div>
             <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/exterior-detailing/" style="color:#ffffff; text-decoration:none;">Exterior Detailing in Eustis →</a></h3>
-                <p>Full exterior detail packages. Clay bar, polish, and protection applied properly.</p>
+                <h3><a href="/service-area/eustis-fl/exterior-detailing/" style="color:#fff;text-decoration:none;">Exterior Detailing in Eustis</a></h3>
+                <p>Clay bar, polish, and protection applied properly from start to finish.</p>
             </div>
             <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/headlight-restoration/" style="color:#ffffff; text-decoration:none;">Headlight Restoration in Eustis →</a></h3>
-                <p>Crystal-clear headlights restored. Better visibility, better look.</p>
+                <h3><a href="/service-area/eustis-fl/headlight-restoration/" style="color:#fff;text-decoration:none;">Headlight Restoration in Eustis</a></h3>
+                <p>Crystal-clear headlights restored. Better visibility and better appearance.</p>
             </div>
             <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/engine-bay-detail/" style="color:#ffffff; text-decoration:none;">Engine Bay Detail in Eustis →</a></h3>
+                <h3><a href="/service-area/eustis-fl/engine-bay-detail/" style="color:#fff;text-decoration:none;">Engine Bay Detail in Eustis</a></h3>
                 <p>Safe, thorough engine bay cleaning and dressing for Eustis vehicles.</p>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- FAQ -->
-    <div class="area-section">
-        <h2>Frequently Asked Questions — Eustis</h2>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">Do you serve all of Eustis?</strong></p>
-        </div>
-        <p>Yes, the full 32726 zip code. That includes neighborhoods near Lake Eustis, Lake Harris, Crooked Lake, Grove Street, Bay Street, Orange Avenue, and all surrounding residential and commercial areas. If you are in Eustis, you are in our primary service zone.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">How quickly can I get an appointment?</strong></p>
-        </div>
-        <p>Eustis is our home base, so availability here is typically the best across all our service areas. In most cases we can get you scheduled within a few days. Call or text to check current availability.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">What does a full detail include?</strong></p>
-        </div>
-        <p>It depends on which package you choose. A full interior and exterior detail covers everything from steam cleaning the interior to clay bar treatment and machine polish on the exterior. We will walk you through exactly what is included when you call for a quote so there are no surprises.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">Do I need to be home during the appointment?</strong></p>
-        </div>
-        <p>Not necessarily. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we will handle everything and send you photos when the job is done.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">Is ceramic coating a good investment for a Florida vehicle?</strong></p>
-        </div>
-        <p>Yes, arguably more so in Florida than anywhere else in the country. The UV index in Central Florida is relentless, and without serious protection, clear coats oxidize and fade within a few years. Ceramic coating is the strongest barrier available and also makes the car dramatically easier to keep clean week to week.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">How do I book?</strong></p>
-        </div>
-        <p>Call or text <a href="tel:+13529314860" style="color:#5BA3C7; font-weight:bold;">352-931-4860</a> or fill out the <a href="/#contact" style="color:#5BA3C7; font-weight:bold;">quote form on our homepage</a>. We respond fast and will get you squared away quickly.</p>
-    </div>
-
-    <!-- NEARBY AREAS -->
-    <div class="area-section">
-        <h2>Also Serving Nearby Areas</h2>
-        <div class="services-grid-area">
-            <div class="service-card-area">
-                <h3><a href="/service-area/mount-dora-fl/" style="color:#ffffff; text-decoration:none;">Mount Dora, FL →</a></h3>
-                <p>Historic downtown neighborhoods and lakefront communities served with 5-star mobile detailing.</p>
+<!-- FAQ — dark -->
+<section class="section-dark">
+    <div class="section-inner">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you serve all of Eustis?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">Yes, the full 32726 zip code. That includes neighborhoods near Lake Eustis, Lake Harris, Crooked Lake, Grove Street, Bay Street, Orange Avenue, and all surrounding residential and commercial areas. If you are in Eustis, you are in our primary service zone.</div>
             </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/tavares-fl/" style="color:#ffffff; text-decoration:none;">Tavares, FL →</a></h3>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>How quickly can I get an appointment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">Eustis is our home base, so availability here is typically the best across all our service areas. In most cases we can get you scheduled within a few days. Call or text to check current availability.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>What does a full detail include?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">It depends on which package you choose. A full interior and exterior detail covers everything from steam cleaning the interior to clay bar treatment and machine polish on the exterior. We will walk you through exactly what is included when you call for a quote so there are no surprises.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do I need to be home during the appointment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">Not necessarily. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we will handle everything and send you photos when the job is done.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Is ceramic coating worth it for a Florida vehicle?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">Yes, arguably more so in Florida than anywhere else in the country. The UV index in Central Florida is relentless, and without serious protection, clear coats oxidize and fade within a few years. Ceramic coating is the strongest barrier available and also makes the car dramatically easier to keep clean week to week.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I book an appointment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">Call or text us at <a href="tel:+13529314860">352-931-4860</a> or fill out the <a href="/#contact">quote form on our homepage</a>. We respond fast and will get you on the schedule quickly.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEARBY — light -->
+<section class="section-light">
+    <div class="section-inner">
+        <h2>Also Serving Nearby Areas</h2>
+        <p>Based in Eustis, we cover a wide stretch of Lake County and beyond. Click any city for dedicated service information.</p>
+        <div class="nearby-grid">
+            <div class="nearby-card">
+                <a href="/service-area/mount-dora-fl/">Mount Dora, FL</a>
+                <p>Historic downtown and lakefront communities, just minutes from Eustis.</p>
+            </div>
+            <div class="nearby-card">
+                <a href="/service-area/tavares-fl/">Tavares, FL</a>
                 <p>Florida's Seaplane City. Full coverage of Tavares and the chain of lakes area.</p>
             </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/leesburg-fl/" style="color:#ffffff; text-decoration:none;">Leesburg, FL →</a></h3>
+            <div class="nearby-card">
+                <a href="/service-area/leesburg-fl/">Leesburg, FL</a>
                 <p>Top-rated mobile detailing throughout Leesburg and surrounding Lake County.</p>
             </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/apopka-fl/" style="color:#ffffff; text-decoration:none;">Apopka, FL →</a></h3>
+            <div class="nearby-card">
+                <a href="/service-area/apopka-fl/">Apopka, FL</a>
                 <p>Serving Apopka and greater Orange County with full mobile detailing services.</p>
+            </div>
+            <div class="nearby-card">
+                <a href="/service-area/clermont-fl/">Clermont, FL</a>
+                <p>Mobile detailing for Clermont and the South Lake County area.</p>
+            </div>
+            <div class="nearby-card">
+                <a href="/service-area/lady-lake-fl/">Lady Lake, FL</a>
+                <p>Serving Lady Lake and The Villages surrounding communities.</p>
+            </div>
+            <div class="nearby-card">
+                <a href="/service-area/umatilla-fl/">Umatilla, FL</a>
+                <p>Mobile detailing serving Umatilla and northeast Lake County.</p>
+            </div>
+            <div class="nearby-card">
+                <a href="/service-area/altoona-fl/">Altoona, FL</a>
+                <p>Rural Lake County coverage. We travel to Altoona for full-service appointments.</p>
+            </div>
+            <div class="nearby-card">
+                <a href="/service-area/madeira-beach-fl/">Madeira Beach, FL</a>
+                <p>Coastal detailing with extra protection for salt air and UV exposure.</p>
             </div>
         </div>
     </div>
+</section>
 
-</div>
+<script>
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+}
+</script>

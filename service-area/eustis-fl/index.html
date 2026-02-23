@@ -84,22 +84,26 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
     margin-bottom: 1.5rem;
   }
 
-  /* HERO IMAGE */
-  .hero-area-img {
-    width: 100%;
-    max-width: 860px;
-    margin: 3rem auto 0;
-    display: block;
+  /* INTRO SPLIT — text left, image right */
+  .intro-split {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: start;
   }
-  .hero-area-img img {
+  @media (max-width: 900px) {
+    .intro-split { grid-template-columns: 1fr; gap: 2.5rem; }
+    .intro-split-img { order: -1; }
+  }
+  .intro-split-img img {
     width: 100%;
-    height: 300px;
+    height: 340px;
     object-fit: cover;
     display: block;
-    border: 1px solid #222;
+    border: 1px solid #1a1a1a;
   }
-  .hero-area-img p {
-    font-size: 0.8rem;
+  .intro-split-img p {
+    font-size: 0.78rem;
     color: #444;
     text-align: center;
     margin: 0.4rem 0 0;
@@ -305,66 +309,62 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
     <h1>Mobile Auto Detailing in Eustis, FL</h1>
     <p>Diamond Auto Spa is based right here in Eustis. Fastest availability, deepest local knowledge, and results that speak for themselves.</p>
     <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
-    <div class="hero-area-img">
-        <img
-            src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp"
-            alt="Professional mobile auto detailing in Eustis FL by Diamond Auto Spa"
-            width="860" height="300"
-            loading="eager"
-        >
-        <p>Mobile detailing in Eustis, FL — we come to you, fully equipped.</p>
-    </div>
 </section>
 
 <!-- INTRO — dark -->
 <section class="section-dark">
     <div class="section-inner">
-        <h2>Eustis's Premier Mobile Detailing Service</h2>
-        <p>Diamond Auto Spa is not just a service that passes through Eustis. It is home. Andrew lives and operates out of Eustis, which means local customers get the fastest scheduling, the most flexible availability, and a detailer who genuinely knows the streets, the neighborhoods, and the people he is working for.</p>
-        <p>Whether you are parked near Lake Eustis off Bay Street, in a residential neighborhood off Orange Avenue, or at a business along US-441, Andrew comes to you fully equipped. No hauling your car across town, no waiting rooms, no drop-off needed. Just professional results delivered wherever your vehicle sits.</p>
-        <p>Eustis vehicles take a serious beating from Central Florida's climate. Heavy UV exposure, oak and pine pollen, afternoon thunderstorms that leave water spots, and daily road grime from 441 and the surrounding county roads all add up fast. Andrew's work is built for these conditions, using products and techniques designed to hold up in the heat and humidity long term.</p>
+        <div class="intro-split">
+            <div class="intro-split-text">
+                <h2>Eustis's Premier Mobile Detailing Service</h2>
+                <p>Diamond Auto Spa is not just a service that passes through Eustis. It is home. Andrew lives and operates out of Eustis, which means local customers get the fastest scheduling, the most flexible availability, and a detailer who genuinely knows the streets, the neighborhoods, and the people he is working for.</p>
+                <p>Whether you are parked near Lake Eustis off Bay Street, in a residential neighborhood off Orange Avenue, or at a business along US-441, Andrew comes to you fully equipped. No hauling your car across town, no waiting rooms, no drop-off needed. Just professional results delivered wherever your vehicle sits.</p>
+                <p>Eustis vehicles take a serious beating from Central Florida's climate. Heavy UV exposure, oak and pine pollen, afternoon thunderstorms that leave water spots, and daily road grime from 441 and the surrounding county roads all add up fast. Andrew's work is built for these conditions, using products and techniques designed to hold up in the heat and humidity long term.</p>
+            </div>
+            <div class="intro-split-img">
+                <img
+                    src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing service in Eustis FL by Diamond Auto Spa"
+                    width="420" height="340"
+                    loading="lazy"
+                >
+                <p>Professional mobile detailing in Eustis, FL.</p>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- SERVICES — light -->
 <section class="section-light">
     <div class="section-inner">
-        <h2>Detailing Services Available in Eustis</h2>
+        <h2>Detailing Services in Eustis</h2>
+        <p>Each service below links to a dedicated Eustis page with full details on what is included, how long it takes, and what to expect. All services are performed mobile — Andrew arrives with every tool and product needed.</p>
         <div class="services-grid-area">
             <div class="service-card-area">
-                <h3>Full Exterior Detail</h3>
-                <p>Hand wash, iron decontamination, clay bar treatment, machine polish, and paint sealant or carnauba wax. Removes embedded contaminants regular washing misses. Mirror-like clarity when done.</p>
+                <h3><a href="/service-area/eustis-fl/exterior-detailing/" style="color:#fff;text-decoration:none;">Full Exterior Detail</a></h3>
+                <p>Hand wash, iron decontamination, clay bar, machine polish, and paint sealant or wax. Mirror-like clarity and lasting protection. <a href="/service-area/eustis-fl/exterior-detailing/" style="color:#5BA3C7;">Learn more</a></p>
             </div>
             <div class="service-card-area">
-                <h3>Interior Deep Clean</h3>
-                <p>Steam cleaning, hot water extraction, carpet and upholstery shampooing, leather conditioning, dashboard wipe-down, and door jamb cleaning. Stains, pet hair, and odors handled in one appointment.</p>
+                <h3><a href="/service-area/eustis-fl/interior-detailing/" style="color:#fff;text-decoration:none;">Interior Deep Clean</a></h3>
+                <p>Steam cleaning, hot water extraction, upholstery shampooing, leather conditioning, and full interior wipe-down. Stains, odors, and pet hair gone. <a href="/service-area/eustis-fl/interior-detailing/" style="color:#5BA3C7;">Learn more</a></p>
             </div>
             <div class="service-card-area">
-                <h3>Ceramic Coating</h3>
-                <p>Bonds to your clear coat and delivers years of defense against UV rays, oxidation, bird droppings, tree sap, and water spots. The highest level of paint protection available for Florida vehicles.</p>
+                <h3><a href="/service-area/eustis-fl/ceramic-coating/" style="color:#fff;text-decoration:none;">Ceramic Coating</a></h3>
+                <p>Bonds to your clear coat and delivers years of defense against UV, oxidation, bird droppings, and water spots. The strongest paint protection available. <a href="/service-area/eustis-fl/ceramic-coating/" style="color:#5BA3C7;">Learn more</a></p>
             </div>
             <div class="service-card-area">
-                <h3>Paint Correction</h3>
-                <p>Multi-stage machine polishing to remove swirl marks, light scratches, water etching, and oxidation. Andrew has been known to spend 8 or more hours on a single correction job because that is what it takes to do it right.</p>
+                <h3><a href="/service-area/eustis-fl/paint-correction/" style="color:#fff;text-decoration:none;">Paint Correction</a></h3>
+                <p>Multi-stage machine polishing to remove swirl marks, scratches, water etching, and oxidation. Andrew has spent 8+ hours on a single correction because that is what it takes. <a href="/service-area/eustis-fl/paint-correction/" style="color:#5BA3C7;">Learn more</a></p>
             </div>
             <div class="service-card-area">
-                <h3>Headlight Restoration</h3>
-                <p>Florida's UV destroys plastic headlight lenses faster than almost anywhere in the country. We wet-sand, compound, polish, and seal them back to crystal clarity at a fraction of the replacement cost.</p>
+                <h3><a href="/service-area/eustis-fl/headlight-restoration/" style="color:#fff;text-decoration:none;">Headlight Restoration</a></h3>
+                <p>Florida's UV destroys plastic lenses fast. We wet-sand, polish, and seal them back to crystal clarity at a fraction of the replacement cost. <a href="/service-area/eustis-fl/headlight-restoration/" style="color:#5BA3C7;">Learn more</a></p>
             </div>
             <div class="service-card-area">
-                <h3>Engine Bay Detail</h3>
-                <p>A clean engine bay makes spotting leaks easier, helps components run cooler, and looks sharp under the hood. We safely degrease, rinse, and dress all surfaces without damaging electronics or seals.</p>
+                <h3><a href="/service-area/eustis-fl/engine-bay-detail/" style="color:#fff;text-decoration:none;">Engine Bay Detail</a></h3>
+                <p>Safe degreasing, rinsing, and dressing of all engine bay surfaces. Makes spotting leaks easier and looks sharp under the hood. <a href="/service-area/eustis-fl/engine-bay-detail/" style="color:#5BA3C7;">Learn more</a></p>
             </div>
         </div>
-        <div class="area-book-cta">
-            <p>Not sure which service your car needs? Call or text and we will walk you through it with no pressure.</p>
-            <a href="tel:+13529314860" class="phone-cta">352-931-4860</a>
-            <a href="/#contact" class="cta-bbutton">Request a Free Quote</a>
-        </div>
-    </div>
-</section>
-
-<!-- WHY — dark -->
 <section class="section-dark">
     <div class="section-inner">
         <h2>Why Eustis Drivers Choose Diamond Auto Spa</h2>
@@ -427,41 +427,15 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
     </div>
 </section>
 
-<!-- SERVICE LINKS — light -->
-<section class="section-light">
-    <div class="section-inner">
-        <h2>Specific Services in Eustis</h2>
-        <p>Each page below covers a specific service in Eustis in depth, including what is included, how long it takes, and what to expect.</p>
-        <div class="services-grid-area" style="margin-top:1.5rem;">
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/ceramic-coating/" style="color:#fff;text-decoration:none;">Ceramic Coating in Eustis</a></h3>
-                <p>Long-term paint protection. The strongest defense against Florida's UV and oxidation.</p>
-            </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/interior-detailing/" style="color:#fff;text-decoration:none;">Interior Detailing in Eustis</a></h3>
-                <p>Steam cleaning and deep extraction. Odors, stains, and pet hair eliminated.</p>
-            </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/paint-correction/" style="color:#fff;text-decoration:none;">Paint Correction in Eustis</a></h3>
-                <p>Swirl removal, scratch reduction, and full paint restoration.</p>
-            </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/exterior-detailing/" style="color:#fff;text-decoration:none;">Exterior Detailing in Eustis</a></h3>
-                <p>Clay bar, polish, and protection applied properly from start to finish.</p>
-            </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/headlight-restoration/" style="color:#fff;text-decoration:none;">Headlight Restoration in Eustis</a></h3>
-                <p>Crystal-clear headlights restored. Better visibility and better appearance.</p>
-            </div>
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/engine-bay-detail/" style="color:#fff;text-decoration:none;">Engine Bay Detail in Eustis</a></h3>
-                <p>Safe, thorough engine bay cleaning and dressing for Eustis vehicles.</p>
-            </div>
+        <div class="area-book-cta">
+            <p>Not sure which service your car needs? Call or text and we will walk you through it with no pressure.</p>
+            <a href="tel:+13529314860" class="phone-cta">352-931-4860</a>
+            <a href="/#contact" class="cta-bbutton">Request a Free Quote</a>
         </div>
     </div>
 </section>
 
-<!-- FAQ — dark -->
+<!-- WHY — dark -->
 <section class="section-dark">
     <div class="section-inner">
         <h2>Frequently Asked Questions</h2>

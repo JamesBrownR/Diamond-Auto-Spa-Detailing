@@ -3,49 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.description }}">
     <title>{{ page.title }}</title>
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/JamesBrownR/Diamond-Auto-Spa-Detailing/refs/heads/main/Diamond-Auto-Spa-Detailing.ico">
+    <meta name="description" content="{{ page.description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://diamondautospallc.com{{ page.url }}">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AutoDetailing",
+      "@type": "AutoRepair",
       "name": "Diamond Auto Spa Detailing",
-      "image": "https://diamondautospallc.com/Pics/Diamond-Auto-Spa-Detailing.png",
+      "url": "https://diamondautospallc.com",
       "telephone": "+1-352-931-4860",
-      "email": "diamondautospa.fl23@gmail.com",
-      "url": "https://diamondautospallc.com/",
-      "priceRange": "$$",
+      "image": "https://diamondautospallc.com/Pics/Diamond-Auto-Spa-Detailing.png",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Mobile Service",
         "addressLocality": "Eustis",
         "addressRegion": "FL",
         "postalCode": "32726",
         "addressCountry": "US"
       },
-      "areaServed": [
-        { "@type": "City", "name": "Eustis" },
-        { "@type": "City", "name": "Mount Dora" },
-        { "@type": "City", "name": "Tavares" },
-        { "@type": "City", "name": "Leesburg" },
-        { "@type": "City", "name": "Apopka" },
-        { "@type": "City", "name": "Altoona" },
-        { "@type": "City", "name": "Madeira Beach" }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "07:00",
-          "closes": "20:00"
-        }
-      ],
-      "description": "Premium mobile auto detailing serving Lake County FL. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
+      "description": "Diamond Auto Spa provides premium mobile auto detailing throughout Central Florida. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
     }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTX9EZGPKX"></script>
@@ -56,7 +34,7 @@
       gtag('config', 'G-LTX9EZGPKX');
     </script>
     <style>
-        /* ===== AREAS LAYOUT ===== */
+        /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -132,6 +110,8 @@
             fill: currentColor;
         }
 
+        nav { display: contents; }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
@@ -160,8 +140,6 @@
 
         nav a:hover::after { transform: scaleX(1); }
 
-        nav { display: contents; }
-
         @media (max-width: 769px) {
             .phone-header { display: none; }
         }
@@ -179,11 +157,11 @@
         .breadcrumb a { color: var(--diamond-blue); text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
 
-        /* ===== HERO ===== */
+        /* ===== HERO (default — no photo) ===== */
         .area-hero {
             background: #000000;
             color: #ffffff;
-            padding: 7rem 2rem 5rem 2rem;
+            padding: 7rem 2rem 5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -193,9 +171,48 @@
         .area-hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(rgba(91, 163, 199, 0.08) 1px, transparent 1px);
+            inset: 0;
+            background-image: radial-gradient(rgba(91,163,199,0.08) 1px, transparent 1px);
             background-size: 24px 24px;
+        }
+
+        /* Photo-hero variant — add .area-hero-bg div inside .area-hero on pages that have a photo */
+        .area-hero.has-photo {
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 9rem 2rem 6rem;
+            background: none;
+        }
+
+        .area-hero.has-photo::before { display: none; }
+
+        .area-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .area-hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,1) 100%);
+            z-index: 1;
+        }
+
+        .area-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+            z-index: 2;
         }
 
         .area-hero-eyebrow {
@@ -223,7 +240,7 @@
             font-size: 1.2rem;
             color: #888888;
             max-width: 560px;
-            margin: 0 auto 2.5rem auto;
+            margin: 0 auto 2.5rem;
             position: relative;
             z-index: 2;
             font-family: 'Playfair Display', serif;
@@ -231,18 +248,20 @@
             line-height: 1.7;
         }
 
-        .area-hero .cta-bbutton {
-            position: relative;
-            z-index: 2;
-        }
+        .area-hero .cta-bbutton { position: relative; z-index: 2; }
 
-        /* ===== MAIN CONTENT ===== */
-        .area-content {
-            max-width: 1100px;
-            margin: 0 auto;
+        /* ===== SECTION BANDS ===== */
+        .section-dark  { background: #000000; padding: 5rem 2rem; }
+        .section-light {
+            background: #0d0d0d;
             padding: 5rem 2rem;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
         }
 
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+
+        .section-inner h2,
         .area-content h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
@@ -252,6 +271,7 @@
             padding-bottom: 1rem;
         }
 
+        .section-inner h2::after,
         .area-content h2::after {
             content: '';
             position: absolute;
@@ -262,6 +282,7 @@
             background: var(--diamond-blue);
         }
 
+        .section-inner p,
         .area-content p {
             font-size: 1.05rem;
             line-height: 1.85;
@@ -269,173 +290,275 @@
             margin-bottom: 1.5rem;
         }
 
-          
-  /* dark gradient overlay */
-  .area-hero-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 100%);
-    z-index: 1;
-  }
-  /* dot grid on top of gradient */
-  .area-hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
-    background-size: 24px 24px;
-    z-index: 2;
-  }
+        /* ===== LEGACY SINGLE-COLUMN CONTENT WRAPPER ===== */
+        .area-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
 
-        /* ===== SECTION DIVIDER ===== */
-        .area-section {
-            margin: 4rem 0;
+        .area-section { margin: 4rem 0; }
+
+        /* ===== INTRO SPLIT (text + image) ===== */
+        .intro-split {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .intro-split-img img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid #1a1a1a;
+        }
+
+        .intro-split-img figcaption {
+            font-size: 0.78rem;
+            color: #444;
+            text-align: center;
+            margin: 0.4rem 0 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 900px) {
+            .intro-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .intro-split-img { order: -1; }
         }
 
         /* ===== SERVICES GRID ===== */
         .services-grid-area {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1px;
             margin: 2.5rem 0;
             border: 1px solid #1a1a1a;
         }
 
+        @media (max-width: 860px) { .services-grid-area { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 540px) { .services-grid-area { grid-template-columns: 1fr; } }
+
         .service-card-area {
-            background: #0a0a0a;
+            background: #080808;
             border-left: 3px solid var(--diamond-blue);
-            padding: 2rem 2rem 2rem 2.5rem;
-            transition: background 0.3s ease;
+            padding: 2rem 1.8rem 2rem 2.2rem;
+            transition: background 0.25s;
         }
 
-        .service-card-area:hover {
-            background: #111111;
-        }
+        .section-light .service-card-area { background: #111; }
+        .service-card-area:hover { background: #141414; }
 
         .service-card-area h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.6rem;
-            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
         }
 
-        .service-card-area p {
-            font-size: 0.95rem;
-            color: #777777;
-            margin: 0;
-            line-height: 1.7;
-        }
+        .service-card-area p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
 
         /* ===== WHY GRID ===== */
         .why-grid-area {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1px;
             margin: 2.5rem 0;
             border: 1px solid #1a1a1a;
         }
 
+        @media (max-width: 860px) { .why-grid-area { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 540px) { .why-grid-area { grid-template-columns: 1fr; } }
+
         .why-card {
-            padding: 2.5rem 2rem;
-            background: #0a0a0a;
+            padding: 2.2rem 1.8rem;
+            background: #080808;
             border-top: 2px solid var(--diamond-blue);
-            transition: background 0.3s ease;
+            transition: background 0.25s;
         }
 
-        .why-card:hover {
-            background: #111111;
-        }
+        .section-light .why-card { background: #111; }
+        .why-card:hover { background: #141414; }
 
         .why-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
             color: var(--diamond-blue);
         }
 
-        .why-card p {
-            font-size: 0.95rem;
-            color: #777777;
-            margin: 0;
-            line-height: 1.7;
-        }
+        .why-card p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials-area {
-            margin: 2.5rem 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            margin: 2.5rem 0;
         }
 
         .testimonial-card {
-            background: #0a0a0a;
+            background: #080808;
             border: 1px solid #1a1a1a;
             border-left: 3px solid var(--diamond-blue);
             padding: 2rem;
         }
 
+        .section-light .testimonial-card { background: #111; }
+
         .testimonial-card p {
             font-style: italic;
-            color: #aaaaaa;
+            color: #aaa;
             margin-bottom: 0.8rem;
             font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         .testimonial-card span {
             font-weight: 700;
             color: var(--diamond-blue);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* ===== FAQ ACCORDION ===== */
+        .faq-list {
+            margin: 2rem 0;
+            border: 1px solid #1a1a1a;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #1a1a1a;
+            background: #080808;
+        }
+
+        .section-light .faq-item { background: #111; }
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            gap: 1rem;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover { background: #111; }
+
+        .faq-question span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            color: var(--diamond-blue);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1;
+            transition: transform 0.3s;
+            font-weight: 300;
+        }
+
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        .faq-answer {
+            display: none;
+            padding: 0 2rem 1.5rem;
+            color: #888;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .faq-answer a { color: var(--diamond-blue); }
+        .faq-item.open .faq-answer { display: block; }
+
+        /* ===== NEARBY GRID ===== */
+        .nearby-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin: 2.5rem 0;
+            border: 1px solid #1a1a1a;
+        }
+
+        @media (max-width: 860px) { .nearby-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 540px) { .nearby-grid { grid-template-columns: 1fr; } }
+
+        .nearby-card {
+            background: #080808;
+            padding: 1.6rem 1.8rem;
+            border-left: 3px solid #1a1a1a;
+            transition: background 0.25s, border-color 0.25s;
+        }
+
+        .section-light .nearby-card { background: #111; }
+        .nearby-card:hover { background: #131313; border-left-color: var(--diamond-blue); }
+
+        .nearby-card a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.35rem;
+            transition: color 0.25s;
+        }
+
+        .nearby-card:hover a { color: var(--diamond-blue); }
+        .nearby-card p { font-size: 0.85rem; color: #555; margin: 0; line-height: 1.5; }
+
         /* ===== BOOK CTA ===== */
         .area-book-cta {
-            background: #0a0a0a;
+            background: #080808;
             border: 1px solid #1a1a1a;
             border-left: 4px solid var(--diamond-blue);
             padding: 2.5rem;
-            margin: 3rem 0 0 0;
+            margin: 3rem 0 0;
         }
 
-        .area-book-cta p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
+        .section-light .area-book-cta { background: #111; }
+        .area-book-cta p { margin-bottom: 1rem; font-size: 1.05rem; color: #aaa; }
 
-        .area-book-cta a.phone-cta {
-            color: var(--diamond-blue);
-            font-weight: 700;
-            text-decoration: none;
+        .phone-cta {
             font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--diamond-blue);
+            text-decoration: none;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 1.2rem;
+            transition: color 0.3s;
         }
 
-        .area-book-cta a.phone-cta:hover {
-            color: #ffffff;
-        }
+        .phone-cta:hover { color: #fff; }
 
         /* ===== BUTTONS ===== */
         .cta-bbutton {
             display: inline-block;
-            padding: 0.9rem 2.8rem;
+            padding: 0.9rem 2.4rem;
             background: transparent;
-            border: 2px solid #ffffff;
-            color: #ffffff !important;
+            border: 2px solid #fff;
+            color: #fff !important;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             font-family: 'Playfair Display', serif;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: all 0.3s;
             border-radius: 2px;
+            cursor: pointer;
         }
 
-        .cta-bbutton:hover {
-            background: #ffffff;
-            color: #000000 !important;
-        }
+        .cta-bbutton:hover { background: #fff; color: #000 !important; }
 
         /* ===== FOOTER CTA BAND ===== */
         .footer-cta-band {
@@ -460,10 +583,9 @@
             font-style: italic;
         }
 
-        .footer-cta-band .cta-bbutton {
-            margin: 0.5rem;
-        }
+        .footer-cta-band .cta-bbutton { margin: 0.5rem; }
 
+        /* ===== FOOTER ===== */
         footer {
             background: #000000;
             border-top: 1px solid #111;
@@ -475,10 +597,12 @@
         footer p { margin: 0.4rem 0; font-size: 0.9rem; }
         footer a { color: var(--diamond-blue); text-decoration: none; }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .area-hero h1 { font-size: 2.2rem; }
             .area-content { padding: 3rem 1.5rem; }
             .header-content { gap: 0.5rem; }
+            .section-dark, .section-light { padding: 3.5rem 1.5rem; }
         }
     </style>
 </head>
@@ -514,8 +638,16 @@
 <footer>
     <p>© 2026 Diamond Auto Spa Detailing. All rights reserved.</p>
     <p>Mobile detailing for Eustis, Mount Dora, Tavares, and Leesburg, FL. | Eustis, FL</p>
-    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;"> Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com    </p>
-    <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a>    </p>
+    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com</p>
+    <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a></p>
 </footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+
 </body>
 </html>

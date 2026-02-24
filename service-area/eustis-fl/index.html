@@ -84,33 +84,49 @@ description: Diamond Auto Spa is based in Eustis, FL. Premium mobile auto detail
     margin-bottom: 1.5rem;
   }
 
-  /* HERO WITH IMAGE BACKGROUND */
+  /* HERO — full override of layout styles */
   .area-hero {
-    position: relative;
+    position: relative !important;
     min-height: 520px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 9rem 2rem 6rem;
     overflow: hidden;
+    background: none !important;
   }
   .area-hero-bg {
     position: absolute;
     inset: 0;
     background-image: url('{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
     z-index: 0;
   }
+  /* dark gradient overlay */
+  .area-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.88) 100%);
+    z-index: 1;
+  }
+  /* dot grid on top of gradient */
   .area-hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.72) 60%, rgba(0,0,0,0.92) 100%);
+    background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 2;
   }
-  .area-hero > * { position: relative; z-index: 2; }
+  .area-hero > * {
+    position: relative;
+    z-index: 3;
+  }
 
   /* INTRO SPLIT — text left, image right */
   .intro-split {

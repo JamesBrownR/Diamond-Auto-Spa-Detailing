@@ -157,28 +157,11 @@
         .breadcrumb a { color: var(--diamond-blue); text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
 
-        /* ===== HERO (default — no photo) ===== */
-        .area-hero {
-            background: #000000;
-            color: #ffffff;
-            padding: 7rem 2rem 5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        .area-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(91,163,199,0.08) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
+       
 
         /* Photo-hero variant — add .area-hero-bg div inside .area-hero on pages that have a photo */
         .area-hero.has-photo {
-            min-height: 520px;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             align-items: center;

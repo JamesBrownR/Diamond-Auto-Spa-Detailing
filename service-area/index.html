@@ -1,146 +1,296 @@
 ---
 layout: areas
-title: Mobile Auto Detailing Service Areas in Central Florida | Diamond Auto Spa
-description: Diamond Auto Spa provides mobile auto detailing throughout Central Florida — Eustis, Mount Dora, Tavares, Leesburg, Apopka, Altoona, and Madeira Beach. Call 352-931-4860.
+title: Mobile Auto Detailing Service Areas | Diamond Auto Spa — Lake County, FL
+description: Diamond Auto Spa provides mobile auto detailing throughout Lake County and Central Florida. Serving Eustis, Mount Dora, Tavares, Leesburg, Apopka, Clermont, Lady Lake, Umatilla, Altoona, and Madeira Beach. Call 352-931-4860.
 ---
+
+<style>
+  /* HERO photo */
+  .area-hero-bg {
+    background-image: url('{{ site.baseurl }}/Pics/service-areas-detailing.webp');
+  }
+
+  .section-dark  { background: #000000; padding: 5rem 2rem; }
+  .section-light { background: #0d0d0d; padding: 5rem 2rem; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: #fff;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .section-inner h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 2px;
+    background: #5BA3C7;
+  }
+  .section-inner p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #999;
+    margin-bottom: 1.5rem;
+  }
+
+  /* CITY GRID — 2 cols */
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 640px) { .city-grid { grid-template-columns: 1fr; } }
+
+  .city-card {
+    background: #080808;
+    padding: 2.2rem 2.5rem;
+    border-left: 3px solid #1a1a1a;
+    transition: background 0.25s, border-color 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .section-light .city-card { background: #111; }
+  .city-card:hover { background: #111; border-left-color: #5BA3C7; }
+  .city-card.home-base { border-left-color: #5BA3C7; }
+
+  .city-card-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5BA3C7;
+    margin-bottom: 0.5rem;
+  }
+  .city-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+  .city-card p {
+    font-size: 0.93rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 1.4rem;
+    flex-grow: 1;
+  }
+  .city-card a.city-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #5BA3C7;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.25s;
+  }
+  .city-card a.city-link:hover { color: #fff; }
+
+  /* WHY GRID */
+  .why-grid-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 860px) { .why-grid-area { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 540px) { .why-grid-area { grid-template-columns: 1fr; } }
+
+  .why-card {
+    padding: 2.2rem 1.8rem;
+    background: #080808;
+    border-top: 2px solid #5BA3C7;
+    transition: background 0.25s;
+  }
+  .why-card:hover { background: #141414; }
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #5BA3C7;
+  }
+  .why-card p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
+
+  /* BOOK CTA */
+  .area-book-cta {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 4px solid #5BA3C7;
+    padding: 2.5rem;
+    margin: 3rem 0 0;
+  }
+  .area-book-cta p { margin-bottom: 1rem; font-size: 1.05rem; color: #aaa; }
+  .phone-cta {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #5BA3C7;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 1.2rem;
+    transition: color 0.3s;
+  }
+  .phone-cta:hover { color: #fff; }
+  .cta-bbutton {
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+  .cta-bbutton:hover { background: #fff; color: #000; }
+</style>
 
 <div class="breadcrumb">
     <a href="/">Home</a> › Service Areas
 </div>
 
-<section class="area-hero">
-    <div class="area-hero-eyebrow">Central Florida · Lake County & Beyond</div>
+<!-- HERO -->
+<section class="area-hero has-photo">
+    <div class="area-hero-bg"></div>
+    <div class="area-hero-eyebrow">Mobile · Lake County & Beyond</div>
     <h1>Mobile Detailing Service Areas</h1>
-    <p>We bring 5-star detailing to your door — no shop drop-off required.</p>
+    <p>Professional detailing brought to your driveway, office, or anywhere your vehicle sits. No drop-off. No waiting room. Just results.</p>
     <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
 </section>
 
-<div class="area-content">
-
-    <!-- INTRO -->
-    <div class="area-section">
-        <h2>Where We Serve</h2>
-        <p>Diamond Auto Spa is a fully mobile detailing service based in Eustis, FL. We travel throughout Lake County and surrounding Central Florida communities to deliver professional-grade detailing right to your home or workplace. Andrew arrives fully equipped — polishers, steamers, extraction machines, premium products — and does the kind of work you'd expect from a high-end shop, in your own driveway.</p>
-        <p>We currently serve seven primary areas across Lake and Orange County, with additional coverage available depending on your location. If you don't see your city listed, call us — we'll let you know if we can make it work.</p>
+<!-- INTRO — dark -->
+<section class="section-dark">
+    <div class="section-inner">
+        <h2>We Come to You, Wherever You Are</h2>
+        <p>Diamond Auto Spa is a fully mobile detailing operation based in Eustis, FL. Andrew arrives at your location fully equipped — professional polishers, steam cleaners, hot water extractors, and premium products loaded and ready. There is no shop, no drop-off required, and no waiting around for your car to be done.</p>
+        <p>We serve Lake County and surrounding areas throughout Central Florida. Whether you are in a lakefront neighborhood in Mount Dora, a subdivision in Clermont, or a coastal property in Madeira Beach, getting on the schedule is simple. Call or text and we will take it from there.</p>
     </div>
+</section>
 
-    <!-- CITY GRID -->
-    <div class="area-section">
-        <h2>Service Area Locations</h2>
-        <div class="services-grid-area">
+<!-- CITIES — light -->
+<section class="section-light">
+    <div class="section-inner">
+        <h2>Cities We Serve</h2>
+        <p>Click any city below for dedicated service information, local details, available services, and FAQs specific to that area.</p>
+        <div class="city-grid">
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/eustis-fl/" style="color:#ffffff; text-decoration:none;">Eustis, FL →</a></h3>
-                <p>Our home base in Lake County. We serve all of Eustis with the full range of detailing services — exterior details, ceramic coatings, paint correction, and interior deep cleans. Fastest availability here.</p>
+            <div class="city-card home-base">
+                <div class="city-card-eyebrow">Home Base</div>
+                <h3>Eustis, FL</h3>
+                <p>Our home city. Fastest availability and deepest local knowledge. Serving all of 32726 including neighborhoods near Lake Eustis, Lake Harris, Bay Street, and Orange Avenue.</p>
+                <a href="/service-area/eustis-fl/" class="city-link">View Eustis Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/mount-dora-fl/" style="color:#ffffff; text-decoration:none;">Mount Dora, FL →</a></h3>
-                <p>Serving Mount Dora's historic downtown neighborhoods, lakefront communities along Lake Dora, and surrounding residential areas. One of our most active service locations.</p>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Mount Dora, FL</h3>
+                <p>Historic downtown, lakefront communities, and residential neighborhoods near Donnelly Street and Lake Dora. One of our most requested Lake County locations.</p>
+                <a href="/service-area/mount-dora-fl/" class="city-link">View Mount Dora Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/tavares-fl/" style="color:#ffffff; text-decoration:none;">Tavares, FL →</a></h3>
-                <p>Florida's Seaplane City. We cover all of Tavares and the chain of lakes area — including waterfront properties where vehicles take extra punishment from humidity and salt air.</p>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Tavares, FL</h3>
+                <p>Florida's Seaplane City. Serving the chain of lakes area, downtown Tavares, and all surrounding neighborhoods. Waterfront vehicles get extra attention for humidity and UV damage.</p>
+                <a href="/service-area/tavares-fl/" class="city-link">View Tavares Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/leesburg-fl/" style="color:#ffffff; text-decoration:none;">Leesburg, FL →</a></h3>
-                <p>Top-rated mobile detailing for Leesburg and surrounding Lake County communities. We protect and restore vehicles throughout the city, from downtown to the outskirts.</p>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Leesburg, FL</h3>
+                <p>Full coverage of Leesburg and surrounding Lake County. From downtown Leesburg to residential neighborhoods off US-27 and US-441.</p>
+                <a href="/service-area/leesburg-fl/" class="city-link">View Leesburg Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/apopka-fl/" style="color:#ffffff; text-decoration:none;">Apopka, FL →</a></h3>
-                <p>Serving Apopka and greater Orange County. Mobile detailing that comes directly to you — no fighting traffic to get to a shop across town.</p>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Lady Lake, FL</h3>
+                <p>Serving Lady Lake and the surrounding Villages area. Professional mobile detailing brought directly to your community, no shop visit required.</p>
+                <a href="/service-area/lady-lake-fl/" class="city-link">View Lady Lake Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/altoona-fl/" style="color:#ffffff; text-decoration:none;">Altoona, FL →</a></h3>
-                <p>Rural Lake County coverage. We travel out to Altoona for full-service mobile detailing appointments. Great option for customers who don't have a convenient shop nearby.</p>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Clermont, FL</h3>
+                <p>South Lake County's fastest-growing city. We serve Clermont, Minneola, and the surrounding Hancock Road and US-27 corridor communities.</p>
+                <a href="/service-area/clermont-fl/" class="city-link">View Clermont Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3><a href="/service-area/madeira-beach-fl/" style="color:#ffffff; text-decoration:none;">Madeira Beach, FL →</a></h3>
-                <p>Coastal vehicles need extra protection. Salt air, UV exposure, and humidity accelerate paint and interior damage. We serve Madeira Beach with ceramic coatings and full detail packages.</p>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Umatilla, FL</h3>
+                <p>Serving Umatilla and northeast Lake County down SR-19. Full service available for all vehicle types including trucks, SUVs, and farm vehicles.</p>
+                <a href="/service-area/umatilla-fl/" class="city-link">View Umatilla Page →</a>
             </div>
 
-            <div class="service-card-area">
-                <h3>Don't See Your City?</h3>
-                <p>We may still be able to serve you depending on your location and scheduling. Call or text us to find out — we'll give you a straight answer.</p>
-                <a href="tel:+13529314860" style="color:#5BA3C7; font-weight:bold; text-decoration:none;">Call 352-931-4860 →</a>
+            <div class="city-card">
+                <div class="city-card-eyebrow">Lake County</div>
+                <h3>Altoona, FL</h3>
+                <p>Rural Lake County. Andrew travels to Altoona for full-service detailing appointments. No detail shop nearby? That is exactly what mobile detailing is for.</p>
+                <a href="/service-area/altoona-fl/" class="city-link">View Altoona Page →</a>
+            </div>
+
+            <div class="city-card">
+                <div class="city-card-eyebrow">Orange County</div>
+                <h3>Apopka, FL</h3>
+                <p>Northwest Orange County coverage. Serving Apopka and surrounding communities along US-441, Rock Springs Road, and SR-429.</p>
+                <a href="/service-area/apopka-fl/" class="city-link">View Apopka Page →</a>
+            </div>
+
+            <div class="city-card">
+                <div class="city-card-eyebrow">Pinellas County · Coastal</div>
+                <h3>Madeira Beach, FL</h3>
+                <p>Gulf Coast coverage. Salt air, UV, and coastal humidity require a different level of protection. We travel to Madeira Beach for ceramic coating and full detail appointments.</p>
+                <a href="/service-area/madeira-beach-fl/" class="city-link">View Madeira Beach Page →</a>
             </div>
 
         </div>
+
+        <div class="area-book-cta">
+            <p>Do not see your city? Call or text and we will let you know if we can make it to your location.</p>
+            <a href="tel:+13529314860" class="phone-cta">352-931-4860</a>
+            <a href="/#contact" class="cta-bbutton">Request a Free Quote</a>
+        </div>
     </div>
+</section>
 
-    <!-- WHY MOBILE -->
-    <div class="area-section">
-        <h2>Why Mobile Detailing?</h2>
-        <p>Traditional detailing shops require you to drop your vehicle off, arrange a ride home, and come back hours later. If something takes longer than expected, your whole day is thrown off. Mobile detailing eliminates all of that friction.</p>
-        <p>Diamond Auto Spa arrives at your location fully equipped — the same professional polishers, steamers, hot water extractors, and premium products found in high-end shops. The results are the same or better, and you didn't have to go anywhere. For busy professionals, families, and anyone who values their time, mobile detailing is simply the smarter choice.</p>
-
-        <div class="why-grid-area" style="margin-top:2rem;">
+<!-- WHY MOBILE — dark -->
+<section class="section-dark">
+    <div class="section-inner">
+        <h2>Why Mobile Detailing Makes Sense</h2>
+        <p>Traditional detailing shops require you to drop your vehicle off, arrange a ride, and come back hours later. Mobile detailing eliminates all of that. Diamond Auto Spa comes to your home or office fully equipped and delivers the same or better results than any fixed shop.</p>
+        <div class="why-grid-area">
             <div class="why-card">
-                <h3>No Drop-Off Required</h3>
-                <p>We come to your home or office. Your day stays uninterrupted while we work.</p>
+                <h3>No Drop-Off</h3>
+                <p>Your car stays at your property. You keep your day. Andrew arrives fully equipped and handles everything on-site from start to finish.</p>
             </div>
             <div class="why-card">
-                <h3>Same Professional Results</h3>
-                <p>Professional polishers, steamers, and products — identical to what any top-end shop uses.</p>
+                <h3>Professional Equipment</h3>
+                <p>Dual-action polishers, commercial steam cleaners, hot water extractors, and professional-grade coatings. The same tools used in top-tier shops, brought to your door.</p>
+            </div>
+            <div class="why-card">
+                <h3>One Person, Full Attention</h3>
+                <p>Andrew handles your vehicle personally, not a rotating team of employees. Consistent quality and someone who takes real pride in the outcome every time.</p>
+            </div>
+            <div class="why-card">
+                <h3>Built for Florida</h3>
+                <p>UV, humidity, hard water, pollen, and coastal salt are all addressed specifically. The work is designed to hold up in Central Florida conditions long term.</p>
+            </div>
+            <div class="why-card">
+                <h3>63+ Five-Star Reviews</h3>
+                <p>Consistently rated the best mobile detailer in Central Florida. Every review is five stars. Our reputation is built on results and repeat customers, not advertising.</p>
             </div>
             <div class="why-card">
                 <h3>7 Days a Week</h3>
-                <p>Available Monday through Sunday, 7 AM to 8 PM. Book around your schedule, not ours.</p>
-            </div>
-            <div class="why-card">
-                <h3>One Detailer, Not a Crew</h3>
-                <p>Andrew handles every job personally. You always know who is working on your car and how they approach it.</p>
+                <p>Monday through Sunday, 7 AM to 8 PM. We work around your schedule, not the other way around. Weekends and evenings available.</p>
             </div>
         </div>
     </div>
-
-    <!-- REVIEWS -->
-    <div class="area-section">
-        <h2>What Customers Across Central Florida Are Saying</h2>
-        <div class="testimonials-area">
-            <div class="testimonial-card">
-                <p>"Andrew did an excellent job detailing both of my vehicles. They look brand new — showroom condition. He is by far the best detailer I found in central Florida."</p>
-                <span>Pierre Nimmer — Mount Dora, FL</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"Super responsive. He worked all day and didn't take a break. Everything came out looking fabulous."</p>
-                <span>Tim Groves — Lake County, FL</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"Andrew is the best vehicle detailer I have ever had. Very reliable and very detail oriented."</p>
-                <span>Pool Gator Pool Service — Central FL</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="area-section">
-        <h2>Service Area FAQs</h2>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">How far do you travel for appointments?</strong></p>
-        </div>
-        <p>We're based in Eustis and typically serve within a 30–40 minute radius. This covers most of Lake County, parts of Orange County (Apopka), and select Pinellas County locations like Madeira Beach. Call us if you're unsure — we'll tell you straight.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">Is there a travel fee for areas farther from Eustis?</strong></p>
-        </div>
-        <p>For locations significantly outside our primary service area, a small travel fee may apply. We'll be upfront about this when you call for a quote — no surprises.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">What do you need at the location?</strong></p>
-        </div>
-        <p>Ideally a flat surface with enough room to walk around the vehicle, and access to a standard outdoor water spigot if available. If water access is limited, let us know — we can work around most situations.</p>
-
-        <div class="results-note" style="margin-bottom:1.5rem;">
-            <p><strong style="color:#ffffff;">How do I book?</strong></p>
-        </div>
-        <p>Call or text <a href="tel:+13529314860" style="color:#5BA3C7; font-weight:bold;">352-931-4860</a> or use the <a href="/#contact" style="color:#5BA3C7; font-weight:bold;">quote form on our homepage</a>. We respond quickly and can usually get you on the schedule within a few days.</p>
-    </div>
-
-</div>
+</section>

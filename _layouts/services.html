@@ -545,7 +545,31 @@
             .service-hero h1 { font-size: 2.2rem; }
             .header-content { gap: 0.5rem; }
         }
-    </style>
+        <style>
+  .faq-list { border: 1px solid #1a1a1a; margin: 1.5rem 0; }
+  .faq-item { border-bottom: 1px solid #1a1a1a; background: #080808; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%; background: none; border: none;
+    padding: 1.3rem 1.8rem;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; text-align: left; gap: 1rem;
+    transition: background 0.2s;
+  }
+  .faq-question:hover { background: #111; }
+  .faq-question span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: #fff; font-weight: 600;
+  }
+  .faq-icon { color: #5BA3C7; font-size: 1.4rem; flex-shrink: 0; line-height: 1; transition: transform 0.3s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer { display: none; padding: 0 1.8rem 1.3rem; color: #888; font-size: 0.97rem; line-height: 1.8; }
+  .faq-answer a { color: #5BA3C7; }
+  .faq-item.open .faq-answer { display: block; }
+</style>
+
+
+    
 </head>
 <body>
 
@@ -582,6 +606,13 @@
     <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;"> Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com    </p>
     <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a>    </p>
 </footer>
-
+<script>
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+}
+</script>
 </body>
 </html>

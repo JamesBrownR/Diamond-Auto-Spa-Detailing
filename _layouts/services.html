@@ -696,6 +696,65 @@
             .service-hero h1 { font-size: 2.2rem; }
             .header-content { gap: 0.8rem; }
         }
+         /* ===== FAQ ACCORDION ===== */
+        .faq-list {
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            background: var(--ink);
+        }
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            gap: 1rem;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: #111; }
+
+        .faq-question span:first-child {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            color: var(--blue);
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 2rem;
+            color: #888;
+            font-size: 0.98rem;
+            line-height: 1.85;
+        }
+        .faq-answer a { color: var(--blue); }
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.6rem;
+        }
     </style>
 </head>
 <body>
@@ -764,5 +823,14 @@
 })();
 </script>
 
+<!-- ===== FAQ ACCORDION ===== -->
+<script>
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+}
+</script>
 </body>
 </html>

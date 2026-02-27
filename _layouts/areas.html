@@ -6,24 +6,16 @@
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://diamondautospallc.com{{ page.url }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AutoRepair",
+      "@type": "LocalBusiness",
       "name": "Diamond Auto Spa Detailing",
-      "url": "https://diamondautospallc.com",
       "telephone": "+1-352-931-4860",
-      "image": "https://diamondautospallc.com/Pics/Diamond-Auto-Spa-Detailing.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Eustis",
-        "addressRegion": "FL",
-        "postalCode": "32726",
-        "addressCountry": "US"
-      },
-      "description": "Diamond Auto Spa provides premium mobile auto detailing throughout Central Florida. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
+      "url": "https://diamondautospallc.com",
+      "description": "Mobile auto detailing serving Lake County and Central Florida. Specializing in ceramic coatings, paint correction, and interior steam cleaning."
     }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LTX9EZGPKX"></script>
@@ -157,45 +149,53 @@
         .breadcrumb a { color: var(--diamond-blue); text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
 
-       
-/* HERO */
-  .area-hero {
-    position: relative !important;
-    height: 70vh;
-      display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 9rem 2rem 6rem;
-    overflow: hidden;
-    background: none !important;
-  }
-  .area-hero-bg {
-    position: absolute;
-    inset: 0;
-    background-image: url('{{ site.baseurl }}/Pics/leesburg-fl-auto-detailing.webp');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: 0;
-  }
-  .area-hero-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,1) 100%);
-    z-index: 1;
-  }
-  .area-hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
-    background-size: 24px 24px;
-    z-index: 2;
-  }
-        
+        /* ===== HERO ===== */
+        .area-hero {
+            position: relative !important;
+            height: 70vh;
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 9rem 2rem 6rem;
+            overflow: hidden;
+            background: none !important;
+        }
+
+        .area-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('{{ site.baseurl }}/Pics/leesburg-fl-auto-detailing.webp');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .area-hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,1) 100%);
+            z-index: 1;
+        }
+
+        .area-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+            z-index: 2;
+        }
+
+        /* ===== HERO FADE-UP ANIMATIONS (imported from service pages) ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
         .area-hero-eyebrow {
             display: inline-block;
             font-size: 0.85rem;
@@ -206,6 +206,8 @@
             margin-bottom: 1.2rem;
             position: relative;
             z-index: 2;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.1s ease forwards;
         }
 
         .area-hero h1 {
@@ -215,6 +217,8 @@
             position: relative;
             z-index: 2;
             line-height: 1.15;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.25s ease forwards;
         }
 
         .area-hero p {
@@ -227,9 +231,171 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             line-height: 1.7;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.4s ease forwards;
         }
 
-        .area-hero .cta-bbutton { position: relative; z-index: 2; }
+        .area-hero .cta-bbutton {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.55s ease forwards;
+        }
+
+        /* ===== TRUST STRIP (imported from service pages) ===== */
+        .area-trust-strip {
+            display: flex;
+            gap: 0;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            background: #1a1a1a;
+            flex-wrap: wrap;
+        }
+
+        .area-trust-item {
+            flex: 1;
+            min-width: 140px;
+            background: #080808;
+            padding: 1.4rem 1.2rem;
+            text-align: center;
+            transition: background 0.25s;
+        }
+
+        .area-trust-item:hover { background: #111; }
+
+        .area-trust-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .area-trust-item strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-bottom: 0.15rem;
+        }
+
+        .area-trust-item span {
+            font-size: 0.78rem;
+            color: #555;
+        }
+
+        /* ===== TWO-COLUMN AREA WRAPPER (new sticky sidebar layout) ===== */
+        .area-page-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 0;
+            max-width: 1280px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        @media (max-width: 960px) {
+            .area-page-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .area-sidebar { order: -1; }
+        }
+
+        /* ===== SIDEBAR ===== */
+        .area-sidebar {
+            position: sticky;
+            top: 90px;
+            padding: 3rem 0 3rem 0;
+            border-left: 1px solid #1a1a1a;
+        }
+
+        .sidebar-card {
+            background: #080808;
+            border: 1px solid #1a1a1a;
+            padding: 1.8rem;
+            margin: 0 1.5rem 1.2rem;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .sidebar-phone {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: var(--diamond-blue);
+            text-decoration: none;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .sidebar-phone:hover { color: #fff; }
+
+        .sidebar-card p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .sidebar-cta {
+            display: block;
+            padding: 0.75rem 1.2rem;
+            background: transparent;
+            border: 1.5px solid #fff;
+            color: #fff !important;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            transition: background 0.25s, color 0.25s;
+            margin-bottom: 0.7rem;
+        }
+
+        .sidebar-cta:hover { background: #fff; color: #000 !important; }
+
+        .sidebar-cta.blue {
+            border-color: var(--diamond-blue);
+            color: var(--diamond-blue) !important;
+        }
+
+        .sidebar-cta.blue:hover { background: var(--diamond-blue); color: #000 !important; }
+
+        .sidebar-service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-service-list li {
+            border-bottom: 1px solid #1a1a1a;
+            padding: 0.6rem 0;
+        }
+
+        .sidebar-service-list li:last-child { border-bottom: none; }
+
+        .sidebar-service-list a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-service-list a::before {
+            content: '→';
+            color: var(--diamond-blue);
+            font-size: 0.8rem;
+        }
+
+        .sidebar-service-list a:hover { color: #fff; }
 
         /* ===== SECTION BANDS ===== */
         .section-dark  { background: #000000; padding: 5rem 2rem; }
@@ -579,11 +745,22 @@
         footer a { color: var(--diamond-blue); text-decoration: none; }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 960px) {
+            .area-page-wrapper { grid-template-columns: 1fr; }
+            .area-sidebar {
+                position: static;
+                border-left: none;
+                border-top: 1px solid #1a1a1a;
+                padding: 2rem 0 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .area-hero h1 { font-size: 2.2rem; }
             .area-content { padding: 3rem 1.5rem; }
             .header-content { gap: 0.5rem; }
             .section-dark, .section-light { padding: 3.5rem 1.5rem; }
+            .area-trust-item span { display: none; }
         }
     </style>
 </head>
@@ -607,7 +784,85 @@
     </div>
 </header>
 
-{{ content }}
+<!-- ===== TRUST STRIP — injected right after hero via JS, or placed here as a static band ===== -->
+<!-- NOTE: The trust strip is defined below and inserted after .area-hero by the script at the bottom -->
+
+<!-- ===== PAGE CONTENT ===== -->
+<div class="area-page-wrapper">
+    <div class="area-main-col">
+        {{ content }}
+    </div>
+
+    <aside class="area-sidebar">
+        <div class="sidebar-card">
+            <h3>Book Your Detail</h3>
+            <a href="tel:+13529314860" class="sidebar-phone">352-931-4860</a>
+            <p>Mobile service — we come to you. Available 7 days a week, 7 AM – 8 PM.</p>
+            <a href="tel:+13529314860" class="sidebar-cta">Call Now</a>
+            <a href="{{ site.baseurl }}/#contact" class="sidebar-cta blue">Get a Free Quote</a>
+        </div>
+
+        <div class="sidebar-card">
+            <h3>Our Services</h3>
+            <ul class="sidebar-service-list">
+                <li><a href="{{ site.baseurl }}/services/exterior-detailing/">Exterior Detailing</a></li>
+                <li><a href="{{ site.baseurl }}/services/interior-detailing/">Interior Deep Clean</a></li>
+                <li><a href="{{ site.baseurl }}/services/ceramic-coating/">Ceramic Coating</a></li>
+                <li><a href="{{ site.baseurl }}/services/paint-correction/">Paint Correction</a></li>
+                <li><a href="{{ site.baseurl }}/services/headlight-restoration/">Headlight Restoration</a></li>
+                <li><a href="{{ site.baseurl }}/services/engine-bay-detail/">Engine Bay Detail</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-card">
+            <h3>Service Areas</h3>
+            <ul class="sidebar-service-list">
+                <li><a href="{{ site.baseurl }}/service-area/eustis-fl/">Eustis, FL</a></li>
+                <li><a href="{{ site.baseurl }}/service-area/mount-dora-fl/">Mount Dora, FL</a></li>
+                <li><a href="{{ site.baseurl }}/service-area/tavares-fl/">Tavares, FL</a></li>
+                <li><a href="{{ site.baseurl }}/service-area/leesburg-fl/">Leesburg, FL</a></li>
+                <li><a href="{{ site.baseurl }}/service-area/clermont-fl/">Clermont, FL</a></li>
+                <li><a href="{{ site.baseurl }}/service-area/">View All Areas →</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+<!-- ===== TRUST STRIP (rendered into page via script after the hero) ===== -->
+<script>
+(function() {
+    var strip = document.createElement('div');
+    strip.className = 'area-trust-strip';
+    strip.innerHTML = `
+        <div class="area-trust-item">
+            <span class="area-trust-icon">🚗</span>
+            <strong>Mobile Service</strong>
+            <span>We come to you</span>
+        </div>
+        <div class="area-trust-item">
+            <span class="area-trust-icon">📅</span>
+            <strong>7 Days a Week</strong>
+            <span>7 AM – 8 PM</span>
+        </div>
+        <div class="area-trust-item">
+            <span class="area-trust-icon">✦</span>
+            <strong>Fully Equipped</strong>
+            <span>Pro-grade tools & products</span>
+        </div>
+        <div class="area-trust-item">
+            <span class="area-trust-icon">📞</span>
+            <strong>Fast Response</strong>
+            <span>Call or text anytime</span>
+        </div>
+    `;
+
+    // Insert trust strip after the .area-hero section
+    var hero = document.querySelector('.area-hero');
+    if (hero && hero.parentNode) {
+        hero.parentNode.insertBefore(strip, hero.nextSibling);
+    }
+})();
+</script>
 
 <div class="footer-cta-band">
     <h2>Ready to Shine?</h2>
@@ -618,16 +873,23 @@
 
 <footer>
     <p>© 2026 Diamond Auto Spa Detailing. All rights reserved.</p>
-    <p>Mobile detailing for Eustis, Mount Dora, Tavares, and Leesburg, FL. | Eustis, FL</p>
-    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com</p>
-    <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a></p>
+    <p>Mobile detailing for Eustis, Mount Dora, Tavares, and Leesburg, FL.</p>
+    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">
+        Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com
+    </p>
+    <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">
+        Made by <a href="https://www.meetingsurge.com" target="_blank">MeetingSurge.com</a>
+    </p>
 </footer>
 
 <script>
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    item.classList.toggle('open');
-  }
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            item.classList.toggle('open');
+        });
+    });
 </script>
 
 </body>

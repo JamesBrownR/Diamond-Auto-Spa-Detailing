@@ -48,15 +48,31 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
 
   .city-card {
     background: #080808;
-    padding: 2.2rem 2.5rem;
     border-left: 3px solid #1a1a1a;
     transition: background 0.25s, border-color 0.25s;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
   }
-  .section-light .city-card { background: #111; }
   .city-card:hover { background: #111; border-left-color: #5BA3C7; }
   .city-card.home-base { border-left-color: #5BA3C7; }
+
+  .city-card-photo {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+    transition: filter 0.3s;
+  }
+  .city-card:hover .city-card-photo { filter: brightness(1); }
+
+  .city-card-body {
+    padding: 1.8rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 
   .city-card-eyebrow {
     font-size: 0.72rem;
@@ -68,19 +84,19 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
   }
   .city-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #fff;
     margin-bottom: 0.6rem;
   }
   .city-card p {
-    font-size: 0.93rem;
+    font-size: 0.9rem;
     color: #666;
     line-height: 1.7;
     margin: 0 0 1.4rem;
     flex-grow: 1;
   }
   .city-card a.city-link {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: #5BA3C7;
     text-decoration: none;
@@ -88,7 +104,7 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     letter-spacing: 1px;
     transition: color 0.25s;
   }
-  .city-card a.city-link:hover { color: #fff; }
+  .city-card:hover a.city-link { color: #fff; }
 
   /* WHY GRID */
   .why-grid-area {
@@ -169,7 +185,7 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
 <section class="section-dark">
     <div class="section-inner">
         <h2>We Come to You, Wherever You Are</h2>
-        <p>Diamond Auto Spa is a fully mobile detailing operation based in Eustis, FL. Andrew arrives at your location fully equipped: professional polishers, steam cleaners, hot water extractors, and premium products loaded and ready. There is no shop, no drop-off required, and no waiting around for your car to be done.</p>
+        <p>Diamond Auto Spa is a fully mobile detailing operation based in Eustis, FL. Andrew arrives at your location fully equipped — professional polishers, steam cleaners, hot water extractors, and premium products loaded and ready. There is no shop, no drop-off required, and no waiting around for your car to be done.</p>
         <p>We serve Lake County and surrounding areas throughout Central Florida. Whether you are in a lakefront neighborhood in Mount Dora, a subdivision in Clermont, or a coastal property in Madeira Beach, getting on the schedule is simple. Call or text and we will take it from there.</p>
     </div>
 </section>
@@ -182,73 +198,163 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
         <div class="city-grid">
 
             <div class="city-card home-base">
-                <div class="city-card-eyebrow">Home Base</div>
-                <h3>Eustis, FL</h3>
-                <p>Our home city. Fastest availability and deepest local knowledge. Serving all of 32726 including neighborhoods near Lake Eustis, Lake Harris, Bay Street, and Orange Avenue.</p>
-                <a href="/service-area/eustis-fl/" class="city-link">View Eustis Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Eustis FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Home Base</div>
+                    <h3>Eustis, FL</h3>
+                    <p>Our home city. Fastest availability and deepest local knowledge. Serving all of 32726 including neighborhoods near Lake Eustis, Lake Harris, Bay Street, and Orange Avenue.</p>
+                    <a href="/service-area/eustis-fl/" class="city-link">View Eustis Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Mount Dora, FL</h3>
-                <p>Historic downtown, lakefront communities, and residential neighborhoods near Donnelly Street and Lake Dora. One of our most requested Lake County locations.</p>
-                <a href="/service-area/mount-dora-fl/" class="city-link">View Mount Dora Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/mount-dora-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Mount Dora FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Mount Dora, FL</h3>
+                    <p>Historic downtown, lakefront communities, and residential neighborhoods near Donnelly Street and Lake Dora. One of our most requested Lake County locations.</p>
+                    <a href="/service-area/mount-dora-fl/" class="city-link">View Mount Dora Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Tavares, FL</h3>
-                <p>Florida's Seaplane City. Serving the chain of lakes area, downtown Tavares, and all surrounding neighborhoods. Waterfront vehicles get extra attention for humidity and UV damage.</p>
-                <a href="/service-area/tavares-fl/" class="city-link">View Tavares Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/tavares-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Tavares FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Tavares, FL</h3>
+                    <p>Florida's Seaplane City. Serving the chain of lakes area, downtown Tavares, and all surrounding neighborhoods. Waterfront vehicles get extra attention for humidity and UV damage.</p>
+                    <a href="/service-area/tavares-fl/" class="city-link">View Tavares Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Leesburg, FL</h3>
-                <p>Full coverage of Leesburg and surrounding Lake County. From downtown Leesburg to residential neighborhoods off US-27 and US-441.</p>
-                <a href="/service-area/leesburg-fl/" class="city-link">View Leesburg Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/leesburg-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Leesburg FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Leesburg, FL</h3>
+                    <p>Full coverage of Leesburg and surrounding Lake County. From downtown Leesburg to residential neighborhoods off US-27 and US-441.</p>
+                    <a href="/service-area/leesburg-fl/" class="city-link">View Leesburg Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Lady Lake, FL</h3>
-                <p>Serving Lady Lake and the surrounding Villages area. Professional mobile detailing brought directly to your community, no shop visit required.</p>
-                <a href="/service-area/lady-lake-fl/" class="city-link">View Lady Lake Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/lady-lake-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Lady Lake FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Lady Lake, FL</h3>
+                    <p>Serving Lady Lake and the surrounding Villages area. Professional mobile detailing brought directly to your community, no shop visit required.</p>
+                    <a href="/service-area/lady-lake-fl/" class="city-link">View Lady Lake Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Clermont, FL</h3>
-                <p>South Lake County's fastest-growing city. We serve Clermont, Minneola, and the surrounding Hancock Road and US-27 corridor communities.</p>
-                <a href="/service-area/clermont-fl/" class="city-link">View Clermont Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/clermont-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Clermont FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Clermont, FL</h3>
+                    <p>South Lake County's fastest-growing city. We serve Clermont, Minneola, and the surrounding Hancock Road and US-27 corridor communities.</p>
+                    <a href="/service-area/clermont-fl/" class="city-link">View Clermont Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Umatilla, FL</h3>
-                <p>Serving Umatilla and northeast Lake County down SR-19. Full service available for all vehicle types including trucks, SUVs, and farm vehicles.</p>
-                <a href="/service-area/umatilla-fl/" class="city-link">View Umatilla Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/umatilla-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Umatilla FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Umatilla, FL</h3>
+                    <p>Serving Umatilla and northeast Lake County down SR-19. Full service for all vehicle types including trucks, SUVs, and farm vehicles.</p>
+                    <a href="/service-area/umatilla-fl/" class="city-link">View Umatilla Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Lake County</div>
-                <h3>Altoona, FL</h3>
-                <p>Rural Lake County. Andrew travels to Altoona for full-service detailing appointments. No detail shop nearby? That is exactly what mobile detailing is for.</p>
-                <a href="/service-area/altoona-fl/" class="city-link">View Altoona Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/altoona-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Altoona FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Lake County</div>
+                    <h3>Altoona, FL</h3>
+                    <p>Rural Lake County. Andrew travels to Altoona for full-service detailing appointments. No detail shop nearby? That is exactly what mobile detailing is for.</p>
+                    <a href="/service-area/altoona-fl/" class="city-link">View Altoona Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Orange County</div>
-                <h3>Apopka, FL</h3>
-                <p>Northwest Orange County coverage. Serving Apopka and surrounding communities along US-441, Rock Springs Road, and SR-429.</p>
-                <a href="/service-area/apopka-fl/" class="city-link">View Apopka Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/apopka-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Apopka FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Orange County</div>
+                    <h3>Apopka, FL</h3>
+                    <p>Northwest Orange County coverage. Serving Apopka and surrounding communities along US-441, Rock Springs Road, and SR-429.</p>
+                    <a href="/service-area/apopka-fl/" class="city-link">View Apopka Page →</a>
+                </div>
             </div>
 
             <div class="city-card">
-                <div class="city-card-eyebrow">Pinellas County · Coastal</div>
-                <h3>Madeira Beach, FL</h3>
-                <p>Gulf Coast coverage. Salt air, UV, and coastal humidity require a different level of protection. We travel to Madeira Beach for ceramic coating and full detail appointments.</p>
-                <a href="/service-area/madeira-beach-fl/" class="city-link">View Madeira Beach Page →</a>
+                <img
+                    class="city-card-photo"
+                    src="{{ site.baseurl }}/Pics/madeira-beach-fl-auto-detailing.webp"
+                    alt="Mobile auto detailing in Madeira Beach FL by Diamond Auto Spa"
+                    width="540" height="180"
+                    loading="lazy"
+                >
+                <div class="city-card-body">
+                    <div class="city-card-eyebrow">Pinellas County · Coastal</div>
+                    <h3>Madeira Beach, FL</h3>
+                    <p>Gulf Coast coverage. Salt air, UV, and coastal humidity require a different level of protection. We travel to Madeira Beach for ceramic coating and full detail appointments.</p>
+                    <a href="/service-area/madeira-beach-fl/" class="city-link">View Madeira Beach Page →</a>
+                </div>
             </div>
 
         </div>

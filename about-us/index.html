@@ -1,1 +1,492 @@
+---
+layout: default
+title: About | Diamond Auto Spa Detailing
+description: Meet Andrew, the owner of Diamond Auto Spa — a family-run mobile detailing business based in Eustis, FL. 10+ years of experience, 63+ five-star reviews, and a passion for doing the work right.
+---
 
+<style>
+  :root {
+    --blue: #5BA3C7;
+    --black: #000;
+    --charcoal: #0d0d0d;
+    --border: #1a1a1a;
+    --muted: #555;
+  }
+
+  /* ── HERO ── */
+  .ab-hero {
+    background: #000;
+    padding: 7rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #111;
+  }
+  .ab-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(91,163,199,0.11) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .ab-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: abUp 0.6s 0.1s ease forwards;
+  }
+  .ab-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    color: #fff;
+    margin-bottom: 0.6rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: abUp 0.6s 0.25s ease forwards;
+  }
+  .ab-hero p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #555;
+    font-size: 1.05rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: abUp 0.6s 0.4s ease forwards;
+  }
+  @keyframes abUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: #000;
+    padding: 1rem 2rem;
+    font-size: 0.82rem;
+    color: #444;
+    border-bottom: 1px solid #111;
+  }
+  .breadcrumb a { color: #555; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--blue); }
+
+  /* ── FAMILY SECTION ── */
+  .ab-family {
+    background: var(--black);
+    padding: 5rem 2rem;
+    border-bottom: 1px solid #111;
+  }
+  .ab-family-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .ab-family-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .ab-family-img { order: -1; text-align: center; }
+  }
+
+  .ab-family-img img {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+  }
+
+  .ab-family-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .ab-family-text .ab-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--blue);
+    margin-bottom: 1.6rem;
+  }
+  .ab-family-text p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: #666;
+    margin-bottom: 1.2rem;
+  }
+  .ab-family-text p:last-child { margin-bottom: 0; }
+
+  .ab-quote {
+    border-left: 3px solid var(--blue);
+    padding: 1rem 1.4rem;
+    margin: 1.8rem 0;
+    background: #080808;
+  }
+  .ab-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem !important;
+    color: #aaa !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+  }
+
+  /* ── STATS BAR ── */
+  .ab-stats {
+    background: var(--charcoal);
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    padding: 3rem 2rem;
+  }
+  .ab-stats-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 640px) { .ab-stats-inner { grid-template-columns: repeat(2, 1fr); } }
+
+  .ab-stat {
+    background: var(--charcoal);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .ab-stat-num {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .ab-stat-num span { color: var(--blue); }
+  .ab-stat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  /* ── VALUES SECTION ── */
+  .ab-values {
+    background: var(--black);
+    padding: 5rem 2rem;
+    border-bottom: 1px solid #111;
+  }
+  .ab-values-inner { max-width: 1100px; margin: 0 auto; }
+
+  .ab-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .ab-values-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #fff;
+    margin-bottom: 3rem;
+  }
+
+  .ab-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #111;
+    border: 1px solid #111;
+  }
+  @media (max-width: 700px) { .ab-values-grid { grid-template-columns: 1fr; } }
+
+  .ab-value-card {
+    background: #080808;
+    padding: 2.2rem 1.8rem;
+    border-top: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .ab-value-card:hover {
+    border-top-color: var(--blue);
+    background: #0d0d0d;
+  }
+  .ab-value-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 1rem;
+    color: var(--blue);
+  }
+  .ab-value-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+  .ab-value-card p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+  }
+
+  /* ── REVIEW PULL ── */
+  .ab-reviews {
+    background: var(--charcoal);
+    padding: 5rem 2rem;
+    border-bottom: 1px solid #111;
+  }
+  .ab-reviews-inner { max-width: 1100px; margin: 0 auto; }
+  .ab-reviews-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    color: #fff;
+    margin-bottom: 2.5rem;
+  }
+  .ab-review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 700px) { .ab-review-grid { grid-template-columns: 1fr; } }
+  .ab-review {
+    background: #080808;
+    padding: 1.8rem 1.6rem;
+  }
+  .ab-review-stars { color: #f5c518; font-size: 0.85rem; letter-spacing: 2px; display: block; margin-bottom: 0.8rem; }
+  .ab-review p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .ab-review-name { font-size: 0.78rem; font-weight: 700; color: #444; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ── CTA BAND ── */
+  .ab-cta {
+    background: var(--blue);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .ab-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  .ab-cta p { color: rgba(0,0,0,0.6); margin-bottom: 1.8rem; font-size: 0.95rem; }
+  .ab-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .ab-cta-btns a {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .ab-cta-btns a.primary { background: #000; color: #fff; }
+  .ab-cta-btns a.primary:hover { background: #fff; color: #000; }
+  .ab-cta-btns a.outline { background: transparent; border: 2px solid #000; color: #000; }
+  .ab-cta-btns a.outline:hover { background: #000; color: var(--blue); }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; About
+</div>
+
+<!-- HERO -->
+<div class="ab-hero">
+  <div class="ab-eyebrow">Diamond Auto Spa &middot; Eustis, FL</div>
+  <h1>Built on Passion. Backed by Family.</h1>
+  <p>A mobile detailing business that is anything but ordinary.</p>
+</div>
+
+<!-- FAMILY + FOUNDER STORY -->
+<section class="ab-family">
+  <div class="ab-family-inner">
+
+    <div class="ab-family-img">
+      <img
+        src="{{ site.baseurl }}/Pics/familycartoon.webp"
+        alt="Andrew and his family — the team behind Diamond Auto Spa Detailing in Eustis, FL"
+        width="420"
+        loading="eager"
+      >
+    </div>
+
+    <div class="ab-family-text">
+      <h2>Meet Andrew, the Man Behind Every Detail</h2>
+      <div class="ab-rule"></div>
+
+      <p>Diamond Auto Spa is not a franchise. There is no rotating crew, no rush to squeeze in the next appointment, and no one cutting corners to hit a quota. It is Andrew, his family behind him, and a genuine belief that every car deserves to be treated with care.</p>
+
+      <p>Andrew has been passionate about cars for as long as he can remember. Over more than a decade of working on vehicles, he developed a standard that most detailers simply do not hold themselves to: the job is not finished until it is right. Not until it looks right. Not until it is something he would be proud to hand back.</p>
+
+      <div class="ab-quote">
+        <p>"Most detailers rush through cars to maximize profits. But we see ourselves as artists, not just detailers. Here, your car will be treated like a mural: with precision, effort, and genuine care."</p>
+      </div>
+
+      <p>When he started Diamond Auto Spa, the goal was simple: build a detailing service that operates the way he always believed it should. No shortcuts. Honest pricing. Results that actually last. Seven days a week, he shows up to people's homes and driveways across Lake County fully equipped and ready to do the work properly, however long it takes.</p>
+
+      <p>Behind every appointment is a family that backs that commitment. The image above is not marketing. It is the people this business is built for and built around.</p>
+
+      <p style="color:#444;font-size:0.85rem;font-style:italic;">Note: If you know more about Andrew's background or the founding story, this section can be updated to reflect it. The content above is written to match the values and voice already established across the site.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="ab-stats">
+  <div class="ab-stats-inner">
+    <div class="ab-stat">
+      <span class="ab-stat-num">10<span>+</span></span>
+      <span class="ab-stat-label">Years Experience</span>
+    </div>
+    <div class="ab-stat">
+      <span class="ab-stat-num">63<span>+</span></span>
+      <span class="ab-stat-label">Five-Star Reviews</span>
+    </div>
+    <div class="ab-stat">
+      <span class="ab-stat-num">10</span>
+      <span class="ab-stat-label">Cities Served</span>
+    </div>
+    <div class="ab-stat">
+      <span class="ab-stat-num">7</span>
+      <span class="ab-stat-label">Days a Week</span>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="ab-values">
+  <div class="ab-values-inner">
+    <span class="ab-section-label">How We Work</span>
+    <h2>What Sets Diamond Auto Spa Apart</h2>
+
+    <div class="ab-values-grid">
+
+      <div class="ab-value-card">
+        <svg class="ab-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <h3>No Rushing, Ever</h3>
+        <p>Andrew does not overbook to squeeze in extra appointments. Each vehicle gets the time it actually needs. Some jobs take four hours. Some take a full day. The job ends when it is done right, not when the clock runs out.</p>
+      </div>
+
+      <div class="ab-value-card">
+        <svg class="ab-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <h3>One Person, Full Accountability</h3>
+        <p>Andrew handles your vehicle personally on every job. There is no rotating team, no employee whose name you will never learn. When you book with Diamond Auto Spa, you know exactly who is touching your car and what standard they hold themselves to.</p>
+      </div>
+
+      <div class="ab-value-card">
+        <svg class="ab-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <h3>Transparent Pricing</h3>
+        <p>You get a clear price before any work begins. No surprise add-ons, no upselling, no bill that looks different than what was quoted. What Andrew quotes is what you pay.</p>
+      </div>
+
+      <div class="ab-value-card">
+        <svg class="ab-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+        <h3>Fully Mobile, Fully Equipped</h3>
+        <p>No shop drop-off, no arranging a ride. Andrew arrives at your home, office, or wherever your vehicle is parked with professional polishers, steam cleaners, hot water extractors, and everything else needed. You provide nothing except the vehicle.</p>
+      </div>
+
+      <div class="ab-value-card">
+        <svg class="ab-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+        </svg>
+        <h3>Built for Florida Conditions</h3>
+        <p>Central Florida UV, humidity, hard water, pollen, and heat are not afterthoughts. Every service uses products and techniques designed specifically to hold up in conditions that destroy shortcuts. Work done here is meant to last.</p>
+      </div>
+
+      <div class="ab-value-card">
+        <svg class="ab-value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <h3>A Real Community Business</h3>
+        <p>Diamond Auto Spa is based in Eustis and serves the Lake County community it is part of. The customers here are neighbors, not transactions. That is a distinction that shows in how Andrew approaches every appointment.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW PULL-QUOTES -->
+<section class="ab-reviews">
+  <div class="ab-reviews-inner">
+    <h2>What Customers Say About Andrew</h2>
+    <div class="ab-review-grid">
+
+      <div class="ab-review">
+        <span class="ab-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p>"He clearly loves cars and it shows. Went above and beyond what I expected. Exceeded expectations."</p>
+        <span class="ab-review-name">Cate Shanahan</span>
+      </div>
+
+      <div class="ab-review">
+        <span class="ab-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p>"Andrew took his entire day to make sure I could have a vehicle that would make me proud and happy, inside and out. He really does go the extra mile. 10/10."</p>
+        <span class="ab-review-name">Yours Truly</span>
+      </div>
+
+      <div class="ab-review">
+        <span class="ab-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p>"He is by far the best detailer I found in central Florida. I have hired cheaper auto detailers but they did poor work in 1-2 hours per vehicle and it was not worth the money."</p>
+        <span class="ab-review-name">Pierre Nimmer</span>
+      </div>
+
+      <div class="ab-review">
+        <span class="ab-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p>"The professionalism and passion comes through in his work. Honestly I cannot recommend him enough."</p>
+        <span class="ab-review-name">Jonathan Wilson</span>
+      </div>
+
+      <div class="ab-review">
+        <span class="ab-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p>"Andrew and his company were very professional and personable. He's the only one I trust to work on mine and my wife's vehicles. This young man is going places!"</p>
+        <span class="ab-review-name">Blake Griffin</span>
+      </div>
+
+      <div class="ab-review">
+        <span class="ab-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p>"Andrew is the best vehicle detailer I have ever had. He has been doing our cars, boat, and Harley for at least a year. Very reliable, very detail oriented, great communication, always a fair price."</p>
+        <span class="ab-review-name">Pool Gator Pool Service</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="ab-cta">
+  <h2>Ready to See What We Can Do?</h2>
+  <p>Mobile service throughout Lake County and Central Florida. Call, text, or send a message.</p>
+  <div class="ab-cta-btns">
+    <a href="tel:+13529314860" class="primary">Call 352-931-4860</a>
+    <a href="/contact/" class="outline">Request a Quote</a>
+  </div>
+</div>

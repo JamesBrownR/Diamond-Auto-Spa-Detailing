@@ -1,1 +1,818 @@
+---
+layout: default
+title: Frequently Asked Questions | Diamond Auto Spa Detailing
+description: Answers to common questions about mobile auto detailing in Lake County, FL. Pricing, booking, services, ceramic coating, paint correction, and more. Call 352-931-4860.
+---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is Diamond Auto Spa located?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We are based in Eustis, FL (32726) and operate as a fully mobile service. There is no shop to drop your vehicle off at. Andrew comes to your home, office, or wherever your vehicle is parked throughout Lake County and Central Florida." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book an appointment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Call or text 352-931-4860 or fill out the quote form at diamondautospallc.com. We respond fast, give you an honest quote, and get you on the schedule quickly. Available 7 days a week, 7 AM to 8 PM." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does auto detailing cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on the service, vehicle size, and condition. We assess each vehicle individually and give you a clear price before any work begins. Call or text 352-931-4860 for a quote. No surprise add-ons." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be home during the appointment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we handle everything and send you photos when the job is done." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is ceramic coating worth it for a Florida vehicle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, arguably more so in Florida than anywhere else in the country. The UV index in Central Florida is relentless and without serious protection, clear coats oxidize and fade within a few years. Ceramic coating is the strongest barrier available and makes the vehicle dramatically easier to keep clean week to week." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does ceramic coating last?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A properly applied professional ceramic coating typically lasts 2 to 5 years depending on the product used, how the vehicle is washed, and the level of environmental exposure. Andrew walks you through maintenance requirements before leaving." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you remove odors from a car interior?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Steam cleaning and hot water extraction remove the source of most odors rather than masking them. For persistent odors from smoke, mildew, or pets, we use an odor eliminator treatment as part of the service." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you remove pet hair?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pet hair removal is one of the most common requests we get. We use professional-grade tools to extract embedded hair from carpet fibers and upholstery before shampooing, which gets results a regular vacuum cannot achieve." }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --blue: #5BA3C7;
+    --black: #000;
+    --charcoal: #0d0d0d;
+    --border: #1a1a1a;
+    --muted: #555;
+  }
+
+  /* ── HERO ── */
+  .faq-hero {
+    background: #000;
+    padding: 7rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #111;
+  }
+  .faq-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(91,163,199,0.11) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .faq-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fuFadeUp 0.6s 0.1s ease forwards;
+  }
+  .faq-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    color: #fff;
+    margin-bottom: 0.6rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fuFadeUp 0.6s 0.25s ease forwards;
+  }
+  .faq-hero p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #555;
+    font-size: 1.05rem;
+    position: relative; z-index: 2;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fuFadeUp 0.6s 0.4s ease forwards;
+  }
+  .faq-hero-cta {
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fuFadeUp 0.6s 0.55s ease forwards;
+  }
+  .faq-hero-cta a {
+    display: inline-block;
+    padding: 0.8rem 2.2rem;
+    background: var(--blue);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+  .faq-hero-cta a:hover { background: #fff; color: #000; }
+  @keyframes fuFadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: #000;
+    padding: 1rem 2rem;
+    font-size: 0.82rem;
+    color: #444;
+    border-bottom: 1px solid #111;
+  }
+  .breadcrumb a { color: #555; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--blue); }
+
+  /* ── JUMP NAV ── */
+  .faq-jumpnav {
+    background: var(--charcoal);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .faq-jumpnav-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #333;
+    margin-right: 0.4rem;
+  }
+  .faq-jumpnav a {
+    padding: 0.35rem 1rem;
+    border: 1px solid #222;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.18s;
+  }
+  .faq-jumpnav a:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: rgba(91,163,199,0.06);
+  }
+
+  /* ── PAGE BODY ── */
+  .faq-body {
+    background: var(--black);
+    padding: 4rem 2rem 5rem;
+  }
+  .faq-body-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── CATEGORY SECTION ── */
+  .faq-category {
+    margin-bottom: 4rem;
+    scroll-margin-top: 80px;
+  }
+  .faq-category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .faq-category-icon {
+    width: 36px; height: 36px;
+    background: rgba(91,163,199,0.1);
+    border: 1px solid rgba(91,163,199,0.25);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+  .faq-category h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 0;
+  }
+
+  /* ── ACCORDION ITEM ── */
+  .faq-item {
+    border-bottom: 1px solid #111;
+  }
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+  }
+  .faq-q:hover { background: rgba(255,255,255,0.02); }
+  .faq-q-text {
+    font-size: 0.97rem;
+    color: #ccc;
+    font-weight: 600;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .faq-q.open .faq-q-text { color: #fff; }
+  .faq-icon {
+    width: 22px; height: 22px;
+    border: 1px solid #2a2a2a;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: background 0.2s, border-color 0.2s, transform 0.25s;
+    font-size: 0.75rem;
+    color: #555;
+    font-weight: 700;
+  }
+  .faq-q.open .faq-icon {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #000;
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    display: none;
+    padding: 0 0 1.4rem 0;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #666;
+  }
+  .faq-a.open { display: block; }
+  .faq-a a { color: var(--blue); text-decoration: none; }
+  .faq-a a:hover { text-decoration: underline; }
+
+  /* ── STILL HAVE QUESTIONS ── */
+  .faq-contact-band {
+    background: var(--charcoal);
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .faq-contact-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .faq-contact-band p { color: #555; font-size: 0.95rem; margin-bottom: 1.8rem; }
+  .faq-contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .faq-contact-btns a {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .faq-contact-btns a.primary { background: var(--blue); color: #000; }
+  .faq-contact-btns a.primary:hover { background: #fff; color: #000; }
+  .faq-contact-btns a.outline { background: transparent; border: 1px solid #333; color: #666; }
+  .faq-contact-btns a.outline:hover { border-color: var(--blue); color: var(--blue); }
+
+  @media (max-width: 600px) {
+    .faq-jumpnav { gap: 0.4rem; }
+    .faq-contact-btns { flex-direction: column; align-items: center; }
+  }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; FAQ
+</div>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <div class="faq-eyebrow">Diamond Auto Spa &middot; Eustis, FL</div>
+  <h1>Frequently Asked Questions</h1>
+  <p>Everything you need to know before booking. Can't find an answer? Just call.</p>
+  <div class="faq-hero-cta">
+    <a href="tel:+13529314860">Call 352-931-4860</a>
+  </div>
+</div>
+
+<!-- JUMP NAV -->
+<div class="faq-jumpnav">
+  <span class="faq-jumpnav-label">Jump to:</span>
+  <a href="#booking">Booking</a>
+  <a href="#services">Services</a>
+  <a href="#interior">Interior</a>
+  <a href="#exterior">Exterior</a>
+  <a href="#ceramic">Ceramic Coating</a>
+  <a href="#paint">Paint Repair</a>
+  <a href="#headlights">Headlights</a>
+  <a href="#engine">Engine</a>
+  <a href="#florida">Florida &amp; UV</a>
+</div>
+
+<!-- FAQ BODY -->
+<div class="faq-body">
+  <div class="faq-body-inner">
+
+    <!-- ── BOOKING ── -->
+    <div class="faq-category" id="booking">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#128222;</div>
+        <h2>Booking &amp; Pricing</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How do I book an appointment?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Call or text <a href="tel:+13529314860">352-931-4860</a> or fill out the quote form at <a href="/#contact">diamondautospallc.com</a>. We respond fast, give you an honest quote, and get you on the schedule quickly. Available 7 days a week, 7 AM to 8 PM.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How much does it cost?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Pricing depends on the service, vehicle size, and condition. We assess each vehicle individually and give you a clear price before any work begins. There are no surprise add-ons and no upselling into services you do not need. What we quote is what you pay. Call or text <a href="tel:+13529314860">352-931-4860</a> for a quote.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How quickly can I get an appointment?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">In most cases we can get you scheduled within a few days. Eustis and the immediate surrounding area is our fastest zone. Call or text to check current availability. We are available 7 days a week, 7 AM to 8 PM.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do I need to be home during the appointment?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">No. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we handle everything and send you photos when the job is done.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is there a travel fee?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">For most of our service area there is no travel fee. For distant or rural locations like Altoona or Madeira Beach, a small travel fee may apply. We are always upfront about this when you call for a quote so there are no surprises when we arrive.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What days and hours are you available?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Monday through Sunday, 7 AM to 8 PM. We schedule around your life, not the other way around.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do you work on boats and motorcycles?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Andrew has detailed boats, motorcycles, and other vehicles in addition to cars and trucks. Call or text to discuss your specific vehicle and we will walk you through what is possible.</div>
+      </div>
+
+    </div>
+
+    <!-- ── SERVICES ── -->
+    <div class="faq-category" id="services">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#10003;</div>
+        <h2>General Service Questions</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Where are you located? Do you have a shop?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">We are based in Eustis, FL (32726) and operate as a fully mobile service. There is no shop to drop your vehicle off at because one is not needed. Andrew arrives at your home, office, or wherever your vehicle is parked, fully equipped with everything needed to complete the job on-site.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What areas do you serve?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">We serve Lake County and surrounding Central Florida including Eustis, Mount Dora, Tavares, Leesburg, Lady Lake, Clermont, Apopka, Altoona, Umatilla, and Madeira Beach. Call to confirm availability for your specific location. See our <a href="/service-area/">service areas page</a> for full details.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What does a full detail include?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">It depends on which service you choose. A full interior detail covers steam cleaning, hot water extraction, leather conditioning, odor removal, and every interior surface. A full exterior detail covers hand wash, iron decontamination, clay bar, machine polish, and paint protection. Combined packages cover everything. We walk you through exactly what is included when you call for a quote so there are no surprises. See individual <a href="/services/">service pages</a> for full details.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do you need water or power at the location?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Andrew arrives fully self-sufficient with his own water supply, power source, and all tools and products needed to complete the job. You do not need to provide anything. Just the vehicle and a space to work.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">I'm not sure which service my vehicle needs. How do I decide?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Call or text and describe what is bothering you about the vehicle. Most customers start with a description of what they are seeing or smelling and get a clear recommendation with no pressure. If your paint is dull and scratched that is a different conversation than if your interior smells. The right service depends on your specific vehicle and what it has been through.</div>
+      </div>
+
+    </div>
+
+    <!-- ── INTERIOR ── -->
+    <div class="faq-category" id="interior">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#127968;</div>
+        <h2>Interior Detailing</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does an interior detail take?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Most interior details take between 3 and 6 hours depending on vehicle size and condition. Heavily soiled vehicles or those with deep staining, pet hair, or mold may take longer. Andrew does not rush. The job is finished when it is done right.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you remove pet hair?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Pet hair removal is one of the most common requests we get. We use professional-grade tools to extract embedded hair from carpet fibers and upholstery before shampooing, getting results a regular vacuum cannot achieve.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you remove odors?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Steam cleaning and hot water extraction remove the source of most odors rather than masking them. For persistent odors from smoke, mildew, or pets, we use an odor eliminator treatment as part of the service. Most customers notice a dramatic difference immediately after the detail.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you remove stains from seats and carpet?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Hot water extraction combined with professional upholstery shampoo removes the vast majority of stains including food and drink spills, mud, and general soiling. Some stains that have been heat-set over time may not come out completely, but Andrew will give you an honest assessment before starting.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Does Florida heat make interior detailing more important?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Sustained interior temperatures in Florida bake odors deeper into fabric fibers, accelerate leather cracking and drying, and create warm humid conditions between washes that speed mold and mildew growth. Vehicles that park in open sun all day need professional interior attention more regularly than vehicles in cooler or shaded environments.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do you condition leather seats?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Leather conditioning is included in every interior detail. Florida UV and heat dry leather out faster than almost any other climate. Professional conditioning restores moisture, prevents cracking, and leaves the leather supple and protected.</div>
+      </div>
+
+    </div>
+
+    <!-- ── EXTERIOR ── -->
+    <div class="faq-category" id="exterior">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#127774;</div>
+        <h2>Exterior Detailing</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does an exterior detail take?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Most exterior details take between 2 and 5 hours depending on vehicle size and condition. Vehicles with heavy contamination, water spots, or oxidation require more time. Andrew does not rush. The job is finished when it is done right.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What is the difference between a wash and an exterior detail?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">A wash removes loose surface dirt. An exterior detail goes much further: iron decontamination dissolves embedded metallic particles, clay bar removes bonded surface contamination, machine polishing corrects paint defects, and a protective sealant or wax is applied at the end. The result lasts months, not days.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you remove water spots from paint?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Most water spots are mineral deposits left behind when water evaporates on paint. We use clay bar and targeted chemical treatment to remove them before polishing. Severe etched water spots that have been baked in over multiple seasons may require paint correction to fully address.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What protection is applied at the end of an exterior detail?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">After polishing, either a synthetic paint sealant or a carnauba wax is applied to all painted surfaces. This creates a UV and contamination barrier that protects the work done during the detail and extends how long the finish stays clean and protected. For longer-lasting protection, ceramic coating is the stronger option.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you remove tree sap, tar, and bug splatter?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Clay bar treatment lifts bonded contaminants including tree sap, road tar, bug residue, and industrial fallout that washing alone cannot remove. Bug residue in particular is acidic and bonds fast in Florida heat. The sooner it is removed the less chance it has to etch into the clear coat underneath.</div>
+      </div>
+
+    </div>
+
+    <!-- ── CERAMIC ── -->
+    <div class="faq-category" id="ceramic">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#128142;</div>
+        <h2>Ceramic Coating</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is ceramic coating worth it for a Florida vehicle?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes, arguably more so in Florida than anywhere else in the country. The UV index in Central Florida is relentless and without serious protection, clear coats oxidize and fade within a few years. Ceramic coating is the strongest UV barrier available and also makes the vehicle dramatically easier to keep clean week to week by creating a hydrophobic surface that sheds water and contaminants faster.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does ceramic coating last?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">A properly applied professional ceramic coating typically lasts 2 to 5 years depending on the product used, how the vehicle is washed and maintained, and the level of environmental exposure. Andrew walks you through maintenance requirements before leaving so the coating holds as long as possible.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Does the paint need to be corrected before coating?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Ceramic coating locks in whatever the paint looks like at time of application. Swirl marks, water etching, oxidation, and scratches will be preserved under the coating permanently if the paint is not corrected first. Andrew will not apply coating to paint that has not been properly prepared.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does ceramic coating take to apply?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">A full ceramic coating job including decontamination and paint correction typically takes a full day — often 8 hours or more depending on paint condition. Andrew has spent full days on single vehicles to get the preparation right. It is not a rushed service.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What is the cure time after ceramic coating?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Typically 24 hours before any moisture exposure and 7 to 14 days before a full wash. Andrew walks you through the specific cure requirements before leaving. Following the cure protocol correctly is what separates a coating that lasts 2 to 5 years from one that degrades in months.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How do I wash a coated vehicle?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Two-bucket hand wash using a pH-neutral soap designed for coated vehicles. Avoid automatic car washes, harsh chemicals, and abrasive wash media. Andrew covers proper wash technique before leaving every coating job. The wash approach is one of the biggest factors in how long the coating performs.</div>
+      </div>
+
+    </div>
+
+    <!-- ── PAINT REPAIR ── -->
+    <div class="faq-category" id="paint">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#9733;</div>
+        <h2>Paint Repair</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What is paint repair / paint correction?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Paint repair is the process of restoring a vehicle's clear coat using machine polishing compounds. Swirl marks, light scratches, water etching, and UV oxidation all live in the top layer of clear coat. Machine polishing removes a controlled amount of that layer to eliminate the defects, leaving a smooth, reflective surface that looks dramatically better. The result is not a respray or touch-up. It is the original paint restored.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can you fix deep scratches?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">It depends on how deep the scratch is. Scratches that are still within the clear coat layer can be polished out entirely. Scratches that have cut through the clear coat into the base coat or primer cannot be fully removed by polishing alone. Andrew inspects every vehicle before starting and tells you honestly what is achievable.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does paint repair take?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">A single-stage correction typically takes 4 to 8 hours. A full multi-stage repair on heavily defected or oxidized paint can take a full day or more. The job takes as long as the paint requires. Andrew does not rush.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is paint repair worth it on a Florida vehicle?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes, particularly in Central Florida where UV oxidation, hard water from afternoon storms, and pollen accelerate paint damage faster than most of the country. Paint repair restores the finish to a condition most owners have not seen in years at a fraction of the cost of a respray. Following it up with a ceramic coating or paint sealant locks in the result and slows how quickly the conditions come back.</div>
+      </div>
+
+    </div>
+
+    <!-- ── HEADLIGHTS ── -->
+    <div class="faq-category" id="headlights">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#128161;</div>
+        <h2>Headlight Polishing</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Why do headlights turn yellow and cloudy?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Factory headlight lenses are polycarbonate plastic with a UV-protective coating applied at the factory. Florida UV destroys that factory coating faster than almost anywhere else in the country. Once the coating breaks down, UV begins oxidizing the plastic itself, producing the yellow, cloudy, pitted surface that reduces light output and fails safety inspections in severe cases.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can headlight polishing fully restore cloudy lenses?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">In most cases yes. Wet sanding removes the damaged outer layer and progressive polishing restores clarity. A UV sealant is applied afterward to replace the factory protection that broke down. Andrew assesses the lenses before starting and lets you know what to expect.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does headlight polishing last?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">With a professional UV sealant applied, results typically last 1 to 3 years depending on UV exposure and washing habits. Without a sealant, lenses re-oxidize within months in the Florida climate. The sealant applied after polishing is what determines how long the result holds.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is headlight polishing better than buying new headlights?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">For most vehicles yes. Replacement headlight assemblies for modern vehicles often cost $200 to $800 or more per side. Professional headlight polishing restores original lenses to near-new clarity at a fraction of the replacement cost. The result is indistinguishable from new in most cases.</div>
+      </div>
+
+    </div>
+
+    <!-- ── ENGINE ── -->
+    <div class="faq-category" id="engine">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#9881;</div>
+        <h2>Engine Detailing</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Is it safe to wash an engine bay?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes, when done correctly. Modern engine bays are designed to handle moisture. The key is proper preparation: sensitive electrical components and air intakes are covered before any water is introduced, a low-pressure rinse is used rather than a pressure washer, and the engine is allowed to dry thoroughly before starting. Andrew has cleaned hundreds of engine bays without incident using this approach.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does engine detailing take?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Most engine detailing jobs take between 1 and 2 hours depending on how dirty the bay is and how much degreaser dwell time is needed. Very neglected bays with thick grease accumulation may require additional time.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Why should I get my engine detailed?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Three main reasons. First, a clean engine bay makes it much easier to spot oil leaks, coolant leaks, and fluid issues before they become serious problems. Second, accumulated grease and grime traps heat around components. Third, it makes a strong impression if you are selling the vehicle or having underhood work done. A clean bay signals a well-maintained car.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Does Florida heat make engine detailing more important?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. Sustained under-hood temperatures in Florida bake grease and oil residue onto surfaces harder and faster than cooler climates. Heat-baked deposits require longer degreaser dwell times and more thorough agitation to remove. The protectant applied to rubber and plastic components after a professional engine detail provides real preventive value in Florida operating conditions.</div>
+      </div>
+
+    </div>
+
+    <!-- ── FLORIDA & UV ── -->
+    <div class="faq-category" id="florida">
+      <div class="faq-category-header">
+        <div class="faq-category-icon">&#9728;</div>
+        <h2>Florida &amp; UV Conditions</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Why do Florida vehicles need more frequent detailing?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Central Florida UV is among the most intense in the country year-round. Combined with high humidity, afternoon storms that deposit minerals on paint, pollen from oak canopies, bug accumulation on major corridors, and road salt for coastal vehicles, the environment works against every surface of a Florida vehicle more aggressively than most other climates. Regular professional detailing slows the damage that accumulates between washes.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can UV damage be reversed?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes, in most cases. UV oxidation that has affected the clear coat layer can be removed through machine polishing. Paint correction removes the damaged outer layer and restores reflectivity and depth. Once corrected, a ceramic coating or sealant applied immediately afterward is the most effective way to prevent the same damage from returning quickly.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do water spots from Florida rain damage paint?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes, over time. Florida afternoon storms leave mineral-laden water on paint surfaces and the heat bakes those deposits in within the hour. Repeated cycles of water spotting and baking gradually etch into the clear coat, especially on horizontal surfaces like hoods and roofs. Clay bar treatment removes bonded mineral deposits. Severe etching requires paint correction. A ceramic coating or sealant applied over protected paint significantly reduces how quickly water spots accumulate and bond.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How does oak pollen affect paint in Lake County?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Oak pollen is a specific seasonal problem for vehicles parked under the tree canopy common throughout Lake County. Pollen contains mild tannins that etch into unprotected clear coat when baked in by Florida heat and left between washes. Vehicles under oak canopy on streets like Dixie Avenue in Leesburg or near the lakes in Eustis and Mount Dora deal with this every spring season. Clay bar treatment removes bonded pollen deposits. Ceramic coating creates a surface that pollen sits on top of rather than bonding into.</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- STILL HAVE QUESTIONS -->
+<div class="faq-contact-band">
+  <h2>Still Have a Question?</h2>
+  <p>Call or text Andrew directly. We give you a straight answer and an honest quote with no pressure.</p>
+  <div class="faq-contact-btns">
+    <a href="tel:+13529314860" class="primary">Call 352-931-4860</a>
+    <a href="/#contact" class="outline">Send a Message</a>
+  </div>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+
+    // Close all open ones first
+    document.querySelectorAll('.faq-q.open').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+
+    // If it wasn't open, open it
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+</script>

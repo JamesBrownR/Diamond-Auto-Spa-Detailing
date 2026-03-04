@@ -1,1 +1,173 @@
+---
+layout: services
+title: Photo Gallery | Diamond Auto Spa Detailing Results
+description: Browse before and after photos from Diamond Auto Spa mobile detailing jobs across Lake County and Orange County, FL. Ceramic coatings, interior deep cleans, paint correction, and more.
+---
 
+<div class="breadcrumb">
+    <a href="/">Home</a> &rsaquo; Gallery
+</div>
+
+<div class="service-hero" style="background: #000; border-bottom: 1px solid #1a1a1a; padding: 6rem 2rem 5rem; text-align: center;">
+    <div class="service-hero-eyebrow">Before &amp; After &middot; Real Customer Vehicles &middot; Central Florida</div>
+    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: #fff; margin-bottom: 1rem;">Results Speak For Themselves</h1>
+    <p style="font-family: 'Playfair Display', serif; font-style: italic; color: #888; font-size: 1.1rem; max-width: 560px; margin: 0 auto;">Every vehicle below is a real customer job. No studio setups, no stock photos.</p>
+</div>
+
+<div style="background: #000; padding: 4rem 2rem 0;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 1.6rem; margin-bottom: 0.4rem; text-align: center;">Before &amp; After</h2>
+        <p style="text-align: center; color: #555; font-size: 0.9rem; margin-bottom: 2.5rem; font-style: italic;">Drag the slider to reveal the transformation</p>
+
+        <div class="ba-grid">
+            <div class="img-comp-container ba-item">
+                <div class="img-comp-img">
+                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After3.png" alt="Clean car seat upholstery after professional detailing" loading="lazy">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before3.png" alt="Dirty car seat upholstery before professional detailing" loading="lazy">
+                </div>
+            </div>
+            <div class="img-comp-container ba-item">
+                <div class="img-comp-img">
+                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After1.png" alt="Clean car floor and seats after detailing" loading="lazy">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before1.png" alt="Dirty car floor before detailing" loading="lazy">
+                </div>
+            </div>
+            <div class="img-comp-container ba-item">
+                <div class="img-comp-img">
+                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After2.png" alt="Restored car carpet after deep cleaning" loading="lazy">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before2.png" alt="Stained car carpet before deep cleaning" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background: #000; padding: 5rem 2rem;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 1.6rem; margin-bottom: 0.4rem; text-align: center;">All Work</h2>
+        <p style="text-align: center; color: #555; font-size: 0.9rem; margin-bottom: 2.5rem; font-style: italic;">Click any image to zoom</p>
+
+        <div class="gallery-grid">
+            {% for item in site.data.gallery %}
+            <div class="gallery-item{% if item.extra %} hidden{% endif %}{% if item.mobile_only %} hidden-desktop{% endif %}"
+                onclick="openLightbox('{{ item.path }}')"
+                {% if item.extra %}data-gallery-extra{% endif %}>
+                <img src="/Pics/{{ item.filename }}" alt="{{ item.alt }}" loading="lazy">
+            </div>
+            {% endfor %}
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+            <button class="show-more-btn" id="galleryBtn">Show More Work</button>
+            <button class="show-more-btn hidden" id="galleryLessBtn">Show Less</button>
+        </div>
+    </div>
+</div>
+
+<div id="myLightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" alt="Enlarged gallery photo">
+</div>
+
+<style>
+.ba-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+    .ba-grid { grid-template-columns: 1fr; }
+}
+.ba-item {
+    height: 340px;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #1a1a1a;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gallery show more
+    const galleryBtn = document.getElementById('galleryBtn');
+    const galleryLessBtn = document.getElementById('galleryLessBtn');
+    const extraItems = document.querySelectorAll('[data-gallery-extra]');
+
+    if (galleryBtn) {
+        galleryBtn.addEventListener('click', function() {
+            extraItems.forEach(el => el.classList.remove('hidden'));
+            galleryBtn.classList.add('hidden');
+            galleryLessBtn.classList.remove('hidden');
+        });
+    }
+    if (galleryLessBtn) {
+        galleryLessBtn.addEventListener('click', function() {
+            extraItems.forEach(el => el.classList.add('hidden'));
+            galleryLessBtn.classList.add('hidden');
+            galleryBtn.classList.remove('hidden');
+        });
+    }
+
+    // Before/after sliders
+    const containers = document.querySelectorAll('.img-comp-container');
+    containers.forEach(function(container) {
+        initCompare(container);
+    });
+
+    function initCompare(container) {
+        let clicked = 0;
+        const overlay = container.querySelector('.img-comp-overlay');
+        const slider = document.createElement('div');
+        slider.setAttribute('class', 'img-comp-slider');
+        container.appendChild(slider);
+
+        function updateSizes() {
+            const w = container.offsetWidth;
+            const h = container.offsetHeight;
+            container.querySelectorAll('img').forEach(function(img) {
+                img.style.width = w + 'px';
+                img.style.height = h + 'px';
+            });
+            slider.style.left = (w / 2) - (slider.offsetWidth / 2) + 'px';
+            overlay.style.width = (w / 2) + 'px';
+        }
+        updateSizes();
+        window.addEventListener('resize', updateSizes);
+
+        slider.addEventListener('mousedown', function(e) { clicked = 1; });
+        slider.addEventListener('touchstart', function(e) { clicked = 1; });
+        window.addEventListener('mouseup', function() { clicked = 0; });
+        window.addEventListener('touchend', function() { clicked = 0; });
+
+        window.addEventListener('mousemove', function(e) {
+            if (!clicked) return;
+            move(e.pageX);
+        });
+        window.addEventListener('touchmove', function(e) {
+            if (!clicked) return;
+            move(e.changedTouches[0].pageX);
+        });
+
+        function move(x) {
+            const rect = container.getBoundingClientRect();
+            let pos = x - rect.left;
+            pos = Math.max(0, Math.min(pos, container.offsetWidth));
+            overlay.style.width = pos + 'px';
+            slider.style.left = pos - (slider.offsetWidth / 2) + 'px';
+        }
+    }
+});
+</script>
+
+<div class="footer-cta-band">
+    <h2>Ready to Add Your Vehicle to This Gallery?</h2>
+    <p>We come to you fully equipped. Lake County, Orange County, and the Gulf Coast.</p>
+    <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
+</div>

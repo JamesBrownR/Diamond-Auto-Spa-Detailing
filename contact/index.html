@@ -1,53 +1,31 @@
 ---
 layout: default
-title: Frequently Asked Questions | Diamond Auto Spa Detailing
-description: Answers to common questions about mobile auto detailing in Lake County, FL. Pricing, booking, services, ceramic coating, paint correction, and more. Call 352-931-4860.
+title: Contact | Diamond Auto Spa Detailing
+description: Book mobile auto detailing in Lake County, FL. Call or text 352-931-4860. Available 7 days a week, 7 AM to 8 PM. Serving Eustis, Mount Dora, Tavares, Leesburg, and surrounding areas.
 ---
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@type": "AutoDetailing",
+  "name": "Diamond Auto Spa Detailing",
+  "telephone": "+1-352-931-4860",
+  "email": "diamondautospa.fl23@gmail.com",
+  "url": "https://diamondautospallc.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mobile Service",
+    "addressLocality": "Eustis",
+    "addressRegion": "FL",
+    "postalCode": "32726",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
     {
-      "@type": "Question",
-      "name": "Where is Diamond Auto Spa located?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We are based in Eustis, FL (32726) and operate as a fully mobile service. There is no shop to drop your vehicle off at. Andrew comes to your home, office, or wherever your vehicle is parked throughout Lake County and Central Florida." }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I book an appointment?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Call or text 352-931-4860 or fill out the quote form at diamondautospallc.com. We respond fast, give you an honest quote, and get you on the schedule quickly. Available 7 days a week, 7 AM to 8 PM." }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does auto detailing cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on the service, vehicle size, and condition. We assess each vehicle individually and give you a clear price before any work begins. Call or text 352-931-4860 for a quote. No surprise add-ons." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to be home during the appointment?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we handle everything and send you photos when the job is done." }
-    },
-    {
-      "@type": "Question",
-      "name": "Is ceramic coating worth it for a Florida vehicle?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes, arguably more so in Florida than anywhere else in the country. The UV index in Central Florida is relentless and without serious protection, clear coats oxidize and fade within a few years. Ceramic coating is the strongest barrier available and makes the vehicle dramatically easier to keep clean week to week." }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does ceramic coating last?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A properly applied professional ceramic coating typically lasts 2 to 5 years depending on the product used, how the vehicle is washed, and the level of environmental exposure. Andrew walks you through maintenance requirements before leaving." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you remove odors from a car interior?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Steam cleaning and hot water extraction remove the source of most odors rather than masking them. For persistent odors from smoke, mildew, or pets, we use an odor eliminator treatment as part of the service." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you remove pet hair?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pet hair removal is one of the most common requests we get. We use professional-grade tools to extract embedded hair from carpet fibers and upholstery before shampooing, which gets results a regular vacuum cannot achieve." }
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "20:00"
     }
   ]
 }
@@ -63,7 +41,7 @@ description: Answers to common questions about mobile auto detailing in Lake Cou
   }
 
   /* ── HERO ── */
-  .faq-hero {
+  .ct-hero {
     background: #000;
     padding: 7rem 2rem 4rem;
     text-align: center;
@@ -71,14 +49,14 @@ description: Answers to common questions about mobile auto detailing in Lake Cou
     overflow: hidden;
     border-bottom: 1px solid #111;
   }
-  .faq-hero::before {
+  .ct-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image: radial-gradient(rgba(91,163,199,0.11) 1px, transparent 1px);
     background-size: 24px 24px;
   }
-  .faq-eyebrow {
+  .ct-eyebrow {
     display: inline-block;
     font-size: 0.78rem;
     font-weight: 700;
@@ -88,46 +66,27 @@ description: Answers to common questions about mobile auto detailing in Lake Cou
     margin-bottom: 1rem;
     position: relative; z-index: 2;
     opacity: 0;
-    animation: fuFadeUp 0.6s 0.1s ease forwards;
+    animation: ctFadeUp 0.6s 0.1s ease forwards;
   }
-  .faq-hero h1 {
+  .ct-hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 5vw, 3.4rem);
     color: #fff;
     margin-bottom: 0.6rem;
     position: relative; z-index: 2;
     opacity: 0;
-    animation: fuFadeUp 0.6s 0.25s ease forwards;
+    animation: ctFadeUp 0.6s 0.25s ease forwards;
   }
-  .faq-hero p {
+  .ct-hero p {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     color: #555;
     font-size: 1.05rem;
     position: relative; z-index: 2;
-    margin-bottom: 2rem;
     opacity: 0;
-    animation: fuFadeUp 0.6s 0.4s ease forwards;
+    animation: ctFadeUp 0.6s 0.4s ease forwards;
   }
-  .faq-hero-cta {
-    position: relative; z-index: 2;
-    opacity: 0;
-    animation: fuFadeUp 0.6s 0.55s ease forwards;
-  }
-  .faq-hero-cta a {
-    display: inline-block;
-    padding: 0.8rem 2.2rem;
-    background: var(--blue);
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.88rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: background 0.2s, color 0.2s;
-  }
-  .faq-hero-cta a:hover { background: #fff; color: #000; }
-  @keyframes fuFadeUp {
+  @keyframes ctFadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
   }
@@ -143,676 +102,427 @@ description: Answers to common questions about mobile auto detailing in Lake Cou
   .breadcrumb a { color: #555; text-decoration: none; }
   .breadcrumb a:hover { color: var(--blue); }
 
-  /* ── JUMP NAV ── */
-  .faq-jumpnav {
-    background: var(--charcoal);
-    border-bottom: 1px solid #1a1a1a;
-    padding: 1rem 2rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .faq-jumpnav-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #333;
-    margin-right: 0.4rem;
-  }
-  .faq-jumpnav a {
-    padding: 0.35rem 1rem;
-    border: 1px solid #222;
-    color: #555;
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.18s;
-  }
-  .faq-jumpnav a:hover {
-    border-color: var(--blue);
-    color: var(--blue);
-    background: rgba(91,163,199,0.06);
-  }
-
-  /* ── PAGE BODY ── */
-  .faq-body {
+  /* ── MAIN LAYOUT ── */
+  .ct-body {
     background: var(--black);
     padding: 4rem 2rem 5rem;
   }
-  .faq-body-inner {
-    max-width: 860px;
+  .ct-inner {
+    max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .ct-inner { grid-template-columns: 1fr; }
+    .ct-sidebar { order: -1; }
   }
 
-  /* ── CATEGORY SECTION ── */
-  .faq-category {
-    margin-bottom: 4rem;
-    scroll-margin-top: 80px;
-  }
-  .faq-category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.6rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #1a1a1a;
-  }
-  .faq-category-icon {
-    width: 36px; height: 36px;
-    background: rgba(91,163,199,0.1);
-    border: 1px solid rgba(91,163,199,0.25);
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    font-size: 1rem;
-  }
-  .faq-category h2 {
+  /* ── FORM COLUMN ── */
+  .ct-form-wrap h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: #fff;
-    margin: 0;
+    margin-bottom: 0.4rem;
+  }
+  .ct-form-wrap > p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
   }
 
-  /* ── ACCORDION ITEM ── */
-  .faq-item {
-    border-bottom: 1px solid #111;
-  }
-  .faq-item:last-child { border-bottom: none; }
+  /* form */
+  .ct-form { display: flex; flex-direction: column; gap: 1.2rem; }
 
-  .faq-q {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 1.25rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.15s;
+  .ct-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
   }
-  .faq-q:hover { background: rgba(255,255,255,0.02); }
-  .faq-q-text {
-    font-size: 0.97rem;
-    color: #ccc;
-    font-weight: 600;
-    line-height: 1.45;
-    flex: 1;
-  }
-  .faq-q.open .faq-q-text { color: #fff; }
-  .faq-icon {
-    width: 22px; height: 22px;
-    border: 1px solid #2a2a2a;
-    border-radius: 2px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-    transition: background 0.2s, border-color 0.2s, transform 0.25s;
-    font-size: 0.75rem;
-    color: #555;
+  @media (max-width: 540px) { .ct-row { grid-template-columns: 1fr; } }
+
+  .ct-field { display: flex; flex-direction: column; gap: 0.45rem; }
+  .ct-field label {
+    font-size: 0.78rem;
     font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555;
   }
-  .faq-q.open .faq-icon {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: #000;
-    transform: rotate(45deg);
-  }
-
-  .faq-a {
-    display: none;
-    padding: 0 0 1.4rem 0;
+  .ct-field input,
+  .ct-field select,
+  .ct-field textarea {
+    background: #080808;
+    border: 1px solid #1e1e1e;
+    color: #ccc;
+    padding: 0.85rem 1rem;
     font-size: 0.92rem;
-    line-height: 1.75;
-    color: #666;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
   }
-  .faq-a.open { display: block; }
-  .faq-a a { color: var(--blue); text-decoration: none; }
-  .faq-a a:hover { text-decoration: underline; }
+  .ct-field input::placeholder,
+  .ct-field textarea::placeholder { color: #333; }
+  .ct-field input:focus,
+  .ct-field select:focus,
+  .ct-field textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+  .ct-field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23555' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+  .ct-field select option { background: #111; color: #ccc; }
+  .ct-field textarea { height: 130px; resize: vertical; }
 
-  /* ── STILL HAVE QUESTIONS ── */
-  .faq-contact-band {
-    background: var(--charcoal);
-    border-top: 1px solid #1a1a1a;
-    border-bottom: 1px solid #1a1a1a;
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  .faq-contact-band h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
-    color: #fff;
-    margin-bottom: 0.5rem;
-  }
-  .faq-contact-band p { color: #555; font-size: 0.95rem; margin-bottom: 1.8rem; }
-  .faq-contact-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .faq-contact-btns a {
+  .ct-submit {
     display: inline-block;
-    padding: 0.85rem 2.2rem;
+    padding: 1rem 3rem;
+    background: var(--blue);
+    color: #000;
+    border: none;
     font-weight: 700;
     font-size: 0.88rem;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-family: inherit;
+    align-self: flex-start;
   }
-  .faq-contact-btns a.primary { background: var(--blue); color: #000; }
-  .faq-contact-btns a.primary:hover { background: #fff; color: #000; }
-  .faq-contact-btns a.outline { background: transparent; border: 1px solid #333; color: #666; }
-  .faq-contact-btns a.outline:hover { border-color: var(--blue); color: var(--blue); }
+  .ct-submit:hover { background: #fff; color: #000; }
 
-  @media (max-width: 600px) {
-    .faq-jumpnav { gap: 0.4rem; }
-    .faq-contact-btns { flex-direction: column; align-items: center; }
+  .ct-note {
+    font-size: 0.78rem;
+    color: #333;
+    margin-top: 0.5rem;
   }
+
+  /* success state */
+  .ct-success {
+    display: none;
+    padding: 1.5rem;
+    border: 1px solid #1e1e1e;
+    border-left: 3px solid var(--blue);
+    background: #080808;
+    font-size: 0.92rem;
+    color: #aaa;
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+  .ct-success strong { color: #fff; display: block; margin-bottom: 0.3rem; }
+
+  /* ── SIDEBAR ── */
+  .ct-sidebar { display: flex; flex-direction: column; gap: 1.5px; }
+
+  .ct-card {
+    background: #080808;
+    border: 1px solid #111;
+    padding: 1.8rem 1.6rem;
+  }
+  .ct-card + .ct-card { border-top: none; }
+
+  .ct-card-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* phone */
+  .ct-phone {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+    transition: color 0.2s;
+  }
+  .ct-phone:hover { color: var(--blue); }
+  .ct-phone-sub { font-size: 0.78rem; color: #333; }
+
+  /* email */
+  .ct-email {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    text-decoration: none;
+    margin-top: 1.2rem;
+    transition: color 0.2s;
+    word-break: break-all;
+  }
+  .ct-email:hover { color: var(--blue); }
+
+  /* hours table */
+  .ct-hours {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .ct-hours tr { border-bottom: 1px solid #111; }
+  .ct-hours tr:last-child { border-bottom: none; }
+  .ct-hours td { padding: 0.55rem 0; color: #666; }
+  .ct-hours td:last-child { text-align: right; color: #aaa; }
+
+  /* service areas */
+  .ct-areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ct-areas li { font-size: 0.85rem; }
+  .ct-areas a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .ct-areas a::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ct-areas a:hover { color: var(--blue); }
+
+  /* social links */
+  .ct-socials { display: flex; flex-direction: column; gap: 0.6rem; }
+  .ct-social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #1a1a1a;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .ct-social-link:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: rgba(91,163,199,0.04);
+  }
+  .ct-social-link svg { flex-shrink: 0; }
+
+  /* ── STRIP ── */
+  .ct-strip {
+    background: var(--charcoal);
+    border-top: 1px solid #1a1a1a;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .ct-strip p { font-size: 0.88rem; color: #444; margin: 0; line-height: 1.7; }
+  .ct-strip a { color: var(--blue); text-decoration: none; }
+  .ct-strip a:hover { text-decoration: underline; }
 </style>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
-  <a href="/">Home</a> &rsaquo; FAQ
+  <a href="/">Home</a> &rsaquo; Contact
 </div>
 
 <!-- HERO -->
-<div class="faq-hero">
-  <div class="faq-eyebrow">Diamond Auto Spa &middot; Eustis, FL</div>
-  <h1>Frequently Asked Questions</h1>
-  <p>Everything you need to know before booking. Can't find an answer? Just call.</p>
-  <div class="faq-hero-cta">
-    <a href="tel:+13529314860">Call 352-931-4860</a>
-  </div>
+<div class="ct-hero">
+  <div class="ct-eyebrow">Diamond Auto Spa &middot; Eustis, FL</div>
+  <h1>Book Your Detail</h1>
+  <p>Mobile service throughout Lake County and Central Florida. We come to you.</p>
 </div>
 
-<!-- JUMP NAV -->
-<div class="faq-jumpnav">
-  <span class="faq-jumpnav-label">Jump to:</span>
-  <a href="#booking">Booking</a>
-  <a href="#services">Services</a>
-  <a href="#interior">Interior</a>
-  <a href="#exterior">Exterior</a>
-  <a href="#ceramic">Ceramic Coating</a>
-  <a href="#paint">Paint Repair</a>
-  <a href="#headlights">Headlights</a>
-  <a href="#engine">Engine</a>
-  <a href="#florida">Florida &amp; UV</a>
-</div>
+<!-- BODY -->
+<div class="ct-body">
+  <div class="ct-inner">
 
-<!-- FAQ BODY -->
-<div class="faq-body">
-  <div class="faq-body-inner">
+    <!-- ── FORM ── -->
+    <div class="ct-form-wrap">
+      <h2>Request a Free Quote</h2>
+      <p>Fill out the form and Andrew will get back to you quickly with a price and availability. No obligation, no pressure.</p>
 
-    <!-- ── BOOKING ── -->
-    <div class="faq-category" id="booking">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12.18 19.79 19.79 0 0 1 1.38 3.5 2 2 0 0 1 3.36 1.32h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.75-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.21 16.92z"/></svg></div>
-        <h2>Booking &amp; Pricing</h2>
+      <form
+        class="ct-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onsubmit="handleSubmit(event)"
+      >
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="bot-field" style="display:none">
+
+        <div class="ct-row">
+          <div class="ct-field">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" name="first_name" required placeholder="Andrew">
+          </div>
+          <div class="ct-field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Smith">
+          </div>
+        </div>
+
+        <div class="ct-row">
+          <div class="ct-field">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(352) 555-0000">
+          </div>
+          <div class="ct-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="ct-field">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select a service</option>
+            <option value="interior-detailing">Interior Detailing</option>
+            <option value="exterior-detailing">Exterior Detailing</option>
+            <option value="interior-and-exterior">Interior &amp; Exterior (Full Detail)</option>
+            <option value="ceramic-coating">Ceramic Coating</option>
+            <option value="paint-repair">Paint Repair</option>
+            <option value="headlight-polishing">Headlight Polishing</option>
+            <option value="engine-detailing">Engine Detailing</option>
+            <option value="not-sure">Not Sure — Need a Recommendation</option>
+          </select>
+        </div>
+
+        <div class="ct-field">
+          <label for="vehicle">Vehicle Year, Make &amp; Model</label>
+          <input type="text" id="vehicle" name="vehicle" placeholder="2019 Toyota Camry">
+        </div>
+
+        <div class="ct-field">
+          <label for="city">Your City / Location</label>
+          <input type="text" id="city" name="city" placeholder="Eustis, FL">
+        </div>
+
+        <div class="ct-field">
+          <label for="message">Tell Us About Your Vehicle</label>
+          <textarea id="message" name="message" placeholder="Describe what you need or what condition the vehicle is in. The more detail the better."></textarea>
+        </div>
+
+        <button type="submit" class="ct-submit">Send Message</button>
+        <p class="ct-note">Or call or text directly: <a href="tel:+13529314860" style="color:var(--blue);text-decoration:none;">352-931-4860</a></p>
+      </form>
+
+      <div class="ct-success" id="ctSuccess">
+        <strong>Message sent.</strong>
+        Andrew will get back to you shortly with a quote and availability. If you need a faster response, call or text <a href="tel:+13529314860" style="color:var(--blue);">352-931-4860</a> directly.
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How do I book an appointment?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Call or text <a href="tel:+13529314860">352-931-4860</a> or fill out the quote form at <a href="/#contact">diamondautospallc.com</a>. We respond fast, give you an honest quote, and get you on the schedule quickly. Available 7 days a week, 7 AM to 8 PM.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How much does it cost?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Pricing depends on the service, vehicle size, and condition. We assess each vehicle individually and give you a clear price before any work begins. There are no surprise add-ons and no upselling into services you do not need. What we quote is what you pay. Call or text <a href="tel:+13529314860">352-931-4860</a> for a quote.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How quickly can I get an appointment?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">In most cases we can get you scheduled within a few days. Eustis and the immediate surrounding area is our fastest zone. Call or text to check current availability. We are available 7 days a week, 7 AM to 8 PM.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Do I need to be home during the appointment?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">No. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we handle everything and send you photos when the job is done.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Is there a travel fee?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">For most of our service area there is no travel fee. For distant or rural locations like Altoona or Madeira Beach, a small travel fee may apply. We are always upfront about this when you call for a quote so there are no surprises when we arrive.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What days and hours are you available?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Monday through Sunday, 7 AM to 8 PM. We schedule around your life, not the other way around.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Do you work on boats and motorcycles?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Andrew has detailed boats, motorcycles, and other vehicles in addition to cars and trucks. Call or text to discuss your specific vehicle and we will walk you through what is possible.</div>
-      </div>
-
     </div>
 
-    <!-- ── SERVICES ── -->
-    <div class="faq-category" id="services">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h2>General Service Questions</h2>
+    <!-- ── SIDEBAR ── -->
+    <aside class="ct-sidebar">
+
+      <!-- Call / Text -->
+      <div class="ct-card">
+        <span class="ct-card-label">Call or Text</span>
+        <a href="tel:+13529314860" class="ct-phone">352-931-4860</a>
+        <span class="ct-phone-sub">Fastest way to get a quote and get on the schedule</span>
+        <a href="mailto:diamondautospa.fl23@gmail.com" class="ct-email">diamondautospa.fl23@gmail.com</a>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Where are you located? Do you have a shop?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">We are based in Eustis, FL (32726) and operate as a fully mobile service. There is no shop to drop your vehicle off at because one is not needed. Andrew arrives at your home, office, or wherever your vehicle is parked, fully equipped with everything needed to complete the job on-site.</div>
+      <!-- Hours -->
+      <div class="ct-card">
+        <span class="ct-card-label">Hours</span>
+        <table class="ct-hours">
+          <tr><td>Monday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+          <tr><td>Thursday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+          <tr><td>Friday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+          <tr><td>Saturday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+          <tr><td>Sunday</td><td>7:00 AM &ndash; 8:00 PM</td></tr>
+        </table>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What areas do you serve?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">We serve Lake County and surrounding Central Florida including Eustis, Mount Dora, Tavares, Leesburg, Lady Lake, Clermont, Apopka, Altoona, Umatilla, and Madeira Beach. Call to confirm availability for your specific location. See our <a href="/service-area/">service areas page</a> for full details.</div>
+      <!-- Service Areas -->
+      <div class="ct-card">
+        <span class="ct-card-label">Service Areas</span>
+        <ul class="ct-areas">
+          <li><a href="/service-area/eustis-fl/">Eustis, FL</a></li>
+          <li><a href="/service-area/mount-dora-fl/">Mount Dora, FL</a></li>
+          <li><a href="/service-area/tavares-fl/">Tavares, FL</a></li>
+          <li><a href="/service-area/leesburg-fl/">Leesburg, FL</a></li>
+          <li><a href="/service-area/lady-lake-fl/">Lady Lake, FL</a></li>
+          <li><a href="/service-area/clermont-fl/">Clermont, FL</a></li>
+          <li><a href="/service-area/apopka-fl/">Apopka, FL</a></li>
+          <li><a href="/service-area/umatilla-fl/">Umatilla, FL</a></li>
+          <li><a href="/service-area/altoona-fl/">Altoona, FL</a></li>
+          <li><a href="/service-area/madeira-beach-fl/">Madeira Beach, FL</a></li>
+        </ul>
+        <p style="font-size:0.78rem;color:#333;margin-top:1rem;">Based in Eustis. We travel throughout Lake County and Central Florida. Travel fees may apply for distant locations.</p>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What does a full detail include?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">It depends on which service you choose. A full interior detail covers steam cleaning, hot water extraction, leather conditioning, odor removal, and every interior surface. A full exterior detail covers hand wash, iron decontamination, clay bar, machine polish, and paint protection. Combined packages cover everything. We walk you through exactly what is included when you call for a quote so there are no surprises. See individual <a href="/services/">service pages</a> for full details.</div>
+      <!-- Social / Reviews -->
+      <div class="ct-card">
+        <span class="ct-card-label">Find Us Online</span>
+        <div class="ct-socials">
+          <a href="https://www.facebook.com/DiamondAutoSpaFL/" target="_blank" rel="noopener" class="ct-social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook &mdash; Diamond Auto Spa FL
+          </a>
+          <a href="https://www.google.com/search?q=Diamond+Auto+Spa+Detailing+Eustis+FL+reviews" target="_blank" rel="noopener" class="ct-social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Google Reviews &mdash; 63+ Five Stars
+          </a>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Do you need water or power at the location?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Andrew arrives fully self-sufficient with his own water supply, power source, and all tools and products needed to complete the job. You do not need to provide anything. Just the vehicle and a space to work.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">I'm not sure which service my vehicle needs. How do I decide?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Call or text and describe what is bothering you about the vehicle. Most customers start with a description of what they are seeing or smelling and get a clear recommendation with no pressure. If your paint is dull and scratched that is a different conversation than if your interior smells. The right service depends on your specific vehicle and what it has been through.</div>
-      </div>
-
-    </div>
-
-    <!-- ── INTERIOR ── -->
-    <div class="faq-category" id="interior">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M9 21V12h6v9"/><polyline points="1 9 12 2 23 9"/></svg></div>
-        <h2>Interior Detailing</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does an interior detail take?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Most interior details take between 3 and 6 hours depending on vehicle size and condition. Heavily soiled vehicles or those with deep staining, pet hair, or mold may take longer. Andrew does not rush. The job is finished when it is done right.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can you remove pet hair?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Pet hair removal is one of the most common requests we get. We use professional-grade tools to extract embedded hair from carpet fibers and upholstery before shampooing, getting results a regular vacuum cannot achieve.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can you remove odors?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Steam cleaning and hot water extraction remove the source of most odors rather than masking them. For persistent odors from smoke, mildew, or pets, we use an odor eliminator treatment as part of the service. Most customers notice a dramatic difference immediately after the detail.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can you remove stains from seats and carpet?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Hot water extraction combined with professional upholstery shampoo removes the vast majority of stains including food and drink spills, mud, and general soiling. Some stains that have been heat-set over time may not come out completely, but Andrew will give you an honest assessment before starting.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Does Florida heat make interior detailing more important?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Sustained interior temperatures in Florida bake odors deeper into fabric fibers, accelerate leather cracking and drying, and create warm humid conditions between washes that speed mold and mildew growth. Vehicles that park in open sun all day need professional interior attention more regularly than vehicles in cooler or shaded environments.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Do you condition leather seats?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Leather conditioning is included in every interior detail. Florida UV and heat dry leather out faster than almost any other climate. Professional conditioning restores moisture, prevents cracking, and leaves the leather supple and protected.</div>
-      </div>
-
-    </div>
-
-    <!-- ── EXTERIOR ── -->
-    <div class="faq-category" id="exterior">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-        <h2>Exterior Detailing</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does an exterior detail take?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Most exterior details take between 2 and 5 hours depending on vehicle size and condition. Vehicles with heavy contamination, water spots, or oxidation require more time. Andrew does not rush. The job is finished when it is done right.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What is the difference between a wash and an exterior detail?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">A wash removes loose surface dirt. An exterior detail goes much further: iron decontamination dissolves embedded metallic particles, clay bar removes bonded surface contamination, machine polishing corrects paint defects, and a protective sealant or wax is applied at the end. The result lasts months, not days.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can you remove water spots from paint?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Most water spots are mineral deposits left behind when water evaporates on paint. We use clay bar and targeted chemical treatment to remove them before polishing. Severe etched water spots that have been baked in over multiple seasons may require paint correction to fully address.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What protection is applied at the end of an exterior detail?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">After polishing, either a synthetic paint sealant or a carnauba wax is applied to all painted surfaces. This creates a UV and contamination barrier that protects the work done during the detail and extends how long the finish stays clean and protected. For longer-lasting protection, ceramic coating is the stronger option.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can you remove tree sap, tar, and bug splatter?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Clay bar treatment lifts bonded contaminants including tree sap, road tar, bug residue, and industrial fallout that washing alone cannot remove. Bug residue in particular is acidic and bonds fast in Florida heat. The sooner it is removed the less chance it has to etch into the clear coat underneath.</div>
-      </div>
-
-    </div>
-
-    <!-- ── CERAMIC ── -->
-    <div class="faq-category" id="ceramic">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h2>Ceramic Coating</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Is ceramic coating worth it for a Florida vehicle?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes, arguably more so in Florida than anywhere else in the country. The UV index in Central Florida is relentless and without serious protection, clear coats oxidize and fade within a few years. Ceramic coating is the strongest UV barrier available and also makes the vehicle dramatically easier to keep clean week to week by creating a hydrophobic surface that sheds water and contaminants faster.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does ceramic coating last?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">A properly applied professional ceramic coating typically lasts 2 to 5 years depending on the product used, how the vehicle is washed and maintained, and the level of environmental exposure. Andrew walks you through maintenance requirements before leaving so the coating holds as long as possible.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Does the paint need to be corrected before coating?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Ceramic coating locks in whatever the paint looks like at time of application. Swirl marks, water etching, oxidation, and scratches will be preserved under the coating permanently if the paint is not corrected first. Andrew will not apply coating to paint that has not been properly prepared.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does ceramic coating take to apply?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">A full ceramic coating job including decontamination and paint correction typically takes a full day — often 8 hours or more depending on paint condition. Andrew has spent full days on single vehicles to get the preparation right. It is not a rushed service.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What is the cure time after ceramic coating?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Typically 24 hours before any moisture exposure and 7 to 14 days before a full wash. Andrew walks you through the specific cure requirements before leaving. Following the cure protocol correctly is what separates a coating that lasts 2 to 5 years from one that degrades in months.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How do I wash a coated vehicle?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Two-bucket hand wash using a pH-neutral soap designed for coated vehicles. Avoid automatic car washes, harsh chemicals, and abrasive wash media. Andrew covers proper wash technique before leaving every coating job. The wash approach is one of the biggest factors in how long the coating performs.</div>
-      </div>
-
-    </div>
-
-    <!-- ── PAINT REPAIR ── -->
-    <div class="faq-category" id="paint">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <h2>Paint Repair</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">What is paint repair / paint correction?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Paint repair is the process of restoring a vehicle's clear coat using machine polishing compounds. Swirl marks, light scratches, water etching, and UV oxidation all live in the top layer of clear coat. Machine polishing removes a controlled amount of that layer to eliminate the defects, leaving a smooth, reflective surface that looks dramatically better. The result is not a respray or touch-up. It is the original paint restored.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can you fix deep scratches?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">It depends on how deep the scratch is. Scratches that are still within the clear coat layer can be polished out entirely. Scratches that have cut through the clear coat into the base coat or primer cannot be fully removed by polishing alone. Andrew inspects every vehicle before starting and tells you honestly what is achievable.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does paint repair take?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">A single-stage correction typically takes 4 to 8 hours. A full multi-stage repair on heavily defected or oxidized paint can take a full day or more. The job takes as long as the paint requires. Andrew does not rush.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Is paint repair worth it on a Florida vehicle?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes, particularly in Central Florida where UV oxidation, hard water from afternoon storms, and pollen accelerate paint damage faster than most of the country. Paint repair restores the finish to a condition most owners have not seen in years at a fraction of the cost of a respray. Following it up with a ceramic coating or paint sealant locks in the result and slows how quickly the conditions come back.</div>
-      </div>
-
-    </div>
-
-    <!-- ── HEADLIGHTS ── -->
-    <div class="faq-category" id="headlights">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h2>Headlight Polishing</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Why do headlights turn yellow and cloudy?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Factory headlight lenses are polycarbonate plastic with a UV-protective coating applied at the factory. Florida UV destroys that factory coating faster than almost anywhere else in the country. Once the coating breaks down, UV begins oxidizing the plastic itself, producing the yellow, cloudy, pitted surface that reduces light output and fails safety inspections in severe cases.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can headlight polishing fully restore cloudy lenses?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">In most cases yes. Wet sanding removes the damaged outer layer and progressive polishing restores clarity. A UV sealant is applied afterward to replace the factory protection that broke down. Andrew assesses the lenses before starting and lets you know what to expect.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does headlight polishing last?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">With a professional UV sealant applied, results typically last 1 to 3 years depending on UV exposure and washing habits. Without a sealant, lenses re-oxidize within months in the Florida climate. The sealant applied after polishing is what determines how long the result holds.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Is headlight polishing better than buying new headlights?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">For most vehicles yes. Replacement headlight assemblies for modern vehicles often cost $200 to $800 or more per side. Professional headlight polishing restores original lenses to near-new clarity at a fraction of the replacement cost. The result is indistinguishable from new in most cases.</div>
-      </div>
-
-    </div>
-
-    <!-- ── ENGINE ── -->
-    <div class="faq-category" id="engine">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-        <h2>Engine Detailing</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Is it safe to wash an engine bay?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes, when done correctly. Modern engine bays are designed to handle moisture. The key is proper preparation: sensitive electrical components and air intakes are covered before any water is introduced, a low-pressure rinse is used rather than a pressure washer, and the engine is allowed to dry thoroughly before starting. Andrew has cleaned hundreds of engine bays without incident using this approach.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How long does engine detailing take?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Most engine detailing jobs take between 1 and 2 hours depending on how dirty the bay is and how much degreaser dwell time is needed. Very neglected bays with thick grease accumulation may require additional time.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Why should I get my engine detailed?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Three main reasons. First, a clean engine bay makes it much easier to spot oil leaks, coolant leaks, and fluid issues before they become serious problems. Second, accumulated grease and grime traps heat around components. Third, it makes a strong impression if you are selling the vehicle or having underhood work done. A clean bay signals a well-maintained car.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Does Florida heat make engine detailing more important?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes. Sustained under-hood temperatures in Florida bake grease and oil residue onto surfaces harder and faster than cooler climates. Heat-baked deposits require longer degreaser dwell times and more thorough agitation to remove. The protectant applied to rubber and plastic components after a professional engine detail provides real preventive value in Florida operating conditions.</div>
-      </div>
-
-    </div>
-
-    <!-- ── FLORIDA & UV ── -->
-    <div class="faq-category" id="florida">
-      <div class="faq-category-header">
-        <div class="faq-category-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5BA3C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
-        <h2>Florida &amp; UV Conditions</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Why do Florida vehicles need more frequent detailing?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Central Florida UV is among the most intense in the country year-round. Combined with high humidity, afternoon storms that deposit minerals on paint, pollen from oak canopies, bug accumulation on major corridors, and road salt for coastal vehicles, the environment works against every surface of a Florida vehicle more aggressively than most other climates. Regular professional detailing slows the damage that accumulates between washes.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Can UV damage be reversed?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes, in most cases. UV oxidation that has affected the clear coat layer can be removed through machine polishing. Paint correction removes the damaged outer layer and restores reflectivity and depth. Once corrected, a ceramic coating or sealant applied immediately afterward is the most effective way to prevent the same damage from returning quickly.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">Do water spots from Florida rain damage paint?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes, over time. Florida afternoon storms leave mineral-laden water on paint surfaces and the heat bakes those deposits in within the hour. Repeated cycles of water spotting and baking gradually etch into the clear coat, especially on horizontal surfaces like hoods and roofs. Clay bar treatment removes bonded mineral deposits. Severe etching requires paint correction. A ceramic coating or sealant applied over protected paint significantly reduces how quickly water spots accumulate and bond.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="faq-q-text">How does oak pollen affect paint in Lake County?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Oak pollen is a specific seasonal problem for vehicles parked under the tree canopy common throughout Lake County. Pollen contains mild tannins that etch into unprotected clear coat when baked in by Florida heat and left between washes. Vehicles under oak canopy on streets like Dixie Avenue in Leesburg or near the lakes in Eustis and Mount Dora deal with this every spring season. Clay bar treatment removes bonded pollen deposits. Ceramic coating creates a surface that pollen sits on top of rather than bonding into.</div>
-      </div>
-
-    </div>
+    </aside>
 
   </div>
 </div>
 
-<!-- STILL HAVE QUESTIONS -->
-<div class="faq-contact-band">
-  <h2>Still Have a Question?</h2>
-  <p>Call or text Andrew directly. We give you a straight answer and an honest quote with no pressure.</p>
-  <div class="faq-contact-btns">
-    <a href="tel:+13529314860" class="primary">Call 352-931-4860</a>
-    <a href="/#contact" class="outline">Send a Message</a>
-  </div>
+<!-- BOTTOM STRIP -->
+<div class="ct-strip">
+  <p>Diamond Auto Spa Detailing &middot; Mobile Service Based in Eustis, FL 32726 &middot; <a href="tel:+13529314860">352-931-4860</a> &middot; <a href="mailto:diamondautospa.fl23@gmail.com">diamondautospa.fl23@gmail.com</a></p>
 </div>
 
 <script>
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
 
-    // Close all open ones first
-    document.querySelectorAll('.faq-q.open').forEach(q => {
-      q.classList.remove('open');
-      q.nextElementSibling.classList.remove('open');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.querySelector('.ct-form-wrap > p').style.display = 'none';
+      document.getElementById('ctSuccess').style.display = 'block';
+    })
+    .catch(() => {
+      // fallback — submit normally
+      form.submit();
     });
-
-    // If it wasn't open, open it
-    if (!isOpen) {
-      btn.classList.add('open');
-      answer.classList.add('open');
-    }
   }
 </script>

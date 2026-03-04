@@ -1,173 +1,808 @@
 ---
-layout: services
-title: Photo Gallery | Diamond Auto Spa Detailing Results
-description: Browse before and after photos from Diamond Auto Spa mobile detailing jobs across Lake County and Orange County, FL. Ceramic coatings, interior deep cleans, paint correction, and more.
+layout: default
+title: Gallery | Diamond Auto Spa Detailing
+description: Before and after photos, videos, and full gallery of Diamond Auto Spa mobile detailing work in Lake County, FL. Ceramic coatings, paint correction, interior deep cleans, and more.
 ---
 
-<div class="breadcrumb">
-    <a href="/">Home</a> &rsaquo; Gallery
-</div>
-
-<div class="service-hero" style="background: #000; border-bottom: 1px solid #1a1a1a; padding: 6rem 2rem 5rem; text-align: center;">
-    <div class="service-hero-eyebrow">Before &amp; After &middot; Real Customer Vehicles &middot; Central Florida</div>
-    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: #fff; margin-bottom: 1rem;">Results Speak For Themselves</h1>
-    <p style="font-family: 'Playfair Display', serif; font-style: italic; color: #888; font-size: 1.1rem; max-width: 560px; margin: 0 auto;">Every vehicle below is a real customer job. No studio setups, no stock photos.</p>
-</div>
-
-<div style="background: #000; padding: 4rem 2rem 0;">
-    <div style="max-width: 1400px; margin: 0 auto;">
-        <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 1.6rem; margin-bottom: 0.4rem; text-align: center;">Before &amp; After</h2>
-        <p style="text-align: center; color: #555; font-size: 0.9rem; margin-bottom: 2.5rem; font-style: italic;">Drag the slider to reveal the transformation</p>
-
-        <div class="ba-grid">
-            <div class="img-comp-container ba-item">
-                <div class="img-comp-img">
-                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After3.png" alt="Clean car seat upholstery after professional detailing" loading="lazy">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before3.png" alt="Dirty car seat upholstery before professional detailing" loading="lazy">
-                </div>
-            </div>
-            <div class="img-comp-container ba-item">
-                <div class="img-comp-img">
-                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After1.png" alt="Clean car floor and seats after detailing" loading="lazy">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before1.png" alt="Dirty car floor before detailing" loading="lazy">
-                </div>
-            </div>
-            <div class="img-comp-container ba-item">
-                <div class="img-comp-img">
-                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After2.png" alt="Restored car carpet after deep cleaning" loading="lazy">
-                </div>
-                <div class="img-comp-img img-comp-overlay">
-                    <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before2.png" alt="Stained car carpet before deep cleaning" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div style="background: #000; padding: 5rem 2rem;">
-    <div style="max-width: 1400px; margin: 0 auto;">
-        <h2 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 1.6rem; margin-bottom: 0.4rem; text-align: center;">All Work</h2>
-        <p style="text-align: center; color: #555; font-size: 0.9rem; margin-bottom: 2.5rem; font-style: italic;">Click any image to zoom</p>
-
-        <div class="gallery-grid">
-            {% for item in site.data.gallery %}
-            <div class="gallery-item{% if item.extra %} hidden{% endif %}{% if item.mobile_only %} hidden-desktop{% endif %}"
-                onclick="openLightbox('{{ item.path }}')"
-                {% if item.extra %}data-gallery-extra{% endif %}>
-                <img src="/Pics/{{ item.filename }}" alt="{{ item.alt }}" loading="lazy">
-            </div>
-            {% endfor %}
-        </div>
-
-        <div style="text-align: center; margin-top: 2.5rem;">
-            <button class="show-more-btn" id="galleryBtn">Show More Work</button>
-            <button class="show-more-btn hidden" id="galleryLessBtn">Show Less</button>
-        </div>
-    </div>
-</div>
-
-<div id="myLightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-content" id="lightboxImg" alt="Enlarged gallery photo">
-</div>
-
 <style>
-.ba-grid {
+  :root {
+    --blue: #5BA3C7;
+    --black: #000;
+    --charcoal: #0d0d0d;
+    --border: #1a1a1a;
+    --muted: #555;
+    --text: #aaa;
+  }
+
+  /* ── PAGE HERO ── */
+  .gallery-hero {
+    background: #000;
+    padding: 7rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #111;
+  }
+  .gallery-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .gallery-hero-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s ease forwards;
+  }
+  .gallery-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: #fff;
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.25s ease forwards;
+  }
+  .gallery-hero p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #666;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s ease forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION LABELS ── */
+  .g-section {
+    padding: 5rem 2rem;
+    background: var(--black);
+  }
+  .g-section.alt { background: var(--charcoal); }
+  .g-section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .g-section-header {
+    margin-bottom: 3rem;
+    border-left: 3px solid var(--blue);
+    padding-left: 1.2rem;
+  }
+  .g-section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #fff;
+    margin: 0 0 0.3rem;
+  }
+  .g-section-header p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── FILTER TABS ── */
+  .filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .filter-tab {
+    padding: 0.5rem 1.3rem;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    color: #666;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-tab:hover,
+  .filter-tab.active {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: rgba(91,163,199,0.06);
+  }
+
+  /* ── BEFORE / AFTER SLIDERS ── */
+  .ba-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-}
-@media (max-width: 768px) {
+    gap: 1px;
+    background: #111;
+    border: 1px solid #111;
+  }
+  @media (max-width: 860px) { .ba-grid { grid-template-columns: 1fr; } }
+
+  .ba-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #000;
+    cursor: ew-resize;
+    user-select: none;
+  }
+  .ba-wrap img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+  }
+  .ba-after  { z-index: 1; }
+  .ba-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+  .ba-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--blue);
+    z-index: 3;
+    transform: translateX(-50%);
+  }
+  .ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--blue);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  }
+  .ba-handle svg {
+    width: 18px; height: 18px;
+    fill: #000;
+  }
+  .ba-label {
+    position: absolute;
+    bottom: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    z-index: 5;
+  }
+  .ba-label.before { left: 0.8rem; background: rgba(0,0,0,0.7); color: #fff; }
+  .ba-label.after  { right: 0.8rem; background: var(--blue); color: #000; }
+
+  /* ── MASONRY PHOTO GRID ── */
+  .photo-grid {
+    columns: 4 220px;
+    column-gap: 6px;
+  }
+  .photo-item {
+    break-inside: avoid;
+    margin-bottom: 6px;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+  .photo-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.88);
+  }
+  .photo-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+  .photo-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.8rem;
+  }
+  .photo-item:hover .photo-item-overlay { opacity: 1; }
+  .photo-item-overlay span {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  /* ── VIDEO GRID ── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: #111;
+    border: 1px solid #111;
+  }
+  .video-item {
+    position: relative;
+    aspect-ratio: 9/16;
+    background: #000;
+    overflow: hidden;
+  }
+  .video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .video-item:hover video { transform: scale(1.03); }
+  .video-item-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem 0.8rem 0.8rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    z-index: 2;
+  }
+  .video-play-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(91,163,199,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .video-item:hover .video-play-icon { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
+  .video-play-icon svg { width: 20px; height: 20px; fill: #000; margin-left: 3px; }
+
+  /* ── LIGHTBOX ── */
+  .lb-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .lb-overlay.open { display: flex; }
+  .lb-overlay img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lb-close {
+    position: absolute;
+    top: 1.2rem; right: 1.5rem;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .lb-close:hover { color: var(--blue); }
+  .lb-prev, .lb-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    user-select: none;
+  }
+  .lb-prev:hover, .lb-next:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+  .lb-prev { left: 1.2rem; }
+  .lb-next { right: 1.2rem; }
+  .lb-counter {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 2px;
+  }
+
+  /* ── CTA BAND ── */
+  .gallery-cta-band {
+    background: var(--blue);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .gallery-cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-cta-band p {
+    color: rgba(0,0,0,0.65);
+    margin-bottom: 1.8rem;
+    font-size: 1rem;
+  }
+  .gallery-cta-band a {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+  .gallery-cta-band a:hover { background: #fff; color: #000; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: #000;
+    padding: 1rem 2rem;
+    font-size: 0.82rem;
+    color: #444;
+    border-bottom: 1px solid #111;
+  }
+  .breadcrumb a { color: #555; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--blue); }
+
+  /* ── SHOW MORE ── */
+  .show-more-wrap {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  .show-more-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #666;
+    padding: 0.75rem 2.5rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .show-more-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  @media (max-width: 600px) {
+    .photo-grid { columns: 2 140px; }
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
     .ba-grid { grid-template-columns: 1fr; }
-}
-.ba-item {
-    height: 340px;
-    border-radius: 0;
-    box-shadow: none;
-    border: 1px solid #1a1a1a;
-}
+  }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Gallery show more
-    const galleryBtn = document.getElementById('galleryBtn');
-    const galleryLessBtn = document.getElementById('galleryLessBtn');
-    const extraItems = document.querySelectorAll('[data-gallery-extra]');
-
-    if (galleryBtn) {
-        galleryBtn.addEventListener('click', function() {
-            extraItems.forEach(el => el.classList.remove('hidden'));
-            galleryBtn.classList.add('hidden');
-            galleryLessBtn.classList.remove('hidden');
-        });
-    }
-    if (galleryLessBtn) {
-        galleryLessBtn.addEventListener('click', function() {
-            extraItems.forEach(el => el.classList.add('hidden'));
-            galleryLessBtn.classList.add('hidden');
-            galleryBtn.classList.remove('hidden');
-        });
-    }
-
-    // Before/after sliders
-    const containers = document.querySelectorAll('.img-comp-container');
-    containers.forEach(function(container) {
-        initCompare(container);
-    });
-
-    function initCompare(container) {
-        let clicked = 0;
-        const overlay = container.querySelector('.img-comp-overlay');
-        const slider = document.createElement('div');
-        slider.setAttribute('class', 'img-comp-slider');
-        container.appendChild(slider);
-
-        function updateSizes() {
-            const w = container.offsetWidth;
-            const h = container.offsetHeight;
-            container.querySelectorAll('img').forEach(function(img) {
-                img.style.width = w + 'px';
-                img.style.height = h + 'px';
-            });
-            slider.style.left = (w / 2) - (slider.offsetWidth / 2) + 'px';
-            overlay.style.width = (w / 2) + 'px';
-        }
-        updateSizes();
-        window.addEventListener('resize', updateSizes);
-
-        slider.addEventListener('mousedown', function(e) { clicked = 1; });
-        slider.addEventListener('touchstart', function(e) { clicked = 1; });
-        window.addEventListener('mouseup', function() { clicked = 0; });
-        window.addEventListener('touchend', function() { clicked = 0; });
-
-        window.addEventListener('mousemove', function(e) {
-            if (!clicked) return;
-            move(e.pageX);
-        });
-        window.addEventListener('touchmove', function(e) {
-            if (!clicked) return;
-            move(e.changedTouches[0].pageX);
-        });
-
-        function move(x) {
-            const rect = container.getBoundingClientRect();
-            let pos = x - rect.left;
-            pos = Math.max(0, Math.min(pos, container.offsetWidth));
-            overlay.style.width = pos + 'px';
-            slider.style.left = pos - (slider.offsetWidth / 2) + 'px';
-        }
-    }
-});
-</script>
-
-<div class="footer-cta-band">
-    <h2>Ready to Add Your Vehicle to This Gallery?</h2>
-    <p>We come to you fully equipped. Lake County, Orange County, and the Gulf Coast.</p>
-    <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; Gallery
 </div>
+
+<!-- HERO -->
+<div class="gallery-hero">
+  <div class="gallery-hero-eyebrow">Diamond Auto Spa &middot; Lake County, FL</div>
+  <h1>The Work Speaks for Itself</h1>
+  <p>Before &amp; afters, process videos, and every detail captured on camera.</p>
+</div>
+
+<!-- ── SECTION 1: BEFORE / AFTER ── -->
+<section class="g-section">
+  <div class="g-section-inner">
+    <div class="g-section-header">
+      <h2>Before &amp; After</h2>
+      <p>Drag the slider to compare. Every result is real, no filters.</p>
+    </div>
+
+    <div class="ba-grid">
+
+      <!-- Slider 1 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After1.png"  alt="Clean car interior seats and floor after professional detailing">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before1.png" alt="Dirty car floor mat and door sill before deep cleaning">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 2 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After2.png"  alt="Restored black car carpet after deep cleaning">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before2.png" alt="Stained car carpet before professional cleaning">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 3 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After3.png"  alt="Clean car seat upholstery after professional detailing">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before3.png" alt="Dirty car seat upholstery with stains before detailing">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 4 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After4.webp" alt="Interior carpet and upholstery after deep cleaning">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before4.png" alt="Interior carpet and upholstery before cleaning">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 5 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After5.webp" alt="Wheel and tire after detailing showing restored finish">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before5.png" alt="Wheel and tire before detailing">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 6 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After6.png"  alt="Clean vehicle wheel after professional detailing">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before6.png" alt="Dirty vehicle wheel before professional detailing">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2: VIDEOS ── -->
+<section class="g-section alt">
+  <div class="g-section-inner">
+    <div class="g-section-header">
+      <h2>Process Videos</h2>
+      <p>Watch the work in progress. Every technique, every step.</p>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing1.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing1.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Ceramic coating application on side mirror</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing2.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing2.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Wheel cleaning with foam and brush</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing3.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing3.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Foam cannon application on wheels</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing4.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing4.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Door jamb cleaning and detailing</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing5.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing5.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Foam wash application on luxury vehicle</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing6.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing6.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Clean leather seats and dashboard result</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing7.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing7.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Deep cleaning door jambs and threshold</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing8.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing8.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Steam cleaning cup holders and console</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing9.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing9.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Ceramic coating water beading on wheel</div>
+      </div>
+
+      <div class="video-item">
+        <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing10.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing10.webp"></video>
+        <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-item-label">Trunk jamb and weather stripping detail</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3: ALL PHOTOS ── -->
+<section class="g-section">
+  <div class="g-section-inner">
+    <div class="g-section-header">
+      <h2>All Work</h2>
+      <p>Click any image to enlarge. Every photo is from a real job.</p>
+    </div>
+
+    <div class="photo-grid" id="photoGrid">
+
+      <div class="photo-item" onclick="openLb(0)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing1.webp" alt="Black luxury sports car with glossy ceramic coating finish" loading="lazy">
+        <div class="photo-item-overlay"><span>Black sports car &mdash; ceramic coating</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(1)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing2.webp" alt="Jeep Grand Cherokee exterior detailing with black wheels" loading="lazy">
+        <div class="photo-item-overlay"><span>Jeep Grand Cherokee &mdash; exterior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(2)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing3.webp" alt="Red Nissan Rogue Sport exterior detailing" loading="lazy">
+        <div class="photo-item-overlay"><span>Nissan Rogue Sport &mdash; exterior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(3)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing4.webp" alt="Professional automotive interior detailing black leather seats" loading="lazy">
+        <div class="photo-item-overlay"><span>Leather interior detailing</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(4)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing5.webp" alt="White BMW M4 ceramic coating and paint protection" loading="lazy">
+        <div class="photo-item-overlay"><span>BMW M4 &mdash; ceramic coating</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(5)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing6.webp" alt="White Jeep Compass Altitude exterior detailing" loading="lazy">
+        <div class="photo-item-overlay"><span>Jeep Compass &mdash; exterior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(6)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing7.webp" alt="Luxury truck front grille detailing" loading="lazy">
+        <div class="photo-item-overlay"><span>Truck grille &mdash; exterior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(7)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing8.webp" alt="Truck interior detailing clean black leather seats dashboard" loading="lazy">
+        <div class="photo-item-overlay"><span>Truck interior &mdash; leather &amp; dash</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(8)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing9.webp" alt="Red GMC Canyon exterior detailing with ceramic coating" loading="lazy">
+        <div class="photo-item-overlay"><span>GMC Canyon &mdash; ceramic coating</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(9)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing10.webp" alt="Luxury brown leather interior detailing Ford truck" loading="lazy">
+        <div class="photo-item-overlay"><span>Ford truck &mdash; leather interior</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(10)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing11.webp" alt="Blue Kia Stinger paint correction and ceramic coating" loading="lazy">
+        <div class="photo-item-overlay"><span>Kia Stinger &mdash; paint correction</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(11)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing12.webp" alt="Blue Jeep Wrangler Rubicon exterior detailing" loading="lazy">
+        <div class="photo-item-overlay"><span>Jeep Wrangler Rubicon &mdash; exterior</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(12)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing13.webp" alt="Classic white Studebaker Hawk paint restoration" loading="lazy">
+        <div class="photo-item-overlay"><span>Studebaker Hawk &mdash; classic car restoration</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(13)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing14.webp" alt="Gray Chrysler Pacifica exterior detailing ceramic coating" loading="lazy">
+        <div class="photo-item-overlay"><span>Chrysler Pacifica &mdash; ceramic coating</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(14)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing15.webp" alt="Black leather SUV interior detailing rear seat entertainment" loading="lazy">
+        <div class="photo-item-overlay"><span>Luxury SUV interior &mdash; full detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(15)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing16.webp" alt="Classic car interior vintage dashboard chrome gauges white leather" loading="lazy">
+        <div class="photo-item-overlay"><span>Classic car interior &mdash; restoration</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(16)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing17.webp" alt="Paint correction scratch removal black truck fender before after" loading="lazy">
+        <div class="photo-item-overlay"><span>Black truck fender &mdash; paint correction</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(17)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing18.webp" alt="Diamond Auto Spa sign lifted white RAM pickup truck" loading="lazy">
+        <div class="photo-item-overlay"><span>RAM 1500 &mdash; on location</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(18)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing19.webp" alt="Deep red Cadillac Escalade exterior detailing gloss enhancement" loading="lazy">
+        <div class="photo-item-overlay"><span>Cadillac Escalade &mdash; gloss enhancement</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(19)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing20.webp" alt="Interior floor mat cleaning dashboard conditioning Hyundai Palisade" loading="lazy">
+        <div class="photo-item-overlay"><span>Hyundai Palisade &mdash; interior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(20)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing21.webp" alt="Engine bay detailing removal of dust and grime factory-fresh look" loading="lazy">
+        <div class="photo-item-overlay"><span>Engine bay &mdash; degreasing &amp; dress</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(21)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing22.webp" alt="Ford Bronco Sport interior cleaned fabric seats conditioned steering wheel" loading="lazy">
+        <div class="photo-item-overlay"><span>Ford Bronco Sport &mdash; interior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(22)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing23.webp" alt="White Ford Flex exterior detailing high-gloss tire shine polished wheels" loading="lazy">
+        <div class="photo-item-overlay"><span>Ford Flex &mdash; exterior detail</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(23)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing24.jpg" alt="Interior door panel detailing two-tone leather accents" loading="lazy">
+        <div class="photo-item-overlay"><span>Door panel &mdash; leather conditioning</span></div>
+      </div>
+      <div class="photo-item" onclick="openLb(24)">
+        <img src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing25.webp" alt="Metallic blue Honda Gold Wing motorcycle paint polishing seat conditioning" loading="lazy">
+        <div class="photo-item-overlay"><span>Honda Gold Wing &mdash; motorcycle detail</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb" onclick="closeLbOnOverlay(event)">
+  <span class="lb-close" onclick="closeLb()">&times;</span>
+  <span class="lb-prev" onclick="lbNav(-1)">&#8592;</span>
+  <img id="lbImg" src="" alt="">
+  <span class="lb-next" onclick="lbNav(1)">&#8594;</span>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- CTA BAND -->
+<div class="gallery-cta-band">
+  <h2>Ready to See These Results on Your Vehicle?</h2>
+  <p>Mobile service throughout Lake County and Central Florida. We come to you.</p>
+  <a href="tel:+13529314860">Call 352-931-4860</a>
+</div>
+
+<script>
+  // ── BEFORE / AFTER SLIDERS ──
+  document.querySelectorAll('[data-ba]').forEach(wrap => {
+    const before = wrap.querySelector('.ba-before');
+    const divider = wrap.querySelector('.ba-divider');
+    const handle  = wrap.querySelector('.ba-handle');
+    let dragging = false;
+
+    function setPos(x) {
+      const rect = wrap.getBoundingClientRect();
+      let pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+      before.style.clipPath = `inset(0 ${(1 - pct) * 100}% 0 0)`;
+      divider.style.left = handle.style.left = (pct * 100) + '%';
+    }
+
+    wrap.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+    wrap.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+    window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('mouseup',   () => { dragging = false; });
+    window.addEventListener('touchend',  () => { dragging = false; });
+  });
+
+  // ── VIDEO AUTOPLAY ON SCROLL ──
+  const vItems = document.querySelectorAll('.video-item');
+  const vObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const vid = e.target.querySelector('video');
+      const icon = e.target.querySelector('.video-play-icon');
+      if (e.isIntersecting) {
+        vid.play().catch(() => {});
+        if (icon) icon.style.opacity = '0';
+      } else {
+        vid.pause();
+        if (icon) icon.style.opacity = '1';
+      }
+    });
+  }, { threshold: 0.4 });
+  vItems.forEach(v => vObs.observe(v));
+
+  // ── LIGHTBOX ──
+  const lbSrcs = [
+    '/Pics/Diamond-Auto-Spa-Detailing1.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing2.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing3.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing4.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing5.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing6.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing7.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing8.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing9.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing10.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing11.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing12.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing13.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing14.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing15.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing16.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing17.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing18.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing19.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing20.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing21.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing22.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing23.webp',
+    '/Pics/Diamond-Auto-Spa-Detailing24.jpg',
+    '/Pics/Diamond-Auto-Spa-Detailing25.webp',
+  ];
+  let lbIdx = 0;
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+
+  function openLb(i) {
+    lbIdx = i;
+    lbImg.src = lbSrcs[i];
+    lbCounter.textContent = (i + 1) + ' / ' + lbSrcs.length;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeLbOnOverlay(e) {
+    if (e.target === lb) closeLb();
+  }
+  function lbNav(dir) {
+    lbIdx = (lbIdx + dir + lbSrcs.length) % lbSrcs.length;
+    lbImg.src = lbSrcs[lbIdx];
+    lbCounter.textContent = (lbIdx + 1) + ' / ' + lbSrcs.length;
+  }
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') lbNav(1);
+    if (e.key === 'ArrowLeft')  lbNav(-1);
+    if (e.key === 'Escape')     closeLb();
+  });
+</script>

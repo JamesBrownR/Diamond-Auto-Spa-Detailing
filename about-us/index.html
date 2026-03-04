@@ -16,6 +16,72 @@ description: Meet Andrew, the owner of Diamond Auto Spa: A family-run mobile det
   body {
 background:black;
 }
+  /* ── EXPLORE LINKS SECTION ── */
+.ab-explore {
+  background: #080808;
+  padding: 5rem 2rem;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+.ab-explore-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.ab-explore-inner > span { display: block; margin-bottom: 0.8rem; }
+.ab-explore-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.ab-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #1a1a1a;
+  border: 1px solid #1a1a1a;
+}
+@media (max-width: 700px) { .ab-explore-grid { grid-template-columns: 1fr; } }
+
+.ab-explore-card {
+  background: #0d0d0d;
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  display: block;
+  border-top: 2px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.ab-explore-card:hover {
+  border-top-color: var(--blue);
+  background: #111;
+}
+.ab-explore-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.ab-explore-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.ab-explore-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0 0 1.2rem;
+}
+.ab-explore-arrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  transition: letter-spacing 0.2s;
+}
+.ab-explore-card:hover .ab-explore-arrow { letter-spacing: 3px; }
   /* ── HERO ── */
   .ab-hero {
     background: #000;
@@ -476,6 +542,37 @@ background:black;
         <p>"Andrew is the best vehicle detailer I have ever had. He has been doing our cars, boat, and Harley for at least a year. Very reliable, very detail oriented, great communication, always a fair price."</p>
         <span class="ab-review-name">Pool Gator Pool Service</span>
       </div>
+
+    </div>
+      <a href="{{ site.baseurl }}/reviews/" class="ab-explore-card">
+        <span class="ab-explore-icon">★</span>
+        <h3>63+ Five-Star Reviews</h3>
+        <p>Real reviews from real customers across Google and Facebook. Read what Lake County clients say about Andrew's work.</p>
+        <span class="ab-explore-arrow">Read Reviews →</span>
+      </a>
+  </div>
+</section>
+
+<!-- EXPLORE MORE -->
+<section class="ab-explore">
+  <div class="ab-explore-inner">
+    <span class="ab-section-label">Explore</span>
+    <h2>See What We Do & Where</h2>
+    <div class="ab-explore-grid">
+
+      <a href="{{ site.baseurl }}/services/" class="ab-explore-card">
+        <span class="ab-explore-icon">✦</span>
+        <h3>Our Services</h3>
+        <p>Interior detailing, exterior detailing, ceramic coating, paint repair, headlight polishing, and engine detailing — all mobile.</p>
+        <span class="ab-explore-arrow">View Services →</span>
+      </a>
+
+      <a href="{{ site.baseurl }}/service-area/" class="ab-explore-card">
+        <span class="ab-explore-icon">◎</span>
+        <h3>Service Areas</h3>
+        <p>Based in Eustis, FL. Andrew travels throughout Lake County and surrounding areas — Leesburg, Mount Dora, Clermont, Lady Lake, and more.</p>
+        <span class="ab-explore-arrow">See Service Areas →</span>
+      </a>
 
     </div>
   </div>

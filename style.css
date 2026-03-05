@@ -1531,7 +1531,8 @@ div.container {
     section {
     width: 100%;          /* Forces background to touch edges */
     max-width: none;      /* Removes the 1200px limit on the background */
-    padding: 0rem 0rem;      /* Vertical spacing */
+    padding-bottom: 12rem;
+       margin-top: -4rem;/* Vertical spacing */
     position: relative;   /* Needed for the transition effects */
     overflow: hidden;
 }

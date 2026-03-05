@@ -87,13 +87,42 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
 </script>
 
 <style>
-  /* Only page-specific overrides — all base styles come from the areas layout */
+  :root { --blue: #5BA3C7; }
+
+  /* ── HERO BG (unique to this page) ── */
   .area-hero-bg {
     background-image: url('{{ site.baseurl }}/Pics/service-areas-detailing.webp');
     filter: grayscale(70%);
   }
 
-  /* CITY GRID — unique to this page */
+  /* ── SECTION BANDS (override global section padding) ── */
+  .section-dark  { background: #000 !important; padding: 5rem 2rem !important; }
+  .section-light { background: #0d0d0d !important; padding: 5rem 2rem !important; border-top: 1px solid #1a1a1a !important; border-bottom: 1px solid #1a1a1a !important; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: #fff;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .section-inner h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 2px;
+    background: var(--blue);
+  }
+  .section-inner p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #999;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── CITY GRID ── */
   .city-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -111,8 +140,8 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     flex-direction: column;
     text-decoration: none;
   }
-  .city-card:hover { background: #111; border-left-color: #5BA3C7; }
-  .city-card.home-base { border-left-color: #5BA3C7; }
+  .city-card:hover { background: #111; border-left-color: var(--blue); }
+  .city-card.home-base { border-left-color: var(--blue); }
 
   .city-card-photo {
     width: 100%;
@@ -130,13 +159,12 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     flex-direction: column;
     flex-grow: 1;
   }
-
   .city-card-eyebrow {
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #5BA3C7;
+    color: var(--blue);
     margin-bottom: 0.5rem;
   }
   .city-card h3 {
@@ -155,23 +183,194 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
   .city-card a.city-link {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #5BA3C7;
+    color: var(--blue);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.25s;
   }
   .city-card:hover a.city-link { color: #fff; }
+
+  /* ── WHY GRID ── */
+  .why-grid-area {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  @media (max-width: 860px) { .why-grid-area { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .why-grid-area { grid-template-columns: 1fr; } }
+
+  .why-card {
+    padding: 2.2rem 1.8rem;
+    background: #080808;
+    border-top: 2px solid var(--blue);
+    transition: background 0.25s;
+  }
+  .why-card:hover { background: #141414; }
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--blue);
+  }
+  .why-card p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .testimonial-card {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid var(--blue);
+    padding: 2rem;
+  }
+  .section-light .testimonial-card { background: #111; }
+  .testimonial-card p {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .testimonial-card span {
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── FAQ ── */
+  .faq-list { margin: 2rem 0; border: 1px solid #1a1a1a; }
+  .faq-item { border-bottom: 1px solid #1a1a1a; background: #080808; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+  .faq-question:hover { background: #111; }
+  .faq-question span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .faq-icon {
+    color: var(--blue);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.3s;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    display: none;
+    padding: 0 2rem 1.5rem;
+    color: #888;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .faq-answer a { color: var(--blue); }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ── BOOK CTA ── */
+  .area-book-cta {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 4px solid var(--blue);
+    padding: 2.5rem;
+    margin: 3rem 0 0;
+  }
+  .area-book-cta p { margin-bottom: 1rem; font-size: 1.05rem; color: #aaa; }
+  .phone-cta {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 1.2rem;
+    transition: color 0.3s;
+  }
+  .phone-cta:hover { color: #fff; }
+
+  /* ── FOOTER CTA BAND ── */
+  .footer-cta-band {
+    background: #0a0a0a !important;
+    border-top: 1px solid #1a1a1a;
+    padding: 6rem 2rem !important;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer-cta-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(91,163,199,0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+  .footer-cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff;
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-cta-band p {
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-cta-band .cta-bbutton { margin: 0.4rem; position: relative; z-index: 1; }
+
+  /* ── CTA BUTTON ── */
+  .cta-bbutton {
+    display: inline-block !important;
+    padding: 0.9rem 2.4rem !important;
+    background: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    font-family: 'Playfair Display', serif !important;
+    transition: all 0.3s !important;
+    border-radius: 2px !important;
+  }
+  .cta-bbutton:hover { background: #fff !important; color: #000 !important; }
 </style>
 
 <div class="breadcrumb">
-    <a href="/">Home</a> › Service Areas
+    <a href="/">Home</a> &rsaquo; Service Areas
 </div>
 
 <!-- HERO -->
 <section class="area-hero has-photo">
     <div class="area-hero-bg" role="img" aria-label="Diamond Auto Spa mobile detailing service areas across Lake County and Central Florida"></div>
-    <div class="area-hero-eyebrow">Mobile · Lake County &amp; Beyond</div>
+    <div class="area-hero-eyebrow">Mobile &middot; Lake County &amp; Beyond</div>
     <h1>Mobile Detailing Service Areas</h1>
     <p>Professional detailing brought to your driveway, office, or anywhere your vehicle sits. No drop-off. No waiting room. Just results.</p>
     <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
@@ -194,162 +393,102 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
         <div class="city-grid">
 
             <div class="city-card home-base">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Eustis FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/eustis-fl-auto-detailing.webp" alt="Mobile auto detailing in Eustis FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Home Base</div>
                     <h3>Eustis, FL</h3>
                     <p>Our home city. Fastest availability and deepest local knowledge. Serving all of 32726 including neighborhoods near Lake Eustis, Lake Harris, Bay Street, and Orange Avenue.</p>
-                    <a href="/service-area/eustis-fl/" class="city-link">View Eustis Page →</a>
+                    <a href="/service-area/eustis-fl/" class="city-link">View Eustis Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/mount-dora-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Mount Dora FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/mount-dora-fl-auto-detailing.webp" alt="Mobile auto detailing in Mount Dora FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Mount Dora, FL</h3>
                     <p>Historic downtown, lakefront communities, and residential neighborhoods near Donnelly Street and Lake Dora. One of our most requested Lake County locations.</p>
-                    <a href="/service-area/mount-dora-fl/" class="city-link">View Mount Dora Page →</a>
+                    <a href="/service-area/mount-dora-fl/" class="city-link">View Mount Dora Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/tavares-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Tavares FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/tavares-fl-auto-detailing.webp" alt="Mobile auto detailing in Tavares FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Tavares, FL</h3>
                     <p>Florida's Seaplane City. Serving the chain of lakes area, downtown Tavares, and all surrounding neighborhoods. Waterfront vehicles get extra attention for humidity and UV damage.</p>
-                    <a href="/service-area/tavares-fl/" class="city-link">View Tavares Page →</a>
+                    <a href="/service-area/tavares-fl/" class="city-link">View Tavares Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/leesburg-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Leesburg FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/leesburg-fl-auto-detailing.webp" alt="Mobile auto detailing in Leesburg FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Leesburg, FL</h3>
                     <p>Full coverage of Leesburg and surrounding Lake County. From downtown Leesburg to residential neighborhoods off US-27 and US-441.</p>
-                    <a href="/service-area/leesburg-fl/" class="city-link">View Leesburg Page →</a>
+                    <a href="/service-area/leesburg-fl/" class="city-link">View Leesburg Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/lady-lake-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Lady Lake FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/lady-lake-fl-auto-detailing.webp" alt="Mobile auto detailing in Lady Lake FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Lady Lake, FL</h3>
                     <p>Serving Lady Lake and the surrounding Villages area. Professional mobile detailing brought directly to your community, no shop visit required.</p>
-                    <a href="/service-area/lady-lake-fl/" class="city-link">View Lady Lake Page →</a>
+                    <a href="/service-area/lady-lake-fl/" class="city-link">View Lady Lake Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/clermont-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Clermont FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/clermont-fl-auto-detailing.webp" alt="Mobile auto detailing in Clermont FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Clermont, FL</h3>
                     <p>South Lake County's fastest-growing city. We serve Clermont, Minneola, and the surrounding Hancock Road and US-27 corridor communities.</p>
-                    <a href="/service-area/clermont-fl/" class="city-link">View Clermont Page →</a>
+                    <a href="/service-area/clermont-fl/" class="city-link">View Clermont Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/umatilla-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Umatilla FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/umatilla-fl-auto-detailing.webp" alt="Mobile auto detailing in Umatilla FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Umatilla, FL</h3>
                     <p>Serving Umatilla and northeast Lake County down SR-19. Full service for all vehicle types including trucks, SUVs, and farm vehicles.</p>
-                    <a href="/service-area/umatilla-fl/" class="city-link">View Umatilla Page →</a>
+                    <a href="/service-area/umatilla-fl/" class="city-link">View Umatilla Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/altoona-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Altoona FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/altoona-fl-auto-detailing.webp" alt="Mobile auto detailing in Altoona FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Lake County</div>
                     <h3>Altoona, FL</h3>
                     <p>Rural Lake County. Andrew travels to Altoona for full-service detailing appointments. No detail shop nearby? That is exactly what mobile detailing is for.</p>
-                    <a href="/service-area/altoona-fl/" class="city-link">View Altoona Page →</a>
+                    <a href="/service-area/altoona-fl/" class="city-link">View Altoona Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/apopka-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Apopka FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/apopka-fl-auto-detailing.webp" alt="Mobile auto detailing in Apopka FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
                     <div class="city-card-eyebrow">Orange County</div>
                     <h3>Apopka, FL</h3>
                     <p>Northwest Orange County coverage. Serving Apopka and surrounding communities along US-441, Rock Springs Road, and SR-429.</p>
-                    <a href="/service-area/apopka-fl/" class="city-link">View Apopka Page →</a>
+                    <a href="/service-area/apopka-fl/" class="city-link">View Apopka Page &rarr;</a>
                 </div>
             </div>
 
             <div class="city-card">
-                <img
-                    class="city-card-photo"
-                    src="{{ site.baseurl }}/Pics/madeira-beach-fl-auto-detailing.webp"
-                    alt="Mobile auto detailing in Madeira Beach FL by Diamond Auto Spa"
-                    width="540" height="180"
-                    loading="lazy"
-                >
+                <img class="city-card-photo" src="{{ site.baseurl }}/Pics/madeira-beach-fl-auto-detailing.webp" alt="Mobile auto detailing in Madeira Beach FL by Diamond Auto Spa" width="540" height="180" loading="lazy">
                 <div class="city-card-body">
-                    <div class="city-card-eyebrow">Pinellas County · Coastal</div>
+                    <div class="city-card-eyebrow">Pinellas County &middot; Coastal</div>
                     <h3>Madeira Beach, FL</h3>
                     <p>Gulf Coast coverage. Salt air, UV, and coastal humidity require a different level of protection. We travel to Madeira Beach for ceramic coating and full detail appointments.</p>
-                    <a href="/service-area/madeira-beach-fl/" class="city-link">View Madeira Beach Page →</a>
+                    <a href="/service-area/madeira-beach-fl/" class="city-link">View Madeira Beach Page &rarr;</a>
                 </div>
             </div>
 
@@ -404,27 +543,27 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
         <div class="testimonials-area">
             <div class="testimonial-card">
                 <p>"Absolutely earned a five-star review! Great communication, showed on time, understood and explained the scope of work, and worked for seven hours to have my truck looking better than showroom new!"</p>
-                <span>Jason K. — Lake County, FL</span>
+                <span>Jason K. &mdash; Lake County, FL</span>
             </div>
             <div class="testimonial-card">
                 <p>"Andrew did an excellent job detailing both of my vehicles. They look brand new, showroom condition. He is by far the best detailer I found in Central Florida."</p>
-                <span>Pierre Nimmer — Mount Dora, FL</span>
+                <span>Pierre Nimmer &mdash; Mount Dora, FL</span>
             </div>
             <div class="testimonial-card">
                 <p>"Top notch service on both my vehicles as well as my boat. His attention to detail is sublime. Highly recommend."</p>
-                <span>Mark S. — Lake County, FL</span>
+                <span>Mark S. &mdash; Lake County, FL</span>
             </div>
             <div class="testimonial-card">
                 <p>"The car looks amazing. Better than it has ever looked. They were here for a solid 8 hours and did not miss anything. The car literally looks brand new. I would highly recommend them."</p>
-                <span>Bill Olsen — Lake County, FL</span>
+                <span>Bill Olsen &mdash; Lake County, FL</span>
             </div>
             <div class="testimonial-card">
                 <p>"I've had my truck for 7 years and I've had multiple professional details done over the years and can say with 100% confidence that Andrew is by far the best!!"</p>
-                <span>Mike R. — Leesburg, FL</span>
+                <span>Mike R. &mdash; Leesburg, FL</span>
             </div>
             <div class="testimonial-card">
                 <p>"Super responsive. He worked all day and did not take a break. Everything came out looking fabulous."</p>
-                <span>Tim Groves — Lake County, FL</span>
+                <span>Tim Groves &mdash; Lake County, FL</span>
             </div>
         </div>
     </div>
@@ -514,7 +653,7 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
-      btn.setAttribute('aria-expanded', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 </script>

@@ -159,26 +159,7 @@
 </head>
 <body>
 
-<header class="header">
-    <div class="header-content">
-<a href="#" class="logo">Diamond Auto Spa</a>
-    
-        <a href="tel:+13529314860" class="phone-header">
-            <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>
-            </svg>
-            +1 352-931-4860
-        </a>
-
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#videos">Videos</a> 
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
+{% include header.html %}
 
       <section class="hero-desktop">
            
@@ -474,17 +455,7 @@
 
    <section id="footer">
 
-<footer>
-    <p>© 2026 Diamond Auto Spa Detailing. All rights reserved.</p>
-    <p>Mobile detailing for Eustis, Mount Dora, Tavares, and Leesburg, FL. | Eustis, FL</p>
-    <p style="margin-top: 1rem; color: #aaa; font-size: 0.9rem;">
-               Phone: +1 352-931-4860 • Email: diamondautospa.fl23@gmail.com
-    </p>
-
-    <p style="margin-top: 1rem; color: #666; font-size: 0.85rem;">
-        Made by <a href="https://www.meetingsurge.com" target="_blank" style="color:#5BA3C7;">MeetingSurge.com</a>
-    </p>
-</footer>
+{% include footer.html %}
    </section>
       
    <script src="script.js" defer></script>

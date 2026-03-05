@@ -34,6 +34,22 @@ background:black;
   color: #fff;
   margin-bottom: 3rem;
 }
+  .ab-reviews-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(91,163,199,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s, letter-spacing 0.2s;
+}
+.ab-reviews-link:hover {
+  border-color: var(--blue);
+  letter-spacing: 3px;
+}
 .ab-explore-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -543,14 +559,12 @@ background:black;
         <span class="ab-review-name">Pool Gator Pool Service</span>
       </div>
 
+   </div>
+    <div style="margin-top: 2.5rem;">
+      <a href="{{ site.baseurl }}/reviews/" class="ab-reviews-link">Read All 63+ Reviews</a>
     </div>
-      <a href="{{ site.baseurl }}/reviews/" class="ab-explore-card">
-        <span class="ab-explore-icon">★</span>
-        <h3>63+ Five-Star Reviews</h3>
-        <p>Real reviews from real customers across Google and Facebook. Read what Lake County clients say about Andrew's work.</p>
-        <span class="ab-explore-arrow">Read Reviews →</span>
-      </a>
   </div>
+</section>
 </section>
 
 <!-- EXPLORE MORE -->
@@ -561,17 +575,21 @@ background:black;
     <div class="ab-explore-grid">
 
       <a href="{{ site.baseurl }}/services/" class="ab-explore-card">
-        <span class="ab-explore-icon">✦</span>
         <h3>Our Services</h3>
         <p>Interior detailing, exterior detailing, ceramic coating, paint repair, headlight polishing, and engine detailing — all mobile.</p>
         <span class="ab-explore-arrow">View Services →</span>
       </a>
 
       <a href="{{ site.baseurl }}/service-area/" class="ab-explore-card">
-        <span class="ab-explore-icon">◎</span>
         <h3>Service Areas</h3>
         <p>Based in Eustis, FL. Andrew travels throughout Lake County and surrounding areas — Leesburg, Mount Dora, Clermont, Lady Lake, and more.</p>
         <span class="ab-explore-arrow">See Service Areas →</span>
+      </a>
+
+      <a href="{{ site.baseurl }}/gallery/" class="ab-explore-card">
+        <h3>Gallery</h3>
+        <p>Before and after photos from real jobs across Lake County. See what a proper detail actually looks like.</p>
+        <span class="ab-explore-arrow">View Gallery →</span>
       </a>
 
     </div>

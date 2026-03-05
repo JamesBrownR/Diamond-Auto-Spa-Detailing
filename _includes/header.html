@@ -1,18 +1,440 @@
+<style>
+  /* ── HEADER ── */
+  .header {
+    background: #000;
+    color: #fff;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #111;
+  }
+
+  .header-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 1.5rem;
+  }
+
+  /* Logo */
+  .header-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s;
+  }
+  .header-logo:hover { color: #5BA3C7; }
+  .header-logo span { color: #5BA3C7; }
+
+  /* Phone link */
+  .header-phone {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.92rem;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s;
+    border: 1px solid #222;
+    padding: 0.4rem 1rem;
+  }
+  .header-phone:hover { color: #5BA3C7; border-color: #5BA3C7; }
+  .header-phone svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+
+  /* ── PRIMARY NAV ── */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 1rem;
+    height: 64px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.18s;
+    border-bottom: 2px solid transparent;
+    transition: color 0.18s, border-color 0.18s;
+  }
+  .nav-link:hover,
+  .nav-item:hover > .nav-link {
+    color: #fff;
+    border-bottom-color: #5BA3C7;
+  }
+
+  /* Chevron for items with dropdowns */
+  .nav-chevron {
+    width: 10px;
+    height: 10px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .nav-item:hover .nav-chevron { transform: rotate(180deg); }
+
+  /* ── DROPDOWN PANEL ── */
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #050505;
+    border: 1px solid #1a1a1a;
+    border-top: 2px solid #5BA3C7;
+    min-width: 220px;
+    z-index: 200;
+    padding: 0.5rem 0;
+  }
+
+  /* Wide two-column dropdown */
+  .nav-dropdown.wide {
+    min-width: 480px;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.2rem;
+    gap: 0;
+  }
+
+  .nav-item:hover > .nav-dropdown { display: block; }
+  .nav-item:hover > .nav-dropdown.wide { display: grid; }
+
+  /* Dropdown columns */
+  .dd-col-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5BA3C7;
+    padding: 0 1rem 0.6rem;
+    display: block;
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 0.3rem;
+  }
+
+  .nav-dropdown a {
+    display: block;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    color: #777;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s, padding-left 0.15s;
+    white-space: nowrap;
+  }
+  .nav-dropdown a:hover {
+    color: #fff;
+    background: #0d0d0d;
+    padding-left: 1.4rem;
+  }
+
+  .dd-divider {
+    height: 1px;
+    background: #111;
+    margin: 0.4rem 1rem;
+  }
+
+  .dd-view-all {
+    color: #5BA3C7 !important;
+    font-weight: 700;
+    font-size: 0.78rem !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    border-top: 1px solid #111;
+  }
+
+  /* ── MOBILE TOGGLE ── */
+  .header-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    flex-shrink: 0;
+  }
+  .header-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: #fff;
+    transition: all 0.25s;
+  }
+  .header-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .header-burger.open span:nth-child(2) { opacity: 0; }
+  .header-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── MOBILE DRAWER ── */
+  .header-drawer {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    border-top: 1px solid #111;
+    overflow-y: auto;
+    z-index: 999;
+    padding: 1rem 0 3rem;
+  }
+  .header-drawer.open { display: block; }
+
+  .drawer-section {
+    border-bottom: 1px solid #111;
+    padding: 0.8rem 0;
+  }
+  .drawer-section-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5BA3C7;
+    padding: 0.5rem 2rem 0.3rem;
+  }
+  .drawer-link {
+    display: block;
+    padding: 0.7rem 2rem;
+    color: #777;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.15s;
+  }
+  .drawer-link:hover { color: #fff; }
+  .drawer-phone {
+    display: block;
+    padding: 1.2rem 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    border-top: 1px solid #111;
+    margin-top: 0.5rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .header-nav,
+    .header-phone { display: none; }
+    .header-burger { display: flex; }
+  }
+  @media (max-width: 960px) {
+    body { padding-top: 64px; }
+  }
+</style>
 
 <header class="header">
-    <div class="header-content">
-        <a href="{{ site.baseurl }}/" class="logo">Diamond Auto Spa</a>
-        <a href="tel:+13529314860" class="phone-header">
-            <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/>
-            </svg>
-            +1 352-931-4860
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="{{ site.baseurl }}/" class="header-logo">Diamond <span>Auto Spa</span></a>
+
+    <!-- Desktop Nav -->
+    <ul class="header-nav">
+
+      <!-- About -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/about/" class="nav-link">About</a>
+      </li>
+
+      <!-- Services dropdown -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/services/" class="nav-link">
+          Services
+          <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
-        <nav>
-            <a href="{{ site.baseurl }}/#about">About</a>
-            <a href="{{ site.baseurl }}/#services">Services</a>
-            <a href="{{ site.baseurl }}/#gallery">Gallery</a>
-            <a href="{{ site.baseurl }}/#contact">Contact</a>
-        </nav>
-    </div>
+        <div class="nav-dropdown">
+          <a href="{{ site.baseurl }}/services/interior-detailing/">Interior Detailing</a>
+          <a href="{{ site.baseurl }}/services/exterior-detailing/">Exterior Detailing</a>
+          <a href="{{ site.baseurl }}/services/ceramic-coating/">Ceramic Coating</a>
+          <a href="{{ site.baseurl }}/services/paint-repair/">Paint Repair</a>
+          <a href="{{ site.baseurl }}/services/headlight-polishing/">Headlight Polishing</a>
+          <a href="{{ site.baseurl }}/services/engine-detailing/">Engine Detailing</a>
+          <div class="dd-divider"></div>
+          <a href="{{ site.baseurl }}/services/" class="dd-view-all">All Services &rarr;</a>
+        </div>
+      </li>
+
+      <!-- Service Areas dropdown -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/service-area/" class="nav-link">
+          Areas
+          <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown wide">
+          <div>
+            <span class="dd-col-label">Lake County</span>
+            <a href="{{ site.baseurl }}/service-area/eustis-fl/">Eustis, FL</a>
+            <a href="{{ site.baseurl }}/service-area/mount-dora-fl/">Mount Dora, FL</a>
+            <a href="{{ site.baseurl }}/service-area/tavares-fl/">Tavares, FL</a>
+            <a href="{{ site.baseurl }}/service-area/leesburg-fl/">Leesburg, FL</a>
+            <a href="{{ site.baseurl }}/service-area/lady-lake-fl/">Lady Lake, FL</a>
+            <a href="{{ site.baseurl }}/service-area/clermont-fl/">Clermont, FL</a>
+          </div>
+          <div>
+            <span class="dd-col-label">Surrounding Areas</span>
+            <a href="{{ site.baseurl }}/service-area/apopka-fl/">Apopka, FL</a>
+            <a href="{{ site.baseurl }}/service-area/umatilla-fl/">Umatilla, FL</a>
+            <a href="{{ site.baseurl }}/service-area/altoona-fl/">Altoona, FL</a>
+            <a href="{{ site.baseurl }}/service-area/madeira-beach-fl/">Madeira Beach, FL</a>
+            <div class="dd-divider"></div>
+            <a href="{{ site.baseurl }}/service-area/" class="dd-view-all">All Service Areas &rarr;</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Gallery -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/gallery/" class="nav-link">Gallery</a>
+      </li>
+
+      <!-- Reviews -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/reviews/" class="nav-link">Reviews</a>
+      </li>
+
+      <!-- FAQ -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/faq/" class="nav-link">FAQ</a>
+      </li>
+
+      <!-- Contact -->
+      <li class="nav-item">
+        <a href="{{ site.baseurl }}/contact/" class="nav-link">Contact</a>
+      </li>
+
+    </ul>
+
+    <!-- Phone (desktop) -->
+    <a href="tel:+13529314860" class="header-phone">
+      <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/></svg>
+      352-931-4860
+    </a>
+
+    <!-- Mobile burger -->
+    <button class="header-burger" id="headerBurger" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
 </header>
+
+<!-- Mobile Drawer -->
+<div class="header-drawer" id="headerDrawer">
+
+  <div class="drawer-section">
+    <a href="{{ site.baseurl }}/" class="drawer-link">Home</a>
+    <a href="{{ site.baseurl }}/about/" class="drawer-link">About</a>
+    <a href="{{ site.baseurl }}/gallery/" class="drawer-link">Gallery</a>
+    <a href="{{ site.baseurl }}/reviews/" class="drawer-link">Reviews</a>
+    <a href="{{ site.baseurl }}/faq/" class="drawer-link">FAQ</a>
+    <a href="{{ site.baseurl }}/contact/" class="drawer-link">Contact</a>
+  </div>
+
+  <div class="drawer-section">
+    <span class="drawer-section-label">Services</span>
+    <a href="{{ site.baseurl }}/services/interior-detailing/" class="drawer-link">Interior Detailing</a>
+    <a href="{{ site.baseurl }}/services/exterior-detailing/" class="drawer-link">Exterior Detailing</a>
+    <a href="{{ site.baseurl }}/services/ceramic-coating/" class="drawer-link">Ceramic Coating</a>
+    <a href="{{ site.baseurl }}/services/paint-repair/" class="drawer-link">Paint Repair</a>
+    <a href="{{ site.baseurl }}/services/headlight-polishing/" class="drawer-link">Headlight Polishing</a>
+    <a href="{{ site.baseurl }}/services/engine-detailing/" class="drawer-link">Engine Detailing</a>
+    <a href="{{ site.baseurl }}/services/" class="drawer-link" style="color:#5BA3C7;">All Services &rarr;</a>
+  </div>
+
+  <div class="drawer-section">
+    <span class="drawer-section-label">Lake County</span>
+    <a href="{{ site.baseurl }}/service-area/eustis-fl/" class="drawer-link">Eustis, FL</a>
+    <a href="{{ site.baseurl }}/service-area/mount-dora-fl/" class="drawer-link">Mount Dora, FL</a>
+    <a href="{{ site.baseurl }}/service-area/tavares-fl/" class="drawer-link">Tavares, FL</a>
+    <a href="{{ site.baseurl }}/service-area/leesburg-fl/" class="drawer-link">Leesburg, FL</a>
+    <a href="{{ site.baseurl }}/service-area/lady-lake-fl/" class="drawer-link">Lady Lake, FL</a>
+    <a href="{{ site.baseurl }}/service-area/clermont-fl/" class="drawer-link">Clermont, FL</a>
+  </div>
+
+  <div class="drawer-section">
+    <span class="drawer-section-label">Surrounding Areas</span>
+    <a href="{{ site.baseurl }}/service-area/apopka-fl/" class="drawer-link">Apopka, FL</a>
+    <a href="{{ site.baseurl }}/service-area/umatilla-fl/" class="drawer-link">Umatilla, FL</a>
+    <a href="{{ site.baseurl }}/service-area/altoona-fl/" class="drawer-link">Altoona, FL</a>
+    <a href="{{ site.baseurl }}/service-area/madeira-beach-fl/" class="drawer-link">Madeira Beach, FL</a>
+    <a href="{{ site.baseurl }}/service-area/" class="drawer-link" style="color:#5BA3C7;">All Service Areas &rarr;</a>
+  </div>
+
+  <a href="tel:+13529314860" class="drawer-phone">Call 352-931-4860</a>
+
+</div>
+
+<script>
+  (function() {
+    var burger  = document.getElementById('headerBurger');
+    var drawer  = document.getElementById('headerDrawer');
+
+    burger.addEventListener('click', function() {
+      var isOpen = drawer.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close drawer on any link click inside it
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        drawer.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Highlight active nav link
+    var path = window.location.pathname;
+    document.querySelectorAll('.nav-link, .drawer-link').forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href && href !== '/' && path.startsWith(href.replace('{{ site.baseurl }}', ''))) {
+        link.style.color = '#5BA3C7';
+      }
+    });
+  })();
+</script>

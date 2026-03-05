@@ -363,14 +363,12 @@ description: Book mobile auto detailing in Lake County, FL. Call or text 352-931
       <h2>Request a Free Quote</h2>
       <p>Fill out the form and Andrew will get back to you quickly with a price and availability. No obligation, no pressure.</p>
 
-      <form
-        class="ct-form"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        onsubmit="handleSubmit(event)"
-      >
+    <!-- REPLACE WITH THIS: -->
+<form
+  class="ct-form"
+  action="https://formspree.io/f/xdkvjlwr"
+  method="POST"
+>
         <input type="hidden" name="form-name" value="contact">
         <input type="hidden" name="bot-field" style="display:none">
 

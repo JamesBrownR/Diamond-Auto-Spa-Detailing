@@ -1,1 +1,285 @@
+<style>
+  /* ── FOOTER ── */
+  .site-footer {
+    background: #000;
+    border-top: 1px solid #111;
+    color: #444;
+    font-family: 'Lato', sans-serif;
+  }
 
+  /* Four-column grid */
+  .footer-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  @media (max-width: 960px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+  @media (max-width: 540px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Column headings */
+  .footer-col-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5BA3C7;
+    display: block;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Brand column */
+  .footer-brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+  }
+  .footer-brand-logo span { color: #5BA3C7; }
+
+  .footer-brand-desc {
+    font-size: 0.87rem;
+    line-height: 1.75;
+    color: #3a3a3a;
+    margin-bottom: 1.5rem;
+    max-width: 280px;
+  }
+
+  .footer-contact-line {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.87rem;
+  }
+  .footer-contact-line svg {
+    width: 14px;
+    height: 14px;
+    fill: #5BA3C7;
+    flex-shrink: 0;
+  }
+  .footer-contact-line a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-contact-line a:hover { color: #5BA3C7; }
+
+  .footer-social-row {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.4rem;
+  }
+  .footer-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid #1a1a1a;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .footer-social-btn:hover {
+    border-color: #5BA3C7;
+    color: #5BA3C7;
+  }
+  .footer-social-btn svg {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* Link lists */
+  .footer-link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-link-list li { margin-bottom: 0.55rem; }
+  .footer-link-list a {
+    color: #3a3a3a;
+    text-decoration: none;
+    font-size: 0.87rem;
+    transition: color 0.2s, padding-left 0.2s;
+    display: block;
+  }
+  .footer-link-list a:hover {
+    color: #5BA3C7;
+    padding-left: 4px;
+  }
+
+  /* Divider */
+  .footer-divider {
+    border: none;
+    border-top: 1px solid #0d0d0d;
+    margin: 0;
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1.4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom-copy {
+    font-size: 0.78rem;
+    color: #2a2a2a;
+  }
+
+  .footer-bottom-tagline {
+    font-size: 0.75rem;
+    color: #222;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .footer-bottom-credit {
+    font-size: 0.75rem;
+    color: #222;
+  }
+  .footer-bottom-credit a {
+    color: #5BA3C7;
+    text-decoration: none;
+  }
+  .footer-bottom-credit a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .footer-bottom-tagline { display: none; }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <!-- ── COL 1: BRAND ── -->
+    <div class="footer-col-brand">
+      <a href="{{ site.baseurl }}/" class="footer-brand-logo">Diamond <span>Auto Spa</span></a>
+      <p class="footer-brand-desc">Fully mobile auto detailing based in Eustis, FL. Serving Lake County and Central Florida. No drop-off. No waiting rooms. We come to you.</p>
+
+      <div class="footer-contact-line">
+        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-2.2 2.2c-3.23-1.61-5.81-4.19-7.41-7.41l2.2-2.2c.27-.27.35-.66.24-1.01-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 2.05 3 2.5 3 3.05 3 13.81 11.19 22 21.95 22c.55 0 .99-.65.99-1.19v-2.54c0-.55-.45-.99-.99-.99z"/></svg>
+        <a href="tel:+13529314860">352-931-4860</a>
+      </div>
+      <div class="footer-contact-line">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:diamondautospa.fl23@gmail.com">diamondautospa.fl23@gmail.com</a>
+      </div>
+      <div class="footer-contact-line">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Eustis, FL 32726 &middot; 7 Days, 7AM&ndash;8PM</span>
+      </div>
+
+      <div class="footer-social-row">
+        <a href="https://www.facebook.com/DiamondAutoSpaFL/" target="_blank" rel="noopener" class="footer-social-btn">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.google.com/search?q=Diamond+Auto+Spa+Detailing+Eustis+FL+reviews" target="_blank" rel="noopener" class="footer-social-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Reviews
+        </a>
+      </div>
+    </div>
+
+    <!-- ── COL 2: SERVICES ── -->
+    <div>
+      <span class="footer-col-label">Services</span>
+      <ul class="footer-link-list">
+        <li><a href="{{ site.baseurl }}/services/interior-detailing/">Interior Detailing</a></li>
+        <li><a href="{{ site.baseurl }}/services/exterior-detailing/">Exterior Detailing</a></li>
+        <li><a href="{{ site.baseurl }}/services/ceramic-coating/">Ceramic Coating</a></li>
+        <li><a href="{{ site.baseurl }}/services/paint-repair/">Paint Repair</a></li>
+        <li><a href="{{ site.baseurl }}/services/headlight-polishing/">Headlight Polishing</a></li>
+        <li><a href="{{ site.baseurl }}/services/engine-detailing/">Engine Detailing</a></li>
+      </ul>
+
+      <span class="footer-col-label" style="margin-top:1.8rem;">Company</span>
+      <ul class="footer-link-list">
+        <li><a href="{{ site.baseurl }}/about/">About</a></li>
+        <li><a href="{{ site.baseurl }}/gallery/">Gallery</a></li>
+        <li><a href="{{ site.baseurl }}/reviews/">Reviews</a></li>
+        <li><a href="{{ site.baseurl }}/faq/">FAQ</a></li>
+        <li><a href="{{ site.baseurl }}/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- ── COL 3: LAKE COUNTY AREAS ── -->
+    <div>
+      <span class="footer-col-label">Lake County</span>
+      <ul class="footer-link-list">
+        <li><a href="{{ site.baseurl }}/service-area/eustis-fl/">Eustis, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/mount-dora-fl/">Mount Dora, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/tavares-fl/">Tavares, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/leesburg-fl/">Leesburg, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/lady-lake-fl/">Lady Lake, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/clermont-fl/">Clermont, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/umatilla-fl/">Umatilla, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/altoona-fl/">Altoona, FL</a></li>
+      </ul>
+
+      <span class="footer-col-label" style="margin-top:1.8rem;">Beyond Lake County</span>
+      <ul class="footer-link-list">
+        <li><a href="{{ site.baseurl }}/service-area/apopka-fl/">Apopka, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/madeira-beach-fl/">Madeira Beach, FL</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/">All Service Areas</a></li>
+      </ul>
+    </div>
+
+    <!-- ── COL 4: POPULAR SPOKE PAGES ── -->
+    <div>
+      <span class="footer-col-label">Popular Pages</span>
+      <ul class="footer-link-list">
+        <li><a href="{{ site.baseurl }}/service-area/eustis-fl/ceramic-coating/">Ceramic Coating: Eustis</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/mount-dora-fl/exterior-detailing/">Exterior Detail: Mount Dora</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/tavares-fl/interior-detailing/">Interior Detail: Tavares</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/leesburg-fl/paint-repair/">Paint Repair: Leesburg</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/clermont-fl/ceramic-coating/">Ceramic Coating: Clermont</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/apopka-fl/exterior-detailing/">Exterior Detail: Apopka</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/lady-lake-fl/interior-detailing/">Interior Detail: Lady Lake</a></li>
+        <li><a href="{{ site.baseurl }}/service-area/umatilla-fl/ceramic-coating/">Ceramic Coating: Umatilla</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <span class="footer-bottom-copy">&copy; 2026 Diamond Auto Spa Detailing LLC. All rights reserved. Eustis, FL.</span>
+    <span class="footer-bottom-tagline">Mobile detailing across Lake County and Central Florida. 7 days a week.</span>
+    <span class="footer-bottom-credit">Built by <a href="https://www.meetingsurge.com" target="_blank" rel="noopener">MeetingSurge.com</a></span>
+  </div>
+</footer>

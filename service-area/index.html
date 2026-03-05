@@ -4,11 +4,93 @@ title: Mobile Auto Detailing Service Areas | Diamond Auto Spa: Lake County, FL
 description: Diamond Auto Spa provides mobile auto detailing throughout Lake County and Central Florida. Serving Eustis, Mount Dora, Tavares, Leesburg, Apopka, Clermont, Lady Lake, Umatilla, Altoona, and Madeira Beach. Call 352-931-4860.
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Diamond Auto Spa Detailing",
+  "telephone": "+1-352-931-4860",
+  "url": "https://diamondautospallc.com",
+  "image": "https://diamondautospallc.com/Pics/service-areas-detailing.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Eustis",
+    "addressRegion": "FL",
+    "postalCode": "32726",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Eustis" },
+    { "@type": "City", "name": "Mount Dora" },
+    { "@type": "City", "name": "Tavares" },
+    { "@type": "City", "name": "Leesburg" },
+    { "@type": "City", "name": "Clermont" },
+    { "@type": "City", "name": "Lady Lake" },
+    { "@type": "City", "name": "Apopka" },
+    { "@type": "City", "name": "Umatilla" },
+    { "@type": "City", "name": "Altoona" },
+    { "@type": "City", "name": "Madeira Beach" }
+  ],
+  "description": "Fully mobile auto detailing serving Lake County and Central Florida. No drop-off required. Professional polishers, steam cleaners, hot water extractors, and premium products brought directly to your location.",
+  "openingHours": "Mo-Su 07:00-20:00",
+  "priceRange": "$$"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What areas does Diamond Auto Spa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diamond Auto Spa is based in Eustis, FL and serves Lake County and surrounding areas including Mount Dora, Tavares, Leesburg, Clermont, Lady Lake, Apopka, Umatilla, Altoona, and Madeira Beach. If you are not sure whether we travel to your location, call or text 352-931-4860 and we will let you know."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a water hookup or power outlet for mobile detailing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most cases, no. Diamond Auto Spa comes fully self-contained with water supply and a generator for power. If your service requires a larger water supply, we will let you know when you call. You do not need a hose or power outlet in every case."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book a mobile detailing appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Call or text 352-931-4860 or fill out the quote form at diamondautospallc.com. We respond fast and will get you on the schedule within a few days. Available 7 days a week, 7 AM to 8 PM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a travel fee for locations outside Lake County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some outlying areas such as Madeira Beach and Apopka may carry a small travel fee depending on the service and distance. We will always quote the total cost upfront before any work begins so there are no surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be home during the appointment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a place to park and work, we will handle everything and send you photos when the job is done."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
   /* HERO photo */
   .area-hero-bg {
     background-image: url('{{ site.baseurl }}/Pics/service-areas-detailing.webp');
-     filter: grayscale(70%);
+    filter: grayscale(70%);
   }
 
   .section-dark  { background: #000000; padding: 5rem 2rem; }
@@ -115,7 +197,7 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     margin: 2.5rem 0;
     border: 1px solid #1a1a1a;
   }
-  @media (max-width: 860px) { .why-grid-area { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 860px) { .why-grid-area { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 540px) { .why-grid-area { grid-template-columns: 1fr; } }
 
   .why-card {
@@ -132,6 +214,85 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     color: #5BA3C7;
   }
   .why-card p { font-size: 0.93rem; color: #777; margin: 0; line-height: 1.7; }
+
+  /* TESTIMONIALS */
+  .testimonials-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .testimonial-card {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid #5BA3C7;
+    padding: 2rem;
+  }
+  .section-light .testimonial-card { background: #111; }
+  .testimonial-card p {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .testimonial-card span {
+    font-weight: 700;
+    color: #5BA3C7;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin: 2rem 0;
+    border: 1px solid #1a1a1a;
+  }
+  .faq-item {
+    border-bottom: 1px solid #1a1a1a;
+    background: #080808;
+  }
+  .section-light .faq-item { background: #111; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+  .faq-question:hover { background: #111; }
+  .faq-question span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  .faq-icon {
+    color: #5BA3C7;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.3s;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    display: none;
+    padding: 0 2rem 1.5rem;
+    color: #888;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+  .faq-answer a { color: #5BA3C7; }
+  .faq-item.open .faq-answer { display: block; }
 
   /* BOOK CTA */
   .area-book-cta {
@@ -167,22 +328,6 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     border-radius: 2px;
   }
   .cta-bbutton:hover { background: #fff; color: #000; }
-  body {
-  background: #000;
-  color: #fff;
-}
-
-.breadcrumb {
-  margin-top: 70px;
-  background: #111111;
-  padding: 0.8rem 2rem;
-  font-size: 0.9rem;
-  color: #666;
-  border-bottom: 1px solid #222;
-}
-
-.breadcrumb a { color: #5BA3C7; text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
 </style>
 
 <div class="breadcrumb">
@@ -192,7 +337,7 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
 <!-- HERO -->
 <section class="area-hero has-photo">
     <div class="area-hero-bg" role="img" aria-label="Diamond Auto Spa mobile detailing service areas across Lake County and Central Florida"></div>
-    <div class="area-hero-eyebrow">Mobile · Lake County & Beyond</div>
+    <div class="area-hero-eyebrow">Mobile · Lake County &amp; Beyond</div>
     <h1>Mobile Detailing Service Areas</h1>
     <p>Professional detailing brought to your driveway, office, or anywhere your vehicle sits. No drop-off. No waiting room. Just results.</p>
     <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
@@ -384,7 +529,7 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
     </div>
 </section>
 
-<!-- WHY MOBILE — dark -->
+<!-- WHY MOBILE DETAILING — dark -->
 <section class="section-dark">
     <div class="section-inner">
         <h2>Why Mobile Detailing Makes Sense</h2>
@@ -392,28 +537,150 @@ description: Diamond Auto Spa provides mobile auto detailing throughout Lake Cou
         <div class="why-grid-area">
             <div class="why-card">
                 <h3>No Drop-Off</h3>
-                <p>Your car stays at your property. You keep your day. Andrew arrives fully equipped and handles everything on-site from start to finish.</p>
+                <p>Your car stays at your property. You keep your day. Andrew brings everything needed and works around your schedule, not the other way around.</p>
             </div>
             <div class="why-card">
-                <h3>Professional Equipment</h3>
-                <p>Dual-action polishers, commercial steam cleaners, hot water extractors, and professional-grade coatings. The same tools used in top-tier shops, brought to your door.</p>
+                <h3>Fully Self-Contained</h3>
+                <p>Water supply, power generator, professional polishers, steam cleaners, and hot water extractors. No hookups needed in most cases. We arrive ready to work.</p>
             </div>
             <div class="why-card">
-                <h3>One Person, Full Attention</h3>
-                <p>Andrew handles your vehicle personally, not a rotating team of employees. Consistent quality and someone who takes real pride in the outcome every time.</p>
+                <h3>One-on-One Attention</h3>
+                <p>Your vehicle is not sitting in a queue with six other cars. Andrew focuses on one job at a time and gives each vehicle the full attention it deserves.</p>
             </div>
             <div class="why-card">
-                <h3>Built for Florida</h3>
-                <p>UV, humidity, hard water, pollen, and coastal salt are all addressed specifically. The work is designed to hold up in Central Florida conditions long term.</p>
-            </div>
-            <div class="why-card">
-                <h3>63+ Five-Star Reviews</h3>
-                <p>Consistently rated the best mobile detailer in Central Florida. Every review is five stars. Our reputation is built on results and repeat customers, not advertising.</p>
+                <h3>Same Results, More Convenience</h3>
+                <p>Professional mobile detailing uses the same products, machines, and techniques as any fixed shop. The only difference is we come to you.</p>
             </div>
             <div class="why-card">
                 <h3>7 Days a Week</h3>
-                <p>Monday through Sunday, 7 AM to 8 PM. We work around your schedule, not the other way around. Weekends and evenings available.</p>
+                <p>Monday through Sunday, 7 AM to 8 PM. Early morning, evening, and weekend appointments available. We fit around your life.</p>
+            </div>
+            <div class="why-card">
+                <h3>Transparent Pricing</h3>
+                <p>You get a clear quote before any work starts. No surprise add-ons, no upselling into services you do not need. What we quote is what you pay.</p>
             </div>
         </div>
     </div>
 </section>
+
+<!-- REVIEWS — light -->
+<section class="section-light">
+    <div class="section-inner">
+        <h2>What Our Customers Are Saying</h2>
+        <div class="testimonials-area">
+            <div class="testimonial-card">
+                <p>"Absolutely earned a five-star review! Great communication, showed on time, understood and explained the scope of work, and worked for seven hours to have my truck looking better than showroom new!"</p>
+                <span>Jason K. — Lake County, FL</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Andrew did an excellent job detailing both of my vehicles. They look brand new, showroom condition. He is by far the best detailer I found in Central Florida."</p>
+                <span>Pierre Nimmer — Mount Dora, FL</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Top notch service on both my vehicles as well as my boat. His attention to detail is sublime. Highly recommend."</p>
+                <span>Mark S. — Lake County, FL</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"The car looks amazing. Better than it has ever looked. They were here for a solid 8 hours and did not miss anything. The car literally looks brand new. I would highly recommend them."</p>
+                <span>Bill Olsen — Lake County, FL</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"I've had my truck for 7 years and I've had multiple professional details done over the years and can say with 100% confidence that Andrew is by far the best!!"</p>
+                <span>Mike R. — Leesburg, FL</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Super responsive. He worked all day and did not take a break. Everything came out looking fabulous."</p>
+                <span>Tim Groves — Lake County, FL</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ — dark -->
+<section class="section-dark">
+    <div class="section-inner">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>What areas does Diamond Auto Spa serve?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Diamond Auto Spa is based in Eustis, FL and serves Lake County and surrounding areas including Mount Dora, Tavares, Leesburg, Clermont, Lady Lake, Apopka, Umatilla, Altoona, and Madeira Beach. If you are not sure whether we travel to your area, call or text <a href="tel:+13529314860">352-931-4860</a> and we will let you know right away.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Do I need a water hookup or power outlet for mobile detailing?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>In most cases, no. Diamond Auto Spa arrives fully self-contained with its own water supply and generator for power. If your service requires a larger water supply than we carry, we will let you know when you call to book. You do not need a hose or power outlet in the majority of appointments.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>How do I book a mobile detailing appointment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Call or text <a href="tel:+13529314860">352-931-4860</a> or fill out the quote form at <a href="/#contact">diamondautospallc.com</a>. We respond quickly and can typically get you on the schedule within a few days. We are available 7 days a week, 7 AM to 8 PM.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Is there a travel fee for locations outside Lake County?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Some outlying areas such as Madeira Beach or parts of Orange County may carry a small travel fee depending on the service booked and the distance. We always quote the total cost upfront before any work begins so there are never any surprises on your final bill.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Do I need to be home during the appointment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Not necessarily. Many customers leave the keys and go about their day. As long as we have access to the vehicle and a reasonable place to park and work, we will handle everything and send you photos when the job is complete.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>What services are available in all locations?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Full exterior detailing, interior deep cleaning, paint correction, ceramic coating, headlight restoration, and engine bay detailing are available across all service areas. Ceramic coating appointments for outlying areas like Madeira Beach are subject to scheduling and travel. Call to confirm availability for your location and service.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="footer-cta-band">
+    <h2>Your Car Deserves Better. We Come to You.</h2>
+    <p>Fully equipped, professional results, no drop-off required.</p>
+    <a href="tel:+13529314860" class="cta-bbutton">Call 352-931-4860</a>
+    <a href="/#contact" class="cta-bbutton">Get a Free Quote</a>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+</script>

@@ -996,7 +996,7 @@ ease-in-out infinite; */
 }
 
 .video-card {
-    flex: 0 0 320px; /* Fixed width per card */
+    flex: 0 0 215px; /* Fixed width per card */
     background: #1a1a1a; /* Dark Card Background */
     border: 1px solid #333;
     border-radius: 12px;

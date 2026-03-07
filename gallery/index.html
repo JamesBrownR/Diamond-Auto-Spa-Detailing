@@ -73,7 +73,434 @@ description: Before and after photos, videos, and full gallery of Diamond Auto S
     padding: 2rem 0rem 0rem;
     background: var(--charcoal);
   }
+  .g-section.alt { background: var(--charcoal); }
+  .g-section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .g-section-header {
+    margin-bottom: 3rem;
+    border-left: 3px solid var(--blue);
+    padding-left: 1.2rem;
+  }
+  .g-section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #fff;
+    margin: 0 0 0.3rem;
+  }
+  .g-section-header p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
 
+  /* ── FILTER TABS ── */
+  .filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .filter-tab {
+    padding: 0.5rem 1.3rem;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    color: #666;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-tab:hover,
+  .filter-tab.active {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: rgba(91,163,199,0.06);
+  }
+
+  /* ── BEFORE / AFTER SLIDERS ── */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #111;
+    border: 1px solid #111;
+  }
+  @media (max-width: 860px) { .ba-grid { grid-template-columns: 1fr; } }
+
+  .ba-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #000;
+    cursor: ew-resize;
+    user-select: none;
+  }
+  .ba-wrap img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+  }
+  .ba-after  { z-index: 1; }
+  .ba-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+  .ba-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--blue);
+    z-index: 3;
+    transform: translateX(-50%);
+  }
+  .ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--blue);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  }
+  .ba-handle svg {
+    width: 18px; height: 18px;
+    fill: #000;
+  }
+  .ba-label {
+    position: absolute;
+    bottom: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    z-index: 5;
+  }
+  .ba-label.before { left: 0.8rem; background: rgba(0,0,0,0.7); color: #fff; }
+  .ba-label.after  { right: 0.8rem; background: var(--blue); color: #000; }
+
+  /* ── MASONRY PHOTO GRID ── */
+  .photo-grid {
+    columns: 4 220px;
+    column-gap: 6px;
+  }
+  .photo-item {
+    break-inside: avoid;
+    margin-bottom: 6px;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+  .photo-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.88);
+  }
+  .photo-item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+  .photo-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 0.8rem;
+  }
+  .photo-item:hover .photo-item-overlay { opacity: 1; }
+  .photo-item-overlay span {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  /* ── VIDEO GRID ── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: #111;
+    border: 1px solid #111;
+  }
+  .video-item {
+    position: relative;
+    aspect-ratio: 9/16;
+    background: #000;
+    overflow: hidden;
+  }
+  .video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+  .video-item:hover video { transform: scale(1.03); }
+  .video-item-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem 0.8rem 0.8rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    z-index: 2;
+  }
+  .video-play-icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(91,163,199,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .video-item:hover .video-play-icon { opacity: 0; transform: translate(-50%, -50%) scale(1.1); }
+  .video-play-icon svg { width: 20px; height: 20px; fill: #000; margin-left: 3px; }
+
+  /* ── LIGHTBOX ── */
+  .lb-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .lb-overlay.open { display: flex; }
+  .lb-overlay img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lb-close {
+    position: absolute;
+    top: 1.2rem; right: 1.5rem;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .lb-close:hover { color: var(--blue); }
+  .lb-prev, .lb-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    user-select: none;
+  }
+  .lb-prev:hover, .lb-next:hover { background: var(--blue); border-color: var(--blue); color: #000; }
+  .lb-prev { left: 1.2rem; }
+  .lb-next { right: 1.2rem; }
+  .lb-counter {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 2px;
+  }
+
+  /* ── CTA BAND ── */
+  .gallery-cta-band {
+    background: var(--blue);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .gallery-cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-cta-band p {
+    color: rgba(0,0,0,0.65);
+    margin-bottom: 1.8rem;
+    font-size: 1rem;
+  }
+  .gallery-cta-band a {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+  .gallery-cta-band a:hover { background: #fff; color: #000; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: #000;
+    padding: 1rem 2rem;
+    font-size: 0.82rem;
+    color: #444;
+    border-bottom: 1px solid #111;
+  }
+  .breadcrumb a { color: #555; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--blue); }
+
+  /* ── SHOW MORE ── */
+  .show-more-wrap {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  .show-more-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #666;
+    padding: 0.75rem 2.5rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .show-more-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  @media (max-width: 600px) {
+    .photo-grid { columns: 2 140px; }
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
+    .ba-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; Gallery
+</div>
+
+<!-- HERO -->
+<div class="gallery-hero">
+  <div class="gallery-hero-eyebrow">Diamond Auto Spa &middot; Lake County, FL</div>
+  <h1>The Work Speaks for Itself</h1>
+  <p>Before &amp; afters, process videos, and every detail captured on camera.</p>
+</div>
+
+<!-- ── SECTION 1: BEFORE / AFTER ── -->
+<section class="g-section">
+  <div class="g-section-inner">
+    <div class="g-section-header">
+      <h2>Before &amp; After</h2>
+      <p>Drag the slider to compare. Every result is real, no filters.</p>
+    </div>
+
+    <div class="ba-grid">
+
+      <!-- Slider 1 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After1.png"  alt="Clean car interior seats and floor after professional detailing">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before1.png" alt="Dirty car floor mat and door sill before deep cleaning">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 2 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After2.png"  alt="Restored black car carpet after deep cleaning">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before2.png" alt="Stained car carpet before professional cleaning">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 3 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After3.png"  alt="Clean car seat upholstery after professional detailing">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before3.png" alt="Dirty car seat upholstery with stains before detailing">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 4 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After4.webp" alt="Interior carpet and upholstery after deep cleaning">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before4.png" alt="Interior carpet and upholstery before cleaning">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 5 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After5.webp" alt="Wheel and tire after detailing showing restored finish">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before5.png" alt="Wheel and tire before detailing">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+      <!-- Slider 6 -->
+      <div class="ba-wrap" data-ba>
+        <img class="ba-after"  src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-After6.png"  alt="Clean vehicle wheel after professional detailing">
+        <img class="ba-before" src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing-Before6.png" alt="Dirty vehicle wheel before professional detailing">
+        <div class="ba-divider"></div>
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+        </div>
+        <span class="ba-label before">Before</span>
+        <span class="ba-label after">After</span>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ── SECTION 2: VIDEOS ── -->
 <section class="g-section alt">
@@ -84,56 +511,67 @@ description: Before and after photos, videos, and full gallery of Diamond Auto S
     </div>
 
     <div class="video-grid">
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing1.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing1.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Ceramic coating application on side mirror</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing2.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing2.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Wheel cleaning with foam and brush</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing3.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing3.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Foam cannon application on wheels</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing4.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing4.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Door jamb cleaning and detailing</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing5.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing5.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Foam wash application on luxury vehicle</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing6.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing6.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Clean leather seats and dashboard result</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing7.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing7.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Deep cleaning door jambs and threshold</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing8.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing8.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Steam cleaning cup holders and console</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing9.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing9.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Ceramic coating water beading on wheel</div>
       </div>
+
       <div class="video-item">
         <video src="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing10.mp4" muted loop playsinline preload="none" poster="{{ site.baseurl }}/Pics/Diamond-Auto-Spa-Detailing10.webp"></video>
         <div class="video-play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-item-label">Trunk jamb and weather stripping detail</div>
       </div>
+
     </div>
   </div>
 </section>

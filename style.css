@@ -1,5 +1,5 @@
-   /* style.css */
- /* style.csss */
+
+<link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
 <style>
         * {
             margin: 0;
